@@ -1,32 +1,32 @@
 package model;
 
 public class MyRoomie {
-    private String studentId;
-    private String roomieId;
+    private int s_id;
+    private int roomie_id;
 
     public MyRoomie() {}
-    public MyRoomie(String studentId, String roomieId) {
-        this.studentId = studentId;
-        this.roomieId = roomieId;
+    public MyRoomie(int s_id, int roomie_id) {
+        this.s_id = s_id;
+        this.roomie_id = roomie_id;
     }
 
-    public String getStudentId() {
-        return studentId;
+    public int getStudent_id() {
+        return s_id;
     }
 
-    public void setStudentId(String studentId) {
-        this.studentId = studentId;
+    public void setStudent_id(int s_id) {
+        this.s_id = s_id;
     }
 
-    public String getRoomieId() {
-        return roomieId;
+    public int getRoomie_id() { return roomie_id;}
+
+    public void setRoomie_id(int roomie_id) {
+        this.roomie_id = roomie_id;
     }
 
-    public void setRoomieId(String roomieId) {
-        this.roomieId = roomieId;
-    }
-
-    public boolean isPicked(String studentId) {
-        return this.studentId.equals(roomieId);
+    public boolean isPicked(int s_id) {
+        if (s_id == roomie_id)
+            return true;
+        return false;
     }
 }
