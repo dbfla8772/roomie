@@ -1,2 +1,3 @@
-package model;public class Chat {
+package model;
+public class Chat {
 }

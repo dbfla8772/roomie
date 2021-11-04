@@ -1,2 +1,3 @@
-package model;public class MyRoomie {
+package model;
+public class MyRoomie {
 }
