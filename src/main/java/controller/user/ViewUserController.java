@@ -4,9 +4,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.Controller;
-import model.service.UserManager;
-import model.service.UserNotFoundException;
-import model.User;
+import model.service.StudentManager;
+import model.service.StudentNotFoundException;
+import model.Student;
 
 public class ViewUserController implements Controller {
     @Override
@@ -16,17 +16,17 @@ public class ViewUserController implements Controller {
             return "redirect:/user/login/form";		// login form 요청으로 redirect
         }
     	
-		UserManager manager = UserManager.getInstance();
+		StudentManager manager = StudentManager.getInstance();
 		String userId = request.getParameter("userId");
 
-    	User user = null;
+    	Student student = null;
     	try {
-			user = manager.findUser(userId);	// 사용자 정보 검색
-		} catch (UserNotFoundException e) {				
+			student = manager.findStudent(userId);	// 사용자 정보 검색
+		} catch (StudentNotFoundException e) {
 	        return "redirect:/user/list";
 		}	
 		
-    	request.setAttribute("user", user);		// 사용자 정보 저장				
+    	request.setAttribute("user", student);		// 사용자 정보 저장
 		return "/user/view.jsp";				// 사용자 보기 화면으로 이동
     }
 }
