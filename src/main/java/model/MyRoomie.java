@@ -27,6 +27,6 @@ public class MyRoomie {
     }
 
     public boolean isPicked(String studentId) {
-        return this.roomieId.equals(studentId);
+        return this.studentId.equals(roomieId);
     }
 }
