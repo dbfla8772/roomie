@@ -1,2 +1,4 @@
-package model;public class College {
+package model;
+
+public class College {
 }
