@@ -4,13 +4,13 @@ import java.util.Date;
 
 public class Chat {
     private long ch_id;
-    private String sender;
-    private String receiver;
+    private int sender;
+    private int receiver;
     private String message;
     private Date datetime;
 
     public Chat() {}
-    public Chat(long ch_id, String sender, String receiver, String message, Date datetime) {
+    public Chat(long ch_id, int sender, int receiver, String message, Date datetime) {
         this.ch_id = ch_id;
         this.sender = sender;
         this.receiver = receiver;
@@ -26,19 +26,19 @@ public class Chat {
         this.ch_id = ch_id;
     }
 
-    public String getSender() {
+    public int getSender() {
         return sender;
     }
 
-    public void setSender(String sender) {
+    public void setSender(int sender) {
         this.sender = sender;
     }
 
-    public String getReceiver() {
+    public int getReceiver() {
         return receiver;
     }
 
-    public void setReceiver(String receiver) {
+    public void setReceiver(int receiver) {
         this.receiver = receiver;
     }
 
