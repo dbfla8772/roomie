@@ -8,13 +8,13 @@ import model.dao.StudentDAO;
 
 /**
  * 사용자 관리 API를 사용하는 개발자들이 직접 접근하게 되는 클래스.
- * UserDAO를 이용하여 데이터베이스에 데이터 조작 작업이 가능하도록 하며,
+ * StudentDAO를 이용하여 데이터베이스에 데이터 조작 작업이 가능하도록 하며,
  * 데이터베이스의 데이터들을 이용하여 비지니스 로직을 수행하는 역할을 한다.
  * 비지니스 로직이 복잡한 경우에는 비지니스 로직만을 전담하는 클래스를 
  * 별도로 둘 수 있다.
  */
 public class StudentManager {
-	private static StudentManager userMan = new StudentManager();
+	private static StudentManager studentMan = new StudentManager();
 	private StudentDAO studentDao;
 	private StudentAnalysis userAanlysis;
 
@@ -28,25 +28,27 @@ public class StudentManager {
 	}
 	
 	public static StudentManager getInstance() {
-		return userMan;
+		return studentMan;
 	}
 	
 	public int create(Student student) throws SQLException, ExistingStudentException {
-		if (studentDao.existingUser(student.getStudentId()) == true) {
+		if (studentDao.existingStudent(student.getStudentId()) == true) {
 			throw new ExistingStudentException(student.getStudentId() + "는 존재하는 아이디입니다.");
 		}
 		return studentDao.create(student);
 	}
 
+	//아직은 쓰이지 않음
 	public int update(Student student) throws SQLException, StudentNotFoundException {
 		return studentDao.update(student);
 	}	
 
+	//회원 탈퇴 시 필요 아직 구현 안함
 	public int remove(String studentId) throws SQLException, StudentNotFoundException {
-
 		return studentDao.remove(studentId);
 	}
 
+	//아직 쓰임새 없음
 	public Student findStudent(String studentId)
 		throws SQLException, StudentNotFoundException {
 		Student student = studentDao.findStudent(studentId);
@@ -58,10 +60,12 @@ public class StudentManager {
 	}
 
 
+	//아직 쓰임새 없음
 	public List<Student> findStudentList() throws SQLException {
 			return studentDao.findStudentList();
 	}
 
+	//아직 쓰임새 없음
 	public List<Student> findStudentList(int currentPage, int countPerPage)
 		throws SQLException {
 		return studentDao.findStudentList(currentPage, countPerPage);
@@ -77,8 +81,6 @@ public class StudentManager {
 		}
 		return true;
 	}
-
-
 
 	public StudentDAO getStudentDao() {
 		return this.studentDao;

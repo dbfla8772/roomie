@@ -21,7 +21,7 @@ public class StudentDAO {
     public int create(Student student) {
     }
 
-    public boolean existingUser(Object studentId) {
+    public boolean existingStudent(Object studentId) {
     }
 
     public List<Student> findStudentList() {
