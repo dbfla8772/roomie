@@ -10,27 +10,27 @@ import org.slf4j.LoggerFactory;
 
 import controller.Controller;
 import model.Community;
-import model.User;
-import model.service.ExistingUserException;
-import model.service.UserManager;
+import model.Student;
+import model.service.ExistingStudentException;
+import model.service.StudentManager;
 
 public class RegisterController implements Controller {
-    private static final Logger log = LoggerFactory.getLogger(RegisterUserController.class);
+    private static final Logger log = LoggerFactory.getLogger(RegisterController.class);
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
        	if (request.getMethod().equals("GET")) {	
-    		// GET request: ȸ������ ��� form ��û	
+    		// GET request: ??????? ??? form ???	
     		log.debug("RegisterForm Request");
 
-    		List<Community> commList = UserManager.getInstance().findCommunityList();	// Ŀ�´�Ƽ ����Ʈ �˻�
+    		List<Community> commList = StudentManager.getInstance().findCommunityList();	// ��?��?? ????? ???
 			request.setAttribute("commList", commList);	
 		
-			return "/user/registerForm.jsp";   // �˻��� ����� ������ update form���� ����     	
+			return "/user/registerForm.jsp";   // ????? ????? ?????? update form???? ????     	
 	    }	
 
-    	// POST request (ȸ�������� parameter�� ���۵�)
-       	User user = new User(
+    	// POST request (????????? parameter?? ?????)
+       	Student student = new Student(
 			request.getParameter("userId"),
 			request.getParameter("password"),
 			request.getParameter("name"),
@@ -38,17 +38,17 @@ public class RegisterController implements Controller {
 			request.getParameter("phone"),
 			Integer.parseInt(request.getParameter("commId")));
 		
-        log.debug("Create User : {}", user);
+        log.debug("Create User : {}", student);
 
 		try {
-			UserManager manager = UserManager.getInstance();
-			manager.create(user);
-	        return "redirect:/user/list";	// ���� �� ����� ����Ʈ ȭ������ redirect
+			StudentManager manager = StudentManager.getInstance();
+			manager.create(student);
+	        return "redirect:/user/list";	// ???? ?? ????? ????? ??????? redirect
 	        
-		} catch (ExistingUserException e) {	// ���� �߻� �� ȸ������ form���� forwarding
+		} catch (ExistingStudentException e) {	// ???? ??? ?? ??????? form???? forwarding
             request.setAttribute("registerFailed", true);
 			request.setAttribute("exception", e);
-			request.setAttribute("user", user);
+			request.setAttribute("user", student);
 			return "/user/registerForm.jsp";
 		}
     }

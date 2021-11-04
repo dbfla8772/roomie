@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import controller.Controller;
-import model.service.UserManager;
+import model.service.StudentManager;
 
 public class LoginController implements Controller {
     @Override
@@ -15,7 +15,7 @@ public class LoginController implements Controller {
 		
 		try {
 			// 모델에 로그인 처리를 위임
-			UserManager manager = UserManager.getInstance();
+			StudentManager manager = StudentManager.getInstance();
 			manager.login(userId, password);
 	
 			// 세션에 사용자 이이디 저장

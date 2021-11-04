@@ -1,7 +1,7 @@
 // Java Project �� JDBCUtil
 // DBCP2 ���� jar ������ ������Ʈ�� �����ؾ� ������
 // commons-dbcp2-X.X.X.jar, commons-pool2-X.X.X.jar, commons-logging-X.X.jar
-package model;
+package model.dao;
 
 import java.sql.*;
 

@@ -11,11 +11,11 @@ import controller.comm.*;
 public class RequestMapping {
     private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
     
-    // �� ��û uri�� ���� controller ��ü�� ������ HashMap ����
+    // ?? ??? uri?? ???? controller ????? ?????? HashMap ????
     private Map<String, Controller> mappings = new HashMap<String, Controller>();
 
     public void initMapping() {
-    	// �� uri�� �����Ǵ� controller ��ü�� ���� �� ����
+    	// ?? uri?? ??????? controller ????? ???? ?? ????
         mappings.put("/", new ForwardController("/student/loginForm.jsp"));
         mappings.put("/student/login", new LoginController());
         mappings.put("/student/register/form", new RegisterController());
@@ -31,13 +31,13 @@ public class RequestMapping {
         mappings.put("/chat/receiveList", new ChatController());
         
 
-        // ����� ���� ���� �� ��û�� ���� ��û ó�� ����
+        // ????? ???? ???? ?? ????? ???? ??? ??? ????
 //      mappings.put("/user/update/form", new UpdateUserFormController());
         mappings.put("/user/update/form", new UpdateUserController());
         mappings.put("/user/update", new UpdateUserController());
         mappings.put("/user/delete", new DeleteUserController());
         
-        // Ŀ�´�Ƽ ���� request URI �߰�
+        // ��?��?? ???? request URI ???
         mappings.put("/community/list", new ListCommunityController());
         mappings.put("/community/view", new ViewCommunityController());
         mappings.put("/community/create/form", new ForwardController("/community/creationForm.jsp"));
@@ -49,7 +49,7 @@ public class RequestMapping {
     }
 
     public Controller findController(String uri) {	
-    	// �־��� uri�� �����Ǵ� controller ��ü�� ã�� ��ȯ
+    	// ????? uri?? ??????? controller ????? ??? ???
         return mappings.get(uri);
     }
 }
