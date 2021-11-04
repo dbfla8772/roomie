@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import controller.Controller;
 import model.Community;
-import model.service.UserManager;
+import model.service.StudentManager;
 
 public class CreateCommunityController implements Controller {
     private static final Logger log = LoggerFactory.getLogger(CreateCommunityController.class);
@@ -20,7 +20,7 @@ public class CreateCommunityController implements Controller {
 			null, null, null);		
         
 		try {
-			UserManager manager = UserManager.getInstance();
+			StudentManager manager = StudentManager.getInstance();
 			manager.createCommunity(comm);
 			
 	    	log.debug("Create Community : {}", comm);

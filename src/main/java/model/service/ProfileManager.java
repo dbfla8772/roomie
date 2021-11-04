@@ -1,2 +1,4 @@
-package model.service;public class ProfileManager {
+package model.service;
+
+public class ProfileManager {
 }
