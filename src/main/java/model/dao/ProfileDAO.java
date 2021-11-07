@@ -156,7 +156,7 @@ public class ProfileDAO {
         String sql = "SELECT activation, name, pr_img, age, sleep, lifestyle, smoking, grade, " +
                 "major, mbti, cleaning, indoor_eating, sharing, habitude "
                 + "FROM PROFILE p JOIN STUDENT s ON p.s_id = s.s_id "
-                + "WHERE s.c_id=? s.gender=? "
+                + "WHERE s.c_id=? AND s.gender=? "
                 + "ORDER BY s_id";
         jdbcUtil.setSqlAndParameters(sql, new Object[] {c_Id, gender},					// JDBCUtil에 query문 설정
                 ResultSet.TYPE_SCROLL_INSENSITIVE,				// cursor scroll 가능
