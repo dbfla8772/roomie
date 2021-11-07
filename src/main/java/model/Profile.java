@@ -19,23 +19,6 @@ public class Profile {
 
     public Profile() {}
 
-    public Profile(int s_id, boolean activation, String name, int pr_img, int age, int sleep_habit, int lifestyle, int smoking, int grade, int major, int mbti, int cleaning, int indoor_eating, int sharing, int habitude) {
-        this.s_id = s_id;
-        this.activation = activation;
-        this.name = name;
-        this.pr_img = pr_img;
-        this.age = age;
-        this.sleep_habit = sleep_habit;
-        this.lifestyle = lifestyle;
-        this.smoking = smoking;
-        this.grade = grade;
-        this.major = major;
-        this.mbti = mbti;
-        this.cleaning = cleaning;
-        this.indoor_eating = indoor_eating;
-        this.sharing = sharing;
-        this.habitude = habitude;
-    }
 
     public Profile(int s_id, boolean activation, String name, int pr_img, int age, int sleep_habit, int lifestyle, int smoking, int grade, String major, int mbti, int cleaning, int indoor_eating, int sharing, int habitude) {
         this.s_id = s_id;
@@ -63,7 +46,7 @@ public class Profile {
         this.s_id = s_id;
     }
 
-    public boolean isActivation() {
+    public boolean getActivation() {
         return activation;
     }
 
@@ -127,11 +110,11 @@ public class Profile {
         this.grade = grade;
     }
 
-    public int getMajor() {
+    public String getMajor() {
         return major;
     }
 
-    public void setMajor(int major) {
+    public void setMajor(String major) {
         this.major = major;
     }
 
