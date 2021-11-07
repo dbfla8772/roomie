@@ -17,7 +17,8 @@ public class PointDAO {
         Object[] param = new Object[] {point.getPoint_binary(), point.getPoint_dec()};
         jdbcUtil.setSqlAndParameters(sql, param);	// JDBCUtil 에 insert문과 매개 변수 설정
 
-        String key[] = {"pt_id"};	// PK 컬럼의 이름
+        String key[] = {"s_id"};	// PK 컬럼의 이름
+
         try {
             jdbcUtil.executeUpdate(key);  // insert 문 실행
             ResultSet rs = jdbcUtil.getGeneratedKeys();
