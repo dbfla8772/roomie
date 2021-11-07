@@ -90,7 +90,7 @@ public class ScrapDAO {
                         rs.getInt("lifestyle"),
                         rs.getInt("smoking"),
                         rs.getInt("grade"),
-                        rs.getInt("major"),
+                        rs.getString("major"),
                         rs.getInt("mbti"),
                         rs.getInt("cleaning"),
                         rs.getInt("indoor_eation"),
