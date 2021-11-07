@@ -35,7 +35,7 @@ public class ScrapDAO {
     }
 
     public int remove(Scrap scrap) throws SQLException {
-        String sql = "DELETE FROM USERINFO WHERE scrap_id=?";
+        String sql = "DELETE FROM scrap WHERE scrap_id=?";
         jdbcUtil.setSqlAndParameters(sql, new Object[] {scrap.getScrap_id()});
 
         try {
