@@ -5,6 +5,8 @@ import model.Student;
 import java.util.List;
 
 public class StudentDAO {
+    private  JDBCUtil jdbcUtil = null;
+
     public List<Student> findStudentList(int currentPage, int countPerPage) {
         
     }
