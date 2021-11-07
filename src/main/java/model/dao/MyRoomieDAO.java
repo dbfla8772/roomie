@@ -35,7 +35,7 @@ public class MyRoomieDAO {
     }
 
     public int remove(MyRoomie roomie) throws SQLException {
-        String sql = "DELETE FROM USERINFO WHERE roomie_id=?";
+        String sql = "DELETE FROM myroomie WHERE roomie_id=?";
         jdbcUtil.setSqlAndParameters(sql, new Object[] {roomie.getRoomie_id()});
 
         try {
