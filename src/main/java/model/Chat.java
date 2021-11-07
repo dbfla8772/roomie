@@ -8,14 +8,16 @@ public class Chat {
     private int receiver;
     private String message;
     private Date datetime;
+    private int s_id;
 
     public Chat() {}
-    public Chat(long ch_id, int sender, int receiver, String message, Date datetime) {
+    public Chat(long ch_id, int sender, int receiver, String message, Date datetime, int s_id) {
         this.ch_id = ch_id;
         this.sender = sender;
         this.receiver = receiver;
         this.message = message;
         this.datetime = datetime;
+        this.s_id = s_id;
     }
 
     public long getCh_id() {
@@ -56,5 +58,13 @@ public class Chat {
 
     public void setDatetime(Date datetime) {
         this.datetime = datetime;
+    }
+
+    public int getS_id() {
+        return s_id;
+    }
+
+    public void setS_id(int s_id) {
+        this.s_id = s_id;
     }
 }
