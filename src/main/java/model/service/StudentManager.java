@@ -38,17 +38,10 @@ public class StudentManager {
 		return studentDao.create(student);
 	}
 
-	//아직은 쓰이지 않음
-	public int update(Student student) throws SQLException, StudentNotFoundException {
-		return studentDao.update(student);
-	}	
-
-	//회원 탈퇴 시 필요 아직 구현 안함
 	public int remove(String studentId) throws SQLException, StudentNotFoundException {
 		return studentDao.remove(studentId);
 	}
 
-	//아직 쓰임새 없음
 	public Student findStudent(String studentId)
 		throws SQLException, StudentNotFoundException {
 		Student student = studentDao.findStudent(studentId);
@@ -58,19 +51,6 @@ public class StudentManager {
 		}		
 		return student;
 	}
-
-
-	//아직 쓰임새 없음
-	public List<Student> findStudentList() throws SQLException {
-			return studentDao.findStudentList();
-	}
-
-	//아직 쓰임새 없음
-	public List<Student> findStudentList(int currentPage, int countPerPage)
-		throws SQLException {
-		return studentDao.findStudentList(currentPage, countPerPage);
-	}
-
 
 	public boolean login(String studentId, String password)
 		throws SQLException, StudentNotFoundException, PasswordMismatchException {
