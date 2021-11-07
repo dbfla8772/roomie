@@ -4,7 +4,6 @@ import model.Student;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 
 public class StudentDAO {
     private  JDBCUtil jdbcUtil = null;
@@ -33,7 +32,7 @@ public class StudentDAO {
 
 
     public int create(Student student) throws SQLException {
-        String sql = "INSERT INTO Student VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Student VALUES (IDSEQ.nextval,?, ?, ?, ?, ?, ?)";
         Object[] param = new Object[] { student.getName(), student.getStudentId(), student.getPassword(), student.getCollege(), student.getGender()};
         jdbcUtil.setSqlAndParameters(sql, param);	// JDBCUtil 에 insert문과 매개 변수 설정
 
