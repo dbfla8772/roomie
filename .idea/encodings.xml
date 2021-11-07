@@ -3,6 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/main/java/controller/user/LoginController.java" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/src/main/java/controller/user/RegisterController.java" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/java/controller/user/UpdateUserController.java" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/src/main/java/model/dao/StudentDAO.java" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/src/main/java/model/service/StudentManager.java" charset="x-windows-949" />
   </component>
