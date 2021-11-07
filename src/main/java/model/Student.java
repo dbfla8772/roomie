@@ -7,13 +7,13 @@ public class Student {
     private String studentId;
     private String password;
     private String name;
-    private College college;
+    private String college;
     private int gender;
 
     public Student() {
     }
 
-    public Student(String studentId, String password, String name, College college, int gender) {
+    public Student(String studentId, String password, String name, String college, int gender) {
         this.studentId = studentId;
         this.password = password;
         this.name = name;
@@ -21,9 +21,7 @@ public class Student {
         this.gender = gender;
     }
 
-    public String getStudentId() {
-        return studentId;
-    }
+    public String getStudentId() { return studentId; }
 
     public void setStudentId(String studentId) {
         this.studentId = studentId;
@@ -45,11 +43,11 @@ public class Student {
         this.name = name;
     }
 
-    public College getCollege() {
+    public String getCollege() {
         return college;
     }
 
-    public void setCollege(College college) {
+    public void setCollege(String college) {
         this.college = college;
     }
 
