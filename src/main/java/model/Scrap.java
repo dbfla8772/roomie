@@ -1,14 +1,15 @@
 package model;
 
 public class Scrap {
-    private int sc_id;
+    private int sc_id;  //scrap table의 고유id
     private int s_id;
+    private int scrap_id;  //scrap된 학생의 id
 
     public Scrap() {}
-
-    public Scrap(int sc_id, int s_id) {
+    public Scrap(int sc_id, int s_id, int scrap_id) {
         this.sc_id = sc_id;
         this.s_id = s_id;
+        this.scrap_id = scrap_id;
     }
 
     public int getSc_id() {
@@ -27,9 +28,11 @@ public class Scrap {
         this.s_id = s_id;
     }
 
-    public boolean isScrapped(int s_id) {
-        if (s_id == sc_id)
-            return true;
-        return false;
+    public int getScrap_id() {
+        return scrap_id;
+    }
+
+    public void setScrap_id(int scrap_id) {
+        this.scrap_id = scrap_id;
     }
 }
