@@ -78,7 +78,7 @@ public class ProfileDAO {
         try {
             ResultSet rs = jdbcUtil.executeQuery();		// query 실행
             if (rs.next()) {						// 학생 정보 발견
-                Profile profile = new Profile(		// User 객체를 생성하여 학생 정보를 저장
+                Profile profile = new Profile(		// Profile 객체를 생성하여 정보를 저장
                         s_Id,
                         rs.getBoolean("activation"),
                         rs.getString("name"),
@@ -118,7 +118,7 @@ public class ProfileDAO {
 
         try {
             ResultSet rs = jdbcUtil.executeQuery();			// query 실행
-            List<Profile> profileList = new ArrayList<Profile>();	// User들의 리스트 생성
+            List<Profile> profileList = new ArrayList<Profile>();	// Profile들의 리스트 생성
             while (rs.next()) {
                 Profile profile = new Profile(			// Profile 객체를 생성하여 현재 행의 정보를 저장
                         rs.getInt("s_id"),
@@ -136,7 +136,7 @@ public class ProfileDAO {
                         rs.getInt("indoor_eating"),
                         rs.getInt("sharing"),
                         rs.getInt("habitude"));
-                profileList.add(profile);				// List에 User 객체 저장
+                profileList.add(profile);				// List에 Profile 객체 저장
             }
             return profileList;
 
@@ -166,9 +166,9 @@ public class ProfileDAO {
             ResultSet rs = jdbcUtil.executeQuery();				// query 실행
             int start = ((currentPage-1) * countPerPage) + 1;	// 출력을 시작할 행 번호 계산
             if ((start >= 0) && rs.absolute(start)) {			// 커서를 시작 행으로 이동
-                List<Profile> profileList = new ArrayList<Profile>();	// User들의 리스트 생성
+                List<Profile> profileList = new ArrayList<Profile>();	// Profile들의 리스트 생성
                 do {
-                    Profile profile = new Profile(			// User 객체를 생성하여 현재 행의 정보를 저장
+                    Profile profile = new Profile(			// Profile 객체를 생성하여 현재 행의 정보를 저장
                             rs.getInt("s_id"),
                             rs.getBoolean("activation"),
                             rs.getString("name"),
@@ -184,7 +184,7 @@ public class ProfileDAO {
                             rs.getInt("indoor_eating"),
                             rs.getInt("sharing"),
                             rs.getInt("habitude"));
-                    profileList.add(profile);							// 리스트에 User 객체 저장
+                    profileList.add(profile);							// 리스트에 Profile 객체 저장
                 } while ((rs.next()) && (--countPerPage > 0));
                 return profileList;
             }
@@ -199,7 +199,7 @@ public class ProfileDAO {
     /**
      * 특정 필터 사용자들을 검색하여 List에 저장 및 반환
      */
-    public List<Profile> findUsersInSearch(Profile profile) throws SQLException {
+    /*public List<Profile> findUsersInSearch(Profile profile) throws SQLException {
         String sql = "SELECT userId, name, email, phone FROM UserInfo "
                 + "WHERE commId = ?";
         jdbcUtil.setSqlAndParameters(sql, new Object[] {profile});	// JDBCUtil에 query문과 매개 변수 설정
@@ -223,15 +223,17 @@ public class ProfileDAO {
             jdbcUtil.close();		// resource 반환
         }
         return null;
-    }
+    }*/
 
 
     /**
-     * 주어진 사용자 ID에 해당하는 사용자가 존재하는지 검사
+     * 주어진 사용자 ID에 해당하는 프로필이 존재하는지 검사
      */
-    public boolean existingUser(String userId) throws SQLException {
+    //Student가 존재하면 무조건 Profile도 존재하므로 굳이 필요없다고 생각됨
+    
+    /*public boolean existingProfile(String s_id) throws SQLException {
         String sql = "SELECT count(*) FROM USERINFO WHERE userid=?";
-        jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});	// JDBCUtil에 query문과 매개 변수 설정
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {s_id});	// JDBCUtil에 query문과 매개 변수 설정
 
         try {
             ResultSet rs = jdbcUtil.executeQuery();		// query 실행
@@ -245,6 +247,6 @@ public class ProfileDAO {
             jdbcUtil.close();		// resource 반환
         }
         return false;
-    }
+    }*/
 
 }

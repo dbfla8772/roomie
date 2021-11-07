@@ -10,16 +10,14 @@ public class ProfileManager {
 
     private ProfileDAO profileDAO;
 
-    public Profile findCommunity(Profile profile) throws SQLException {
-        Profile comm = profileDAO.findUsersInSearch(profile);
-
-        List<Profile> memberList = .findUsersInCommunity(profile);
-        comm.setMemberList(memberList);
+   /* public Profile findCommunity(Profile profile) throws SQLException {
+        List<Profile> profileList = profileDAO.findUsersInSearch(profile);
+        comm.setMemberList(profileList);
 
         int numOfMembers = userDAO.getNumberOfUsersInCommunity(profile);
         comm.setNumOfMembers(numOfMembers);
         return comm;
-    }
+    }*/
 
 
 }
