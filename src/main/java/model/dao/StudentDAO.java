@@ -33,7 +33,7 @@ public class StudentDAO {
 
     public int create(Student student) throws SQLException {
         String sql = "INSERT INTO Student VALUES (IDSEQ.nextval,?, ?, ?, ?, ?, ?)";
-        Object[] param = new Object[] { student.getName(), student.getStudentId(), student.getPassword(), student.getCollege(), student.getGender()};
+        Object[] param = new Object[] { student.getName(), student.getEmail(), student.getPassword(), student.getCollege(), student.getGender()};
         jdbcUtil.setSqlAndParameters(sql, param);	// JDBCUtil 에 insert문과 매개 변수 설정
 
         try {
@@ -49,17 +49,18 @@ public class StudentDAO {
         return 0;
     }
 
-    public Student findStudent(String studentId) throws SQLException {
-        String sql = "SELECT name, email, password, c_name, gender "
+    public Student findStudent(String email) throws SQLException {
+        String sql = "SELECT s_id, name, email, password, c_name, gender "
                 + "FROM Student s JOIN College c ON s.c_id = c.c_id "
                 + "WHERE email= ? ";
-        jdbcUtil.setSqlAndParameters(sql, new Object[] {studentId});
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {email});
 
         try {
             ResultSet rs = jdbcUtil.executeQuery();
             if (rs.next()) {
                 Student student = new Student (
-                        studentId,
+                        rs.getInt("s_id"),
+                        email,
                         rs.getString("password"),
                         rs.getString("name"),
                         rs.getString("c_name"),
