@@ -1,7 +1,6 @@
 package model.service;
 
 import java.sql.SQLException;
-import java.util.List;
 
 import model.Student;
 import model.dao.StudentDAO;
@@ -32,29 +31,29 @@ public class StudentManager {
     }
 
     public int create(Student student) throws SQLException, ExistingStudentException {
-        if (studentDao.existingStudent(student.getStudentId()) == true) {
-            throw new ExistingStudentException(student.getStudentId() + "는 존재하는 아이디입니다.");
+        if (studentDao.existingStudent(student.getEmail()) == true) {
+            throw new ExistingStudentException(student.getEmail() + "는 존재하는 아이디입니다.");
         }
         return studentDao.create(student);
     }
 
-    public int remove(String studentId) throws SQLException, StudentNotFoundException {
-        return studentDao.remove(studentId);
+    public int remove(String email) throws SQLException, StudentNotFoundException {
+        return studentDao.remove(email);
     }
 
-    public Student findStudent(String studentId)
+    public Student findStudent(String email)
             throws SQLException, StudentNotFoundException {
-        Student student = studentDao.findStudent(studentId);
+        Student student = studentDao.findStudent(email);
 
         if (student == null) {
-            throw new StudentNotFoundException(studentId + "는 존재하지 않는 아이디입니다.");
+            throw new StudentNotFoundException(email + "는 존재하지 않는 아이디입니다.");
         }
         return student;
     }
 
-    public boolean login(String studentId, String password)
+    public boolean login(String email, String password)
             throws SQLException, StudentNotFoundException, PasswordMismatchException {
-        Student student = findStudent(studentId);
+        Student student = findStudent(email);
 
         if (!student.matchPassword(password)) {
             throw new PasswordMismatchException("비밀번호가 일치하지 않습니다.");

@@ -4,7 +4,8 @@ import jdk.nashorn.internal.objects.NativeString;
 
 public class Student {
 
-    private String studentId;
+    private int s_id;
+    private String email;
     private String password;
     private String name;
     private String college;
@@ -13,18 +14,27 @@ public class Student {
     public Student() {
     }
 
-    public Student(String studentId, String password, String name, String college, int gender) {
-        this.studentId = studentId;
+    public Student(int s_id, String email, String password, String name, String college, int gender) {
+        this.s_id = s_id;
+        this.email = email;
         this.password = password;
         this.name = name;
         this.college = college;
         this.gender = gender;
     }
 
-    public String getStudentId() { return studentId; }
+    public int getS_id() {
+        return s_id;
+    }
 
-    public void setStudentId(String studentId) {
-        this.studentId = studentId;
+    public void setS_id(int s_id) {
+        this.s_id = s_id;
+    }
+
+    public String getEmail() { return email; }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -68,6 +78,6 @@ public class Student {
     }
 
     public boolean isSameStudent(String studentId) {
-        return this.studentId.equals(studentId);
+        return this.email.equals(studentId);
     }
 }

@@ -30,19 +30,19 @@ public class StudentAnalysis {
 		
 		List<Student> friends = new ArrayList<Student>();
 		
-		List<Student> studentList = dao.findStudentList(1, 10000);
-		Iterator<Student> studentIter = studentList.iterator();
-		while (studentIter.hasNext()) {
-			Student student = (Student)studentIter.next();
-			
-			if (student.getStudentId().equals(userId)) continue;
-			int m2 = student.getEmail().indexOf('@');
-			if (m2 == -1) continue;
-			String mserver2 = student.getEmail().substring(m2);
-
-			if (mserver1.equals(mserver2)) 
-				friends.add(student);
-		}
+//		List<Student> studentList = dao.findStudentList(1, 10000);
+//		Iterator<Student> studentIter = studentList.iterator();
+//		while (studentIter.hasNext()) {
+//			Student student = (Student)studentIter.next();
+//
+//			if (student.getEmail().equals(userId)) continue;
+//			int m2 = student.getEmail().indexOf('@');
+//			if (m2 == -1) continue;
+//			String mserver2 = student.getEmail().substring(m2);
+//
+//			if (mserver1.equals(mserver2))
+//				friends.add(student);
+//		}
 		return friends;
 	}
 
