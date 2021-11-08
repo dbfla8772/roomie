@@ -40,15 +40,7 @@ public class RequestMapping {
         mappings.put("/user/update/form", new UpdateProfileController());
         mappings.put("/user/update", new UpdateProfileController());
         mappings.put("/user/delete", new DeleteStudentController());
-        
-        // ��?��?? ???? request URI ???
-        mappings.put("/community/list", new ListCommunityController());
-        mappings.put("/community/view", new ViewCommunityController());
-        mappings.put("/community/create/form", new ForwardController("/community/creationForm.jsp"));
-        mappings.put("/community/create", new CreateCommunityController());
-        mappings.put("/community/update/form", new UpdateCommunityController());
-        mappings.put("/community/update", new UpdateCommunityController());
-        
+
         logger.info("Initialized Request Mapping!");
     }
 
