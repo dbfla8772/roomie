@@ -84,7 +84,7 @@ public class ProfileDAO {
                         rs.getString("name"),
                         rs.getInt("pr_img"),
                         rs.getInt("age"),
-                        rs.getInt("sleep"),
+                        rs.getInt("sleep_habit"),
                         rs.getInt("lifestyle"),
                         rs.getInt("smoking"),
                         rs.getInt("grade"),

@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.Controller;
-import model.service.StudentManager;
+import model.service.ProfileManagger;
 import model.service.StudentNotFoundException;
 import model.Student;
 
@@ -16,7 +16,7 @@ public class ViewUserController implements Controller {
             return "redirect:/user/login/form";		// login form 요청으로 redirect
         }
     	
-		StudentManager manager = StudentManager.getInstance();
+		ProfileManagger manager = ProfileManagger.getInstance();
 		String userId = request.getParameter("userId");
 
     	Student student = null;

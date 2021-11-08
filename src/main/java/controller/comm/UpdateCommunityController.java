@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import controller.Controller;
-import model.service.StudentManager;
+import model.service.ProfileManagger;
 import model.Community;
 import model.Student;
 
@@ -22,7 +22,7 @@ public class UpdateCommunityController implements Controller {
 		
 		if (request.getMethod().equals("GET")) {	
     		// GET request: Ŀ�´�Ƽ ���� form ��û	
-    		StudentManager manager = StudentManager.getInstance();
+    		ProfileManagger manager = ProfileManagger.getInstance();
 			Community comm = manager.findCommunity(commId);	// �����Ϸ��� Ŀ�´�Ƽ ���� �˻�
 			request.setAttribute("community", comm);			
 			
@@ -40,7 +40,7 @@ public class UpdateCommunityController implements Controller {
 
     	log.debug("Update Community : {}", comm);
 
-		StudentManager manager = StudentManager.getInstance();
+		ProfileManagger manager = ProfileManagger.getInstance();
 		manager.updateCommunity(comm);			
         return "redirect:/community/list";			
     }
