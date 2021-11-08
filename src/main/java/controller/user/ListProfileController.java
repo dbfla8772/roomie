@@ -23,7 +23,7 @@ public class ListProfileController implements Controller {
 			currentPage = Integer.parseInt(currentpagePro);
 		}
 
-		int s_id = UserSessionUtils.getLoginUserId(request.getSession());
+		int s_id = (int)UserSessionUtils.getLoginUserId(request.getSession());
 		ProfileManager manager = ProfileManager.getInstance();
 		List<Profile> profileList = (List<Profile>) manager.findProfile(s_id);
 //		List<Profile> profileList = manager.findProfileList(currentPage, countProfilePage);
