@@ -20,14 +20,14 @@ public class UserSessionUtils {
     }
 
     /* 현재 로그인한 사용자의 ID가 userId인지 검사 */
-    public static boolean isLoginUser(String userId, HttpSession session) {
+    public static boolean isLoginUser(int userId, HttpSession session) {
         int loginUser = -1;
         loginUser = getLoginUserId(session);
         if (loginUser == -1) {
             return false;
         }
 
-        if (loginUser == Integer.parseInt(userId)) {
+        if (loginUser == userId) {
             return true;
         }
         return false;
