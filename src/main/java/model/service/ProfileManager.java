@@ -1,23 +1,47 @@
 package model.service;
 
 import model.Profile;
+import model.Student;
 import model.dao.ProfileDAO;
+import model.dao.StudentDAO;
 
 import java.sql.SQLException;
-import java.util.List;
 
 public class ProfileManager {
 
     private ProfileDAO profileDAO;
+    private static ProfileManager manager = new ProfileManager();
+    //private StudentAnalysis userAanlysis;
 
-   /* public Profile findCommunity(Profile profile) throws SQLException {
-        List<Profile> profileList = profileDAO.findUsersInSearch(profile);
-        comm.setMemberList(profileList);
+    private ProfileManager() {
+        try {
+            profileDAO = new ProfileDAO();
+            /*userAanlysis = new UserAnalysis(studentDao);*/
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-        int numOfMembers = userDAO.getNumberOfUsersInCommunity(profile);
-        comm.setNumOfMembers(numOfMembers);
-        return comm;
-    }*/
+    public static ProfileManager getInstance() {
+        return manager;
+    }
+
+    public int create(Profile profile) throws SQLException, ExistingStudentException {
+        return profileDAO.create(profile);
+    }
+
+    public int update(Profile profile) {return 1;}
+
+
+    public Profile findProfile(int studentId)
+            throws SQLException, StudentNotFoundException {
+        Profile profile = profileDAO.findProfile(studentId);
+
+        if (profile == null) {
+            throw new StudentNotFoundException(studentId + "는 존재하지 않는 프로필입니다.");
+        }
+        return profile;
+    }
 
 
 }

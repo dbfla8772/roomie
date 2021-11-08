@@ -2,6 +2,10 @@ package controller;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import controller.extra.AutoMatchController;
+import controller.extra.ChatController;
+import controller.extra.ScrapController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,18 +37,10 @@ public class RequestMapping {
 
         // ????? ???? ???? ?? ????? ???? ??? ??? ????
 //      mappings.put("/user/update/form", new UpdateUserFormController());
-        mappings.put("/user/update/form", new UpdateUserController());
-        mappings.put("/user/update", new UpdateUserController());
-        mappings.put("/user/delete", new DeleteUserController());
-        
-        // ии?ве?? ???? request URI ???
-        mappings.put("/community/list", new ListCommunityController());
-        mappings.put("/community/view", new ViewCommunityController());
-        mappings.put("/community/create/form", new ForwardController("/community/creationForm.jsp"));
-        mappings.put("/community/create", new CreateCommunityController());
-        mappings.put("/community/update/form", new UpdateCommunityController());
-        mappings.put("/community/update", new UpdateCommunityController());
-        
+        mappings.put("/user/update/form", new UpdateProfileController());
+        mappings.put("/user/update", new UpdateProfileController());
+        mappings.put("/user/delete", new DeleteStudentController());
+
         logger.info("Initialized Request Mapping!");
     }
 
