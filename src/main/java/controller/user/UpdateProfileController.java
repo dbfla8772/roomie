@@ -22,17 +22,17 @@ public class UpdateProfileController implements Controller {
     	if (request.getMethod().equals("GET")) {	
     		// GET request: 회원정보 수정 form 요청	
     		// 원래는 UpdateUserFormController가 처리하던 작업을 여기서 수행
-    		String s_id = request.getParameter("s_id");
+    		int s_id = Integer.parseInt(request.getParameter("s_id"));
 
     		log.debug("UpdateForm Request : {}", s_id);
     		
     		ProfileManager manager = ProfileManager.getInstance();
-			Profile profile = manager.findProfile(Integer.parseInt(s_id));	// 수정하려는 사용자 정보 검색
+			Profile profile = manager.findProfile(s_id);	// 수정하려는 사용자 정보 검색
 			request.setAttribute("profile", profile);
 
 			HttpSession session = request.getSession();
 			if (UserSessionUtils.isLoginUser(s_id, session) ||
-				UserSessionUtils.isLoginUser("admin", session)) {
+				UserSessionUtils.isLoginUser(0, session)) {  //관리자의 s_id = 0
 
 				return "/profile/updateForm.jsp";   // 검색한 사용자 정보를 update form으로 전송
 			}    
