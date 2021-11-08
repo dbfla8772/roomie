@@ -2,6 +2,10 @@ package controller;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import controller.extra.AutoMatchController;
+import controller.extra.ChatController;
+import controller.extra.ScrapController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
