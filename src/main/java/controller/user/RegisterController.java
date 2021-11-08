@@ -12,7 +12,7 @@ import controller.Controller;
 import model.Community;
 import model.Student;
 import model.service.ExistingStudentException;
-import model.service.StudentManager;
+import model.service.ProfileManagger;
 
 public class RegisterController implements Controller {
     private static final Logger log = LoggerFactory.getLogger(RegisterController.class);
@@ -23,7 +23,7 @@ public class RegisterController implements Controller {
     		// GET request: ??????? ??? form ???	
     		log.debug("RegisterForm Request");
 
-    		List<Community> commList = StudentManager.getInstance().findCommunityList();	// ии?ве?? ????? ???
+    		List<Community> commList = ProfileManagger.getInstance().findCommunityList();	// ии?ве?? ????? ???
 			request.setAttribute("commList", commList);	
 		
 			return "/user/registerForm.jsp";   // ????? ????? ?????? update form???? ????     	
@@ -41,7 +41,7 @@ public class RegisterController implements Controller {
         log.debug("Create User : {}", student);
 
 		try {
-			StudentManager manager = StudentManager.getInstance();
+			ProfileManagger manager = ProfileManagger.getInstance();
 			manager.create(student);
 	        return "redirect:/user/list";	// ???? ?? ????? ????? ??????? redirect
 	        
