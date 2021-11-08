@@ -35,7 +35,7 @@ public class RequestMapping {
 //      mappings.put("/user/update/form", new UpdateUserFormController());
         mappings.put("/user/update/form", new UpdateProfileController());
         mappings.put("/user/update", new UpdateProfileController());
-        mappings.put("/user/delete", new DeleteUserController());
+        mappings.put("/user/delete", new DeleteStudentController());
         
         // ��?��?? ???? request URI ???
         mappings.put("/community/list", new ListCommunityController());
