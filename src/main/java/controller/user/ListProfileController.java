@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import controller.Controller;
 import model.Student;
-import model.service.StudentManager;
+import model.service.ProfileManagger;
 
 public class ListProfileController implements Controller {
 	// private static final int countPerPage = 100;	// 한 화면에 출력할 사용자 수
@@ -25,7 +25,7 @@ public class ListProfileController implements Controller {
 		}		
     	*/
     	
-		StudentManager manager = StudentManager.getInstance();
+		ProfileManagger manager = ProfileManagger.getInstance();
 		List<Student> studentList = manager.findStudentList();
 		// List<User> userList = manager.findUserList(currentPage, countPerPage);
 
