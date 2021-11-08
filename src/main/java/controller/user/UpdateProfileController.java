@@ -12,8 +12,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import controller.Controller;
-import model.service.ProfileManagger;
-import model.Student;
 
 public class UpdateProfileController implements Controller {
     private static final Logger log = LoggerFactory.getLogger(UpdateProfileController.class);
