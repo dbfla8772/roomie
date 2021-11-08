@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import controller.Controller;
 import model.Community;
-import model.service.StudentManager;
+import model.service.ProfileManagger;
 
 public class CreateCommunityController implements Controller {
     private static final Logger log = LoggerFactory.getLogger(CreateCommunityController.class);
@@ -20,13 +20,13 @@ public class CreateCommunityController implements Controller {
 			null, null, null);		
         
 		try {
-			StudentManager manager = StudentManager.getInstance();
+			ProfileManagger manager = ProfileManagger.getInstance();
 			manager.createCommunity(comm);
 			
 	    	log.debug("Create Community : {}", comm);
-	        return "redirect:/community/list";	// ¼º°ø ½Ã Ä¿¹Â´ÏÆ¼ ¸®½ºÆ® È­¸éÀ¸·Î redirect
+	        return "redirect:/community/list";	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ä¿ï¿½Â´ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½Æ® È­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ redirect
 	        
-		} catch (Exception e) {		// ¿¹¿Ü ¹ß»ý ½Ã ÀÔ·Â formÀ¸·Î forwarding
+		} catch (Exception e) {		// ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ ï¿½ï¿½ ï¿½Ô·ï¿½ formï¿½ï¿½ï¿½ï¿½ forwarding
             request.setAttribute("creationFailed", true);
 			request.setAttribute("exception", e);
 			request.setAttribute("comm", comm);

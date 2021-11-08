@@ -4,8 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.Controller;
-import model.Profile;
-import model.service.StudentManager;
+import model.service.ProfileManagger;
 import model.service.StudentNotFoundException;
 import model.Student;
 
@@ -14,21 +13,20 @@ public class ViewUserController implements Controller {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {			
     	// 로그인 여부 확인
     	if (!UserSessionUtils.hasLogined(request.getSession())) {
-            return "redirect:/student/login";		// login form 요청으로 redirect
+            return "redirect:/user/login/form";		// login form 요청으로 redirect
         }
+    	
+		ProfileManagger manager = ProfileManagger.getInstance();
+		String userId = request.getParameter("userId");
 
-		Profile profile = null;
-
-		ProfileManager manager = ProfileManager.getInstance();
-		String studentId = request.getParameter("studentId");
-
+    	Student student = null;
     	try {
-			profile = manager.findStudent(studentId);	// 사용자 정보 검색
+			student = manager.findStudent(userId);	// 사용자 정보 검색
 		} catch (StudentNotFoundException e) {
-	        return "redirect:/student/main";
+	        return "redirect:/user/list";
 		}	
 		
-    	request.setAttribute("student", student);		// 사용자 정보 저장
-		return "/profile/view.jsp";				// 사용자 보기 화면으로 이동
+    	request.setAttribute("user", student);		// 사용자 정보 저장
+		return "/user/view.jsp";				// 사용자 보기 화면으로 이동
     }
 }

@@ -33,11 +33,11 @@ public class RequestMapping {
 
         // ????? ???? ???? ?? ????? ???? ??? ??? ????
 //      mappings.put("/user/update/form", new UpdateUserFormController());
-        mappings.put("/user/update/form", new UpdateUserController());
-        mappings.put("/user/update", new UpdateUserController());
+        mappings.put("/user/update/form", new UpdateProfileController());
+        mappings.put("/user/update", new UpdateProfileController());
         mappings.put("/user/delete", new DeleteUserController());
         
-        // ¨¨?¢¥?? ???? request URI ???
+        // ï¿½ï¿½?ï¿½ï¿½?? ???? request URI ???
         mappings.put("/community/list", new ListCommunityController());
         mappings.put("/community/view", new ViewCommunityController());
         mappings.put("/community/create/form", new ForwardController("/community/creationForm.jsp"));
