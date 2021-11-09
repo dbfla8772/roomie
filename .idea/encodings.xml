@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+<<<<<<< HEAD
     <file url="file://$PROJECT_DIR$/src/main/java/controller/ForwardController.java" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/src/main/java/controller/user/ListProfileController.java" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/src/main/java/controller/user/LoginController.java" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/src/main/java/controller/user/RegisterController.java" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/src/main/java/controller/user/UpdateProfileController.java" charset="x-windows-949" />
+=======
+    <file url="file://$PROJECT_DIR$/src/main/java/controller/user/ListProfileController.java" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/java/controller/user/LoginController.java" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/java/controller/user/LogoutController.java" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/java/controller/user/RegisterController.java" charset="x-windows-949" />
+>>>>>>> eea9e5aa7b4ea761544e24352aa17a0c8f2e1e42
     <file url="file://$PROJECT_DIR$/src/main/java/controller/user/ViewUserController.java" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/src/main/java/model/service/StudentManager.java" charset="x-windows-949" />
   </component>
