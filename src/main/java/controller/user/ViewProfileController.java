@@ -9,7 +9,7 @@ import model.service.ProfileManager;
 import model.service.StudentNotFoundException;
 import model.Student;
 
-public class ViewUserController implements Controller {
+public class ViewProfileController implements Controller {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {			
     	// 로그인 여부 확인
