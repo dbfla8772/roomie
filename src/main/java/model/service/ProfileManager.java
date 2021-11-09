@@ -1,9 +1,7 @@
 package model.service;
 
 import model.Profile;
-import model.Student;
 import model.dao.ProfileDAO;
-import model.dao.StudentDAO;
 
 import java.sql.SQLException;
 
