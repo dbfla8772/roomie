@@ -14,7 +14,7 @@ public class ViewProfileController implements Controller {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {			
     	// 로그인 여부 확인
     	if (!UserSessionUtils.hasLogined(request.getSession())) {
-            return "redirect:/student/loginForm";		// login form 요청으로 redirect
+            return "redirect:/student/login";		// login form 요청으로 redirect
         }
 
 		ProfileManager manager = ProfileManager.getInstance();
