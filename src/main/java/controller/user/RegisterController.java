@@ -32,6 +32,7 @@ public class RegisterController implements Controller {
 
 		// POST request (회원정보가 parameter로 전송됨)
 		Student student = new Student (
+				Integer.parseInt(request.getParameter("s_id")),
 				request.getParameter("email"),
 				request.getParameter("password"),
 				request.getParameter("name"),
