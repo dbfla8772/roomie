@@ -20,6 +20,9 @@
             left: 50%;
             transform: translate(-50%, -50%)
         }
+        .button {
+            border: 0px; border-radius: 10px; background-color: antiquewhite; padding: 7px 50px 7px 50px;
+        }
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -87,12 +90,12 @@
             </td>
         </tr>
         <tr>
-            <td align="center"><button style="border: 0px; border-radius: 10px; background-color: antiquewhite; padding: 7px 50px 7px 50px; ">스크랩</button></td>
-            <td align="center"><button style="border: 0px; border-radius: 10px; background-color: antiquewhite; padding: 7px 50px 7px 50px; ">쪽지</button></td>
+            <td align="center"><button class="button">스크랩</button></td>
+            <td align="center"><button class="button">쪽지</button></td>
             <td width="100"></td>
         </tr>
         <tr>
-            <td colspan="2" align="center"><button style="border: 0px; border-radius: 10px; background-color: antiquewhite; padding: 7px 50px 7px 50px; ">나의 루미 pick!</button></td>
+            <td colspan="2" align="center"><button class="button">나의 루미 pick!</button></td>
             <td width="100"></td>
         </tr>
     </table>
