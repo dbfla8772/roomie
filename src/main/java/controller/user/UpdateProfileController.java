@@ -56,9 +56,9 @@ public class UpdateProfileController implements Controller {
 				Integer.parseInt(request.getParameter("smoking")),
 				Integer.parseInt(request.getParameter("grade")),
 				request.getParameter("major"),
-				Integer.parseInt(request.getParameter("mbti")),
 				Integer.parseInt(request.getParameter("cleaning")),
 				Integer.parseInt(request.getParameter("indoor_eating")),
+				Integer.parseInt(request.getParameter("mbti")),
 				Integer.parseInt(request.getParameter("sharing")),
 				Integer.parseInt(request.getParameter("habitude"))
 		);
