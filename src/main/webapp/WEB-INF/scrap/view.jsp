@@ -2,6 +2,13 @@
 <html>
 <head>
     <title>스크랩 목록</title>
+    <style>
+        html, body {
+            margin: 0;
+            width: auto;
+            height: auto;
+        }
+    </style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -9,33 +16,66 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="card mb-3" style="max-width: 540px;">
-    <div class="row g-0">
-        <div class="col-md-4">
-            <img src="/images/jjang.jpg" class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-8">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-        </div>
+<%!
+    int totalCount;
+    int countList;
+    int totalPage;
+    int i;
+    String profileCard = " <div class=\"card mb-3\" style=\"border-radius: 10px; max-width: 600px;\">\n" +
+            "            <div class=\"row g-0\">\n" +
+            "                <div class=\"col-md-4\">\n" +
+            "                    <img style=\"border-radius: 10px;\" src=\"/images/jjang.jpg\" class=\"img-fluid rounded-start\" alt=\"...\">\n" +
+            "                </div>\n" +
+            "                <div class=\"col-md-8\">\n" +
+            "                    <div class=\"card-body\">\n" +
+            "                        <h5 class=\"card-title\">짱구다</h5>\n" +
+            "                        <p class=\"card-text\">전공: 컴퓨터학과&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <br>나이: 21&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>\n" +
+            "                        <p class=\"card-text\"><small class=\"text-muted\"></small></p>\n" +
+            "                    </div>\n" +
+            "                </div>\n" +
+            "            </div>\n" +
+            "        </div>";
+%>
+<%
+    totalCount = 25;
+    countList = 10;
+
+    totalPage = totalCount / countList;
+
+    if (totalCount % countList > 0) {
+        totalPage++;
+    }
+%>
+
+<div class="w-auto p-3" style="background-color: lightcyan; text-align: center;"><h4>당신의 루미를 찾아보세요! <button class="btn btn-outline-success" type="submit">자동매칭 하러가기</button></h4></div>
+
+<a href = "../student/search.jsp"><h3 style="padding-top: 30px; padding-left: 100px; color: black;">Roomie 루미</h3></a>
+<h3 style="text-align: right; padding-top: 0px; padding-right: 300px;">스크랩</h3>
+
+<% for (i = 1; i <= countList/2; i++) { %>
+<div style = "padding-top: 30px; padding-left: 100px;" class="row">
+    <div class="col-sm-6">
+        <%= profileCard %>
+    </div>
+    <div style = "float:right; padding-left: 50px;" class="col-sm-6">
+        <%= profileCard %>
     </div>
 </div>
-<div class="card mb-3" style="max-width: 540px;">
-    <div class="row g-0">
-        <div class="col-md-4">
-            <img src="/images/jjang.jpg" class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-8">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-        </div>
-    </div>
-</div>
+<%
+    }
+%>
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+            <a class="page-link">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+        </li>
+    </ul>
+</nav>
 </body>
 </html>
