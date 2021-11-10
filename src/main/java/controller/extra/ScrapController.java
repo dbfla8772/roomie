@@ -17,13 +17,13 @@ public class ScrapController implements Controller {
 
         try {
             // 모델에 로그인 처리를 위임
-            ProfileManager manager = ProfileManager.getInstance();
-            Profile profile = manager.findProfile(s_id);	// 스크랩하려는 사용자 정보 검색
-            request.setAttribute("profile", profile);
+//            ProfileManager manager = ProfileManager.getInstance();
+//            Profile profile = manager.findProfile(s_id);	// 스크랩하려는 사용자 정보 검색
+//            request.setAttribute("profile", profile);
 
-            return "/scrap/view";
+            return "/scrap/view.jsp";
         } catch (Exception e) {
-            return "/student/main/detail";
+            return "/student/main/detail.jsp";
         }
     }
 

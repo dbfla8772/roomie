@@ -10,7 +10,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import controller.user.*;
-import controller.comm.*;
 
 public class RequestMapping {
     private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
@@ -29,7 +28,7 @@ public class RequestMapping {
         mappings.put("/student/search", new SearchProfileController());
         mappings.put("/student/automatch", new AutoMatchController());
         mappings.put("/student/main/detail", new ScrapController());
-        mappings.put("/scrap/view", new ListProfileController());
+        mappings.put("/scrap/view", new ScrapController());
         mappings.put("/chat/send", new ChatController());
         mappings.put("/chat/sendList", new ChatController());
         mappings.put("/chat/receiveList", new ChatController());
