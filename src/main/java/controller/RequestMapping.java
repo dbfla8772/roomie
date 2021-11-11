@@ -27,8 +27,8 @@ public class RequestMapping {
         mappings.put("/profile/update", new UpdateProfileController());
         mappings.put("/student/search", new SearchProfileController());
         mappings.put("/student/automatch", new AutoMatchController());
-        mappings.put("/student/main/detail", new ScrapController());
-        mappings.put("/scrap/view", new ListProfileController());
+        mappings.put("/student/main/detail", new ViewProfileController());
+        mappings.put("/scrap/view", new ScrapController());
         mappings.put("/chat/send", new ChatController());
         mappings.put("/chat/sendList", new ChatController());
         mappings.put("/chat/receiveList", new ChatController());
