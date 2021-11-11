@@ -42,14 +42,24 @@
     </script>
     <style>
         table {
-            margin-top: 170px;
-            width: 70%;
+            margin-top: 100px;
+            width: 60%;
+            font-size: 13px;
+            /*border: black 1px solid;*/
         }
         th {
-            width: 70%;
-            font-size: 40px;
+            font-size: 45px;
             font-weight: bold;
             text-align: left;
+        }
+        input {
+            margin: 2px;
+            padding: 5px;
+        }
+        #college {
+            padding: 5px 10px;
+            font-size: 12px;
+            margin: 2px;
         }
     </style>
 </head>
@@ -58,8 +68,12 @@
     <div align=center>
         <table>
             <tr>
-                <th rowspan="2">Roomie<br>루미</th>
+                <th rowspan="3">Roomie<br>루미</th>
+                <td width="20%">&nbsp;</td>
+            </tr>
+            <tr>
                 <td>
+                    <br>
                     이름<br>
                     <input type="text" placeholder="닉네임을 입력하세요." size="40" name="name">
                 </td>
@@ -92,8 +106,8 @@
                 <td>
                     <br>
                     성별<br>
-                    <input type = "radio" name = "gender" value = "0">남자
-                    <input type = "radio" name = "gender" value = "1">여자<p/>
+                    <input type = "radio" name = "gender" value = "0">남자&nbsp;&nbsp;&nbsp;
+                    <input type = "radio" name = "gender" value = "1">여자
                 </td>
             </tr>
             <tr>
@@ -102,7 +116,7 @@
                     <br>
                     학교<br>
                     <select id="college" name="college">
-                        <option value="학교데이터 가져와야함" size="40">핵교</option>
+                        <option value="학교데이터 가져와야함">동덕여자대학교</option>
                         <option value="학교데이터 가져와야함">학교</option>
                         <option value="학교데이터 가져와야함">대핵교</option>
                         <option value="학교데이터 가져와야함">중핵교</option>
@@ -114,7 +128,7 @@
                 <td></td>
                 <td>
                     <br>
-                    <input type="button" style="width: 302px;" value="가입하기" onClick="studentCreate()">
+                    <input type="button" style="width: 238px;" value="가입하기" onClick="studentCreate()">
                 </td>
             </tr>
         </table>

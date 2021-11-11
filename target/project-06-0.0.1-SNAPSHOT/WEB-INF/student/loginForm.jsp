@@ -33,7 +33,7 @@
     <style>
         table {
             margin-top: 230px;
-            width: 70%;
+            width: 60%;
         }
         td {
             text-align: right;
