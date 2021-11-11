@@ -28,6 +28,6 @@ public class ViewProfileController implements Controller {
 		}	
 		
     	request.setAttribute("profile", profile);		// 사용자 정보 저장
-		return "/student/main/detail.jsp";				// 사용자 보기 화면으로 이동
+		return "/profile/myPage.jsp";				// 사용자 보기 화면으로 이동
     }
 }
