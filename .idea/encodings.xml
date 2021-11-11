@@ -15,5 +15,6 @@
     <file url="file://$PROJECT_DIR$/src/main/java/model/dao/ConnectionManager.java" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/src/main/java/model/dao/StudentDAO.java" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/src/main/java/model/service/StudentManager.java" charset="x-windows-949" />
+    <file url="PROJECT" charset="x-windows-949" />
   </component>
 </project>
