@@ -8,16 +8,69 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Login</title>
+    <title>로그인</title>
+    <script>
+        function login() {
+            if (form.email.value == "") {
+                alert("사용자 ID(email)을 입력하세요.");
+                form.email.focus();
+                return false;
+            }
+            if (form.password.value == "") {
+                alert("비밀번호를 입력하세요.");
+                form.password.focus();
+                return false;
+            }
+            form.submit();
+        }
+
+        function studentCreate(targetUri) {
+            form.action = targetUri;
+            form.method="GET";      //register form 요청
+            form.submit();
+        }
+    </script>
     <style>
-        h1 {
-            margin-top: 500px;
-            margin-left: 200px;
+        table {
+            margin-top: 230px;
+            width: 70%;
+        }
+        td {
+            text-align: right;
+        }
+        th {
+            width: 70%;
+            font-size: 50px;
+            font-weight: bold;
+            text-align: left;
         }
     </style>
 </head>
 <body>
-    <h1>Roomie<br>루미</h1>
-
+<br>
+<form name="form" method="POST" action="<c:url value='/student/login' />">
+    <div align=center>
+        <table>
+            <tr>
+                <th rowspan="3">Roomie<br>루미</th>
+                <td>
+                    <p/>
+                    ID <input type="email" name="email">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    P/W <input type="password" name="password">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" value="회원가입" onClick="studentCreate('<c:url value='/student/register'/>')">
+                    <input type="button" value="로그인" onClick="login()">
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>
 </body>
 </html>
