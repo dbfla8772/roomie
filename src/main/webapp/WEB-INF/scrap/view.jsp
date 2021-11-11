@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>스크랩 목록</title>
@@ -21,20 +22,6 @@
     int countList;
     int totalPage;
     int i;
-    String profileCard = " <div class=\"card mb-3\" style=\"border-radius: 10px; max-width: 600px;\">\n" +
-            "            <div class=\"row g-0\">\n" +
-            "                <div class=\"col-md-4\">\n" +
-            "                    <img style=\"border-radius: 10px;\" src=\"/images/jjang.jpg\" class=\"img-fluid rounded-start\" alt=\"...\">\n" +
-            "                </div>\n" +
-            "                <div class=\"col-md-8\">\n" +
-            "                    <div class=\"card-body\">\n" +
-            "                        <h5 class=\"card-title\">짱구다</h5>\n" +
-            "                        <p class=\"card-text\">전공: 컴퓨터학과&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <br>나이: 21&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>\n" +
-            "                        <p class=\"card-text\"><small class=\"text-muted\"></small></p>\n" +
-            "                    </div>\n" +
-            "                </div>\n" +
-            "            </div>\n" +
-            "        </div>";
 %>
 <%
     totalCount = 25;
@@ -49,18 +36,45 @@
 
 <div class="w-auto p-3" style="background-color: lightcyan; text-align: center;"><h4>당신의 루미를 찾아보세요! <button class="btn btn-outline-success" type="submit">자동매칭 하러가기</button></h4></div>
 
-<a href = "../student/search.jsp"><h3 style="padding-top: 30px; padding-left: 100px; color: black;">Roomie 루미</h3></a>
+<a href = "<c:url value="../../student/main.jsp"/>"/><h3 style="padding-top: 30px; padding-left: 100px; color: black;">Roomie 루미</h3></a>
 <h3 style="text-align: right; padding-top: 0px; padding-right: 300px;">스크랩</h3>
 
 <% for (i = 1; i <= countList/2; i++) { %>
 <div style = "padding-top: 30px; padding-left: 100px;" class="row">
     <div class="col-sm-6">
-        <%= profileCard %>
+        <div class="card mb-3" style="border-radius: 10px; max-width: 600px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img style="border-radius: 10px;" src="<c:url value='/images/jjang.jpg' />" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">짱구</h5>
+                        <p class="card-text">전공: 컴퓨터학과&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <br>나이: 21&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
+                        <p class="card-text"><small class="text-muted"></small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div style = "float:right; padding-left: 50px;" class="col-sm-6">
-        <%= profileCard %>
+        <div class="card mb-3" style="border-radius: 10px; max-width: 600px;" onClick="">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img style="border-radius: 10px;" src="<c:url value='/images/jjang.jpg' />" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">짱구</h5>
+                        <p class="card-text">전공: 컴퓨터학과&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <br>나이: 21&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
+                        <p class="card-text"><small class="text-muted"></small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
 <%
     }
 %>

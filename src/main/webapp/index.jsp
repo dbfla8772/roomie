@@ -1,27 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>detail profile</title>
+    <title>스크랩 목록</title>
     <style>
         html, body {
             margin: 0;
             width: auto;
             height: auto;
-        }
-        td {
-            padding-left: 10px;
-            padding-bottom: 15px;
-        }
-        ul.space_list li { margin-bottom: 1em; }
-        ul.none {margin-bottom: 1em; list-style: none;}
-        .layer {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%)
-        }
-        .button {
-            border: 0px; border-radius: 10px; background-color: antiquewhite; padding: 7px 50px 7px 50px;
         }
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -29,75 +15,86 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<%--    <script>--%>
+<%--        function card_click() {--%>
+<%--            <jsp:forward page="main.jsp"/>--%>
+<%--        }--%>
+<%--    </script>--%>
 </head>
 <body>
+<%!
+    int totalCount;
+    int countList;
+    int totalPage;
+    int i;
+%>
+<%
+    totalCount = 25;
+    countList = 10;
+
+    totalPage = totalCount / countList;
+
+    if (totalCount % countList > 0) {
+        totalPage++;
+    }
+%>
+
 <div class="w-auto p-3" style="background-color: lightcyan; text-align: center;"><h4>당신의 루미를 찾아보세요! <button class="btn btn-outline-success" type="submit">자동매칭 하러가기</button></h4></div>
 
-<a href = "../student/search.jsp"><h3 style="padding-top: 30px; padding-left: 100px; color: black;">Roomie 루미</h3></a>
-<div style="padding-top: 50px;">
-    <table align="center" style="border-radius: 10px;">
-        <tr>
-            <td colspan="2" rowspan="2"><img style="border-radius: 10px;" width="300" height="400" src="/images/jjang.jpg"/></td>
-            <td width="100"></td>
-            <td width="400"colspan="2" style="text-align: center; font-size: x-large; font-weight: 800; background-color: lemonchiffon; padding-top: 5px;">프로필 옵션 </td>
-            <td/>
-        </tr>
-        <tr>
-            <td width="100"></td>
-            <td width="400" rowspan="3" style="background-color: lemonchiffon;" >
-                <table width="400" style="font-size: large; ">
-                    <tr>
-                        <td>흡연유무</td>
-                        <td>: Y</td>
-                    </tr>
-                    <tr>
-                        <td>전공</td>
-                        <td>: 컴퓨터학과</td>
-                    </tr>
-                    <tr>
-                        <td>생필품 공유</td>
-                        <td>: Y</td>
-                    </tr>
-                    <tr>
-                        <td>생활 패턴</td>
-                        <td>: 아침형</td>
-                    </tr>
-                    <tr>
-                        <td>학년</td>
-                        <td>: 3</td>
-                    </tr>
-                    <tr>
-                        <td>체질</td>
-                        <td>: 더위 탐</td>
-                    </tr>
-                    <tr>
-                        <td>잠버릇</td>
-                        <td>: Y</td>
-                    </tr>
-                    <tr>
-                        <td>청소 주기</td>
-                        <td>: 매일</td>
-                    </tr>
-                    <tr>
-                        <td>나이</td>
-                        <td>: 21</td>
-                    </tr>
-                    <tr>
-                        <td>실내취식</td>
-                        <td>: Y</td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td align="center"><button class="button">스크랩</button></td>
-            <td align="center"><button class="button">쪽지</button></td>
-            <td width="100"></td>
-        </tr>
-        <tr>
-            <td colspan="2" align="center"><button class="button">나의 루미 pick!</button></td>
-            <td width="100"></td>
-        </tr>
-    </table>
+<a href = "<c:url value='/student/main/detail.jsp'/>"><h3 style="padding-top: 30px; padding-left: 200px; color: black;">Roomie 루미</h3></a>
+<h3 style="text-align: right; padding-top: 0px; padding-right: 200px;">스크랩</h3>
+
+<% for (i = 1; i <= countList/2; i++) { %>
+<div style = "padding-top: 30px; padding-left: 200px;" class="row">
+    <div class="col-sm-6">
+        <div class="card mb-3" style="border-radius: 10px; max-width: 600px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img style="border-radius: 10px;" src="<c:url value='/images/jjang.jpg' />" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">짱구</h5>
+                        <p class="card-text">전공: 컴퓨터학과&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <br>나이: 21&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
+                        <p class="card-text"><small class="text-muted"></small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style = "float:right; padding-left: 50px;" class="col-sm-6">
+        <div class="card mb-3" style="border-radius: 10px; max-width: 600px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img style="border-radius: 10px;" src="<c:url value='/images/jjang.jpg' />" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">짱구</h5>
+                        <p class="card-text">전공: 컴퓨터학과&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <br>나이: 21&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
+                        <p class="card-text"><small class="text-muted"></small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
+<%
+    }
+%>
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+            <a class="page-link">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+        </li>
+    </ul>
+</nav>
+</body>
+</html>
