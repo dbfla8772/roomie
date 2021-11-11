@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <html>
 <head>
     <!-- Bootstrap CSS -->
@@ -14,6 +16,14 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
 
+    <script>
+        function search(targetUri) {
+            form.action = targetUri;
+            form.method="GET";		// register form 요청
+            form.submit();
+        }
+    </script>
+
     <style>
         body {
             margin: 5%;
@@ -21,9 +31,13 @@
         }
 
         table {
+            margin: 0 auto;
             width: 80%;
             height: 40%;
+            position: relative;
+            top: 20%;
             background-color: lightgrey;
+            border-radius: 5px;
         }
 
         td {
@@ -43,31 +57,45 @@
             padding: 3px 0;
         }
 
-        .top-table {
-            margin-top: 2%;
+        .btn, .search-img {
+            float: right;
         }
-        .bottom-table {
-            padding-bottom: 2%;
+
+        .btn {
+            margin-top: 10px;
+            margin-right: 8%;
+        }
+
+        .search-img {
+            margin-top: 15px;
+            margin-right: -20px;
+        }
+
+        #magnifier {
+            width: 80px;
         }
 
         .btn-outline-secondary {
-            float: right;
+            width: 100px;
+            padding: 5px;
             color: black;
             border-color: lightgrey;
             background-color: white;
         }
+
+        .card mb-3 {
+            width: 20%;
+        }
+
     </style>
 
-    <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 </head>
 <body>
-<h4>Roomie 루미</h4>
-
-<%-- 돋보기 이미지 --%>
+<h2>Roomie 루미</h2>
 
 <%-- 검색 필터 --%>
-<%--<form name="form" method="post" action="<c:url value='/student/searchResult'>">--%>
-<form name="form" method="POST" action="">
+<%--<form name="form" method="get" action="<c:url value="/student/searchResult">">--%>
+<form name="form" method="GET" action="">
     <table>
         <tr>
             <td><input type="checkbox" id="age" name="searchFilter"><label>&nbsp;나이</label></td>
@@ -112,8 +140,50 @@
         </tr>
     </table>
 
-    <%-- 검색 실행 버튼 --%>
-    <button type="button" class="btn btn-outline-secondary">검색하기</button>
+    <div class="btn">
+        <%-- 검색 실행 버튼 --%>
+        <button type="submit" class="btn btn-outline-secondary" onclick="search('${pageContext.request.contextPath}/student/login')">검색하기</button>
+    </div>
+    <%-- 돋보기 이미지 --%>
+    <div class="search-img">
+        <img src="<c:url value='/images/magnifier.png'/>" id="magnifier"/>
+    </div>
 </form>
+<br><br>
+
+
+<%-- 프로필 카드 for문 이용 --%>
+<%--<c:forEach var="profile" items="${profileList}">--%>
+<div class="card mb-3" style="float: left; border-radius: 10px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="https://media.istockphoto.com/vectors/teddy-bear-character-isolated-on-white-background-soft-toy-in-flat-vector-id691840414?k=20&m=691840414&s=612x612&w=0&h=f19dyCnUA0QWienuthsMdHzKEzY1RnMOYcJp8dF_iaA="
+                 class="img-fluid rounded-start" alt="card">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <p class="card-text">나이 : ${profile.age}</p>
+                <p class="card-text">학년 : ${profile.grade}</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card mb-3" style="max-width: 540px; float: left; border-radius: 10px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="https://media.istockphoto.com/vectors/teddy-bear-character-isolated-on-white-background-soft-toy-in-flat-vector-id691840414?k=20&m=691840414&s=612x612&w=0&h=f19dyCnUA0QWienuthsMdHzKEzY1RnMOYcJp8dF_iaA="
+                 class="img-fluid rounded-start" alt="card">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <p class="card-text">나이 : ${profile.age}</p>
+                <p class="card-text">학년 : ${profile.grade}</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+    </div>
+</div>
+<%--</c:forEach>--%>
 </body>
 </html>

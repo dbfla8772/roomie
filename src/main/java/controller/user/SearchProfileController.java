@@ -29,28 +29,32 @@ public class SearchProfileController implements Controller {
 
             log.debug("SearchForm Request : {}", s_id);
 
-            return "/student/search.jsp";
+            return "/student/searchResult.jsp";
 
         }
-        
-        String currentpagePro = request.getParameter("currentPage");
-        int currentPage = 1;
-        if (currentpagePro != null && !currentpagePro.equals("")) {
-            currentPage = Integer.parseInt(currentpagePro);
-        }
 
-        //지금 s_id로만 매개변수 전달하여 프로필리스트 생성, 고쳐야함 manager에 메소드 새로 생성 + DAO에 검색필터 매개변수 추가하여 메소드
-        int s_id = (int)UserSessionUtils.getLoginUserId(request.getSession());
-        ProfileManager manager = ProfileManager.getInstance();
-        List<Profile> profileList = (List<Profile>) manager.findProfile(s_id);
+        /* POST */
+        else {
+            String currentpagePro = request.getParameter("currentPage");
+            int currentPage = 1;
+            if (currentpagePro != null && !currentpagePro.equals("")) {
+                currentPage = Integer.parseInt(currentpagePro);
+            }
+
+            //지금 s_id로만 매개변수 전달하여 프로필리스트 생성, 고쳐야함 manager에 메소드 새로 생성 + DAO에 검색필터 매개변수 추가하여 메소드
+            int s_id = (int)UserSessionUtils.getLoginUserId(request.getSession());
+            ProfileManager manager = ProfileManager.getInstance();
+            List<Profile> profileList = (List<Profile>) manager.findProfile(s_id);
 //		List<Profile> profileList = manager.findProfileList(currentPage, countProfilePage);
 
 
-        // profileList 객체와 현재 로그인한 사용자 ID를 request에 저장하여 전달
-        request.setAttribute("profileList", profileList);
-        request.setAttribute("s_id", s_id);
+            // profileList 객체와 현재 로그인한 사용자 ID를 request에 저장하여 전달
+            request.setAttribute("profileList", profileList);
+            request.setAttribute("s_id", s_id);
 
-        // 사용자 리스트 화면으로 이동(forwarding)
-        return "/profile/searchResult.jsp";
+            // 사용자 리스트 화면으로 이동(forwarding)
+            return "/student/searchResult.jsp";
+        }
     }
+
 }
