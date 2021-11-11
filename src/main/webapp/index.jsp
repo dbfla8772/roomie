@@ -43,6 +43,13 @@
             padding: 3px 0;
         }
 
+        .top-table {
+            margin-top: 2%;
+        }
+        .bottom-table {
+            padding-bottom: 2%;
+        }
+
         .btn-outline-secondary {
             float: right;
             color: black;
@@ -54,10 +61,12 @@
     <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 </head>
 <body>
-<h3>Roomie 루미</h3>
+<h4>Roomie 루미</h4>
+
+<%-- 돋보기 이미지 --%>
 
 <%-- 검색 필터 --%>
-<%--<form name="form" method="post" action="<c:url value="/student/searchResult">">--%>
+<%--<form name="form" method="post" action="<c:url value='/student/searchResult'>">--%>
 <form name="form" method="POST" action="">
     <table>
         <tr>
