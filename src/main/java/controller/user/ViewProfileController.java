@@ -18,7 +18,7 @@ public class ViewProfileController implements Controller {
         }
 
 		ProfileManager manager = ProfileManager.getInstance();
-		int userId = Integer.parseInt(request.getParameter("userId"));
+		int userId = Integer.parseInt(request.getParameter("s_id"));
 
     	Profile profile = null;
     	try {

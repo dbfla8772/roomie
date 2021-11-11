@@ -22,7 +22,7 @@
             transform: translate(-50%, -50%)
         }
         .button {
-            border: 0px; border-radius: 10px; background-color: lightgray; padding: 7px 50px 7px 50px;
+            border: 0px; border-radius: 10px; background-color: antiquewhite; padding: 7px 50px 7px 50px;
         }
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -36,17 +36,17 @@
 
 <a href = "../student/search.jsp"><h3 style="padding-top: 30px; padding-left: 100px; color: black;">Roomie 루미</h3></a>
 <div style="padding-top: 50px;">
-    <table style="border-radius: 10px; align: center;">
+    <table align="center" style="border-radius: 10px;">
         <tr>
-            <td colspan="2" rowspan="2"><img style="border-radius: 10px; width:300px; height:400px;" src="<c:url value='/images/jjang.jpg' />"/></td>
+            <td colspan="2" rowspan="2"><img style="border-radius: 10px;" width="300" height="400" src="<c:url value='/images/jjang.jpg' />"/></td>
             <td width="100"></td>
-            <td colspan="2" style="width:400px; text-align: center; font-size: x-large; font-weight: 800; padding-top: 5px;">프로필 옵션 </td>
+            <td width="400"colspan="2" style="text-align: center; font-size: x-large; font-weight: 800; padding-top: 5px;">프로필 옵션 </td>
             <td/>
         </tr>
         <tr>
             <td width="100"></td>
             <td width="400" rowspan="3" >
-                <table style="font-size: large; width:400px;">
+                <table width="400" style="font-size: large; ">
                     <tr>
                         <td>흡연유무</td>
                         <td>: &emsp;&emsp;&emsp;Y</td>
