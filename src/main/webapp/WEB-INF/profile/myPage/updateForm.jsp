@@ -29,7 +29,7 @@
 <body>
 <br>
 <!-- Update Form  -->
-<form name="form" method="POST" action="<c:url value='/profile/update'/>">
+<form name="form" method="POST" action="${pageContext.serveltContext.contextPath}/profile/update">
     <input type="hidden" name="s_id" value="${profile.s_id}"/>
     <table style="width: 100%">
         <tr>
