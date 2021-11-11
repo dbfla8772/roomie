@@ -9,8 +9,14 @@
 <html>
 <head>
     <title>Register</title>
+    <style>
+        h1 {
+            margin-top: 500px;
+            margin-left: 200px;
+        }
+    </style>
 </head>
 <body>
-
+<h1>Roomie<br>루미</h1>
 </body>
 </html>

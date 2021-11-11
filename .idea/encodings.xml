@@ -6,7 +6,10 @@
     <file url="file://$PROJECT_DIR$/src/main/java/controller/user/LogoutController.java" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/src/main/java/controller/user/RegisterController.java" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/src/main/java/controller/user/UpdateProfileController.java" charset="x-windows-949" />
+<<<<<<< HEAD
     <file url="file://$PROJECT_DIR$/src/main/java/controller/user/ViewProfileController.java" charset="x-windows-949" />
+=======
+>>>>>>> 4a8515c3ea355b7ecebff70c233b423fe9dc6733
     <file url="file://$PROJECT_DIR$/src/main/java/controller/user/ViewUserController.java" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/src/main/java/model/service/StudentManager.java" charset="x-windows-949" />
   </component>
