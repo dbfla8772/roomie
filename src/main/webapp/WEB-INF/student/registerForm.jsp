@@ -69,14 +69,11 @@
 </head>
 <body>
 <form name="form" method="POST" action="${pageContext.request.contextPath}/student/register">
-    <div align=center>
+    <div align="center">
         <table>
             <tr>
-                <th rowspan="3" style="font-family: SBAggroB">Roomie<br>루미</th>
-                <td width="20%">&nbsp;</td>
-            </tr>
-            <tr>
-                <td>
+                <td rowspan="2"><img src="images/logo-font.png" id="logo"/></td>
+                <td width="20%">
                     <br>
                     이름<br>
                     <input type="text" placeholder="닉네임을 입력하세요." size="40" name="name">
@@ -90,7 +87,7 @@
                 </td>
             </tr>
             <tr>
-                <td><img src="images/logo-font.png" id="logo" /></td>
+                <th rowspan="2" style="font-family: SBAggroB">Roomie</th>
                 <td>
                     <br>
                     비밀번호<br>
@@ -98,7 +95,6 @@
                 </td>
             </tr>
             <tr>
-                <td></td>
                 <td>
                     <br>
                     비밀번호 확인<br>
