@@ -25,9 +25,20 @@
     </script>
 
     <style>
+        @font-face {
+            font-family: 'SBAggroB';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         body {
             margin: 5%;
             align-content: center;
+        }
+
+        h3 {
+            font-family: SBAggroB;
         }
 
         table {
@@ -100,7 +111,7 @@
 
 </head>
 <body>
-<h2>Roomie 루미</h2>
+<h3>Roomie 루미</h3>
 
 <%-- 검색 필터 --%>
 <%--<form name="form" method="get" action="<c:url value="/student/searchResult">">--%>
