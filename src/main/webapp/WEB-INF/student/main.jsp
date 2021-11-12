@@ -58,10 +58,10 @@
                 <a class="link-secondary" href="#"></a>
             </div>
             <div class="col-4 text-center">
-                <a class="blog-header-logo text-dark" href="<c:url value='/WEB-INF/student/main.jsp'/>"><h1>Roomie 루미</h1></a>
+                <a class="blog-header-logo text-dark" href="${pageContext.request.contextPath}/student/main"><h1>Roomie 루미</h1></a>
             </div>
             <div class="col-4 d-flex justify-content-end align-items-center">
-                <a class="link-secondary" href="<c:url value='/WEB-INF/student/search.jsp'/>" aria-label="Search">
+                <a class="link-secondary" href="${pageContext.request.contextPath}/student/search" aria-label="Search">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
                 </a>
             </div>
@@ -69,10 +69,10 @@
     </header>
     <div class="nav-scroller py-1 mb-2">
         <nav class="nav d-flex justify-content-between">
-            <a class="p-2 link-secondary" href="/WEB-INF/profile/myPage.jsp">마이페이지</a>
-            <a class="p-2 link-secondary" href="/WEB-INF/scrap/view.jsp">스크랩</a>
-            <a class="p-2 link-secondary" href=/WEB-INF/chat/sendList.jsp">채팅</a>
-            <a class="p-2 link-secondary" href="/WEB-INF/profile/myroomie/view.jsp">나의루미</a>
+            <a class="p-2 link-secondary" href="${pageContext.request.contextPath}/profile/mypage">마이페이지</a>
+            <a class="p-2 link-secondary" href="${pageContext.request.contextPath}/scrap/view">스크랩</a>
+            <a class="p-2 link-secondary" href="${pageContext.request.contextPath}/chat/sendList">채팅</a>
+            <a class="p-2 link-secondary" href="${pageContext.request.contextPath}/profile/myroomie/view">나의루미</a>
         </nav>
     </div>
 </div>

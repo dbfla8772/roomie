@@ -32,6 +32,7 @@ public class RequestMapping {
         mappings.put("/chat/send", new ChatController());
         mappings.put("/chat/sendList", new ChatController());
         mappings.put("/chat/receiveList", new ChatController());
+        mappings.put("/profile/mypage", new ForwardController("/profile/myPage.jsp"));
 
 
         // ????? ???? ???? ?? ????? ???? ??? ??? ????
