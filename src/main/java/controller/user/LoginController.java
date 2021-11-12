@@ -12,24 +12,24 @@ public class LoginController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String studentId = request.getParameter("email");
 		String password = request.getParameter("password");
-
+		
 		try {
-			// ëª¨ë¸ì— ë¡œê·¸ì¸ ì²˜ë¦¬ë¥¼ ìœ„ì„
+			// ¸ğµ¨¿¡ ·Î±×ÀÎ Ã³¸®¸¦ À§ÀÓ
 			StudentManager manager = StudentManager.getInstance();
 			manager.login(studentId, password);
-
-			// ì„¸ì…˜ì— ì‚¬ìš©ì ì•„ì´ë”” ì €ì¥
+	
+			// ¼¼¼Ç¿¡ »ç¿ëÀÚ ¾ÆÀÌµğ ÀúÀå
 			HttpSession session = request.getSession();
-			session.setAttribute(UserSessionUtils.USER_SESSION_KEY, studentId);
-
-			return "redirect:/student/main";
+            session.setAttribute(UserSessionUtils.USER_SESSION_KEY, studentId);
+            
+            return "redirect:/student/main";
 		} catch (Exception e) {
-			/* UserNotFoundExceptionì´ë‚˜ PasswordMismatchException ë°œìƒ ì‹œ
-			 * ë‹¤ì‹œ login formì„ ì‚¬ìš©ìì—ê²Œ ì „ì†¡í•˜ê³  ì˜¤ë¥˜ ë©”ì„¸ì§€ë„ ì¶œë ¥
+			/* UserNotFoundExceptionÀÌ³ª PasswordMismatchException ¹ß»ı ½Ã
+			 * ´Ù½Ã login formÀ» »ç¿ëÀÚ¿¡°Ô Àü¼ÛÇÏ°í ¿À·ù ¸Ş¼¼Áöµµ Ãâ·Â
 			 */
-			request.setAttribute("loginFailed", true);
+            request.setAttribute("loginFailed", true);
 			request.setAttribute("exception", e);
-			return "/student/loginForm.jsp";
-		}
-	}
+            return "/student/loginForm.jsp";
+		}	
+    }
 }

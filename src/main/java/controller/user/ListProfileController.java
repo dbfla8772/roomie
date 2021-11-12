@@ -8,14 +8,14 @@ import model.Profile;
 import model.service.ProfileManager;
 
 public class ListProfileController implements Controller {
-	private static final int countProfilePage = 10;	// í•œ í™”ë©´ì— ì¶œë ¥í•  ì‚¬ìš©ì ìˆ˜
+	private static final int countProfilePage = 10;	// ?•œ ?™”ë©´ì— ì¶œë ¥?•  ?‚¬?š©? ?ˆ˜
 
-	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response)	throws Exception {
-		// ë¡œê·¸ì¸ ì—¬ë¶€ í™•ì¸
-		if (!UserSessionUtils.hasLogined(request.getSession())) {
-			return "redirect:/student/login";		// login form ìš”ì²­ìœ¼ë¡œ redirect
-		}
+    @Override
+    public String execute(HttpServletRequest request, HttpServletResponse response)	throws Exception {
+		// ·Î±×ÀÎ ¿©ºÎ È®ÀÎ
+    	if (!UserSessionUtils.hasLogined(request.getSession())) {
+            return "redirect:/student/login";		// login form ¿äÃ»À¸·Î redirect
+        }
 
 		String currentpagePro = request.getParameter("currentPage");
 		int currentPage = 1;
@@ -29,11 +29,11 @@ public class ListProfileController implements Controller {
 //		List<Profile> profileList = manager.findProfileList(currentPage, countProfilePage);
 
 
-		// profileList ê°ì²´ì™€ í˜„ì¬ ë¡œê·¸ì¸í•œ ì‚¬ìš©ì IDë¥¼ requestì— ì €ì¥í•˜ì—¬ ì „ë‹¬
+		// profileList ê°ì²´?? ?˜„?¬ ë¡œê·¸?¸?•œ ?‚¬?š©? IDë¥? request?— ???¥?•˜?—¬ ? „?‹¬
 		request.setAttribute("profileList", profileList);
 		request.setAttribute("s_id", s_id);
 
-		// ì‚¬ìš©ì ë¦¬ìŠ¤íŠ¸ í™”ë©´ìœ¼ë¡œ ì´ë™(forwarding)
+		// ?‚¬?š©? ë¦¬ìŠ¤?Š¸ ?™”ë©´ìœ¼ë¡? ?´?™(forwarding)
 		return "/student/main.jsp";
 	}
 }

@@ -89,9 +89,9 @@ public class ProfileDAO {
                         rs.getInt("smoking"),
                         rs.getInt("grade"),
                         rs.getString("major"),
-                        rs.getInt("mbti"),
                         rs.getInt("cleaning"),
                         rs.getInt("indoor_eating"),
+                        rs.getInt("mbti"),
                         rs.getInt("sharing"),
                         rs.getInt("habitude")
                 );
@@ -131,9 +131,9 @@ public class ProfileDAO {
                         rs.getInt("smoking"),
                         rs.getInt("grade"),
                         rs.getString("major"),
-                        rs.getInt("mbti"),
                         rs.getInt("cleaning"),
                         rs.getInt("indoor_eating"),
+                        rs.getInt("mbti"),
                         rs.getInt("sharing"),
                         rs.getInt("habitude"));
                 profileList.add(profile);				// List에 Profile 객체 저장
@@ -179,9 +179,9 @@ public class ProfileDAO {
                             rs.getInt("smoking"),
                             rs.getInt("grade"),
                             rs.getString("major"),
-                            rs.getInt("mbti"),
                             rs.getInt("cleaning"),
                             rs.getInt("indoor_eating"),
+                            rs.getInt("mbti"),
                             rs.getInt("sharing"),
                             rs.getInt("habitude"));
                     profileList.add(profile);							// 리스트에 Profile 객체 저장
