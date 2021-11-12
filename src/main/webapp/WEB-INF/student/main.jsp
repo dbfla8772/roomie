@@ -144,7 +144,7 @@
 
 <div class="card-margin">
     <% for (i = 1; i <= countList; i++) { %>
-    <div class="card mb-3" onClick="location.href='${pageContext.request.contextPath}/student/main/detail'">
+    <div class="card mb-3" onClick="location.href='${pageContext.request.contextPath}/student/main/detail'" style="margin-left: 130px;">
         <div class="row g-0">
             <div class="col-md-4">
                 <img style="border-radius: 10px;" src="<c:url value='/images/jjang.jpg' />" class="img-fluid rounded-start" alt="...">
