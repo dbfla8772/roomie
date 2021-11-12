@@ -32,10 +32,15 @@
         }
         .main {
             position: relative;
-            top: 230px;
+            top: 200px;
+        }
+        #logo {
+            width: 11%;
+            margin-left: -5%;
+            margin-top: -1.5%;
         }
         .roomie {
-            font-family: SBAggro;
+            font-family: SBAggroB;
             font-size: 45px;
             font-weight: bold;
             float: left;
@@ -49,7 +54,7 @@
             float: right;
             margin-left: 20%;
             margin-right: 23%;
-            padding-top: 50px;
+            /* padding-top: 50px;*/
         }
         .img {
             position: relative;
@@ -57,7 +62,7 @@
         }
         .btn {
             position: relative;
-            left: 93px;
+            left: 120px;
         }
     </style>
 </head>
@@ -65,8 +70,9 @@
 <br>
 <form name="form" method="POST" action="${pageContext.request.contextPath}/student/login">
     <div class="main">
+        <img src="images/logo-font.png" id="logo" />
         <div class="roomie">Roomie<br>루미</div>
-        <div class="in">
+        <div class="in"x>
             <input type="image" class="img" src="/images/id.png" width="20px" height="20px">
             <input type="email" size="30" name="email">
             <p/>

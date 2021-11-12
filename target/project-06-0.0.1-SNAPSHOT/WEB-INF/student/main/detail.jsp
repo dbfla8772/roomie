@@ -9,6 +9,17 @@
             width: auto;
             height: auto;
         }
+        h3 {
+            font-family: SBAggroB;
+            float: left;
+            padding-top: 30px;
+            padding-left: 100px;
+            color: black;
+        }
+        #logo {
+            margin-top: -2.5%;
+            width: 6%;
+        }
         td {
             padding-left: 10px;
             padding-bottom: 15px;
@@ -34,7 +45,9 @@
 <body>
 <div class="w-auto p-3" style="background-color: lightcyan; text-align: center;"><h4>당신의 루미를 찾아보세요! <button class="btn btn-outline-success" type="submit">자동매칭 하러가기</button></h4></div>
 
-<a href = "${pageContext.request.contextPath}/student/main"><h3 style="padding-top: 30px; padding-left: 100px; color: black;">Roomie 루미</h3></a>
+<a href = "${pageContext.request.contextPath}/student/main"><h3>Roomie 루미</h3></a>
+<img src="images/logo-font.png" id="logo" />
+
 <div style="padding-top: 50px;">
     <table style="border-radius: 10px; align: center;">
         <tr>

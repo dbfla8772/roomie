@@ -6,6 +6,22 @@
     <title>커뮤니티 관리</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <style>
+        @font-face {
+            font-family: 'SBAggroB';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        #logo {
+            margin-top: -2.5%;
+            width: 6%;
+        }
+
+        h3 {
+            font-family: SBAggroB;
+            float: left;
+        }
+
         th, td {
             font-family: 돋움;
             font-size: 12px;
@@ -50,6 +66,10 @@
     </style>
 </head>
 <body>
+
+<h3>&nbsp;Roomie</h3>
+<img src="images/logo-font.png" id="logo" />
+
 <br>
 <table style="width:100%">
     <tr>
