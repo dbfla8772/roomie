@@ -19,15 +19,26 @@
     <script>
         function search(targetUri) {
             form.action = targetUri;
-            form.method = "GET";		// register form 요청
+            form.method = "GET";		// search form 요청
             form.submit();
         }
     </script>
 
     <style>
+        @font-face {
+            font-family: 'SBAggroB';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         body {
             margin: 5%;
             align-content: center;
+        }
+
+        h3 {
+            font-family: SBAggroB;
         }
 
         table {
@@ -50,12 +61,6 @@
             padding: 5px 20px 5px 10px;
             border-radius: 4px;
             outline: 0 none;
-        }
-
-        .select option {
-            background: black;
-            color: #fff;
-            padding: 3px 0;
         }
 
         .btn, .search-img {
@@ -84,23 +89,29 @@
             background-color: white;
         }
 
-        /*
-                .col-sm-6 {
-                    width: 40%;
-                }*/
+        div.search {
+            width: auto;
+            height: 100px;
+        }
 
         .mb-3 {
             width: 40%;
             border-radius: 10px;
             float: left;
-            margin: 0 auto;
+            max-width: 600px;
+            margin: 0px 5% 100px 5%;
         }
+
+        .page-float {
+            clear: left;
+        }
+
 
     </style>
 
 </head>
 <body>
-<h2>Roomie 루미</h2>
+<h3>Roomie 루미</h3>
 
 <%-- 검색 필터 --%>
 <%--<form name="form" method="get" action="<c:url value="/student/searchResult">">--%>
@@ -149,18 +160,19 @@
         </tr>
     </table>
 
-    <div class="btn">
-        <%-- 검색 실행 버튼 --%>
-        <button type="submit" class="btn btn-outline-secondary"
-                onclick="search('${pageContext.request.contextPath}/student/login')">검색하기
-        </button>
-    </div>
-    <%-- 돋보기 이미지 --%>
-    <div class="search-img">
-        <img src="<c:url value='/images/magnifier.png'/>" id="magnifier"/>
+    <div class="search">
+        <div class="btn">
+            <%-- 검색 실행 버튼 --%>
+            <button type="submit" class="btn btn-outline-secondary"
+                    onclick="search('${pageContext.request.contextPath}/student/login')">검색하기
+            </button>
+        </div>
+        <%-- 돋보기 이미지 --%>
+        <div class="search-img">
+            <img src="<c:url value='/images/magnifier.png'/>" id="magnifier"/>
+        </div>
     </div>
 </form>
-<br><br>
 
 
 <%-- 프로필 카드 for문 이용 --%>
@@ -197,7 +209,41 @@
         </div>
     </div>
 </div>
+<div class="card mb-3" onclick="search('${pageContext.request.contextPath}/student/login')">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img style="border-radius: 10px;"
+                 src="https://media.istockphoto.com/vectors/teddy-bear-character-isolated-on-white-background-soft-toy-in-flat-vector-id691840414?k=20&m=691840414&s=612x612&w=0&h=f19dyCnUA0QWienuthsMdHzKEzY1RnMOYcJp8dF_iaA="
+                 class="img-fluid rounded-start" alt="card">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <p class="card-text">나이 : ${profile.age}</p>
+                <p class="card-text">학년 : ${profile.grade}</p>
+                <p class="card-text">전공 : ${profile.major}</p>
+                <p class="card-text"><small class="text-muted">뭐 적지</small></p>
+            </div>
+        </div>
+    </div>
+</div>
 
 <%--</c:forEach>--%>
+
+<%-- 페이징 --%>
+<div class="page-float">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
+</div>
 </body>
 </html>

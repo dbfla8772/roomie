@@ -25,9 +25,26 @@
     </script>
 
     <style>
+        @font-face {
+            font-family: 'SBAggroB';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         body {
             margin: 5%;
             align-content: center;
+        }
+
+        #logo {
+            margin-top: -2.5%;
+            width: 6%;
+        }
+
+        h3 {
+            font-family: SBAggroB;
+            float: left;
         }
 
         table {
@@ -85,11 +102,14 @@
 
 </head>
 <body>
-<h4>&nbsp;Roomie 루미</h4>
+
+<h3>&nbsp;Roomie</h3>
+<img src="images/logo-bold.jpg" id="logo" />
+
 
 <%-- 검색 필터 --%>
 <%--<form name="form" method="post" action="<c:url value='/student/searchResult'>">--%>
-<form name="form" method="POST" action="">
+<form name="form" method="POST" action="${pageContext.request.contextPath}/student/searchResult">
     <table>
         <tr>
             <td><input type="checkbox" id="age" name="searchFilter"><label>&nbsp;나이</label></td>

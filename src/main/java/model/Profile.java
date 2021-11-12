@@ -20,7 +20,7 @@ public class Profile {
     public Profile() {}
 
 
-    public Profile(int s_id, boolean activation, String name, int pr_img, int age, int sleep_habit, int lifestyle, int smoking, int grade, String major, int mbti, int cleaning, int indoor_eating, int sharing, int habitude) {
+    public Profile(int s_id, boolean activation, String name, int pr_img, int age, int sleep_habit, int lifestyle, int smoking, int grade, String major, int cleaning, int indoor_eating, int mbti, int sharing, int habitude) {
         this.s_id = s_id;
         this.activation = activation;
         this.name = name;
@@ -31,9 +31,9 @@ public class Profile {
         this.smoking = smoking;
         this.grade = grade;
         this.major = major;
-        this.mbti = mbti;
         this.cleaning = cleaning;
         this.indoor_eating = indoor_eating;
+        this.mbti = mbti;
         this.sharing = sharing;
         this.habitude = habitude;
     }

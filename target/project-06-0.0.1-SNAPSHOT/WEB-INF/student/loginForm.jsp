@@ -17,7 +17,6 @@
             }
             form.submit();
         }
-
         function studentCreate(targetUri) {
             form.action = targetUri;
             form.method="GET";      //register form 요청
@@ -25,29 +24,36 @@
         }
     </script>
     <style>
+        @font-face {
+            font-family: 'SBAggroB';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
         .main {
             position: relative;
             top: 230px;
         }
         .roomie {
+            font-family: SBAggro;
             font-size: 45px;
             font-weight: bold;
             float: left;
             position: relative;
-            left: 270px;
+            left: 23%;
+            padding-bottom: 50px;
             /*border: black 1px solid;*/
         }
         .in {
             font-size: 13px;
             float: right;
-            position: relative;
-            top: 20px;
-            right: 270px;
+            margin-left: 20%;
+            margin-right: 23%;
+            padding-top: 50px;
         }
         .img {
             position: relative;
             top: 6px;
-
         }
         .btn {
             position: relative;
