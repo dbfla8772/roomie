@@ -32,18 +32,18 @@ public class RegisterController implements Controller {
 
 		// POST request (회원정보가 parameter로 전송됨)
 		Student student = new Student (
+				request.getParameter("name"),
 				request.getParameter("email"),
 				request.getParameter("password"),
-				request.getParameter("name"),
-				request.getParameter("college"),
-				Integer.parseInt(request.getParameter("gender")));
+				Integer.parseInt(request.getParameter("gender")),
+				request.getParameter("college"));
 
 		log.debug("Create Student : {}", student);
 
 		try {
 			StudentManager manager = StudentManager.getInstance();
 			manager.create(student);
-			return "redirect:/student/login.jsp";
+			return "redirect:/student/loginForm.jsp";
 
 		} catch (ExistingStudentException e) {	// 예외 발생 시 회원가입 form으로 forwarding
 			request.setAttribute("registerFailed", true);

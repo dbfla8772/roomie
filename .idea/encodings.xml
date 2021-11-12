@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/.idea/artifacts" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/.idea/libraries" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/.idea/workspace.xml" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/java/controller/Controller.java" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/java/controller/ForwardController.java" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/java/controller/user/RegisterController.java" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/java/controller/user/ViewProfileController.java" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/src/main/java/controller/user/ViewUserController.java" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/chat" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/profile" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/scrap" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/student" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/images" charset="x-windows-949" />
   </component>
 </project>
