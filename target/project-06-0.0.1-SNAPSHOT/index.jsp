@@ -36,7 +36,7 @@
             width: 6%;
         }
         .card-margin {
-            margin-left: 13%;
+            align-items: ;
         }
         .mb-3 {
             float: left;
@@ -83,7 +83,7 @@
 <img src="images/logo-font.png" id="logo" />
 
 <h3 style="font-family:SBAggroL; text-align: right; padding-top: 0px; padding-right: 200px;">스크랩</h3>
-<div class="card-margin">
+<div class="card-margin" align="center">
     <% for (i = 1; i <= countList; i++) { %>
     <div class="card mb-3" onClick="location.href='${pageContext.request.contextPath}/student/main/detail'">
         <div class="row g-0">
@@ -91,7 +91,7 @@
                 <img style="border-radius: 10px;" src="<c:url value='/images/jjang.jpg' />" class="img-fluid rounded-start" alt="...">
             </div>
             <div class="col-md-8">
-                <div class="card-body">
+                <div class="card-body" style="text-align: left;">
                     <h5 class="card-title">짱구</h5>
                     <p class="card-text">전공: 컴퓨터학과&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <br>나이: 21&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
                     <p class="card-text"><small class="text-muted"></small></p>

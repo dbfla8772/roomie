@@ -36,7 +36,7 @@
             width: 6%;
         }
         .card-margin {
-            margin-left: 13%;
+            align-items: ;
         }
         .mb-3 {
             float: left;
@@ -91,7 +91,7 @@
                 <img style="border-radius: 10px;" src="<c:url value='/images/jjang.jpg' />" class="img-fluid rounded-start" alt="...">
             </div>
             <div class="col-md-8">
-                <div class="card-body">
+                <div class="card-body" style="text-align: left;">
                     <h5 class="card-title">짱구</h5>
                     <p class="card-text">전공: 컴퓨터학과&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <br>나이: 21&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
                     <p class="card-text"><small class="text-muted"></small></p>
