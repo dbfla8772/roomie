@@ -17,7 +17,6 @@
             }
             form.submit();
         }
-
         function studentCreate(targetUri) {
             form.action = targetUri;
             form.method="GET";      //register form 요청
@@ -47,7 +46,6 @@
         .img {
             position: relative;
             top: 6px;
-
         }
         .btn {
             position: relative;

@@ -89,7 +89,7 @@
 
 <%-- 검색 필터 --%>
 <%--<form name="form" method="post" action="<c:url value='/student/searchResult'>">--%>
-<form name="form" method="POST" action="">
+<form name="form" method="POST" action="${pageContext.request.contextPath}/student/searchResult">
     <table>
         <tr>
             <td><input type="checkbox" id="age" name="searchFilter"><label>&nbsp;나이</label></td>

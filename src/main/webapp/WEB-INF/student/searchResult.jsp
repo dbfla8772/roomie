@@ -19,7 +19,7 @@
     <script>
         function search(targetUri) {
             form.action = targetUri;
-            form.method = "GET";		// register form 요청
+            form.method = "GET";		// search form 요청
             form.submit();
         }
     </script>
@@ -191,6 +191,7 @@
         </div>
     </div>
 </div>
+
 
 <%--</c:forEach>--%>
 </body>
