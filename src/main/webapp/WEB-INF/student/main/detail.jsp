@@ -34,7 +34,7 @@
 <body>
 <div class="w-auto p-3" style="background-color: lightcyan; text-align: center;"><h4>당신의 루미를 찾아보세요! <button class="btn btn-outline-success" type="submit">자동매칭 하러가기</button></h4></div>
 
-<a href = "../student/search.jsp"><h3 style="padding-top: 30px; padding-left: 100px; color: black;">Roomie 루미</h3></a>
+<a href = "${pageContext.request.contextPath}/student/main"><h3 style="padding-top: 30px; padding-left: 100px; color: black;">Roomie 루미</h3></a>
 <div style="padding-top: 50px;">
     <table style="border-radius: 10px; align: center;">
         <tr>
