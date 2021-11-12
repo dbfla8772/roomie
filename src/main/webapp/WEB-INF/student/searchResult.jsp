@@ -84,18 +84,12 @@
             background-color: white;
         }
 
-        /*
-                .col-sm-6 {
-                    width: 40%;
-                }*/
-
         .mb-3 {
             width: 40%;
             border-radius: 10px;
             float: left;
             margin: 0 auto;
         }
-
     </style>
 
 </head>

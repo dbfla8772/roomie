@@ -8,16 +8,16 @@ import model.Profile;
 import model.service.ProfileManager;
 
 public class ListProfileController implements Controller {
-	private static final int countProfilePage = 10;	// 한 화면에 출력할 사용자 수
+	private static final int countProfilePage = 10;	// ?븳 ?솕硫댁뿉 異쒕젰?븷 ?궗?슜?옄 ?닔
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response)	throws Exception {
 		// 로그인 여부 확인
     	if (!UserSessionUtils.hasLogined(request.getSession())) {
-            return "redirect:/student/login";		// login form 요청으로 redirect
+            return "redirect:/student/loginForm";		// login form 요청으로 redirect
         }
 
-    	String currentpagePro = request.getParameter("currentPage");
+		String currentpagePro = request.getParameter("currentPage");
 		int currentPage = 1;
 		if (currentpagePro != null && !currentpagePro.equals("")) {
 			currentPage = Integer.parseInt(currentpagePro);

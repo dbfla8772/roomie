@@ -14,38 +14,38 @@ import org.slf4j.LoggerFactory;
 import controller.Controller;
 
 public class UpdateProfileController implements Controller {
-    private static final Logger log = LoggerFactory.getLogger(UpdateProfileController.class);
+	private static final Logger log = LoggerFactory.getLogger(UpdateProfileController.class);
 
-    @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response)	throws Exception {
- 
-    	if (request.getMethod().equals("GET")) {	
-    		// GET request: È¸¿øÁ¤º¸ ¼öÁ¤ form ¿äÃ»	
-    		// ¿ø·¡´Â UpdateUserFormController°¡ Ã³¸®ÇÏ´ø ÀÛ¾÷À» ¿©±â¼­ ¼öÇà
-    		int s_id = Integer.parseInt(request.getParameter("s_id"));
+	@Override
+	public String execute(HttpServletRequest request, HttpServletResponse response)	throws Exception {
 
-    		log.debug("UpdateForm Request : {}", s_id);
-    		
-    		ProfileManager manager = ProfileManager.getInstance();
-			Profile profile = manager.findProfile(s_id);	// ¼öÁ¤ÇÏ·Á´Â »ç¿ëÀÚ Á¤º¸ °Ë»ö
+		if (request.getMethod().equals("GET")) {
+			// GET request: íšŒì›ì •ë³´ ìˆ˜ì • form ìš”ì²­
+			// ì›ë˜ëŠ” UpdateUserFormControllerê°€ ì²˜ë¦¬í•˜ë˜ ì‘ì—…ì„ ì—¬ê¸°ì„œ ìˆ˜í–‰
+			int s_id = Integer.parseInt(request.getParameter("s_id"));
+
+			log.debug("UpdateForm Request : {}", s_id);
+
+			ProfileManager manager = ProfileManager.getInstance();
+			Profile profile = manager.findProfile(s_id);	// ìˆ˜ì •í•˜ë ¤ëŠ” ì‚¬ìš©ì ì •ë³´ ê²€ìƒ‰
 			request.setAttribute("profile", profile);
 
 			HttpSession session = request.getSession();
 			if (UserSessionUtils.isLoginUser(s_id, session) ||
-				UserSessionUtils.isLoginUser(0, session)) {  //°ü¸®ÀÚÀÇ s_id = 0
+					UserSessionUtils.isLoginUser(0, session)) {  //ê´€ë¦¬ìì˜ s_id = 0
 
-				return "/profile/updateForm.jsp";   // °Ë»öÇÑ »ç¿ëÀÚ Á¤º¸¸¦ update formÀ¸·Î Àü¼Û
-			}    
-			
-			// else (¼öÁ¤ ºÒ°¡´ÉÇÑ °æ¿ì) »ç¿ëÀÚ º¸±â È­¸éÀ¸·Î ¿À·ù ¸Ş¼¼Áö¸¦ Àü´Ş
+				return "/profile/updateForm.jsp";   // ê²€ìƒ‰í•œ ì‚¬ìš©ì ì •ë³´ë¥¼ update formìœ¼ë¡œ ì „ì†¡
+			}
+
+			// else (ìˆ˜ì • ë¶ˆê°€ëŠ¥í•œ ê²½ìš°) ì‚¬ìš©ì ë³´ê¸° í™”ë©´ìœ¼ë¡œ ì˜¤ë¥˜ ë©”ì„¸ì§€ë¥¼ ì „ë‹¬
 			request.setAttribute("updateFailed", true);
-			request.setAttribute("exception", 
-					new IllegalStateException("Å¸ÀÎÀÇ Á¤º¸´Â ¼öÁ¤ÇÒ ¼ö ¾ø½À´Ï´Ù."));            
-			return "/student/loginForm.jsp";	// »ç¿ëÀÚ º¸±â È­¸éÀ¸·Î ÀÌµ¿ (forwarding)
-	    }	
-    	
-    	// POST request (È¸¿øÁ¤º¸°¡ parameter·Î Àü¼ÛµÊ)
-    	Profile updateStudent = new Profile(
+			request.setAttribute("exception",
+					new IllegalStateException("íƒ€ì¸ì˜ ì •ë³´ëŠ” ìˆ˜ì •í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤."));
+			return "/student/loginForm.jsp";	// ì‚¬ìš©ì ë³´ê¸° í™”ë©´ìœ¼ë¡œ ì´ë™ (forwarding)
+		}
+
+		// POST request (íšŒì›ì •ë³´ê°€ parameterë¡œ ì „ì†¡ë¨)
+		Profile updateStudent = new Profile(
 				Integer.parseInt(request.getParameter("s_id")),
 				Boolean.parseBoolean(request.getParameter("activation")),
 				request.getParameter("name"),
@@ -63,10 +63,10 @@ public class UpdateProfileController implements Controller {
 				Integer.parseInt(request.getParameter("habitude"))
 		);
 
-    	log.debug("Update User : {}", updateStudent);
+		log.debug("Update User : {}", updateStudent);
 
 		ProfileManager manager = ProfileManager.getInstance();
 		manager.update(updateStudent);
-        return "redirect:/profile/view";
-    }
+		return "redirect:/profile/view";
+	}
 }

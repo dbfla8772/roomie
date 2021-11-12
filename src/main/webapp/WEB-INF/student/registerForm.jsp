@@ -92,7 +92,7 @@
                 <td>
                     <br>
                     비밀번호 확인<br>
-                    <input type="password2" placeholder="비밀번호를 한 번 더 입력하세요." size="40" name="password">
+                    <input type="password" placeholder="비밀번호를 한 번 더 입력하세요." size="40" name="password2">
                 </td>
             </tr>
             <tr>
@@ -110,11 +110,11 @@
                     <br>
                     학교<br>
                     <select id="college" name="college">
-                        <option value="학교데이터 가져와야함">동덕여자대학교</option>
-                        <option value="학교데이터 가져와야함">학교</option>
-                        <option value="학교데이터 가져와야함">대핵교</option>
-                        <option value="학교데이터 가져와야함">중핵교</option>
-                        <option value="학교데이터 가져와야함">초등핵교</option>
+                        <option value="1">동덕여자대학교</option>
+                        <option value="2">학교</option>
+                        <option value="3">대핵교</option>
+                        <option value="4">중핵교</option>
+                        <option value="5">초등핵교</option>
                     </select>
                 </td>
             </tr>
