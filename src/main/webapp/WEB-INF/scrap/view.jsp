@@ -1,4 +1,3 @@
-<%--<% response.sendRedirect(request.getContextPath() + "/student/login"); %>--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -6,13 +5,20 @@
     <title>스크랩 목록</title>
     <style>
         html, body {
-            margin: 0;
             width: auto;
             height: auto;
         }
-        .card mb-3 {
+        .card-margin {
+            margin-left: 5%;
+        }
+        .mb-3 {
             float: left;
-            padding-left: 50px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 0px 5% 100px 5%;
+        }
+        .page-float {
+            clear: left;
         }
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -48,58 +54,41 @@
 
 <a href = "${pageContext.request.contextPath}/student/main"><h3 style="padding-top: 30px; padding-left: 200px; color: black;">Roomie 루미</h3></a>
 <h3 style="text-align: right; padding-top: 0px; padding-right: 200px;">스크랩</h3>
-
-<% for (i = 1; i <= countList; i++) { %>
-<div style = "padding-top: 30px; padding-left: 200px;" class="row">
-    <div class="col-sm-6">
-        <div class="card mb-3" style="border-radius: 10px; max-width: 600px;" onClick="location.href='${pageContext.request.contextPath}/student/main/detail'">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img style="border-radius: 10px;" src="<c:url value='/images/jjang.jpg' />" class="img-fluid rounded-start" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">짱구</h5>
-                        <p class="card-text">전공: 컴퓨터학과&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <br>나이: 21&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
-                        <p class="card-text"><small class="text-muted"></small></p>
-                    </div>
+<div class="card-margin">
+    <% for (i = 1; i <= countList; i++) { %>
+    <div class="card mb-3" onClick="location.href='${pageContext.request.contextPath}/student/main/detail'">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img style="border-radius: 10px;" src="<c:url value='/images/jjang.jpg' />" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">짱구</h5>
+                    <p class="card-text">전공: 컴퓨터학과&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <br>나이: 21&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
+                    <p class="card-text"><small class="text-muted"></small></p>
                 </div>
             </div>
         </div>
     </div>
-<%--    <div style = "float:right; padding-left: 50px;" class="col-sm-6">--%>
-<%--        <div class="card mb-3" style="border-radius: 10px; max-width: 600px;" onClick="location.href='${pageContext.request.contextPath}/student/main/detail'">--%>
-<%--            <div class="row g-0">--%>
-<%--                <div class="col-md-4">--%>
-<%--                    <img style="border-radius: 10px;" src="<c:url value='/images/jjang.jpg' />" class="img-fluid rounded-start" alt="...">--%>
-<%--                </div>--%>
-<%--                <div class="col-md-8">--%>
-<%--                    <div class="card-body">--%>
-<%--                        <h5 class="card-title">짱구</h5>--%>
-<%--                        <p class="card-text">전공: 컴퓨터학과&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <br>나이: 21&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>--%>
-<%--                        <p class="card-text"><small class="text-muted"></small></p>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
+    <%
+        }
+    %>
 </div>
-
-<%
-    }
-%>
-<nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-center">
-        <li class="page-item disabled">
-            <a class="page-link">Previous</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
-            <a class="page-link" href="#">Next</a>
-        </li>
-    </ul>
-</nav>
+<br>
+<div class="page-float">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
+</div>
 </body>
 </html>
