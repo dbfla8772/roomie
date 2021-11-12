@@ -47,7 +47,7 @@
 </head>
 <body>
 <br>
-<form name="form" method="POST" action="<c:url value='/student/login' />">
+<form name="form" method="POST" action="${pageContext.request.contextPath}/student/login">
     <div align=center>
         <table>
             <tr>
@@ -67,7 +67,7 @@
             </tr>
             <tr>
                 <td>
-                    <input type="button" style="width: 70px;" value="회원가입" onClick="studentCreate('<c:url value='/student/register'/>')">
+                    <input type="button" style="width: 70px;" value="회원가입" onClick="studentCreate('${pageContext.request.contextPath}/student/register')">
                     <input type="button" style="width: 70px;" value="로그인" onClick="login()">
                 </td>
             </tr>
