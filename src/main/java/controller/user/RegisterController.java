@@ -43,7 +43,8 @@ public class RegisterController implements Controller {
 		try {
 			StudentManager manager = StudentManager.getInstance();
 			manager.create(student);
-			return "redirect:/student/login.jsp";
+//			return "redirect:/student/loginForm.jsp";
+			return "/student/loginForm.jsp";
 
 		} catch (ExistingStudentException e) {	// 예외 발생 시 회원가입 form으로 forwarding
 			request.setAttribute("registerFailed", true);
