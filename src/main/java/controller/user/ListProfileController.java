@@ -14,7 +14,7 @@ public class ListProfileController implements Controller {
     public String execute(HttpServletRequest request, HttpServletResponse response)	throws Exception {
 		// 로그인 여부 확인
     	if (!UserSessionUtils.hasLogined(request.getSession())) {
-            return "redirect:/student/loginForm";		// login form 요청으로 redirect
+            return "redirect:/student/login";		// login form 요청으로 redirect
         }
 
 		String currentpagePro = request.getParameter("currentPage");
@@ -29,11 +29,11 @@ public class ListProfileController implements Controller {
 //		List<Profile> profileList = manager.findProfileList(currentPage, countProfilePage);
 
 
-		// profileList 객체와 현재 로그인한 사용자 ID를 request에 저장하여 전달
+		// profileList 媛앹껜?? ?쁽?옱 濡쒓렇?씤?븳 ?궗?슜?옄 ID瑜? request?뿉 ???옣?븯?뿬 ?쟾?떖
 		request.setAttribute("profileList", profileList);
 		request.setAttribute("s_id", s_id);
 
-		// 사용자 리스트 화면으로 이동(forwarding)
+		// ?궗?슜?옄 由ъ뒪?듃 ?솕硫댁쑝濡? ?씠?룞(forwarding)
 		return "/student/main.jsp";
-    }
+	}
 }
