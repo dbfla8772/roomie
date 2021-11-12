@@ -1,77 +1,166 @@
-<%--<% response.sendRedirect(request.getContextPath() + "/student/login"); %>--%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <html>
 <head>
-    <title>로그인</title>
-    <script>
-        function login() {
-            if (form.email.value == "") {
-                alert("사용자 ID(email)을 입력하세요.");
-                form.email.focus();
-                return false;
-            }
-            if (form.password.value == "") {
-                alert("비밀번호를 입력하세요.");
-                form.password.focus();
-                return false;
-            }
-            form.submit();
-        }
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
 
-        function studentCreate(targetUri) {
+    <script>
+        function search(targetUri) {
             form.action = targetUri;
-            form.method="GET";      //register form 요청
+            form.method="POST";		// register form 요청
             form.submit();
         }
     </script>
-    <style>
-        .main {
-            position: relative;
-            top: 230px;
-        }
-        .roomie {
-            font-size: 45px;
-            font-weight: bold;
-            float: left;
-            position: relative;
-            left: 23%;
-            padding-bottom: 50px;
-            /*border: black 1px solid;*/
-        }
-        .in {
-            font-size: 13px;
-            float: right;
-            margin-left: 20%;
-            margin-right: 23%;
-            padding-top: 50px;
-        }
-        .img {
-            position: relative;
-            top: 6px;
 
+    <style>
+        @font-face {
+            font-family: 'SBAggroB';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
         }
-        .btn {
+
+        body {
+            margin: 5%;
+            align-content: center;
+        }
+
+        #logo {
+            margin-top: -2.5%;
+            width: 6%;
+        }
+
+        h3 {
+            font-family: SBAggroB;
+            float: left;
+        }
+
+        table {
+            margin: 0 auto;
+            width: 80%;
+            height: 40%;
             position: relative;
-            left: 93px;
+            top: 20%;
+            background-color: lightgrey;
+        }
+
+        td {
+            padding: 2% 1% 2% 5%;
+        }
+
+        select {
+            width: 100px;
+            height: 35px;
+            padding: 5px 20px 5px 10px;
+            border-radius: 4px;
+            outline: 0 none;
+        }
+        .select option {
+            background: black;
+            color: #fff;
+            padding: 3px 0;
+        }
+
+        div {
+            float: right;
+        }
+
+        .btn {
+            margin-top: 10px;
+            margin-right: 8%;
+        }
+
+        .search-img {
+            margin-top: 15px;
+            margin-right: -20px;
+        }
+
+        #magnifier {
+            width: 80px;
+        }
+
+        .btn-outline-secondary {
+            width: 100px;
+            padding: 5px;
+            color: black;
+            border-color: lightgrey;
+            background-color: white;
         }
     </style>
+
 </head>
 <body>
-<br>
-<form name="form" method="POST" action="${pageContext.request.contextPath}/student/login">
-    <div class="main">
-        <div class="roomie">Roomie<br>루미</div>
-        <div class="in">
-            <input type="image" class="img" src="/images/id.png" width="20px" height="20px">
-            <input type="email" size="30" name="email">
-            <p/>
-            <input type="image" class="img" src="/images/password2.png" width="20px" height="20px">
-            <input type="password" size="30" name="password">
-            <p/>
-            <input type="button" class="btn" value="회원가입" onClick="studentCreate('${pageContext.request.contextPath}/student/register')">&nbsp;
-            <input type="button" class="btn" value="로그인" onClick="login()">
-        </div>
+
+<h3>&nbsp;Roomie</h3>
+<img src="images/logo-bold.jpg" id="logo" />
+
+
+<%-- 검색 필터 --%>
+<%--<form name="form" method="post" action="<c:url value='/student/searchResult'>">--%>
+<form name="form" method="POST" action="${pageContext.request.contextPath}/student/searchResult">
+    <table>
+        <tr>
+            <td><input type="checkbox" id="age" name="searchFilter"><label>&nbsp;나이</label></td>
+            <td><input type="checkbox" id="sleep_habit" name="searchFilter"><label>&nbsp;잠버릇</label></td>
+            <td><input type="checkbox" id="lifestyle" name="searchFilter"><label>&nbsp;생활 패턴</label></td>
+            <br>
+        </tr>
+        <tr>
+            <td><input type="checkbox" id="smoking" name="searchFilter"><label>&nbsp;흡연 유무</label></td>
+            <td><input type="checkbox" id="grade" name="searchFilter"><label>&nbsp;학년</label></td>
+            <td><input type="checkbox" id="major" name="searchFilter"><label>&nbsp;전공</label></td>
+            <br>
+        </tr>
+        <tr>
+            <td><input type="checkbox" id="cleaning" name="searchFilter"><label>&nbsp;청소 주기</label></td>
+            <td><input type="checkbox" id="indoor_eating" name="searchFilter"><label>&nbsp;실내 취식</label></td>
+            <td><label>&nbsp;&nbsp;&nbsp;MBTI&nbsp;
+                <select id="mbti" name="searchFilter">
+                    <option value="istj">ISTJ</option>
+                    <option value="isfj">ISFJ</option>
+                    <option value="infj">INFJ</option>
+                    <option value="intj">INTJ</option>
+                    <option value="istp">ISTP</option>
+                    <option value="isfp">ISFP</option>
+                    <option value="infp">INFP</option>
+                    <option value="intp">INTP</option>
+                    <option value="estp">ESTP</option>
+                    <option value="esfp">ESFP</option>
+                    <option value="enfp">ENFP</option>
+                    <option value="entp">ENTP</option>
+                    <option value="estj">ESTJ</option>
+                    <option value="esfj">ESFJ</option>
+                    <option value="enfj">ENFJ</option>
+                    <option value="entj">ENTJ</option>
+                </select>
+            </label></td>
+            <br>
+        </tr>
+        <tr>
+            <td><input type="checkbox" id="sharing" name="searchFilter"><label>&nbsp;생필품 공유</label></td>
+            <td><input type="checkbox" id="habitude" name="searchFilter"><label>&nbsp;체질</label></td>
+        </tr>
+    </table>
+
+    <div class="btn">
+        <%-- 검색 실행 버튼 --%>
+        <button type="submit" class="btn btn-outline-secondary" onclick="search('${pageContext.request.contextPath}/student/search')">검색하기</button>
+    </div>
+    <%-- 돋보기 이미지 --%>
+    <div class="search-img">
+        <img src="<c:url value='/images/magnifier.png'/>" id="magnifier"/>
     </div>
 </form>
 </body>
