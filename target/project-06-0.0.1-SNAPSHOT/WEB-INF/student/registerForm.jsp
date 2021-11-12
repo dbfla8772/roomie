@@ -41,10 +41,15 @@
             font-size: 13px;
             /*border: black 1px solid;*/
         }
+        @font-face {
+            font-family: 'SBAggroB';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
         #logo {
+            margin-top: 0;
             width: 130px;
-            margin-left: -4.5%;
-            margin-top: -1.3%;
         }
         th {
             font-size: 45px;
@@ -67,8 +72,7 @@
     <div align=center>
         <table>
             <tr>
-                <th rowspan="3">Roomie<br>루미</th>
-                <img src="images/logo-font.png" id="logo" />
+                <th rowspan="3" style="font-family: SBAggroB">Roomie<br>루미</th>
                 <td width="20%">&nbsp;</td>
             </tr>
             <tr>
@@ -86,7 +90,7 @@
                 </td>
             </tr>
             <tr>
-                <td></td>
+                <td><img src="images/logo-font.png" id="logo" /></td>
                 <td>
                     <br>
                     비밀번호<br>
