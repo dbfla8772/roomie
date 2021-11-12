@@ -37,8 +37,14 @@
             align-content: center;
         }
 
+        #logo {
+            margin-top: -2.5%;
+            width: 6%;
+        }
+
         h3 {
             font-family: SBAggroB;
+            float: left;
         }
 
         table {
@@ -112,6 +118,7 @@
 </head>
 <body>
 <h3>Roomie 루미</h3>
+<img src="images/logo-font.png" id="logo" />
 
 <%-- 검색 필터 --%>
 <%--<form name="form" method="get" action="<c:url value="/student/searchResult">">--%>
