@@ -88,11 +88,13 @@
     </h4>
 </div>
 
-<a href="${pageContext.request.contextPath}/student/main"><h3>Roomie</h3></a>
-<img src="images/logo-font.png" id="logo"/>
+<div>
+    <a href="${pageContext.request.contextPath}/student/main"><h3>Roomie</h3></a>
+    <img src="images/logo-font.png" id="logo"/>
+</div>
 
-<div style="padding-top: 50px; padding-left: 200px;">
-    <table style="border-radius: 10px; align: center;">
+<div align="center">
+    <table style="border-radius: 10px; align: center; margin-top: 50px;">
         <tr>
             <td colspan="2" rowspan="2"><img style="border-radius: 10px; width:300px; height:400px;"
                                              src="<c:url value='/images/jjang.jpg' />"/></td>
