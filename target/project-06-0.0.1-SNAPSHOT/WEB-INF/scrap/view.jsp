@@ -35,7 +35,7 @@
         }
         #logo {
             margin-top: 0;
-            width: 6%;
+            width: 70px;
         }
         .card-margin {
             margin-left: 7%;

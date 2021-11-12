@@ -92,8 +92,8 @@
 <a href="${pageContext.request.contextPath}/student/main"><h3>Roomie</h3></a>
 <img src="images/logo-font.png" id="logo"/>
 
-<div style="padding-top: 50px; padding-left: 200px;">
-    <table style="border-radius: 10px; align: center;">
+<div style="padding-top: 50px;">
+    <table style="border-radius: 10px; margin-left:auto; margin-right:auto;">
         <tr>
             <td colspan="2" rowspan="2"><img style="border-radius: 10px; width:300px; height:400px;"
                                              src="<c:url value='/images/jjang.jpg' />"/></td>
@@ -152,7 +152,7 @@
         </tr>
         <tr>
             <td align="center">
-                <button class="button">스크랩</button>
+                <button class="button" onClick="location.href='${pageContext.request.contextPath}/scrap/view'">스크랩</button>
             </td>
             <td align="center">
                 <button class="button">쪽지</button>
