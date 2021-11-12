@@ -51,7 +51,7 @@
             margin-top: 0;
             width: 130px;
         }
-        th {
+        .title {
             font-size: 45px;
             font-weight: bold;
             text-align: left;
@@ -72,7 +72,10 @@
     <div align="center">
         <table>
             <tr>
-                <td rowspan="2"><img src="images/logo-font.png" id="logo"/></td>
+                <td rowspan="3">
+                    <img src="images/logo-font.png" id="logo"/><br>
+                    <span class="title" style="font-family: SBAggroB">Roomie</span>
+                </td>
                 <td width="20%">
                     <br>
                     이름<br>
@@ -87,7 +90,6 @@
                 </td>
             </tr>
             <tr>
-                <th rowspan="2" style="font-family: SBAggroB">Roomie</th>
                 <td>
                     <br>
                     비밀번호<br>
@@ -95,6 +97,7 @@
                 </td>
             </tr>
             <tr>
+                <td></td>
                 <td>
                     <br>
                     비밀번호 확인<br>
