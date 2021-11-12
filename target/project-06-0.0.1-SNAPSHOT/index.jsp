@@ -36,7 +36,7 @@
             width: 6%;
         }
         .card-margin {
-            margin-left: 5%;
+            margin-left: 13%;
         }
         .mb-3 {
             float: left;
