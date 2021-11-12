@@ -1,13 +1,12 @@
 package controller.user;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import controller.Controller;
 import model.Profile;
 import model.service.ProfileManager;
 import model.service.StudentNotFoundException;
-import model.Student;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 public class ViewProfileController implements Controller {
     @Override
@@ -28,6 +27,6 @@ public class ViewProfileController implements Controller {
 		}	
 		
     	request.setAttribute("profile", profile);		// 사용자 정보 저장
-		return "/profile/myPage.jsp";				// 사용자 보기 화면으로 이동
+		return "/student/main/detail.jsp";				// 사용자 보기 화면으로 이동
     }
 }

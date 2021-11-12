@@ -33,7 +33,6 @@
             padding-left: 10px;
             padding-right: 10px;
         }
-
         .title {
             font-family: 돋움;
             font-size: 12pt;
@@ -42,25 +41,21 @@
             background-color: Beige;
             line-height: 22px;
         }
-
         /* Form css */
         .text, .textarea, .password, .file, .select {
             font-family: 돋움;
             font-size: 8pt;
             color: #333333;
         }
-
         table.commTable {
             background: MediumBlue;
         }
-
         td.commHead, th.commHead {
             height: 22px;
             text-align: center;
             background: PowderBlue;
             font-weight: bold;
         }
-
         td.commCell {
             text-align: left;
             background: White;
@@ -96,16 +91,16 @@
                         <td class="commCell">
                             <input type="radio" name="pr_img" value="0"
                             <c:if test="${profile.pr_img eq '0'}"> checked </c:if>>
-                                <img src="">
+                            <img src="">
                             <input type="radio" name="pr_img" value="1"
-                                   <c:if test="${profile.pr_img eq '1'}"> checked </c:if>>
-                                <img src="">
+                            <c:if test="${profile.pr_img eq '1'}"> checked </c:if>>
+                            <img src="">
                             <input type="radio" name="pr_img" value="2"
-                                   <c:if test="${profile.pr_img eq '2'}"> checked </c:if>>
-                                <img src="">
+                            <c:if test="${profile.pr_img eq '2'}"> checked </c:if>>
+                            <img src="">
                             <input type="radio" name="pr_img" value="3"
-                                   <c:if test="${profile.pr_img eq '3'}"> checked </c:if>>
-                                <img src="">
+                            <c:if test="${profile.pr_img eq '3'}"> checked </c:if>>
+                            <img src="">
                         </td>
                     </tr>
                     <tr height="40">
@@ -118,42 +113,42 @@
                         <td class="commHead">잠버릇</td>
                         <td class="commCell">
                             <input type="radio" name="sleep_habit" value="0"
-                                   <c:if test="${profile.sleep_habit eq '0'}"> checked </c:if>>코골이
+                            <c:if test="${profile.sleep_habit eq '0'}"> checked </c:if>>코골이
                             <input type="radio" name="sleep_habit" value="1"
-                                   <c:if test="${profile.sleep_habit eq '1'}"> checked </c:if>>이갈이
+                            <c:if test="${profile.sleep_habit eq '1'}"> checked </c:if>>이갈이
                             <input type="radio" name="sleep_habit" value="2"
-                                   <c:if test="${profile.sleep_habit eq '2'}"> checked </c:if>>몽유병
+                            <c:if test="${profile.sleep_habit eq '2'}"> checked </c:if>>몽유병
                         </td>
                     </tr>
                     <tr height="40">
                         <td class="commHead">생활형</td>
                         <td class="commCell">
                             <input type="radio" name="lifestyle" value="0"
-                                   <c:if test="${profile.lifestyle eq '0'}"> checked </c:if>>아침형
+                            <c:if test="${profile.lifestyle eq '0'}"> checked </c:if>>아침형
                             <input type="radio" name="lifestyle" value="1"
-                                   <c:if test="${profile.lifestyle eq '1'}"> checked </c:if>>저녁형
+                            <c:if test="${profile.lifestyle eq '1'}"> checked </c:if>>저녁형
                         </td>
                     </tr>
                     <tr height="40">
                         <td class="commHead">흡연 여부</td>
                         <td class="commCell">
                             <input type="radio" name="smoking" value="0"
-                                   <c:if test="${profile.smoking eq '0'}"> checked </c:if>>O
+                            <c:if test="${profile.smoking eq '0'}"> checked </c:if>>O
                             <input type="radio" name="smoking" value="1"
-                                   <c:if test="${profile.smoking eq '1'}"> checked </c:if>>X
+                            <c:if test="${profile.smoking eq '1'}"> checked </c:if>>X
                         </td>
                     </tr>
                     <tr height="40">
                         <td class="commHead">학년</td>
                         <td class="commCell">
                             <input type="radio" name="grade" value="1"
-                                   <c:if test="${profile.grade eq '1'}"> checked </c:if>>1학년
+                            <c:if test="${profile.grade eq '1'}"> checked </c:if>>1학년
                             <input type="radio" name="grade" value="2"
-                                   <c:if test="${profile.grade eq '2'}"> checked </c:if>>2학년
+                            <c:if test="${profile.grade eq '2'}"> checked </c:if>>2학년
                             <input type="radio" name="grade" value="3"
-                                   <c:if test="${profile.grade eq '3'}"> checked </c:if>>3학년
+                            <c:if test="${profile.grade eq '3'}"> checked </c:if>>3학년
                             <input type="radio" name="grade" value="4"
-                                   <c:if test="${profile.grade eq '4'}"> checked </c:if>>4학년
+                            <c:if test="${profile.grade eq '4'}"> checked </c:if>>4학년
                         </td>
                     </tr>
                     <tr height="40">

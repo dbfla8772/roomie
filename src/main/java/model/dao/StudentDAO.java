@@ -32,25 +32,25 @@ public class StudentDAO {
 
 
     public int create(Student student) throws SQLException {
-        String sql = "INSERT INTO Student VALUES (IDSEQ.nextval,?, ?, ?, ?, ?, ?)";
-        Object[] param = new Object[] { student.getName(), student.getEmail(), student.getPassword(), student.getCollege(), student.getGender()};
-        jdbcUtil.setSqlAndParameters(sql, param);	// JDBCUtil ø° insertπÆ∞˙ ∏≈∞≥ ∫Øºˆ º≥¡§
+        String sql = "INSERT INTO student VALUES (?, ?, ?, ?, ?, STUDENTSEQ.nextval)";
+        Object[] param = new Object[] {student.getName(), student.getEmail(), student.getPassword(), student.getGender(), Integer.parseInt(student.getCollege())};
+        jdbcUtil.setSqlAndParameters(sql, param);	// JDBCUtil Ïóê insertÎ¨∏Í≥º Îß§Í∞ú Î≥ÄÏàò ÏÑ§Ï†ï
 
         try {
-            int result = jdbcUtil.executeUpdate();	// insert πÆ Ω««‡
+            int result = jdbcUtil.executeUpdate();	// insert Î¨∏ Ïã§Ìñâ
             return result;
         } catch (Exception ex) {
             jdbcUtil.rollback();
             ex.printStackTrace();
         } finally {
             jdbcUtil.commit();
-            jdbcUtil.close();	// resource π›»Ø
+            jdbcUtil.close();	// resource Î∞òÌôò
         }
         return 0;
     }
 
     public Student findStudent(String email) throws SQLException {
-        String sql = "SELECT s_id, name, email, password, c_name, gender "
+        String sql = "SELECT s_id, s_name, email, password, c_name, gender "
                 + "FROM Student s JOIN College c ON s.c_id = c.c_id "
                 + "WHERE email= ? ";
         jdbcUtil.setSqlAndParameters(sql, new Object[] {email});
@@ -62,7 +62,7 @@ public class StudentDAO {
                         rs.getInt("s_id"),
                         email,
                         rs.getString("password"),
-                        rs.getString("name"),
+                        rs.getString("s_name"),
                         rs.getString("c_name"),
                         rs.getInt("gender"));
                     return student;
