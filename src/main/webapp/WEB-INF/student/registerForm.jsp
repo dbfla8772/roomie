@@ -110,11 +110,11 @@
                     <br>
                     학교<br>
                     <select id="college" name="college">
-                        <option value="학교데이터 가져와야함">동덕여자대학교</option>
-                        <option value="학교데이터 가져와야함">학교</option>
-                        <option value="학교데이터 가져와야함">대핵교</option>
-                        <option value="학교데이터 가져와야함">중핵교</option>
-                        <option value="학교데이터 가져와야함">초등핵교</option>
+                        <option value="1">동덕여자대학교</option>
+                        <option value="2">학교</option>
+                        <option value="3">대핵교</option>
+                        <option value="4">중핵교</option>
+                        <option value="5">초등핵교</option>
                     </select>
                 </td>
             </tr>

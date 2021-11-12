@@ -33,7 +33,7 @@ public class StudentDAO {
 
     public int create(Student student) throws SQLException {
         String sql = "INSERT INTO student VALUES (?, ?, ?, ?, ?, STUDENTSEQ.nextval)";
-        Object[] param = new Object[] {student.getName(), student.getEmail(), student.getPassword(), student.getGender(), student.getCollege()};
+        Object[] param = new Object[] {student.getName(), student.getEmail(), student.getPassword(), student.getGender(), Integer.parseInt(student.getCollege())};
         jdbcUtil.setSqlAndParameters(sql, param);	// JDBCUtil 에 insert문과 매개 변수 설정
 
         try {
