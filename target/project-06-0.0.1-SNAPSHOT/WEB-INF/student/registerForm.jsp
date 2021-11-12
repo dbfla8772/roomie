@@ -41,6 +41,11 @@
             font-size: 13px;
             /*border: black 1px solid;*/
         }
+        #logo {
+            width: 130px;
+            margin-left: -4.5%;
+            margin-top: -1.3%;
+        }
         th {
             font-size: 45px;
             font-weight: bold;
@@ -63,6 +68,7 @@
         <table>
             <tr>
                 <th rowspan="3">Roomie<br>루미</th>
+                <img src="images/logo-font.png" id="logo" />
                 <td width="20%">&nbsp;</td>
             </tr>
             <tr>

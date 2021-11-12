@@ -34,7 +34,7 @@
         }
         #logo {
             margin-top: -2.5%;
-            width: 6%;
+            width: 70px;
         }
 
         h3 {
