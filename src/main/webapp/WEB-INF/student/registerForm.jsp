@@ -51,7 +51,7 @@
             margin-top: 0;
             width: 130px;
         }
-        th {
+        .title {
             font-size: 45px;
             font-weight: bold;
             text-align: left;
@@ -69,14 +69,14 @@
 </head>
 <body>
 <form name="form" method="POST" action="${pageContext.request.contextPath}/student/register">
-    <div align=center>
+    <div align="center">
         <table>
             <tr>
-                <th rowspan="3" style="font-family: SBAggroB">Roomie<br>루미</th>
-                <td width="20%">&nbsp;</td>
-            </tr>
-            <tr>
-                <td>
+                <td rowspan="3">
+                    <img src="images/logo-font.png" id="logo"/><br>
+                    <span class="title" style="font-family: SBAggroB">Roomie</span>
+                </td>
+                <td width="20%">
                     <br>
                     이름<br>
                     <input type="text" placeholder="닉네임을 입력하세요." size="40" name="name">
@@ -90,7 +90,6 @@
                 </td>
             </tr>
             <tr>
-                <td><img src="images/logo-font.png" id="logo" /></td>
                 <td>
                     <br>
                     비밀번호<br>
