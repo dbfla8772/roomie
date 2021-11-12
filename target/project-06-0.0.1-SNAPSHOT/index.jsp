@@ -1,3 +1,4 @@
+<%--<% response.sendRedirect(request.getContextPath() + "/student/login"); %>--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -34,7 +35,7 @@
             width: 6%;
         }
         .card-margin {
-            margin-left: 13%;
+            margin-left: 5%;
         }
         .mb-3 {
             float: left;
