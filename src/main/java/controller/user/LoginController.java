@@ -10,7 +10,7 @@ import model.service.StudentManager;
 public class LoginController implements Controller {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-    	String studentId = request.getParameter("studentId");
+    	String studentId = request.getParameter("email");
 		String password = request.getParameter("password");
 		
 		try {
