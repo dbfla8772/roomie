@@ -2,16 +2,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>회원가입</title>
+    <title>로그인</title>
     <script>
-        function studentCreate() {
-            if (form.name.value == "") {
-                alert("이름을 입력하세요.");
-                form.name.focus();
-                return false;
-            }
+        function login() {
             if (form.email.value == "") {
-                alert("이메일을 입력하세요.");
+                alert("사용자 ID(email)을 입력하세요.");
                 form.email.focus();
                 return false;
             }
@@ -20,121 +15,79 @@
                 form.password.focus();
                 return false;
             }
-            if (form.password.value != form.password2.value) {
-                alert("비밀번호가 일치하지 않습니다.");
-                form.password2.focus();
-                return false;
-            }
-            var emailExp = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
-            if(emailExp.test(form.email.value) == false) {
-                alert("이메일 형식이 올바르지 않습니다.");
-                form.email.focus();
-                return false;
-            }
+            form.submit();
+        }
+        function studentCreate(targetUri) {
+            form.action = targetUri;
+            form.method="GET";      //register form 요청
             form.submit();
         }
     </script>
     <style>
-        table {
-            margin-top: 100px;
-            width: 60%;
-            font-size: 13px;
-            /*border: black 1px solid;*/
-        }
         @font-face {
             font-family: 'SBAggroB';
             src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
             font-weight: normal;
             font-style: normal;
         }
-        #logo {
-            margin-top: 0;
-            width: 130px;
+        .main {
+            position: relative;
+            top: 200px;
         }
-        .title {
+        #logo {
+            width: 130px;
+            margin-left: -4.5%;
+            margin-top: -1.3%;
+        }
+        .roomie {
+            font-family: SBAggroB;
             font-size: 45px;
             font-weight: bold;
-            text-align: left;
+            float: left;
+            position: relative;
+            left: 23%;
+            padding-bottom: 50px;
+            /*border: black 1px solid;*/
+        }
+        .in {
+            font-size: 13px;
+            float: right;
+            padding-top: 15px;
+            margin-left: 20%;
+            margin-right: 23%;
         }
         input {
             margin: 2px;
             padding: 5px;
         }
-        #college {
-            padding: 5px 10px;
-            font-size: 12px;
-            margin: 2px;
+        .img {
+            position: relative;
+            top: 13px;
+        }
+        .btn {
+            position: relative;
+            float: right;
         }
     </style>
 </head>
 <body>
-<form name="form" method="POST" action="${pageContext.request.contextPath}/student/register">
-    <div align="center">
-        <table>
-            <tr>
-                <td rowspan="3">
-                    <img src="images/logo-font.png" id="logo"/><br>
-                    <span class="title" style="font-family: SBAggroB">Roomie</span>
-                </td>
-                <td width="20%">
-                    <br>
-                    이름<br>
-                    <input type="text" placeholder="닉네임을 입력하세요." size="40" name="name">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <br>
-                    아이디<br>
-                    <input type="email" placeholder="본인의 학교 웹메일을 입력하세요." size="40" name="email">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <br>
-                    비밀번호<br>
-                    <input type="password" placeholder="비밀번호는 6~8자로 입력하세요." size="40" name="password">
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <br>
-                    비밀번호 확인<br>
-                    <input type="password" placeholder="비밀번호를 한 번 더 입력하세요." size="40" name="password2">
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <br>
-                    성별<br>
-                    <input type = "radio" name = "gender" value = "0">남자&nbsp;&nbsp;&nbsp;
-                    <input type = "radio" name = "gender" value = "1">여자
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <br>
-                    학교<br>
-                    <select id="college" name="college">
-                        <option value="1">동덕여자대학교</option>
-                        <option value="2">학교</option>
-                        <option value="3">대핵교</option>
-                        <option value="4">중핵교</option>
-                        <option value="5">초등핵교</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <br>
-                    <input type="button" style="width: 238px;" value="가입하기" onClick="studentCreate()">
-                </td>
-            </tr>
-        </table>
+<br>
+<form name="form" method="POST" action="${pageContext.request.contextPath}/student/login">
+    <div class="main">
+        <div class="roomie" style="font-family: SBAggroB">
+            <img src="images/logo-font.png" id="logo" /><br>
+            Roomie
+        </div>
+        <div class="in">
+            <input type="image" class="img" src="/images/id.png" width="20px" height="20px">
+            <input type="email" size="30" name="email">
+            <br>
+            <input type="image" class="img" src="/images/password2.png" width="20px" height="20px">
+            <input type="password" size="30" name="password">
+            <p/>
+            <input type="button" class="btn" value="회원가입" onClick="studentCreate('${pageContext.request.contextPath}/student/register')">&nbsp;
+            <input type="button" class="btn" value="로그인" onClick="login()">
+        </div>
     </div>
 </form>
 </body>
