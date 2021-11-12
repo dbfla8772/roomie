@@ -11,21 +11,27 @@
             font-style: normal;
         }
         @font-face {
+            font-family: 'SBAggroM';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroM.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
             font-family: 'SBAggroL';
             src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroL.woff') format('woff');
             font-weight: normal;
             font-style: normal;
         }
-        h4 {
-            font-family: SBAggroL;
-        }
         html, body {
             width: auto;
             height: auto;
         }
+        h4 {
+            font-family: SBAggroL;
+        }
         #logo {
-            margin-top: -2.5%;
-            width: 6%;
+            margin-top: 0;
+            width: 70px;
         }
         .card-margin {
             margin-left: 5%;
@@ -33,7 +39,7 @@
         .mb-3 {
             float: left;
             border-radius: 10px;
-            max-width: 600px;
+            max-width: 440px;
             margin: 0px 5% 100px 5%;
         }
         .page-float {
@@ -69,12 +75,12 @@
     }
 %>
 
-<div class="w-auto p-3" style="background-color: lightcyan; text-align: center;"><h4>당신의 루미를 찾아보세요! <button class="btn btn-outline-success" type="submit">자동매칭 하러가기</button></h4></div>
+<div class="w-auto p-3" style="background-color: lightcyan; text-align: center;"><h4 style="font-family: SBAggroL;">당신의 루미를 찾아보세요! <button class="btn btn-outline-success" type="submit">자동매칭 하러가기</button></h4></div>
 
-<a href = "${pageContext.request.contextPath}/student/main"><h3 style="font-family: SBAggroB; float: left; padding-top: 30px; color: black;">Roomie 루미</h3></a>
+<a href = "${pageContext.request.contextPath}/student/main"><h3 style="font-family: SBAggroB; float: left; padding-top: 30px; padding-left: 100px; color: black;">Roomie</h3></a>
 <img src="images/logo-font.png" id="logo" />
 
-<h3 style="text-align: right; padding-top: 0px; padding-right: 200px;">스크랩</h3>
+<h3 style="font-family:SBAggroL; text-align: right; padding-top: 0px; padding-right: 200px;">스크랩</h3>
 <div class="card-margin">
     <% for (i = 1; i <= countList; i++) { %>
     <div class="card mb-3" onClick="location.href='${pageContext.request.contextPath}/student/main/detail'">

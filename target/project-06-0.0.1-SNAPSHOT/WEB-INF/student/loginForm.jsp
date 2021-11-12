@@ -35,9 +35,9 @@
             top: 200px;
         }
         #logo {
-            width: 11%;
-            margin-left: -5%;
-            margin-top: -1.5%;
+            width: 130px;
+            margin-left: -4.5%;
+            margin-top: -1.3%;
         }
         .roomie {
             font-family: SBAggroB;
