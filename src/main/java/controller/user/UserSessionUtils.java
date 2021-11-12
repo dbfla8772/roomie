@@ -5,7 +5,7 @@ import javax.servlet.http.HttpSession;
 public class UserSessionUtils {
     public static final String USER_SESSION_KEY = "userId";
 
-    /* ÇöÀç ·Î±×ÀÎÇÑ »ç¿ëÀÚÀÇ ID¸¦ ±¸ÇÔ */
+    /* í˜„ì¬ ë¡œê·¸ì¸í•œ ì‚¬ìš©ìì˜ IDë¥¼ êµ¬í•¨ */
     public static Object getLoginUserId(HttpSession session) {
         Object userId = session.getAttribute(USER_SESSION_KEY);
 
@@ -18,7 +18,7 @@ public class UserSessionUtils {
         return userId;
     }
 
-    /* ·Î±×ÀÎÇÑ »óÅÂÀÎÁö¸¦ °Ë»ç */
+    /* ë¡œê·¸ì¸í•œ ìƒíƒœì¸ì§€ë¥¼ ê²€ì‚¬ */
     public static boolean hasLogined(HttpSession session) {
         Object userId = getLoginUserId(session);
 
@@ -34,7 +34,7 @@ public class UserSessionUtils {
         return false;
     }
 
-    /* ÇöÀç ·Î±×ÀÎÇÑ »ç¿ëÀÚÀÇ ID°¡ userIdÀÎÁö °Ë»ç */
+    /* í˜„ì¬ ë¡œê·¸ì¸í•œ ì‚¬ìš©ìì˜ IDê°€ userIdì¸ì§€ ê²€ì‚¬ */
     public static boolean isLoginUser(int userId, HttpSession session) {
         int loginUser = -1;
         loginUser = (int)getLoginUserId(session);

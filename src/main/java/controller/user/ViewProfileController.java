@@ -1,13 +1,12 @@
 package controller.user;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import controller.Controller;
 import model.Profile;
 import model.service.ProfileManager;
 import model.service.StudentNotFoundException;
-import model.Student;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 public class ViewProfileController implements Controller {
     @Override

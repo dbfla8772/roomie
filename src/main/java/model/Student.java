@@ -22,6 +22,13 @@ public class Student {
         this.college = college;
         this.gender = gender;
     }
+    public Student(String name, String email, String password, int gender, String college) {
+        this.email = email;
+        this.password = password;
+        this.name = name;
+        this.college = college;
+        this.gender = gender;
+    }
 
     public int getS_id() {
         return s_id;
