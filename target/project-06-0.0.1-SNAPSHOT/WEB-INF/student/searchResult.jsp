@@ -78,6 +78,11 @@
             background-color: white;
         }
 
+        div.search {
+            width: auto;
+            height: 100px;
+        }
+
         .mb-3 {
             width: 40%;
             border-radius: 10px;
@@ -144,18 +149,19 @@
         </tr>
     </table>
 
-    <div class="btn">
-        <%-- 검색 실행 버튼 --%>
-        <button type="submit" class="btn btn-outline-secondary"
-                onclick="search('${pageContext.request.contextPath}/student/login')">검색하기
-        </button>
-    </div>
-    <%-- 돋보기 이미지 --%>
-    <div class="search-img">
-        <img src="<c:url value='/images/magnifier.png'/>" id="magnifier"/>
+    <div class="search">
+        <div class="btn">
+            <%-- 검색 실행 버튼 --%>
+            <button type="submit" class="btn btn-outline-secondary"
+                    onclick="search('${pageContext.request.contextPath}/student/login')">검색하기
+            </button>
+        </div>
+        <%-- 돋보기 이미지 --%>
+        <div class="search-img">
+            <img src="<c:url value='/images/magnifier.png'/>" id="magnifier"/>
+        </div>
     </div>
 </form>
-<br><br>
 
 
 <%-- 프로필 카드 for문 이용 --%>
@@ -195,7 +201,8 @@
 <div class="card mb-3" onclick="search('${pageContext.request.contextPath}/student/login')">
     <div class="row g-0">
         <div class="col-md-4">
-            <img style="border-radius: 10px;" src="https://media.istockphoto.com/vectors/teddy-bear-character-isolated-on-white-background-soft-toy-in-flat-vector-id691840414?k=20&m=691840414&s=612x612&w=0&h=f19dyCnUA0QWienuthsMdHzKEzY1RnMOYcJp8dF_iaA="
+            <img style="border-radius: 10px;"
+                 src="https://media.istockphoto.com/vectors/teddy-bear-character-isolated-on-white-background-soft-toy-in-flat-vector-id691840414?k=20&m=691840414&s=612x612&w=0&h=f19dyCnUA0QWienuthsMdHzKEzY1RnMOYcJp8dF_iaA="
                  class="img-fluid rounded-start" alt="card">
         </div>
         <div class="col-md-8">
