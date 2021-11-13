@@ -21,7 +21,6 @@ public class RequestMapping {
         // ?? uri?? ??????? controller ????? ???? ?? ????
         mappings.put("/", new ForwardController("/student/loginForm.jsp"));
         mappings.put("/student/login", new LoginController());
-        mappings.put("/student/register/form", new RegisterController());
         mappings.put("/student/register", new RegisterController());
         mappings.put("/profile/create", new CreateProfileController());
         mappings.put("/student/main", new ForwardController("/student/main.jsp"));
