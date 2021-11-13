@@ -4,7 +4,7 @@
 <head>
     <title>회원가입</title>
     <script>
-        function studentCreate() {
+        function studentCreate(targetUri) {
             if (form.name.value == "") {
                 alert("이름을 입력하세요.");
                 form.name.focus();
@@ -31,6 +31,7 @@
                 form.email.focus();
                 return false;
             }
+            form.action = targetUri;
             form.submit();
         }
     </script>
@@ -129,7 +130,7 @@
                 <td></td>
                 <td>
                     <br>
-                    <input type="button" style="width: 238px;" value="가입하기" onClick="studentCreate()">
+                    <input type="button" style="width: 238px;" value="가입하기" onClick="studentCreate('${pageContext.request.contextPath}/profile/create')">
                 </td>
             </tr>
         </table>
