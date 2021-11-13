@@ -1,3 +1,6 @@
+<%@ page import="java.util.Collection" %>
+<%@ page import="model.College" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -118,6 +121,9 @@
                 <td>
                     <br>
                     학교<br>
+                    <%
+                        
+                    %>
                     <select id="college" name="college">
                         <option value="1">동덕여자대학교</option>
                         <option value="2">학교</option>
