@@ -121,13 +121,10 @@
                 <td>
                     <br>
                     학교<br>
-                    <%
-                        
-                    %>
                     <select id="college" name="college">
-                        <option value="1">동덕여자대학교</option>
-                        <option value="2">학교</option>
-                        <option value="3">대핵교</option>
+                        <c:forEach var="col" items="${colList}">
+                            <option value="${col.c_id}">${col.c_name}</option>
+                        </c:forEach>
                     </select>
                 </td>
             </tr>
