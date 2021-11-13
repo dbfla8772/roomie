@@ -73,7 +73,7 @@
         <table>
             <tr>
                 <td rowspan="3">
-                    <img src="images/logo-font.png" id="logo"/><br>
+                    <img src="/images/logo-font.png" id="logo"/><br>
                     <span class="title" style="font-family: SBAggroB">Roomie</span>
                 </td>
                 <td width="20%">

@@ -83,7 +83,7 @@
 <div class="w-auto p-3" style="background-color: lightcyan; text-align: center;"><h4 style="font-family: SBAggroL;">당신의 루미를 찾아보세요! <button class="btn btn-outline-success" type="submit">자동매칭 하러가기</button></h4></div>
 
 <a href = "${pageContext.request.contextPath}/student/main"><h3 style="font-family: SBAggroB; float: left; padding-top: 30px; padding-left: 100px; color: black;">Roomie</h3></a>
-<img src="images/logo-font.png" id="logo" />
+<img src="/images/logo-font.png" id="logo" />
 
 <h3 style="font-family:SBAggroL; text-align: right; padding-top: 0px; margin-right:12%;">스크랩</h3>
 <div class="card-margin">
