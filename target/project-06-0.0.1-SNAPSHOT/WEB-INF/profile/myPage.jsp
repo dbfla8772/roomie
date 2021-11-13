@@ -68,7 +68,7 @@
 <body>
 
 <h3>&nbsp;Roomie</h3>
-<img src="images/logo-font.png" id="logo" />
+<img src="/images/logo-font.png" id="logo" />
 
 <br>
 <table style="width:100%">

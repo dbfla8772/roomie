@@ -75,7 +75,7 @@
 <form name="form" method="POST" action="${pageContext.request.contextPath}/student/login">
     <div class="main">
         <div class="roomie" style="font-family: SBAggroB">
-            <img src="images/logo-font.png" id="logo" /><br>
+            <img src="/images/logo-font.png" id="logo" /><br>
             Roomie
         </div>
         <div class="in">

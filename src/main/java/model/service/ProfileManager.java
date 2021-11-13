@@ -4,6 +4,7 @@ import model.Profile;
 import model.dao.ProfileDAO;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class ProfileManager {
 
@@ -39,6 +40,14 @@ public class ProfileManager {
             throw new StudentNotFoundException(studentId + "는 존재하지 않는 프로필입니다.");
         }
         return profile;
+    }
+
+    /*search 필터를 프로필 객체로 전달*/
+    public List<Profile> findProfileList(int studentId, int sleep_habit, int lifestyle, int smoking,
+                                         int cleaning, int indoor_eating, int mbti, int sharing, int habitude)
+            throws SQLException, StudentNotFoundException {
+        return profileDAO.findProfileList(studentId, sleep_habit, lifestyle, smoking,
+                cleaning, indoor_eating, mbti, sharing, habitude);
     }
 
 
