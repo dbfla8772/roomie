@@ -25,6 +25,10 @@
         html, body {
             width: auto;
             height: auto;
+            text-align: center;
+        }
+        h3 {
+            margin-left:7%;
         }
         h4 {
             font-family: SBAggroL;
@@ -34,12 +38,13 @@
             width: 70px;
         }
         .card-margin {
-            margin-left: 5%;
+            margin-left: 7%;
+            margin-right: 7%;
         }
         .mb-3 {
             float: left;
             border-radius: 10px;
-            max-width: 440px;
+            width: 40%;
             margin: 0px 5% 100px 5%;
         }
         .page-float {
@@ -80,7 +85,7 @@
 <a href = "${pageContext.request.contextPath}/student/main"><h3 style="font-family: SBAggroB; float: left; padding-top: 30px; padding-left: 100px; color: black;">Roomie</h3></a>
 <img src="images/logo-font.png" id="logo" />
 
-<h3 style="font-family:SBAggroL; text-align: right; padding-top: 0px; padding-right: 200px;">스크랩</h3>
+<h3 style="font-family:SBAggroL; text-align: right; padding-top: 0px; margin-right:12%;">스크랩</h3>
 <div class="card-margin">
     <% for (i = 1; i <= countList; i++) { %>
     <div class="card mb-3" onClick="location.href='${pageContext.request.contextPath}/student/main/detail'">

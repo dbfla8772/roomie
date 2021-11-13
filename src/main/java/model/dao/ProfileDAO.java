@@ -16,11 +16,11 @@ public class ProfileDAO {
 
     public int create(Profile profile) throws SQLException {
         String sql = "INSERT INTO PROFILE VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        Object[] param = new Object[] {profile.getS_id(), profile.getActivation(),
+        Object[] param = new Object[] {profile.getActivation(),
                 profile.getName(), profile.getPr_img(), profile.getAge(), profile.getSleep_habit(),
                 profile.getLifestyle(), profile.getSmoking(), profile.getGrade(), profile.getMajor(),
-                profile.getMbti(), profile.getCleaning(), profile.getIndoor_eating(),
-                profile.getSharing(), profile.getHabitude()};
+                profile.getCleaning(), profile.getIndoor_eating(), profile.getMbti(),
+                profile.getSharing(), profile.getHabitude(), profile.getS_id()};
         jdbcUtil.setSqlAndParameters(sql, param);	// JDBCUtil 에 insert문과 매개 변수 설정
 
         try {

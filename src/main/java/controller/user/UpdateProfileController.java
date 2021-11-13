@@ -18,6 +18,10 @@ public class UpdateProfileController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)	throws Exception {
+		// 로그인 여부 확인
+		if (!UserSessionUtils.hasLogined(request.getSession())) {
+			return "redirect:/student/login";		// login form 요청으로 redirect
+		}
 
 		if (request.getMethod().equals("GET")) {
 			// GET request: 회원정보 수정 form 요청
