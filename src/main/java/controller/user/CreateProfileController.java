@@ -34,10 +34,10 @@ public class CreateProfileController implements Controller {
 
         StudentManager student = StudentManager.getInstance();
         Student s = student.findStudent(email);
-        request.setAttribute("s_id", s.getS_id());
+        //request.setAttribute("s_id", s.getS_id());
 
         Profile createProfile = new Profile(            //생성자와 순서 맞으면 ok
-                Integer.parseInt(request.getParameter("s_id")),
+                s.getS_id(),
                 Boolean.parseBoolean(request.getParameter("activation")),
                 request.getParameter("name"),
                 Integer.parseInt(request.getParameter("pr_img")),
