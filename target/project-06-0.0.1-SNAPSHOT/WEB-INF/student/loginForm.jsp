@@ -58,7 +58,7 @@
         }
         .img {
             position: relative;
-            top: 6px;
+            top: 13px;
         }
         .btn {
             position: relative;
@@ -72,7 +72,7 @@
     <div class="main">
         <img src="images/logo-font.png" id="logo" />
         <div class="roomie">Roomie<br>루미</div>
-        <div class="in"x>
+        <div class="in">
             <input type="image" class="img" src="/images/id.png" width="20px" height="20px">
             <input type="email" size="30" name="email">
             <p/>
