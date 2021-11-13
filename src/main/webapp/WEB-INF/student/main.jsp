@@ -78,10 +78,10 @@
     </header>
     <div class="nav-scroller py-1 mb-2">
         <nav class="nav d-flex justify-content-between">
-            <a class="p-2 link-secondary" href="${pageContext.request.contextPath}/profile/mypage">마이페이지</a>
+            <a class="p-2 link-secondary" href="${pageContext.request.contextPath}/profile/myPage">마이페이지</a>
             <a class="p-2 link-secondary" href="${pageContext.request.contextPath}/scrap/view">스크랩</a>
-            <a class="p-2 link-secondary" href="${pageContext.request.contextPath}/chat/sendList">채팅</a>
-            <a class="p-2 link-secondary" href="${pageContext.request.contextPath}/profile/myroomie/view">나의루미</a>
+            <a class="p-2 link-secondary" href="${pageContext.request.contextPath}/chat/receiveList">채팅</a>
+            <a class="p-2 link-secondary" href="/WEB-INF/profile/myroomie/view.jsp">나의루미</a> <%--myRoomie controller 생성 후 수정--%>
         </nav>
     </div>
 </div>
@@ -144,7 +144,7 @@
 
 <div class="card-margin">
     <% for (i = 1; i <= countList; i++) { %>
-    <div class="card mb-3" onClick="location.href='${pageContext.request.contextPath}/student/main/detail'" style="margin-left: 130px;">
+    <div class="card mb-3" onClick="location.href='${pageContext.request.contextPath}/student/main/detail'">
         <div class="row g-0">
             <div class="col-md-4">
                 <img style="border-radius: 10px;" src="<c:url value='/images/jjang.jpg' />" class="img-fluid rounded-start" alt="...">
