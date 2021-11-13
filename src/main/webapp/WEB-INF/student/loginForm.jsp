@@ -75,7 +75,7 @@
 <form name="form" method="POST" action="${pageContext.request.contextPath}/student/login">
     <div class="main">
         <div class="roomie" style="font-family: SBAggroB">
-            <img src="images/logo-font.png" id="logo" /><br>
+            <img src="/images/logo-font.png" id="logo" /><br>
             Roomie
         </div>
         <div class="in">
@@ -86,8 +86,8 @@
             <input type="image" class="img" src="/images/password2.png" width="20px" height="20px">
             <input type="password" size="30" name="password">
             <p/>
-            <input type="button" class="btn" value="회원가입" onClick="studentCreate('${pageContext.request.contextPath}/student/register')">&nbsp;
             <input type="button" class="btn" value="로그인" onClick="login()">
+            <input type="button" class="btn" value="회원가입" onClick="studentCreate('${pageContext.request.contextPath}/student/register')">&nbsp;
         </div>
     </div>
 </form>

@@ -4,7 +4,7 @@
 <head>
     <title>회원가입</title>
     <script>
-        function studentCreate(targetUri) {
+        function studentCreate() {
             if (form.name.value == "") {
                 alert("이름을 입력하세요.");
                 form.name.focus();
@@ -31,7 +31,6 @@
                 form.email.focus();
                 return false;
             }
-            form.action = targetUri;
             form.submit();
         }
     </script>
@@ -74,7 +73,7 @@
         <table>
             <tr>
                 <td rowspan="3">
-                    <img src="images/logo-font.png" id="logo"/><br>
+                    <img src="/images/logo-font.png" id="logo"/><br>
                     <span class="title" style="font-family: SBAggroB">Roomie</span>
                 </td>
                 <td width="20%">
@@ -130,7 +129,7 @@
                 <td></td>
                 <td>
                     <br>
-                    <input type="button" style="width: 238px;" value="가입하기" onClick="studentCreate('${pageContext.request.contextPath}/profile/create')">
+                    <input type="button" style="width: 238px;" value="가입하기" onClick="studentCreate()">
                 </td>
             </tr>
         </table>
