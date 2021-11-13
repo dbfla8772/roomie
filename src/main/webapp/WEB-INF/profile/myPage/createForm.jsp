@@ -86,7 +86,7 @@
 
 <br>
 <!-- Update Form  -->
-<form name="form" method="POST" action="${pageContext.serveltContext.contextPath}/profile/create">
+<form name="form" method="POST" action="${pageContext.servletContext.contextPath}/profile/create">
     <table style="width: 100%">
         <tr>
             <td width="20"></td>
