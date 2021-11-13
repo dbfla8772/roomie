@@ -23,20 +23,21 @@ public class CreateProfileController implements Controller {
     public String execute(HttpServletRequest request, HttpServletResponse response)	throws Exception {
         String email = (String) request.getAttribute("email");
 
-        if (request.getMethod().equals("GET")) {
-            // GET request: 회원정보 등록 form 요청
-            log.debug("Create Profile Request");
-            log.debug("email 확인:" + email);
+//        if (request.getMethod().equals("GET")) {
+//            // GET request: 회원정보 등록 form 요청
+//
+//
+//            return "/profile/myPage/updateForm.jsp";
+//        }
+        log.debug("Create Profile Request");
+        log.debug("email 확인:" + email);
 
-            StudentManager student = StudentManager.getInstance();
-            Student s = student.findStudent(email);
-            request.setAttribute("s_id", s.getS_id());
-
-            return "/profile/myPage/updateForm.jsp";
-        }
+        StudentManager student = StudentManager.getInstance();
+        Student s = student.findStudent(email);
+        //request.setAttribute("s_id", s.getS_id());
 
         Profile createProfile = new Profile(            //생성자와 순서 맞으면 ok
-                Integer.parseInt(request.getParameter("s_id")),
+                s.getS_id(),
                 Boolean.parseBoolean(request.getParameter("activation")),
                 request.getParameter("name"),
                 Integer.parseInt(request.getParameter("pr_img")),
