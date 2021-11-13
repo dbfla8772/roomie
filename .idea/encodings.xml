@@ -7,6 +7,8 @@
     <file url="file://$PROJECT_DIR$/src/main/java/controller/Controller.java" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/src/main/java/controller/DispatcherServlet.java" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/src/main/java/controller/ForwardController.java" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/java/controller/user/ListProfileController.java" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/java/controller/user/LoginController.java" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/src/main/java/controller/user/RegisterController.java" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/src/main/java/controller/user/ViewProfileController.java" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/src/main/java/controller/user/ViewUserController.java" charset="x-windows-949" />
