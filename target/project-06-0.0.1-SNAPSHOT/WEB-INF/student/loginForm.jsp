@@ -52,9 +52,13 @@
         .in {
             font-size: 13px;
             float: right;
+            padding-top: 15px;
             margin-left: 20%;
             margin-right: 23%;
-            /* padding-top: 50px;*/
+        }
+        input {
+            margin: 2px;
+            padding: 5px;
         }
         .img {
             position: relative;
@@ -62,7 +66,7 @@
         }
         .btn {
             position: relative;
-            left: 120px;
+            float: right;
         }
     </style>
 </head>
@@ -70,12 +74,15 @@
 <br>
 <form name="form" method="POST" action="${pageContext.request.contextPath}/student/login">
     <div class="main">
-        <img src="images/logo-font.png" id="logo" />
-        <div class="roomie">Roomie<br>루미</div>
+        <div class="roomie" style="font-family: SBAggroB">
+            <img src="images/logo-font.png" id="logo" /><br>
+            Roomie
+        </div>
         <div class="in">
+            <br>
             <input type="image" class="img" src="/images/id.png" width="20px" height="20px">
             <input type="email" size="30" name="email">
-            <p/>
+            <br>
             <input type="image" class="img" src="/images/password2.png" width="20px" height="20px">
             <input type="password" size="30" name="password">
             <p/>

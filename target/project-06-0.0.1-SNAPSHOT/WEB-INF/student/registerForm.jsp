@@ -122,8 +122,6 @@
                         <option value="1">동덕여자대학교</option>
                         <option value="2">학교</option>
                         <option value="3">대핵교</option>
-                        <option value="4">중핵교</option>
-                        <option value="5">초등핵교</option>
                     </select>
                 </td>
             </tr>

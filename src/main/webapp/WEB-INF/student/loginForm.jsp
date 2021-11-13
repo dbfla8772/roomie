@@ -79,6 +79,7 @@
             Roomie
         </div>
         <div class="in">
+            <br>
             <input type="image" class="img" src="/images/id.png" width="20px" height="20px">
             <input type="email" size="30" name="email">
             <br>
