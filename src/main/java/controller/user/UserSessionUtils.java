@@ -10,25 +10,13 @@ public class UserSessionUtils {
     public static Object getLoginUserId(HttpSession session) {
         Object userId = session.getAttribute(USER_SESSION_KEY);
 
-        if (userId.getClass().getSimpleName().equals("String")) {
-            userId = (String)userId;
-        } else {
-            userId = (int)userId;
-        }
-
-        return userId;
+        return (String)userId;
     }
 
     public static Object getS_Id(HttpSession session) {
         Object s_id = session.getAttribute(USER_SESSION_ID);
 
-        if (s_id.getClass().getSimpleName().equals("String")) {
-            s_id = (String)s_id;
-        } else {
-            s_id = (int)s_id;
-        }
-
-        return s_id;
+        return (int)s_id;
     }
 
     /* 로그인한 상태인지를 검사 */

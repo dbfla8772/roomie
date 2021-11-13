@@ -121,9 +121,6 @@
                 <td>
                     <br>
                     학교<br>
-                    <%
-                        
-                    %>
                     <select id="college" name="college">
                         <c:forEach var="col" items="${colList}">
                             <option value="${col.c_id}">${col.c_name}</option>

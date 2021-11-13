@@ -86,6 +86,7 @@
 <img src="/images/logo-font.png" id="logo" />
 
 <h3 style="font-family:SBAggroL; text-align: right; padding-top: 0px; margin-right:12%;">스크랩</h3>
+
 <div class="card-margin">
     <% for (i = 1; i <= countList; i++) { %>
     <div class="card mb-3" onClick="location.href='${pageContext.request.contextPath}/student/main/detail'">
