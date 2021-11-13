@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 public class ScrapController implements Controller {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        int s_id = Integer.parseInt(request.getParameter("s_id"));
+        int s_id = (int) UserSessionUtils.getS_Id(request.getSession());
 
         try {
             //모델에 로그인 처리를 위임

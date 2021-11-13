@@ -3,7 +3,8 @@ package controller.user;
 import javax.servlet.http.HttpSession;
 
 public class UserSessionUtils {
-    public static final String USER_SESSION_KEY = "userId";
+    public static final String USER_SESSION_KEY = "userId";  //email
+    public static final String USER_SESSION_ID = "s_id";
 
     /* 현재 로그인한 사용자의 ID를 구함 */
     public static Object getLoginUserId(HttpSession session) {
@@ -16,6 +17,18 @@ public class UserSessionUtils {
         }
 
         return userId;
+    }
+
+    public static Object getS_Id(HttpSession session) {
+        Object s_id = session.getAttribute(USER_SESSION_ID);
+
+        if (s_id.getClass().getSimpleName().equals("String")) {
+            s_id = (String)s_id;
+        } else {
+            s_id = (int)s_id;
+        }
+
+        return s_id;
     }
 
     /* 로그인한 상태인지를 검사 */

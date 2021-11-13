@@ -25,7 +25,7 @@ public class RegisterController implements Controller {
 			log.debug("RegisterForm Request");
 
 			List<College> colList = CollegeManager.getInstance().findCollegeList();	// 커뮤니티 리스트 검색
-			request.setAttribute("commList", colList);
+			request.setAttribute("colList", colList);
 
 			return "/student/registerForm.jsp";   // 검색한 사용자 정보를 update form으로 전송
 		}
