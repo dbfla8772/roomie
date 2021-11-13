@@ -85,7 +85,7 @@
 <img src="images/logo-font.png" id="logo" />
 
 <br>
-<!-- Update Form  -->
+<!-- Create Form  -->
 <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/profile/create">
     <table style="width: 100%">
         <tr>
@@ -98,6 +98,12 @@
                 </table>
                 <br>
                 <table class="commTable">
+                    <tr height="40">
+                        <td class="commHead">이메일</td>
+                        <td class="commCell">
+                            <input type="text" readonly style="width: 240px" name="email" value="<%=(String)request.getAttribute("email")%>">
+                        </td>
+                    </tr>
                     <tr height="40">
                         <td class="commHead">닉네임</td>
                         <td class="commCell">

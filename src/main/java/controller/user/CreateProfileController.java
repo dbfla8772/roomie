@@ -21,7 +21,7 @@ public class CreateProfileController implements Controller {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response)	throws Exception {
-        String email = (String) request.getAttribute("email");
+        String email = request.getParameter("email");
 
 //        if (request.getMethod().equals("GET")) {
 //            // GET request: 회원정보 등록 form 요청
@@ -63,7 +63,7 @@ public class CreateProfileController implements Controller {
             request.setAttribute("create Profile Failed", true);
             request.setAttribute("exception", e);
             request.setAttribute("createProfile", createProfile);
-            return "/profile/myPage/updateForm.jsp";
+            return "/profile/myPage/createForm.jsp";
         }
     }
 }
