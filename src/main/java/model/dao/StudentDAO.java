@@ -52,7 +52,7 @@ public class StudentDAO {
     public Student findStudent(String email) throws SQLException {
         String sql = "SELECT s_id, s_name, email, password, c_name, gender "
                 + "FROM Student s JOIN College c ON s.c_id = c.c_id "
-                + "WHERE email= ? ";
+                + "WHERE email=? ";
         jdbcUtil.setSqlAndParameters(sql, new Object[] {email});
 
         try {

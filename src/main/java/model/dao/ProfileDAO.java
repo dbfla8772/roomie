@@ -200,11 +200,14 @@ public class ProfileDAO {
     public List<Profile> findProfileList(int s_id, int sleep_habit, int lifestyle, int smoking,
                                          int cleaning, int indoor_eating, int mbti, int sharing, int habitude)
             throws SQLException {
-        String sql = "SELECT activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, " +
+        String sql1 = "SELECT gender "
+                + "FROM PROFILE p JOIN STUDENT s ON p.s_id = s.s_id ";
+
+        String sql2 = "SELECT activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, " +
                 "major, cleaning, indoor_eating, mbti, sharing, habitude "
                 + "FROM PROFILE p JOIN STUDENT s ON p.s_id = s.s_id "
-                + "WHERE s.c_id=? AND s.gender=? AND p.activation='1'" /*where문 수정 or sql 2개로 하기 gender 고려*/
-                + "ORDER BY s_id";
+                + "WHERE s.gender=? AND p.activation='1' AND " /*where문 수정 or sql 2개로 하기 gender 고려*/
+                + "ORDER BY p.s_id";
                 /*
         int sleep_habit = searchProfile.getSleep_habit();
         int lifestyle = searchProfile.getLifestyle();
@@ -215,7 +218,7 @@ public class ProfileDAO {
         int sharing = searchProfile.getSharing();
         int habitude = searchProfile.getHabitude();*/
 
-        jdbcUtil.setSqlAndParameters(sql,
+        jdbcUtil.setSqlAndParameters(sql2,
                 new Object[] {s_id, sleep_habit, lifestyle, smoking, cleaning, indoor_eating, mbti, sharing, habitude},					// JDBCUtil에 query문 설정
                 ResultSet.TYPE_SCROLL_INSENSITIVE,				// cursor scroll 가능
                 ResultSet.CONCUR_READ_ONLY);
