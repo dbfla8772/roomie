@@ -196,6 +196,118 @@ public class ProfileDAO {
         return null;
     }
 
+    /*search 페이징 X*/
+    public List<Profile> findProfileList(int s_id, int sleep_habit, int lifestyle, int smoking,
+                                         int cleaning, int indoor_eating, int mbti, int sharing, int habitude)
+            throws SQLException {
+        String sql = "SELECT activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, " +
+                "major, cleaning, indoor_eating, mbti, sharing, habitude "
+                + "FROM PROFILE p JOIN STUDENT s ON p.s_id = s.s_id "
+                + "WHERE s.c_id=? AND s.gender=? AND p.activation='1'" /*where문 수정 or sql 2개로 하기 gender 고려*/
+                + "ORDER BY s_id";
+                /*
+        int sleep_habit = searchProfile.getSleep_habit();
+        int lifestyle = searchProfile.getLifestyle();
+        int smoking = searchProfile.getSmoking();
+        int cleaning = searchProfile.getCleaning();
+        int indoor_eating = searchProfile.getIndoor_eating();
+        int mbti = searchProfile.getMbti();
+        int sharing = searchProfile.getSharing();
+        int habitude = searchProfile.getHabitude();*/
+
+        jdbcUtil.setSqlAndParameters(sql,
+                new Object[] {s_id, sleep_habit, lifestyle, smoking, cleaning, indoor_eating, mbti, sharing, habitude},					// JDBCUtil에 query문 설정
+                ResultSet.TYPE_SCROLL_INSENSITIVE,				// cursor scroll 가능
+                ResultSet.CONCUR_READ_ONLY);
+
+        try {
+            ResultSet rs = jdbcUtil.executeQuery();			// query 실행
+            List<Profile> profileList = new ArrayList<Profile>();	// Profile들의 리스트 생성
+            while (rs.next()) {
+                Profile profile = new Profile(			// Profile 객체를 생성하여 현재 행의 정보를 저장
+                        rs.getInt("s_id"),
+                        rs.getBoolean("activation"),
+                        rs.getString("name"),
+                        rs.getInt("pr_img"),
+                        rs.getInt("age"),
+                        rs.getInt("sleep"),
+                        rs.getInt("lifestyle"),
+                        rs.getInt("smoking"),
+                        rs.getInt("grade"),
+                        rs.getString("major"),
+                        rs.getInt("cleaning"),
+                        rs.getInt("indoor_eating"),
+                        rs.getInt("mbti"),
+                        rs.getInt("sharing"),
+                        rs.getInt("habitude"));
+                profileList.add(profile);				// List에 Profile 객체 저장
+            }
+            return profileList;
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            jdbcUtil.close();		// resource 반환
+        }
+        return null;
+    }
+
+    /*search 페이징*/
+    public List<Profile> findUserList(int currentPage, int countPerPage, Profile searchProfile, int gender)
+            throws SQLException {
+        String sql = "SELECT activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, " +
+                "major, cleaning, indoor_eating, mbti, sharing, habitude "
+                + "FROM PROFILE p JOIN STUDENT s ON p.s_id = s.s_id "
+                + "WHERE s.c_id=? AND s.gender=? " /*where문 수정*/
+                + "ORDER BY s_id";
+        int sleep_habit = searchProfile.getSleep_habit();
+        int lifestyle = searchProfile.getLifestyle();
+        int smoking = searchProfile.getSmoking();
+        int cleaning = searchProfile.getCleaning();
+        int indoor_eating = searchProfile.getIndoor_eating();
+        int mbti = searchProfile.getMbti();
+        int sharing = searchProfile.getSharing();
+        int habitude = searchProfile.getHabitude();
+
+        jdbcUtil.setSqlAndParameters(sql,
+                new Object[] {sleep_habit, lifestyle, smoking, cleaning, indoor_eating, mbti, sharing, habitude, gender},					// JDBCUtil에 query문 설정
+                ResultSet.TYPE_SCROLL_INSENSITIVE,				// cursor scroll 가능
+                ResultSet.CONCUR_READ_ONLY);
+
+        try {
+            ResultSet rs = jdbcUtil.executeQuery();				// query 실행
+            int start = ((currentPage-1) * countPerPage) + 1;	// 출력을 시작할 행 번호 계산
+            if ((start >= 0) && rs.absolute(start)) {			// 커서를 시작 행으로 이동
+                List<Profile> profileList = new ArrayList<Profile>();	// Profile들의 리스트 생성
+                do {
+                    Profile profile = new Profile(			// Profile 객체를 생성하여 현재 행의 정보를 저장
+                            rs.getInt("s_id"),
+                            rs.getBoolean("activation"),
+                            rs.getString("name"),
+                            rs.getInt("pr_img"),
+                            rs.getInt("age"),
+                            rs.getInt("sleep"),
+                            rs.getInt("lifestyle"),
+                            rs.getInt("smoking"),
+                            rs.getInt("grade"),
+                            rs.getString("major"),
+                            rs.getInt("cleaning"),
+                            rs.getInt("indoor_eating"),
+                            rs.getInt("mbti"),
+                            rs.getInt("sharing"),
+                            rs.getInt("habitude"));
+                    profileList.add(profile);							// 리스트에 Profile 객체 저장
+                } while ((rs.next()) && (--countPerPage > 0));
+                return profileList;
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            jdbcUtil.close();		// resource 반환
+        }
+        return null;
+    }
+
     /**
      * 특정 필터 사용자들을 검색하여 List에 저장 및 반환
      */
