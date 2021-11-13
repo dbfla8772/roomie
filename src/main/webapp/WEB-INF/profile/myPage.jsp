@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>커뮤니티 관리</title>
+    <title>마이 페이지</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <style>
         @font-face {
@@ -176,3 +176,4 @@
 </table>
 </body>
 </html>
+
