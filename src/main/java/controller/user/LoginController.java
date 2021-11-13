@@ -25,6 +25,7 @@ public class LoginController implements Controller {
 			// 세션에 사용자 아이디 저장
 			HttpSession session = request.getSession();
 			session.setAttribute(UserSessionUtils.USER_SESSION_KEY, email);
+			session.setAttribute(UserSessionUtils.USER_SESSION_ID, s.getS_id());
 
 			return "redirect:/student/main";
 		} catch (Exception e) {
