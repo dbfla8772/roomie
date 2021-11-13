@@ -86,7 +86,7 @@
 
 <br>
 <!-- Update Form  -->
-<form name="form" method="POST" action="${pageContext.serveltContext.contextPath}/profile/update">
+<form name="form" method="POST" action="${pageContext.servletContext.contextPath}/profile/update">
     <input type="hidden" name="s_id" value="${profile.s_id}"/>
     <table style="width: 100%">
         <tr>
@@ -100,7 +100,7 @@
                 <br>
                 <table class="commTable">
                     <tr height="40">
-                        <td class="commHead">이름</td>
+                        <td class="commHead">닉네임</td>
                         <td class="commCell">
                             <input type="text" style="width: 240px" name="name" value="${profile.name}">
                         </td>
@@ -132,11 +132,13 @@
                         <td class="commHead">잠버릇</td>
                         <td class="commCell">
                             <input type="radio" name="sleep_habit" value="0"
-                            <c:if test="${profile.sleep_habit eq '0'}"> checked </c:if>>코골이
+                            <c:if test="${profile.sleep_habit eq '0'}"> checked </c:if>>없음
                             <input type="radio" name="sleep_habit" value="1"
-                            <c:if test="${profile.sleep_habit eq '1'}"> checked </c:if>>이갈이
+                            <c:if test="${profile.sleep_habit eq '1'}"> checked </c:if>>코골이
                             <input type="radio" name="sleep_habit" value="2"
-                            <c:if test="${profile.sleep_habit eq '2'}"> checked </c:if>>몽유병
+                            <c:if test="${profile.sleep_habit eq '2'}"> checked </c:if>>이갈이
+                            <input type="radio" name="sleep_habit" value="3"
+                            <c:if test="${profile.sleep_habit eq '3'}"> checked </c:if>>몽유병
                         </td>
                     </tr>
                     <tr height="40">
