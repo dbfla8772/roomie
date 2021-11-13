@@ -21,14 +21,16 @@ public class CreateProfileController implements Controller {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response)	throws Exception {
-        String email = request.getParameter("email");
+        String email = (String) request.getAttribute("email");
 
         if (request.getMethod().equals("GET")) {
             // GET request: 회원정보 등록 form 요청
             log.debug("Create Profile Request");
+            log.debug("email 확인:" + email);
 
-            Student student = StudentManager.getInstance().findStudent(email);
-            request.setAttribute("s_id", student.getS_id());
+            StudentManager student = StudentManager.getInstance();
+            Student s = student.findStudent(email);
+            request.setAttribute("s_id", s.getS_id());
 
             return "/profile/myPage/updateForm.jsp";
         }
