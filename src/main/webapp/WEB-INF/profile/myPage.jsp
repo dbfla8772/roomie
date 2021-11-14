@@ -7,9 +7,9 @@
     <title>마이 페이지</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <script>
-        function btnupdate(targetUri) {
+        function update() {/*
             form.action = targetUri;
-            form.method = "GET";      //register form 요청
+            form.method = "POST";  */    //register form 요청
             form.submit();
         }
     </script>
@@ -171,13 +171,9 @@
                 </tr>
             </table>
             <br>
-            <form name="form" method="POST" action="${pageContext.request.contextPath}/student/main">
-                <input type="hidden" name="s_id" value='${profile.s_id}'>
-                <button type="submit" class="button" value="수정하기"
-                        onclick="update('${pageContext.serveltContext.contextPath}/profile/update');">
-                </button>
-                <button type="button" class="button" value="메인으로" onclick="main()">
-                </button>
+            <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/profile/update">
+                <input type="hidden" name="s_id" value="${profile.s_id}">
+                <input type="button" class="button" value="수정하기" onclick="update()">
             </form>
             <br><br>
 
