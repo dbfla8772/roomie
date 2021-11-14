@@ -31,8 +31,9 @@ public class ScrapController implements Controller {
             return "/scrap/view.jsp";
         }
 
+        /* post */
         try {
-            //모델에 로그인 처리를 위임
+            //스크랩 버튼 눌렀을 때
             ProfileManager manager = ProfileManager.getInstance();
             Profile profile = manager.findProfile(s_id);	// 스크랩하려는 사용자 정보 검색
             Scrap s = new Scrap(profile.getS_id(), Integer.parseInt(request.getParameter("sc_id")));
