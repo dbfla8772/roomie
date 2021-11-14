@@ -4,11 +4,14 @@ import controller.Controller;
 import model.Profile;
 import model.service.ProfileManager;
 import model.service.StudentNotFoundException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class ViewProfileController implements Controller {
+	private static final Logger log = LoggerFactory.getLogger(ViewProfileController.class);
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {			
     	// 로그인 여부 확인
@@ -19,6 +22,7 @@ public class ViewProfileController implements Controller {
 		ProfileManager manager = ProfileManager.getInstance();
 
 		int userId = Integer.parseInt(request.getParameter("s_id"));
+		log.debug("s_id확인: " + userId);
 
     	Profile profile = null;
     	try {

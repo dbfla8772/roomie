@@ -49,9 +49,6 @@
             f.method="POST";
             f.submit();
         }
-        $(".card mb-3").click(function () {
-            card_click('${pageContext.request.contextPath}/student/main/detail');
-        })
     </script>
 </head>
 <body>
@@ -83,11 +80,11 @@
 </div>
 
 <%profileList = (List<Profile>) request.getAttribute("profileList");%>
-<c:forEach var="profile" items="${profileList}">
-    <form name="form">
+<form name="form">
+    <c:forEach var="profile" items="${profileList}">
         <input type="hidden" name="s_id" value="${profile.s_id}"/>
         <div class="card-margin">
-            <div class="card mb-3" style="border-radius: 10px; max-width: 600px;">
+            <div class="card mb-3" style="border-radius: 10px; max-width: 600px;" onclick="card_click('${pageContext.request.contextPath}/student/main/detail')">
                 <div class="row g-0">
                     <div class="col-md-4">
                         <img style="border-radius: 10px;" src="<c:url value='/images/jjang.jpg' />" class="img-fluid rounded-start" alt="...">
@@ -102,9 +99,8 @@
                 </div>
             </div>
         </div>
-    </form>
-</c:forEach>
-
+    </c:forEach>
+</form>
 <%--    int totalCount;--%>
 <%--    int countList;--%>
 <%--    int totalPage;--%>
