@@ -1,7 +1,7 @@
 <%@ page import="model.Profile" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%! Profile profile; %>
+<%! Profile profile; String img_url, smoking, sharing, lifestyle, grade, habitude, sleep_habit, cleaning, indoor_eating, mbti; %>
 <html>
 <head>
     <title>detail profile</title>
@@ -94,13 +94,111 @@
     <a href="${pageContext.request.contextPath}/student/main"><h3>Roomie</h3></a>
     <img src="/images/logo-font.png" id="logo"/>
 </div>
-<% profile = (Profile) request.getAttribute("profile"); %>
+<% profile = (Profile) request.getAttribute("profile");
+    img_url = "/images/";
+    if (profile.getPr_img()==0)
+        img_url += "man1.jpg";
+    else if (profile.getPr_img()==1)
+        img_url += "man2.jpg";
+    else if (profile.getPr_img()==2)
+        img_url += "woman1.jpg";
+    else
+        img_url += "woman2.jpg";
+
+    if (profile.getSmoking()==0)
+        smoking = "O";
+    else
+        smoking = "X";
+
+    if (profile.getSharing()==0)
+        sharing = "O";
+    else
+
+        sharing = "X";
+    if (profile.getLifestyle()==0)
+        lifestyle = "아침형";
+    else
+        lifestyle = "저녁형";
+
+    if (profile.getGrade()==0)
+        grade = "1학년";
+    else if (profile.getGrade()==1)
+        grade = "2학년";
+    else if (profile.getGrade()==2)
+        grade = "3학년";
+    else if (profile.getGrade()==3)
+        grade = "4학년";
+
+    if (profile.getHabitude()==0)
+        habitude = "추위를 탐";
+    else if (profile.getHabitude()==1)
+        habitude = "더위를 탐";
+    else
+        habitude = "둘 다 안 탐";
+
+    if (profile.getSleep_habit()==0)
+        sleep_habit = "코골이";
+    else if (profile.getSleep_habit()==1)
+        sleep_habit = "이갈이";
+    else
+        sleep_habit = "몽유병";
+
+    if (profile.getCleaning()==0)
+        cleaning = "매일";
+    else if (profile.getCleaning()==1)
+        cleaning = "3일";
+    else if (profile.getCleaning()==2)
+        cleaning = "1주";
+    else
+        cleaning = "2주";
+
+    if (profile.getIndoor_eating()==0)
+        indoor_eating = "냄새나는 음식도 가능";
+    else if (profile.getIndoor_eating()==0)
+        indoor_eating = "냄새 안 나는 음식만 가능";
+    else
+        indoor_eating = "불가능";
+
+    if (profile.getMbti()==0)
+        mbti = "ENFJ";
+    else if (profile.getMbti()==1)
+        mbti = "ENFP";
+    else if (profile.getMbti()==2)
+        mbti = "ENTJ";
+    else if (profile.getMbti()==3)
+        mbti = "ENTP";
+    else if (profile.getMbti()==4)
+        mbti = "ESFJ";
+    else if (profile.getMbti()==5)
+        mbti = "ESFP";
+    else if (profile.getMbti()==6)
+        mbti = "ESTJ";
+    else if (profile.getMbti()==7)
+        mbti = "ESTP";
+    else if (profile.getMbti()==8)
+        mbti = "INFJ";
+    else if (profile.getMbti()==9)
+        mbti = "INFP";
+    else if (profile.getMbti()==10)
+        mbti = "INTJ";
+    else if (profile.getMbti()==11)
+        mbti = "INTP";
+    else if (profile.getMbti()==12)
+        mbti = "ISFJ";
+    else if (profile.getMbti()==13)
+        mbti = "ISFP";
+    else if (profile.getMbti()==14)
+        mbti = "ISTJ";
+    else
+        mbti = "ISTP";
+%>
 
 <div align="center">
     <table style="border-radius: 10px; align: center; margin-top: 50px;">
         <tr>
-            <td colspan="2" rowspan="2"><img style="border-radius: 10px; width:300px; height:400px;"
-                                             src="<c:url value='/images/jjang.jpg' />"/></td>
+            <td colspan="2" rowspan="2">
+                <img style="border-radius: 10px; width:300px; height:400px;" src="<%=img_url%>"/>
+            </td>
             <td width="100"></td>
             <td colspan="2"
                 style="width:400px; text-align: center; font-size: x-large; font-weight: 800; padding-top: 5px;">프로필 옵션
@@ -112,8 +210,12 @@
             <td width="400" rowspan="3">
                 <table style="font-size: large; width:400px;">
                     <tr>
+                        <td>닉네임</td>
+                        <td>: &emsp;&emsp;&emsp;${profile.name}</td>
+                    </tr>
+                    <tr>
                         <td>흡연유무</td>
-                        <td>: &emsp;&emsp;&emsp;${profile.smoking}</td>
+                        <td>: &emsp;&emsp;&emsp;<%=smoking%></td>
                     </tr>
                     <tr>
                         <td>전공</td>
@@ -121,27 +223,27 @@
                     </tr>
                     <tr>
                         <td>생필품 공유</td>
-                        <td>: &emsp;&emsp;&emsp;${profile.sharing}</td>
+                        <td>: &emsp;&emsp;&emsp;<%=sharing%></td>
                     </tr>
                     <tr>
                         <td>생활 패턴</td>
-                        <td>: &emsp;&emsp;&emsp;${profile.lifestyle}</td>
+                        <td>: &emsp;&emsp;&emsp;<%=lifestyle%></td>
                     </tr>
                     <tr>
                         <td>학년</td>
-                        <td>: &emsp;&emsp;&emsp;${profile.grade}</td>
+                        <td>: &emsp;&emsp;&emsp;<%=grade%></td>
                     </tr>
                     <tr>
                         <td>체질</td>
-                        <td>: &emsp;&emsp;&emsp;${profile.habitude}</td>
+                        <td>: &emsp;&emsp;&emsp;<%=habitude%></td>
                     </tr>
                     <tr>
                         <td>잠버릇</td>
-                        <td>: &emsp;&emsp;&emsp;${profile.sleep_habit}</td>
+                        <td>: &emsp;&emsp;&emsp;<%=sleep_habit%></td>
                     </tr>
                     <tr>
                         <td>청소 주기</td>
-                        <td>: &emsp;&emsp;&emsp;${profile.cleaning}</td>
+                        <td>: &emsp;&emsp;&emsp;<%=cleaning%></td>
                     </tr>
                     <tr>
                         <td>나이</td>
@@ -149,7 +251,11 @@
                     </tr>
                     <tr>
                         <td>실내취식</td>
-                        <td>: &emsp;&emsp;&emsp;${profile.indoor_eating}</td>
+                        <td>: &emsp;&emsp;&emsp;<%=indoor_eating%></td>
+                    </tr>
+                    <tr>
+                        <td>MBTI</td>
+                        <td>: &emsp;&emsp;&emsp;<%=mbti%></td>
                     </tr>
                 </table>
             </td>
