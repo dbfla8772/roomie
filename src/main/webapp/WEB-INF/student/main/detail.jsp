@@ -261,7 +261,13 @@
         </tr>
         <tr>
             <td align="center">
+                <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/scrap/view">
+                    <input type="hidden" name="sc_id" value="${profile.s_id}">
+                    <input type="submit" class="button" value="스크랩">
+                </form>
+<%--
                 <button class="button" name="sc_id" value="${profile.s_id}" type="submit" onClick="location.href='/scrap/view'">스크랩</button>
+--%>
             </td>
             <td align="center">
                 <button class="button">쪽지</button>
