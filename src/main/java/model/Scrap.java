@@ -6,8 +6,7 @@ public class Scrap {
     private int scrap_id;  //scrap된 학생의 id
 
     public Scrap() {}
-    public Scrap(int sc_id, int s_id, int scrap_id) {
-        this.sc_id = sc_id;
+    public Scrap(int s_id, int scrap_id) {
         this.s_id = s_id;
         this.scrap_id = scrap_id;
     }

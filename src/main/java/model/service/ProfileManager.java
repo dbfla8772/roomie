@@ -42,6 +42,10 @@ public class ProfileManager {
         return profile;
     }
 
+    public List<Profile> findUserList(int c_id, int gender) throws SQLException, StudentNotFoundException {
+        return profileDAO.findUserList(1, 10, c_id, gender);
+    }
+
     /*search 필터를 프로필 객체로 전달*/
     public List<Profile> findProfileList(int studentId, int sleep_habit, int lifestyle, int smoking,
                                          int cleaning, int indoor_eating, int mbti, int sharing, int habitude)

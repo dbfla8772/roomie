@@ -36,7 +36,7 @@ public class RegisterController implements Controller {
 				request.getParameter("email"),
 				request.getParameter("password"),
 				Integer.parseInt(request.getParameter("gender")),
-				request.getParameter("college"));
+				Integer.parseInt(request.getParameter("college")));
 
 		log.debug("Create Student : {}", student);
 		String email = request.getParameter("email");

@@ -38,7 +38,7 @@ public class ProfileDAO {
 
     public int update(Profile profile) throws SQLException {
         String sql = "UPDATE PROFILE "
-                + "SET activation=?, name=?, pr_img=?, age=?, sleep=?, lifestyle=?, smoking=?, grade=?, " +
+                + "SET activation=?, name=?, pr_img=?, age=?, sleep_habit=?, lifestyle=?, smoking=?, grade=?, " +
                 "major=?, mbti=?, cleaning=?, indoor_eating=?, sharing=?, habitude=?"
                 + "WHERE s_id=?";
         Object[] param = new Object[] {profile.getActivation(),
@@ -69,7 +69,7 @@ public class ProfileDAO {
      * 저장하여 반환.
      */
     public Profile findProfile(int s_Id) throws SQLException {
-        String sql = "SELECT activation, name, pr_img, age, sleep, lifestyle, smoking, grade, " +
+        String sql = "SELECT activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, " +
                 "major, mbti, cleaning, indoor_eating, sharing, habitude "
                 + "FROM PROFILE "
                 + "WHERE s_id=? ";
@@ -109,7 +109,7 @@ public class ProfileDAO {
      * 해당 학교 전체 사용자 정보를 검색하여 List에 저장 및 반환
      */
     public List<Profile> findProfileList(int c_Id, int gender) throws SQLException {
-        String sql = "SELECT activation, name, pr_img, age, sleep, lifestyle, smoking, grade, " +
+        String sql = "SELECT s_id, activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, " +
                 "major, mbti, cleaning, indoor_eating, sharing, habitude "
                 + "FROM PROFILE p JOIN STUDENT s ON p.s_id = s.s_id "
                 + "WHERE s.c_id=? AND s.gender=? "
@@ -126,7 +126,7 @@ public class ProfileDAO {
                         rs.getString("name"),
                         rs.getInt("pr_img"),
                         rs.getInt("age"),
-                        rs.getInt("sleep"),
+                        rs.getInt("sleep_habit"),
                         rs.getInt("lifestyle"),
                         rs.getInt("smoking"),
                         rs.getInt("grade"),
@@ -153,11 +153,11 @@ public class ProfileDAO {
      * 해당하는 사용자 정보만을 List에 저장하여 반환.
      */
     public List<Profile> findUserList(int currentPage, int countPerPage, int c_Id, int gender) throws SQLException {
-        String sql = "SELECT activation, name, pr_img, age, sleep, lifestyle, smoking, grade, " +
-                "major, mbti, cleaning, indoor_eating, sharing, habitude "
+        String sql = "SELECT activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, " +
+                "major, cleaning, indoor_eating, mbti, sharing, habitude, p.s_id "
                 + "FROM PROFILE p JOIN STUDENT s ON p.s_id = s.s_id "
                 + "WHERE s.c_id=? AND s.gender=? "
-                + "ORDER BY s_id";
+                + "ORDER BY p.s_id";
         jdbcUtil.setSqlAndParameters(sql, new Object[] {c_Id, gender},					// JDBCUtil에 query문 설정
                 ResultSet.TYPE_SCROLL_INSENSITIVE,				// cursor scroll 가능
                 ResultSet.CONCUR_READ_ONLY);
@@ -174,7 +174,7 @@ public class ProfileDAO {
                             rs.getString("name"),
                             rs.getInt("pr_img"),
                             rs.getInt("age"),
-                            rs.getInt("sleep"),
+                            rs.getInt("sleep_habit"),
                             rs.getInt("lifestyle"),
                             rs.getInt("smoking"),
                             rs.getInt("grade"),

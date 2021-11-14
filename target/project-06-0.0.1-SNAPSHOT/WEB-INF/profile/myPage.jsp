@@ -1,6 +1,7 @@
 <%@page contentType="text/html; charset=utf-8" %>
 <%@page import="model.*" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%! Profile profile; %>
 <html>
 <head>
     <title>마이 페이지</title>
@@ -69,7 +70,7 @@
 
 <h3>&nbsp;Roomie</h3>
 <img src="/images/logo-font.png" id="logo" />
-
+<% profile = (Profile) request.getAttribute("profile");%>
 <br>
 <table style="width:100%">
     <tr>
@@ -151,26 +152,27 @@
                 <tr>
                     <td class="commHead">생필품 공유여부</td>
                     <td class="commCell">
-                        ${community.sharing}
+                        ${profile.sharing}
                     </td>
                 </tr>
                 <tr>
                     <td class="commHead">체질</td>
                     <td class="commCell">
-                        ${community.habitude}
+                        ${profile.habitude}
                     </td>
                 </tr>
             </table>
             <br>
-            <a href="${pageContext.serveltContext.contextPath}/profile/update">
-                <c:param name='s_id' value='${profile.s_id}'/>수정하기</a> &nbsp;
-            <a href="${pageContext.serveltContext.contextPath}/student/main">메인으로</a>
+            <a href="${pageContext.servletContext.contextPath}/profile/update">
+<%--                <c:param name='s_id' value='${profile.s_id}'/>--%>
+                수정하기</a> &nbsp;
+            <a href="${pageContext.servletContext.contextPath}/student/main">메인으로</a>
             <br><br>
 
             <!-- 수정이 실패한 경우 exception 객체에 저장된 오류 메시지를 출력 -->
-            <c:if test="${updateFailed}">
-                <font color="red"><c:out value="${exception.getMessage()}" /></font>
-            </c:if>
+<%--            <c:if test="${updateFailed}">--%>
+<%--                <font color="red"><c:out value="${exception.getMessage()}" /></font>--%>
+<%--            </c:if>--%>
         </td>
     </tr>
 </table>

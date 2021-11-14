@@ -1,5 +1,10 @@
+<%@ page import="model.Profile" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%!
+    List<Profile> scrapList;
+%>
 <html>
 <head>
     <title>스크랩 목록</title>
@@ -80,34 +85,32 @@
     }
 %>
 
-<div class="w-auto p-3" style="background-color: lightcyan; text-align: center;"><h4 style="font-family: SBAggroL;">당신의 루미를 찾아보세요! <button class="btn btn-outline-success" type="submit">자동매칭 하러가기</button></h4></div>
+<div class="w-auto p-2" style="background-color: lightcyan; text-align: center;"><h4 style="font-family: SBAggroL;">당신의 루미를 찾아보세요! <button class="btn btn-outline-success" type="submit">자동매칭 하러가기</button></h4></div>
 
 <a href = "${pageContext.request.contextPath}/student/main"><h3 style="font-family: SBAggroB; float: left; padding-top: 30px; padding-left: 100px; color: black;">Roomie</h3></a>
 <img src="/images/logo-font.png" id="logo" />
 
 <h3 style="font-family:SBAggroL; text-align: right; padding-top: 0px; margin-right:12%;">스크랩</h3>
 
-<div class="card-margin">
-    <% for (i = 1; i <= countList; i++) { %>
-    <div class="card mb-3" onClick="location.href='${pageContext.request.contextPath}/student/main/detail'">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img style="border-radius: 10px;" src="<c:url value='/images/jjang.jpg' />" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">짱구</h5>
-                    <p class="card-text">전공: 컴퓨터학과&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <br>나이: 21&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
-                    <p class="card-text"><small class="text-muted"></small></p>
+<%scrapList = (List<Profile>) request.getAttribute("scrapList");%>
+<c:forEach var="profile" items="${profileList}">
+    <div class="card-margin">
+        <div class="card mb-3" style="border-radius: 10px; max-width: 600px;" onClick="location.href='/student/main/detail'">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img style="border-radius: 10px;" src="<c:url value='/images/jjang.jpg' />" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">${profile.name}</h5>
+                        <p class="card-text">전공: ${profile.major}&emsp;&emsp;&emsp;&emsp;&emsp; <br>나이: ${profile.age}&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
+                        <p class="card-text"><small class="text-muted"></small></p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <%
-        }
-    %>
-</div>
-<br>
+</c:forEach>
 <div class="page-float">
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
