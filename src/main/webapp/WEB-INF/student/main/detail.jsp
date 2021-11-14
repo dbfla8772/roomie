@@ -1,5 +1,7 @@
+<%@ page import="model.Profile" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%! Profile profile; %>
 <html>
 <head>
     <title>detail profile</title>
@@ -92,6 +94,7 @@
     <a href="${pageContext.request.contextPath}/student/main"><h3>Roomie</h3></a>
     <img src="images/logo-font.png" id="logo"/>
 </div>
+<% profile = (Profile) request.getAttribute("profile"); %>
 
 <div align="center">
     <table style="border-radius: 10px; align: center; margin-top: 50px;">
@@ -110,50 +113,50 @@
                 <table style="font-size: large; width:400px;">
                     <tr>
                         <td>흡연유무</td>
-                        <td>: &emsp;&emsp;&emsp;Y</td>
+                        <td>: &emsp;&emsp;&emsp;${profile.smoking}</td>
                     </tr>
                     <tr>
                         <td>전공</td>
-                        <td>: &emsp;&emsp;&emsp;컴퓨터학과</td>
+                        <td>: &emsp;&emsp;&emsp;${profile.major}</td>
                     </tr>
                     <tr>
                         <td>생필품 공유</td>
-                        <td>: &emsp;&emsp;&emsp;Y</td>
+                        <td>: &emsp;&emsp;&emsp;${profile.sharing}</td>
                     </tr>
                     <tr>
                         <td>생활 패턴</td>
-                        <td>: &emsp;&emsp;&emsp;아침형</td>
+                        <td>: &emsp;&emsp;&emsp;${profile.lifestyle}</td>
                     </tr>
                     <tr>
                         <td>학년</td>
-                        <td>: &emsp;&emsp;&emsp;3</td>
+                        <td>: &emsp;&emsp;&emsp;${profile.grade}</td>
                     </tr>
                     <tr>
                         <td>체질</td>
-                        <td>: &emsp;&emsp;&emsp;더위 탐</td>
+                        <td>: &emsp;&emsp;&emsp;더위 탐${profile.habitude}</td>
                     </tr>
                     <tr>
                         <td>잠버릇</td>
-                        <td>: &emsp;&emsp;&emsp;Y</td>
+                        <td>: &emsp;&emsp;&emsp;${profile.sleep_habit}</td>
                     </tr>
                     <tr>
                         <td>청소 주기</td>
-                        <td>: &emsp;&emsp;&emsp;매일</td>
+                        <td>: &emsp;&emsp;&emsp;${profile.cleaning}</td>
                     </tr>
                     <tr>
                         <td>나이</td>
-                        <td>: &emsp;&emsp;&emsp;21</td>
+                        <td>: &emsp;&emsp;&emsp;21${profile.age}</td>
                     </tr>
                     <tr>
                         <td>실내취식</td>
-                        <td>: &emsp;&emsp;&emsp;Y</td>
+                        <td>: &emsp;&emsp;&emsp;${profile.indoor_eating}</td>
                     </tr>
                 </table>
             </td>
         </tr>
         <tr>
             <td align="center">
-                <button class="button">스크랩</button>
+                <button class="button" name="sc_id" value="${profile.s_id}" type="submit" onClick="location.href='/scrap/view'">스크랩</button>
             </td>
             <td align="center">
                 <button class="button">쪽지</button>

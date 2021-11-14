@@ -17,7 +17,7 @@ public class ScrapDAO {
     }
 
     public int create(Scrap scrap) throws SQLException {
-        String sql = "INSERT INTO myroomie VALUES(IDSEQ.nextval, ?, ?)";
+        String sql = "INSERT INTO scrap VALUES(SCRAPSEQ.nextval, ?, ?)";
         Object[] param = new Object[] {scrap.getS_id(), scrap.getScrap_id()};
         jdbcUtil.setSqlAndParameters(sql, param);
 
@@ -71,7 +71,7 @@ public class ScrapDAO {
     }
 
     public List<Profile> findScarpList() throws SQLException {
-        String sql = "SELECT scrap_id, activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, major, mbti, cleaning, indoor_eation, sharting, habitude "
+        String sql = "SELECT scrap_id, activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, major, mbti, cleaning, indoor_eating, sharing, habitude "
                 + "FROM scrap s JOIN profile p ON s.scrap_id=p.s_id "
                 + "ORDER BY sc_id DESC";
         jdbcUtil.setSqlAndParameters(sql, null);
@@ -93,8 +93,8 @@ public class ScrapDAO {
                         rs.getString("major"),
                         rs.getInt("mbti"),
                         rs.getInt("cleaning"),
-                        rs.getInt("indoor_eation"),
-                        rs.getInt("sharting"),
+                        rs.getInt("indoor_eating"),
+                        rs.getInt("sharing"),
                         rs.getInt("habitude"));
                 ScrapList.add(scrap);				// List에 User 객체 저장
             }

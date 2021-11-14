@@ -23,7 +23,7 @@ public class RequestMapping {
         mappings.put("/student/login", new LoginController());
         mappings.put("/student/register", new RegisterController());
         mappings.put("/profile/create", new CreateProfileController());
-        mappings.put("/student/main", new ForwardController("/student/main.jsp"));
+        mappings.put("/student/main", new ListProfileController());
         mappings.put("/profile/update", new UpdateProfileController());
         mappings.put("/student/search", new SearchProfileController());
         mappings.put("/student/automatch", new AutoMatchController());
@@ -32,7 +32,7 @@ public class RequestMapping {
         mappings.put("/chat/send", new ChatController());
         mappings.put("/chat/sendList", new ChatController());
         mappings.put("/chat/receiveList", new ChatController());
-        mappings.put("/profile/mypage", new ForwardController("/profile/myPage.jsp"));
+        mappings.put("/profile/myPage", new myPageController());
 
 
         // ????? ???? ???? ?? ????? ???? ??? ??? ????
