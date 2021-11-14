@@ -255,7 +255,7 @@
                     </tr>
                     <tr>
                         <td>MBTI</td>
-                        <td>: &emsp;&emsp;&emsp;<%=mbti%>></td>
+                        <td>: &emsp;&emsp;&emsp;<%=mbti%></td>
                     </tr>
                 </table>
             </td>
