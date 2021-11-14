@@ -43,7 +43,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
         function card_click(targetUri) {
-            //alert("detail 가고싶다삥뿡");
             const f = document.form;
 
             f.action = targetUri;
@@ -83,7 +82,7 @@
 <%profileList = (List<Profile>) request.getAttribute("profileList");%>
 <form name="form">
     <c:forEach var="profile" items="${profileList}">
-        <input type="hidden" name="s_id" value="${profile.s_id}"/>
+        <input type="hidden" name="s_id" value="${Integer.parseInt(profile.s_id)}"/>
         <div class="card-margin">
             <div class="card mb-3" style="border-radius: 10px; max-width: 600px;" onclick="card_click('${pageContext.request.contextPath}/student/main/detail')">
                 <div class="row g-0">
