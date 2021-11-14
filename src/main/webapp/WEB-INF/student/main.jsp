@@ -100,7 +100,6 @@
                 </div>
             </div>
         </div>
-    </form>
 </c:forEach>
 
 <%--    int totalCount;--%>

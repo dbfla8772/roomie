@@ -133,7 +133,7 @@
                     </tr>
                     <tr>
                         <td>체질</td>
-                        <td>: &emsp;&emsp;&emsp;더위 탐${profile.habitude}</td>
+                        <td>: &emsp;&emsp;&emsp;${profile.habitude}</td>
                     </tr>
                     <tr>
                         <td>잠버릇</td>
@@ -145,7 +145,7 @@
                     </tr>
                     <tr>
                         <td>나이</td>
-                        <td>: &emsp;&emsp;&emsp;21${profile.age}</td>
+                        <td>: &emsp;&emsp;&emsp;${profile.age}</td>
                     </tr>
                     <tr>
                         <td>실내취식</td>
