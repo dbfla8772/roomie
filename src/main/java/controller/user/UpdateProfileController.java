@@ -34,9 +34,10 @@ public class UpdateProfileController implements Controller {
 			Profile profile = manager.findProfile(s_id);	// 수정하려는 사용자 정보 검색
 			request.setAttribute("profile", profile);
 
-			HttpSession session = request.getSession();
-			if (UserSessionUtils.isLoginUser(s_id, session) ||
-					UserSessionUtils.isLoginUser(0, session)) {  //관리자의 s_id = 0
+			/*HttpSession session = request.getSession();
+			*//* 관리자 이거 수정해라 꼭 *//*
+			if (*//*UserSessionUtils.isLoginUser(s_id, session) ||*//*
+					*//*!UserSessionUtils.isLoginUser(0, session) *//*) {  //관리자의 s_id = 0
 
 				return "/profile/updateForm.jsp";   // 검색한 사용자 정보를 update form으로 전송
 			}
@@ -45,7 +46,9 @@ public class UpdateProfileController implements Controller {
 			request.setAttribute("updateFailed", true);
 			request.setAttribute("exception",
 					new IllegalStateException("타인의 정보는 수정할 수 없습니다."));
-			return "/student/loginForm.jsp";	// 사용자 보기 화면으로 이동 (forwarding)
+			return "/student/loginForm.jsp";	// 사용자 보기 화면으로 이동 (forwarding)*/
+
+			return "/profile/myPage/updateForm.jsp";
 		}
 
 		// POST request (회원정보가 parameter로 전송됨)

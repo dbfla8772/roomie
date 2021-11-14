@@ -92,7 +92,7 @@
 
 <div>
     <a href="${pageContext.request.contextPath}/student/main"><h3>Roomie</h3></a>
-    <img src="images/logo-font.png" id="logo"/>
+    <img src="/images/logo-font.png" id="logo"/>
 </div>
 <% profile = (Profile) request.getAttribute("profile");
     img_url = "/images/";
