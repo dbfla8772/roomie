@@ -25,7 +25,7 @@ public class ScrapController implements Controller {
         ScrapDAO scrap = new ScrapDAO();
 
         if (request.getMethod().equals("GET")) {
-            List<Profile> scrapList = scrap.findScarpList();
+            List<Profile> scrapList = scrap.findScarpList(s_id);
             request.setAttribute("scrapList", scrapList);
 
             return "/scrap/view.jsp";
