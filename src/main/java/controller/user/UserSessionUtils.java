@@ -10,7 +10,7 @@ public class UserSessionUtils {
     public static Object getLoginUserId(HttpSession session) {
         Object userId = session.getAttribute(USER_SESSION_KEY);
 
-        return (String)userId;
+        return userId;
     }
 
     public static Object getS_Id(HttpSession session) {
@@ -50,7 +50,7 @@ public class UserSessionUtils {
     }
 
     public static boolean isLoginUser(String userId, HttpSession session) {
-        String loginUser = (String)getLoginUserId(session);
+        String loginUser = (String) getLoginUserId(session);
         if (loginUser == null) {
             return false;
         }
