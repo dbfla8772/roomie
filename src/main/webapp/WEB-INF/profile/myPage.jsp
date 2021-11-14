@@ -12,6 +12,7 @@
             font-weight: normal;
             font-style: normal;
         }
+
         #logo {
             margin-top: -2.5%;
             width: 70px;
@@ -68,7 +69,7 @@
 <body>
 
 <h3>&nbsp;Roomie</h3>
-<img src="/images/logo-font.png" id="logo" />
+<img src="/images/logo-font.png" id="logo"/>
 
 <br>
 <table style="width:100%">
@@ -169,7 +170,7 @@
 
             <!-- 수정이 실패한 경우 exception 객체에 저장된 오류 메시지를 출력 -->
             <c:if test="${updateFailed}">
-                <font color="red"><c:out value="${exception.getMessage()}" /></font>
+                <font color="red"><c:out value="${exception.getMessage()}"/></font>
             </c:if>
         </td>
     </tr>
