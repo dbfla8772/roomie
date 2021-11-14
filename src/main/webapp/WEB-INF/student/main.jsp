@@ -49,6 +49,9 @@
             f.method="POST";
             f.submit();
         }
+        $(".card mb-3").click(function () {
+            card_click('${pageContext.request.contextPath}/student/main/detail');
+        })
     </script>
 </head>
 <body>
@@ -83,9 +86,8 @@
 <c:forEach var="profile" items="${profileList}">
     <form name="form">
         <input type="hidden" name="s_id" value="${profile.s_id}"/>
-    </form>
         <div class="card-margin">
-            <div class="card mb-3" style="border-radius: 10px; max-width: 600px;" onClick="card_click('${pageContext.request.contextPath}/student/main/detail')">
+            <div class="card mb-3" style="border-radius: 10px; max-width: 600px;">
                 <div class="row g-0">
                     <div class="col-md-4">
                         <img style="border-radius: 10px;" src="<c:url value='/images/jjang.jpg' />" class="img-fluid rounded-start" alt="...">

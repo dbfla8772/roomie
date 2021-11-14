@@ -23,11 +23,10 @@ public class ViewProfileController implements Controller {
     	Profile profile = null;
     	try {
 			profile = manager.findProfile(userId);	// 사용자 정보 검색
+			request.setAttribute("profile", profile);		// 사용자 정보 저장
+			return "/student/main/detail.jsp";				// 사용자 보기 화면으로 이동
 		} catch (StudentNotFoundException e) {
 	        return "redirect:/student/main";
-		}	
-		
-    	request.setAttribute("profile", profile);		// 사용자 정보 저장
-		return "/student/main/detail.jsp";				// 사용자 보기 화면으로 이동
+		}
     }
 }
