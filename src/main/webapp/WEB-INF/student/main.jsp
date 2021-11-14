@@ -4,6 +4,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%!
 	List<Profile> profileList;
+    int idx;
 %>
 <html>
 <head>
@@ -80,9 +81,11 @@
 </div>
 
 <%profileList = (List<Profile>) request.getAttribute("profileList");%>
+<%idx = 0; %>
 <form name="form">
     <c:forEach var="profile" items="${profileList}">
-        <input type="hidden" name="s_id" value="${profile.s_id}"/>
+        <input type="text" name="s_id" value="${profile.s_id}" readonly>
+        <input type="hidden" name="${idx}" value="${profile.s_id}">
         <div class="card-margin">
             <div class="card mb-3" style="border-radius: 10px; max-width: 600px;" onclick="card_click('${pageContext.request.contextPath}/student/main/detail')">
                 <div class="row g-0">
