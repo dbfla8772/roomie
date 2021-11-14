@@ -205,8 +205,8 @@
                     <tr height="40">
                         <td class="commHead">실내 취식여부</td>
                         <td class="commCell">
-                            <input type="radio" name="indoor_eating" value="0">냄새 나는 음식도 가능
-                            <input type="radio" name="indoor_eating" value="1">냄새 안나는 음식만 가능
+                            <input type="radio" name="indoor_eating" value="0">냄새나는 음식도 가능
+                            <input type="radio" name="indoor_eating" value="1">냄새 안 나는 음식만 가능
                             <input type="radio" name="indoor_eating" value="2">불가능
                         </td>
                     </tr>
