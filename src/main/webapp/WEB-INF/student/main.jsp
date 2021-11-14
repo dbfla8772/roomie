@@ -43,16 +43,17 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
         function card_click(targetUri) {
-            form.action = targetUri;
-            form.method="POST";
-            form.submit();
+            const f = document.form;
+
+            f.action = targetUri;
+            f.method="POST";
+            f.submit();
         }
     </script>
 </head>
 <body>
-
+<div class="w-auto p-2" style="background-color: lightcyan; text-align: center;"><h4>당신의 루미를 찾아보세요! <button class="btn btn-outline-success" type="submit">자동매칭 하러가기</button></h4></div>
 <div class="container">
-<div class="w-auto p-3" style="background-color: lightcyan; text-align: center;"><h4>당신의 루미를 찾아보세요! <button class="btn btn-outline-success" type="submit">자동매칭 하러가기</button></h4></div>
     <header class="blog-header py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
             <div class="col-4 pt-1">
@@ -79,10 +80,11 @@
 </div>
 
 <%profileList = (List<Profile>) request.getAttribute("profileList");%>
-<c:forEach var="profile" items="${profileList}">
-    <form name="form">
+<form name="form">
+    <c:forEach var="profile" items="${profileList}">
+        <input type="hidden" name="s_id" value="${profile.s_id}"/>
         <div class="card-margin">
-            <div class="card mb-3" style="border-radius: 10px; max-width: 600px;" onClick="card_click('${pageContext.request.contextPath}/student/main/detail')">
+            <div class="card mb-3" style="border-radius: 10px; max-width: 600px;" onclick="card_click('${pageContext.request.contextPath}/student/main/detail')">
                 <div class="row g-0">
                     <div class="col-md-4">
                         <img style="border-radius: 10px;" src="<c:url value='/images/jjang.jpg' />" class="img-fluid rounded-start" alt="...">
@@ -97,9 +99,8 @@
                 </div>
             </div>
         </div>
-    </form>
-</c:forEach>
-
+    </c:forEach>
+</form>
 <%--    int totalCount;--%>
 <%--    int countList;--%>
 <%--    int totalPage;--%>
