@@ -96,20 +96,20 @@
 </div>
 <% profile = (Profile) request.getAttribute("profile");
     img_url = "/images/";
-    if (profile.getPr_img()==1)
-        img_url += "man1";
+    if (profile.getPr_img()==0)
+        img_url += "man1.jpg";
+    else if (profile.getPr_img()==1)
+        img_url += "man2.jpg";
     else if (profile.getPr_img()==2)
-        img_url += "man2";
-    else if (profile.getPr_img()==3)
-        img_url += "woman1";
+        img_url += "woman1.jpg";
     else
-        img_url += "woman2";
+        img_url += "woman2.jpg";
 
     if (profile.getSmoking()==0)
         smoking = "O";
     else
-
         smoking = "X";
+
     if (profile.getSharing()==0)
         sharing = "O";
     else
@@ -196,8 +196,9 @@
 <div align="center">
     <table style="border-radius: 10px; align: center; margin-top: 50px;">
         <tr>
-            <td colspan="2" rowspan="2"><img style="border-radius: 10px; width:300px; height:400px;"
-                                             src="<c:url value='${img_url}' />"/></td>
+            <td colspan="2" rowspan="2">
+                <img style="border-radius: 10px; width:300px; height:400px;" src="<%=img_url%>"/>
+            </td>
             <td width="100"></td>
             <td colspan="2"
                 style="width:400px; text-align: center; font-size: x-large; font-weight: 800; padding-top: 5px;">프로필 옵션
@@ -210,11 +211,11 @@
                 <table style="font-size: large; width:400px;">
                     <tr>
                         <td>닉네임</td>
-                        <td>: &emsp; ${profile.name}</td>
+                        <td>: &emsp;&emsp;&emsp;${profile.name}</td>
                     </tr>
                     <tr>
                         <td>흡연유무</td>
-                        <td>: &emsp;&emsp;&emsp;${smoking}</td>
+                        <td>: &emsp;&emsp;&emsp;<%=smoking%></td>
                     </tr>
                     <tr>
                         <td>전공</td>
@@ -222,27 +223,27 @@
                     </tr>
                     <tr>
                         <td>생필품 공유</td>
-                        <td>: &emsp;&emsp;&emsp;${sharing}</td>
+                        <td>: &emsp;&emsp;&emsp;<%=sharing%></td>
                     </tr>
                     <tr>
                         <td>생활 패턴</td>
-                        <td>: &emsp;&emsp;&emsp;${lifestyle}</td>
+                        <td>: &emsp;&emsp;&emsp;<%=lifestyle%></td>
                     </tr>
                     <tr>
                         <td>학년</td>
-                        <td>: &emsp;&emsp;&emsp;${grade}</td>
+                        <td>: &emsp;&emsp;&emsp;<%=grade%></td>
                     </tr>
                     <tr>
                         <td>체질</td>
-                        <td>: &emsp;&emsp;&emsp;${habitude}</td>
+                        <td>: &emsp;&emsp;&emsp;<%=habitude%></td>
                     </tr>
                     <tr>
                         <td>잠버릇</td>
-                        <td>: &emsp;&emsp;&emsp;${sleep_habit}</td>
+                        <td>: &emsp;&emsp;&emsp;<%=sleep_habit%></td>
                     </tr>
                     <tr>
                         <td>청소 주기</td>
-                        <td>: &emsp;&emsp;&emsp;${cleaning}</td>
+                        <td>: &emsp;&emsp;&emsp;<%=cleaning%></td>
                     </tr>
                     <tr>
                         <td>나이</td>
@@ -250,11 +251,11 @@
                     </tr>
                     <tr>
                         <td>실내취식</td>
-                        <td>: &emsp;&emsp;&emsp;${indoor_eating}</td>
+                        <td>: &emsp;&emsp;&emsp;<%=indoor_eating%></td>
                     </tr>
                     <tr>
                         <td>MBTI</td>
-                        <td>: &emsp; ${mbti}</td>
+                        <td>: &emsp;&emsp;&emsp;<%=mbti%></td>
                     </tr>
                 </table>
             </td>
