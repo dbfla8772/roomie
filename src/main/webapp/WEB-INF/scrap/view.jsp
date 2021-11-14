@@ -93,7 +93,7 @@
 <h3 style="font-family:SBAggroL; text-align: right; padding-top: 0px; margin-right:12%;">스크랩</h3>
 
 <%scrapList = (List<Profile>) request.getAttribute("scrapList");%>
-<c:forEach var="profile" items="${profileList}">
+<c:forEach var="profile" items="${scrapList}">
     <div class="card-margin">
         <div class="card mb-3" style="border-radius: 10px; max-width: 600px;" onClick="location.href='/student/main/detail'">
             <div class="row g-0">
