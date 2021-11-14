@@ -7,9 +7,13 @@
     <title>마이 페이지</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <script>
-        function update() {/*
+        /*function update() {/!*
             form.action = targetUri;
-            form.method = "POST";  */    //register form 요청
+            form.method = "POST";  *!/    //register form 요청
+            form.submit();
+        }*/
+        function update() {
+            form.method = "GET";
             form.submit();
         }
     </script>

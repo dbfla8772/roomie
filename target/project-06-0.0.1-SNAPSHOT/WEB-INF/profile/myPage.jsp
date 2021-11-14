@@ -7,9 +7,13 @@
     <title>마이 페이지</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <script>
-        function update() {/*
+        /*function update() {/!*
             form.action = targetUri;
-            form.method = "POST";  */    //register form 요청
+            form.method = "POST";  *!/    //register form 요청
+            form.submit();
+        }*/
+        function update() {
+            form.method = "GET";
             form.submit();
         }
     </script>
@@ -171,7 +175,11 @@
                 </tr>
             </table>
             <br>
-
+            <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/profile/update">
+                <input type="hidden" name="s_id" value="${profile.s_id}">
+                <input type="button" class="button" value="수정하기" onclick="update()">
+            </form>
+            <br><br>
 
             <!-- 수정이 실패한 경우 exception 객체에 저장된 오류 메시지를 출력 -->
             <%-- <c:if test="${updateFailed}">
@@ -180,11 +188,6 @@
         </td>
     </tr>
 </table>
-<form name="form" method="POST" action="${pageContext.servletContext.contextPath}/profile/update">
-    <input type="hidden" name="s_id" value="${profile.s_id}">
-    <input type="button" class="button" value="수정하기" onclick="update()">
-</form>
-<br><br>
 </body>
 </html>
 
