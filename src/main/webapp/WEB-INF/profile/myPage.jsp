@@ -1,6 +1,7 @@
 <%@page contentType="text/html; charset=utf-8" %>
 <%@page import="model.*" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%! Profile profile; %>
 <html>
 <head>
     <title>마이 페이지</title>
@@ -69,7 +70,7 @@
 
 <h3>&nbsp;Roomie</h3>
 <img src="/images/logo-font.png" id="logo" />
-
+<% profile = (Profile) request.getAttribute("profile");%>
 <br>
 <table style="width:100%">
     <tr>

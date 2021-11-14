@@ -8,25 +8,25 @@ public class Student {
     private String email;
     private String password;
     private String name;
-    private String college;
+    private int c_id;
     private int gender;
 
     public Student() {
     }
 
-    public Student(int s_id, String email, String password, String name, String college, int gender) {
+    public Student(int s_id, String email, String password, String name, int c_id, int gender) {
         this.s_id = s_id;
         this.email = email;
         this.password = password;
         this.name = name;
-        this.college = college;
+        this.c_id = c_id;
         this.gender = gender;
     }
-    public Student(String name, String email, String password, int gender, String college) {
+    public Student(String name, String email, String password, int gender, int c_id) {
         this.email = email;
         this.password = password;
         this.name = name;
-        this.college = college;
+        this.c_id = c_id;
         this.gender = gender;
     }
 
@@ -60,12 +60,12 @@ public class Student {
         this.name = name;
     }
 
-    public String getCollege() {
-        return college;
+    public int getC_id() {
+        return c_id;
     }
 
-    public void setCollege(String college) {
-        this.college = college;
+    public void setC_id(int c_id) {
+        this.c_id = c_id;
     }
 
     public int getGender() {

@@ -16,7 +16,7 @@ public class UserSessionUtils {
     public static Object getS_Id(HttpSession session) {
         Object s_id = session.getAttribute(USER_SESSION_ID);
 
-        return (int)s_id;
+        return s_id;
     }
 
     /* 로그인한 상태인지를 검사 */

@@ -3,9 +3,13 @@ package controller.user;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import controller.Controller;
 import model.Profile;
+import model.Student;
 import model.service.ProfileManager;
+import model.service.StudentManager;
 
 public class ListProfileController implements Controller {
 	private static final int countProfilePage = 10;	// 한 화면에 출력할 사용자 수
@@ -23,9 +27,15 @@ public class ListProfileController implements Controller {
 			currentPage = Integer.parseInt(currentpagePro);
 		}
 
-		int s_id = (int)UserSessionUtils.getLoginUserId(request.getSession());
+		HttpSession session = request.getSession();
+		String email = (String) session.getAttribute(UserSessionUtils.USER_SESSION_KEY);
+
+		StudentManager student = StudentManager.getInstance();
+		Student s = student.findStudent(email);
+
+		int s_id = (int)UserSessionUtils.getS_Id(request.getSession());
 		ProfileManager manager = ProfileManager.getInstance();
-		List<Profile> profileList = (List<Profile>) manager.findProfile(s_id);
+		List<Profile> profileList = (List<Profile>) manager.findUserList(s.getC_id(), s.getGender());
 //		List<Profile> profileList = manager.findProfileList(currentPage, countProfilePage);
 
 
