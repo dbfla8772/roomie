@@ -186,7 +186,7 @@
 <% profileList = (List<Profile>) request.getAttribute("profileList"); %>
 <%-- 프로필 카드 for문 이용 --%>
 <c:forEach var="profile" items="${profileList}">
-    <div class="card mb-3" onclick="location.href='/student/main/detail?s_id=' + ${profile.s_id}">
+    <div class="card mb-3" onclick="search('${pageContext.request.contextPath}/student/detail')">
         <div class="row g-0">
             <div class="col-md-4">
                 <img src="https://media.istockphoto.com/vectors/teddy-bear-character-isolated-on-white-background-soft-toy-in-flat-vector-id691840414?k=20&m=691840414&s=612x612&w=0&h=f19dyCnUA0QWienuthsMdHzKEzY1RnMOYcJp8dF_iaA="

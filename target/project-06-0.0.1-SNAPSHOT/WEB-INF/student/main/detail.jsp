@@ -5,6 +5,7 @@
 <html>
 <head>
     <title>detail profile</title>
+
     <style>
         @font-face {
             font-family: 'SBAggroB';
@@ -82,6 +83,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
+
 </head>
 <body>
 <div class="w-auto p-2" style="background-color: lightcyan; text-align: center;">
@@ -265,13 +267,17 @@
         </tr>
         <tr>
             <td align="center">
+                <% if (request.getAttribute("scrap").equals("false")) {%>
                 <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/scrap/view">
                     <input type="hidden" name="scrap_id" value="${profile.s_id}">
                     <input type="submit" class="button" value="스크랩">
                 </form>
-<%--
-                <button class="button" name="sc_id" value="${profile.s_id}" type="submit" onClick="location.href='/scrap/view'">스크랩</button>
---%>
+                <%} else {%>
+                <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/scrap/delete"--%>
+                    <input type="hidden" name="scrap_id" value="${profile.s_id}">
+                    <input type="submit" class="button" value="스크랩 취소">
+                </form>
+                <%} %>
             </td>
             <td align="center">
                 <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/chat/send">
