@@ -95,7 +95,7 @@
 <%scrapList = (List<Profile>) request.getAttribute("scrapList");%>
 <c:forEach var="profile" items="${scrapList}">
     <div class="card-margin">
-        <div class="card mb-3" style="border-radius: 10px; max-width: 600px;" onClick="location.href='/student/main/detail'">
+        <div class="card mb-3" style="border-radius: 10px; max-width: 600px;" onclick="location.href='/student/main/detail?s_id=' + ${profile.s_id}">
             <div class="row g-0">
                 <div class="col-md-4">
                     <c:if test="${profile.pr_img eq 0}"><%img_url = "/images/man1.png";%></c:if>
