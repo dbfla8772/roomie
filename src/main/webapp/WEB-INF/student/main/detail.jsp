@@ -47,6 +47,7 @@
         td {
             padding-left: 10px;
             padding-bottom: 15px;
+            font-family: 'SBAggroL';
         }
 
         ul.space_list li {
@@ -70,6 +71,7 @@
             border-radius: 10px;
             background-color: lightgray;
             padding: 7px 50px 7px 50px;
+            font-family: 'SBAggroL';
         }
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
