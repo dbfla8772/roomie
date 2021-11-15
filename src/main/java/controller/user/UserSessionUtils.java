@@ -10,23 +10,11 @@ public class UserSessionUtils {
     public static Object getLoginUserId(HttpSession session) {
         Object userId = session.getAttribute(USER_SESSION_KEY);
 
-        if (userId.getClass().getSimpleName().equals("String")) {
-            userId = (String)userId;
-        } else {
-            userId = (int)userId;
-        }
-
         return userId;
     }
 
     public static Object getS_Id(HttpSession session) {
         Object s_id = session.getAttribute(USER_SESSION_ID);
-
-        if (s_id.getClass().getSimpleName().equals("String")) {
-            s_id = (String)s_id;
-        } else {
-            s_id = (int)s_id;
-        }
 
         return s_id;
     }
@@ -62,7 +50,7 @@ public class UserSessionUtils {
     }
 
     public static boolean isLoginUser(String userId, HttpSession session) {
-        String loginUser = (String)getLoginUserId(session);
+        String loginUser = (String) getLoginUserId(session);
         if (loginUser == null) {
             return false;
         }

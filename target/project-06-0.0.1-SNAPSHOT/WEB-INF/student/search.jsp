@@ -128,22 +128,22 @@
             <td><input type="checkbox" id="indoor_eating" name="searchFilter"><label>&nbsp;실내 취식</label></td>
             <td><label>&nbsp;&nbsp;&nbsp;MBTI&nbsp;
                 <select id="mbti" name="searchFilter">
-                    <option value="istj">ISTJ</option>
-                    <option value="isfj">ISFJ</option>
-                    <option value="infj">INFJ</option>
-                    <option value="intj">INTJ</option>
-                    <option value="istp">ISTP</option>
-                    <option value="isfp">ISFP</option>
-                    <option value="infp">INFP</option>
-                    <option value="intp">INTP</option>
-                    <option value="estp">ESTP</option>
-                    <option value="esfp">ESFP</option>
-                    <option value="enfp">ENFP</option>
-                    <option value="entp">ENTP</option>
-                    <option value="estj">ESTJ</option>
-                    <option value="esfj">ESFJ</option>
-                    <option value="enfj">ENFJ</option>
-                    <option value="entj">ENTJ</option>
+                    <option value="0">ENFJ</option>
+                    <option value="1">ENFP</option>
+                    <option value="2">ENTJ</option>
+                    <option value="3">ENTP</option>
+                    <option value="4">ESFJ</option>
+                    <option value="5">ESFP</option>
+                    <option value="6">ESTJ</option>
+                    <option value="7">ESTP</option>
+                    <option value="8">INFJ</option>
+                    <option value="9">INFP</option>
+                    <option value="10">INTJ</option>
+                    <option value="11">INTP</option>
+                    <option value="12">ISFJ</option>
+                    <option value="13">ISFP</option>
+                    <option value="14">ISTJ</option>
+                    <option value="15">ISTP</option>
                 </select>
             </label></td>
             <br>

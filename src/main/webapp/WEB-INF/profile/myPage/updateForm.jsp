@@ -182,22 +182,22 @@
                         <td class="commHead">MBTI</td>
                         <td class="commCell">
                             <select name="mbti">
-                                <option value="0" <c:if test="${profile.mbti eq '0'}"> selected </c:if>ENFJ</option>
-                                <option value="1" <c:if test="${profile.mbti eq '1'}"> selected </c:if>ENFP</option>
-                                <option value="2" <c:if test="${profile.mbti eq '2'}"> selected </c:if>ENTJ</option>
-                                <option value="3" <c:if test="${profile.mbti eq '3'}"> selected </c:if>ENTP</option>
-                                <option value="4" <c:if test="${profile.mbti eq '4'}"> selected </c:if>ESFJ</option>
-                                <option value="5" <c:if test="${profile.mbti eq '5'}"> selected </c:if>ESFP</option>
-                                <option value="6" <c:if test="${profile.mbti eq '6'}"> selected </c:if>ESTJ</option>
-                                <option value="7" <c:if test="${profile.mbti eq '7'}"> selected </c:if>ESTP</option>
-                                <option value="8" <c:if test="${profile.mbti eq '8'}"> selected </c:if>INFJ</option>
-                                <option value="9" <c:if test="${profile.mbti eq '9'}"> selected </c:if>INFP</option>
-                                <option value="10" <c:if test="${profile.mbti eq '10'}"> selected </c:if>INTJ</option>
-                                <option value="11" <c:if test="${profile.mbti eq '11'}"> selected </c:if>INTP</option>
-                                <option value="12" <c:if test="${profile.mbti eq '12'}"> selected </c:if>ISFJ</option>
-                                <option value="13" <c:if test="${profile.mbti eq '13'}"> selected </c:if>ISFP</option
-                                <option value="14" <c:if test="${profile.mbti eq '14'}"> selected </c:if>ISTJ</option>
-                                <option value="15" <c:if test="${profile.mbti eq '15'}"> selected </c:if>ISTP</option>
+                                <option value="0"> <%--<c:if test="${profile.mbti eq '0'}"> selected </c:if>--%>ENFJ</option>
+                                <option value="1" <c:if test="${profile.mbti eq '1'}"> </c:if>ENFP</option>
+                                <option value="2" <c:if test="${profile.mbti eq '2'}"> </c:if>ENTJ</option>
+                                <option value="3" <c:if test="${profile.mbti eq '3'}"> </c:if>ENTP</option>
+                                <option value="4" <c:if test="${profile.mbti eq '4'}"> </c:if>ESFJ</option>
+                                <option value="5" <c:if test="${profile.mbti eq '5'}"> </c:if>ESFP</option>
+                                <option value="6" <c:if test="${profile.mbti eq '6'}"> </c:if>ESTJ</option>
+                                <option value="7" <c:if test="${profile.mbti eq '7'}"> </c:if>ESTP</option>
+                                <option value="8" <c:if test="${profile.mbti eq '8'}"> </c:if>INFJ</option>
+                                <option value="9" <c:if test="${profile.mbti eq '9'}"> </c:if>INFP</option>
+                                <option value="10" <c:if test="${profile.mbti eq '10'}"> </c:if>INTJ</option>
+                                <option value="11" <c:if test="${profile.mbti eq '11'}"> </c:if>INTP</option>
+                                <option value="12" <c:if test="${profile.mbti eq '12'}"> </c:if>ISFJ</option>
+                                <option value="13" <c:if test="${profile.mbti eq '13'}"> </c:if>ISFP</option
+                                <option value="14" <c:if test="${profile.mbti eq '14'}"> </c:if>ISTJ</option>
+                                <option value="15" <c:if test="${profile.mbti eq '15'}"> </c:if>ISTP</option>
                             </select>
                         </td>
                     </tr>
