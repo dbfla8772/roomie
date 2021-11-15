@@ -125,8 +125,10 @@
         habitude = "둘 다 안 탐";
 
     if (profile.getSleep_habit()==0)
-        sleep_habit = "코골이";
+        sleep_habit = "없음";
     else if (profile.getSleep_habit()==1)
+        sleep_habit = "코골이";
+    else if (profile.getSleep_habit()==2)
         sleep_habit = "이갈이";
     else
         sleep_habit = "몽유병";
