@@ -114,17 +114,13 @@
                         <td class="commHead">프로필 이미지</td>
                         <td class="commCell">
                             <input type="radio" name="pr_img" value="0">
-
-                            <img src="">
+                                <img src="/images/man1.png">
                             <input type="radio" name="pr_img" value="1">
-
-                            <img src="">
+                                <img src="/images/man2.png">
                             <input type="radio" name="pr_img" value="2">
-
-                            <img src="">
+                                <img src="/images/woman1.png">
                             <input type="radio" name="pr_img" value="3">
-
-                            <img src="">
+                                <img src="/images/woman2.png">
                         </td>
                     </tr>
                     <tr height="40">
