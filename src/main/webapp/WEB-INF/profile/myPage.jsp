@@ -125,8 +125,10 @@
         habitude = "둘 다 안 탐";
 
     if (profile.getSleep_habit()==0)
-        sleep_habit = "코골이";
+        sleep_habit = "없음";
     else if (profile.getSleep_habit()==1)
+        sleep_habit = "코골이";
+    else if (profile.getSleep_habit()==2)
         sleep_habit = "이갈이";
     else
         sleep_habit = "몽유병";
@@ -201,7 +203,7 @@
                 <tr>
                     <td class="commHead">프로필 이미지</td>
                     <td class="commCell">
-                        <img style="border-radius: 10px; width:300px; height:400px;" src="<%=img_url%>"/>
+                        <img style="border-radius: 10px; width:300px; height:400px;" src="<%=img_url%>" style="width: 100px; height: 100px;"/>
                     </td>
                 </tr>
                 <tr>

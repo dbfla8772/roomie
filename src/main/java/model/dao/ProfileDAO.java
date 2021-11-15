@@ -152,13 +152,13 @@ public class ProfileDAO {
      * 전체 사용자 정보를 검색한 후 현재 페이지와 페이지당 출력할 사용자 수를 이용하여
      * 해당하는 사용자 정보만을 List에 저장하여 반환.
      */
-    public List<Profile> findUserList(int currentPage, int countPerPage, int c_Id, int gender) throws SQLException {
+    public List<Profile> findUserList(int currentPage, int countPerPage, int c_Id, int gender, int s_id) throws SQLException {
         String sql = "SELECT activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, " +
                 "major, cleaning, indoor_eating, mbti, sharing, habitude, p.s_id "
                 + "FROM PROFILE p JOIN STUDENT s ON p.s_id = s.s_id "
-                + "WHERE s.c_id=? AND s.gender=? "
+                + "WHERE s.c_id=? AND s.gender=? AND NOT p.s_id IN (?) "
                 + "ORDER BY p.s_id";
-        jdbcUtil.setSqlAndParameters(sql, new Object[] {c_Id, gender},					// JDBCUtil에 query문 설정
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {c_Id, gender, s_id},				// JDBCUtil에 query문 설정
                 ResultSet.TYPE_SCROLL_INSENSITIVE,				// cursor scroll 가능
                 ResultSet.CONCUR_READ_ONLY);
 

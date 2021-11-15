@@ -29,7 +29,9 @@ public class ProfileManager {
         return profileDAO.create(profile);
     }
 
-    public int update(Profile profile) {return 1;}
+    public int update(Profile profile) throws SQLException {
+        return profileDAO.update(profile);
+    }
 
 
     public Profile findProfile(int studentId)
@@ -42,8 +44,8 @@ public class ProfileManager {
         return profile;
     }
 
-    public List<Profile> findUserList(int c_id, int gender) throws SQLException, StudentNotFoundException {
-        return profileDAO.findUserList(1, 10, c_id, gender);
+    public List<Profile> findUserList(int c_id, int gender, int s_id) throws SQLException, StudentNotFoundException {
+        return profileDAO.findUserList(1, 10, c_id, gender, s_id);
     }
 
     /*search 필터를 프로필 객체로 전달*/
