@@ -24,6 +24,12 @@
             font-weight: normal;
             font-style: normal;
         }
+        @font-face {
+            font-family: 'SBAggroL';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroL.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
 
         #logo {
             margin-top: -2.5%;
@@ -33,10 +39,11 @@
         h3 {
             font-family: SBAggroB;
             float: left;
+            color: black;
         }
 
         th, td {
-            font-family: 돋움;
+            font-family: SBAggroL;
             font-size: 12px;
             line-height: 18px;
             padding-left: 10px;
@@ -44,7 +51,7 @@
         }
 
         .title {
-            font-family: 돋움;
+            font-family: SBAggroL;
             font-size: 12pt;
             font-weight: bold;
             color: Black;
@@ -54,7 +61,7 @@
 
         /* Form css */
         .text, .textarea, .password, .file, .select {
-            font-family: 돋움;
+            font-family: SBAggroL;
             font-size: 8pt;
             color: #333333;
         }
