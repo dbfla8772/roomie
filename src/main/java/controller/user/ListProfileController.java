@@ -21,6 +21,7 @@ public class ListProfileController implements Controller {
 			return "redirect:/student/login";		// login form 요청으로 redirect
 		}
 
+
 		String currentpagePro = request.getParameter("currentPage");
 		int currentPage = 1;
 		if (currentpagePro != null && !currentpagePro.equals("")) {
@@ -35,8 +36,9 @@ public class ListProfileController implements Controller {
 
 		int s_id = (int)UserSessionUtils.getS_Id(request.getSession());
 		ProfileManager manager = ProfileManager.getInstance();
-		List<Profile> profileList = (List<Profile>) manager.findUserList(s.getC_id(), s.getGender(), s_id);
-//		List<Profile> profileList = manager.findProfileList(currentPage, countProfilePage);
+		//List<Profile> profileList = (List<Profile>) manager.findUserList(s.getC_id(), s.getGender(), s_id);
+		List<Profile> profileList = (List<Profile>) manager.findProfileList(s.getC_id(), s.getGender(), s_id);
+//		List<Profile> profileList = manager.findProfileList(currentPage, countProfilePage, s.getC_id(), s.getGender(), s_id);
 
 
 		// profileList 객체와 현재 로그인한 사용자 ID를 request에 저장하여 전달
