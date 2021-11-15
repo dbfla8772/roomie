@@ -33,13 +33,17 @@
             margin-left: 5%;
         }
         .mb-3 {
+            cursor: pointer;
             float: left;
             border-radius: 10px;
             width: 40%;
-            margin: 0px 5% 100px 5%;
+            margin: 0px 0% 100px 5%;
         }
         .page-float {
             clear: left;
+            position: absolute;
+            bottom: 1px;
+            right: 43%
         }
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -92,7 +96,7 @@
                     <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title">${profile.name}</h5>
-                            <p class="card-text">전공: ${profile.major}&emsp;&emsp;&emsp;&emsp;&emsp; <br>나이: ${profile.age}&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
+                            <p class="card-text">${profile.major} (${profile.grade}학년)&emsp;&emsp;&emsp;&emsp;&emsp; <br>${profile.age}세&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
                             <p class="card-text"><small class="text-muted"></small></p>
                         </div>
                     </div>

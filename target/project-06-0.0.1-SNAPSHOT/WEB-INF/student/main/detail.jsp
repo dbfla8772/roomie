@@ -283,7 +283,7 @@
         </tr>
         <tr>
             <td colspan="2" align="center">
-                <button class="button">나의 루미 pick!</button>
+                <button class="button">나의 루미로 pick!</button>
             </td>
             <td width="100"></td>
         </tr>
