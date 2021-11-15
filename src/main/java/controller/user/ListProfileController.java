@@ -35,7 +35,7 @@ public class ListProfileController implements Controller {
 
 		int s_id = (int)UserSessionUtils.getS_Id(request.getSession());
 		ProfileManager manager = ProfileManager.getInstance();
-		List<Profile> profileList = (List<Profile>) manager.findUserList(s.getC_id(), s.getGender());
+		List<Profile> profileList = (List<Profile>) manager.findUserList(s.getC_id(), s.getGender(), s_id);
 //		List<Profile> profileList = manager.findProfileList(currentPage, countProfilePage);
 
 
