@@ -226,12 +226,13 @@ public class ProfileDAO {
                 "major, cleaning, indoor_eating, mbti, sharing, habitude "
                 + "FROM PROFILE p JOIN STUDENT s ON p.s_id = s.s_id "
 //                + "WHERE s.gender=? AND p.activation='1' AND " /*where문 수정 or sql 2개로 하기 gender 고려*/
-                + "WHERE s.gender=? AND s.c_id=? ";
+                + "WHERE s.gender=? AND s.c_id=? AND NOT p.s_id IN (?)";
 
         List<Object> params = new ArrayList<>();
 
         params.add(gender);
         params.add(c_id);
+        params.add(s_id);
 
         if (sleep_habit != -1) {
             sql2 += "AND sleep_habit=? ";

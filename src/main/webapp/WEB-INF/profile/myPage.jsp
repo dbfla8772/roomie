@@ -31,15 +31,21 @@
             font-style: normal;
         }
 
+        body {
+            margin: 5% 8%;
+            align-content: center;
+        }
+
         #logo {
-            margin-top: -2.5%;
+            margin-top: 10px;
             width: 70px;
         }
 
-        h3 {
+        h3.roomietitle {
             font-family: SBAggroB;
             float: left;
             color: black;
+            margin-top: 40px;
         }
 
         th, td {
@@ -87,8 +93,9 @@
 </head>
 <body>
 
-<a href = "${pageContext.request.contextPath}/student/main"><h3>&nbsp;Roomie</h3></a>
+<a href = "${pageContext.request.contextPath}/student/main"><h3 class="roomietitle">&nbsp;Roomie</h3></a>
 <a href = "${pageContext.request.contextPath}/student/main"><img src="/images/logo-font.png" id="logo"/></a>
+
 <% profile = (Profile) request.getAttribute("profile");
     img_url = "/images/";
     if (profile.getPr_img()==0)
