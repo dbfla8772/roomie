@@ -40,7 +40,7 @@
         }
 
         body {
-            margin: 5%;
+            margin: 5% 8%;
             align-content: center;
         }
 

@@ -33,15 +33,27 @@
             height: auto;
             text-align: center;
         }
-        h3 {
-            margin-left:7%;
+        #logo {
+            margin-top: 10px;
+            width: 70px;
+        }
+        h3.roomietitle {
+            /*font-family: SBAggroB; float: left; padding-top: 30px; padding-left: 100px; color: black;*/
+            margin-top: 40px;
+            font-family: SBAggroB;
+            float: left;
+            color: black;
+            margin-left: 8%;
+        }
+        h3.scraptitle {
+            font-family:SBAggroL;
+            text-align: right;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-right:8%;
         }
         h4 {
             font-family: SBAggroL;
-        }
-        #logo {
-            margin-top: 0;
-            width: 70px;
         }
         a {
             font-family: SBAggroL;
@@ -90,12 +102,12 @@
     }
 %>
 
-<div class="w-auto p-2" style="background-color: lightcyan; text-align: center;"><h4 style="font-family: SBAggroL;">당신의 루미를 찾아보세요! <button class="btn btn-outline-success" type="submit">자동매칭 하러가기</button></h4></div>
+<div class="w-auto p-2" style="background-color: lightcyan; text-align: center;"><h4>당신의 루미를 찾아보세요! <button class="btn btn-outline-success" type="submit">자동매칭 하러가기</button></h4></div>
 
-<a href = "${pageContext.request.contextPath}/student/main"><h3 style="font-family: SBAggroB; float: left; padding-top: 30px; padding-left: 100px; color: black;">Roomie</h3></a>
+<a href = "${pageContext.request.contextPath}/student/main"><h3 class="roomietitle">Roomie</h3></a>
 <img src="/images/logo-font.png" id="logo" />
 
-<h3 style="font-family:SBAggroL; text-align: right; padding-top: 0px; margin-right:12%;">스크랩</h3>
+<h3 class="scraptitle">스크랩</h3>
 
 <%scrapList = (List<Profile>) request.getAttribute("scrapList");%>
 <c:forEach var="profile" items="${scrapList}">
@@ -120,7 +132,7 @@
         </div>
     </div>
 </c:forEach>
-<div class="page-float">
+<%--<div class="page-float">
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
             <li class="page-item disabled">
@@ -134,6 +146,6 @@
             </li>
         </ul>
     </nav>
-</div>
+</div>--%>
 </body>
 </html>

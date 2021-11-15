@@ -31,6 +31,7 @@
             font-family: SBAggroL;
         }
         h1 {
+            padding-top: 10px;
             font-family: SBAggroB;
         }
         .card-margin {
@@ -126,7 +127,7 @@
 <%--    }--%>
 <%--%>--%>
 
-<div class="page-float">
+<%--<div class="page-float">
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
             <li class="page-item disabled">
@@ -140,6 +141,6 @@
             </li>
         </ul>
     </nav>
-</div>
+</div>--%>
 </body>
 </html>

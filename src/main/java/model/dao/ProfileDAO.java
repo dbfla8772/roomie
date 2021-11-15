@@ -108,19 +108,22 @@ public class ProfileDAO {
     /**
      * 해당 학교 전체 사용자 정보를 검색하여 List에 저장 및 반환
      */
-    public List<Profile> findProfileList(int c_Id, int gender) throws SQLException {
-        String sql = "SELECT s_id, activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, " +
-                "major, mbti, cleaning, indoor_eating, sharing, habitude "
+    public List<Profile> findProfileList(int c_Id, int gender, int s_id) throws SQLException {
+        String sql = "SELECT activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, " +
+                "major, cleaning, indoor_eating, mbti, sharing, habitude, p.s_id "
                 + "FROM PROFILE p JOIN STUDENT s ON p.s_id = s.s_id "
-                + "WHERE s.c_id=? AND s.gender=? "
-                + "ORDER BY s_id";
-        jdbcUtil.setSqlAndParameters(sql, new Object[] {c_Id, gender});		// JDBCUtil에 query문 설정
+                + "WHERE s.c_id=? AND s.gender=? AND NOT p.s_id IN (?) "
+                + "ORDER BY p.s_id";
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {c_Id, gender, s_id},				// JDBCUtil에 query문 설정
+                ResultSet.TYPE_SCROLL_INSENSITIVE,				// cursor scroll 가능
+                ResultSet.CONCUR_READ_ONLY);
 
         try {
-            ResultSet rs = jdbcUtil.executeQuery();			// query 실행
-            List<Profile> profileList = new ArrayList<Profile>();	// Profile들의 리스트 생성
+            ResultSet rs = jdbcUtil.executeQuery();				// query 실행
+            List<Profile> profileList = new ArrayList<Profile>();
+
             while (rs.next()) {
-                Profile profile = new Profile(			// Profile 객체를 생성하여 현재 행의 정보를 저장
+                Profile profile = new Profile(            // Profile 객체를 생성하여 현재 행의 정보를 저장
                         rs.getInt("s_id"),
                         rs.getBoolean("activation"),
                         rs.getString("name"),
@@ -136,7 +139,7 @@ public class ProfileDAO {
                         rs.getInt("mbti"),
                         rs.getInt("sharing"),
                         rs.getInt("habitude"));
-                profileList.add(profile);				// List에 Profile 객체 저장
+                profileList.add(profile);                            // 리스트에 Profile 객체 저장
             }
             return profileList;
 
@@ -153,6 +156,7 @@ public class ProfileDAO {
      * 해당하는 사용자 정보만을 List에 저장하여 반환.
      */
     public List<Profile> findUserList(int currentPage, int countPerPage, int c_Id, int gender, int s_id) throws SQLException {
+
         String sql = "SELECT activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, " +
                 "major, cleaning, indoor_eating, mbti, sharing, habitude, p.s_id "
                 + "FROM PROFILE p JOIN STUDENT s ON p.s_id = s.s_id "

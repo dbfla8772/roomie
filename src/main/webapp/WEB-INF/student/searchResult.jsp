@@ -41,7 +41,7 @@
         }
 
         body {
-            margin: 5%;
+            margin: 5% 8%;
             align-content: center;
         }
 
@@ -216,7 +216,7 @@
 </c:forEach>
 
 <%-- 페이징 --%>
-<div class="page-float">
+<%--<div class="page-float">
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
             <li class="page-item disabled">
@@ -230,6 +230,6 @@
             </li>
         </ul>
     </nav>
-</div>
+</div>--%>
 </body>
 </html>
