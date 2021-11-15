@@ -4,7 +4,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%!
 	List<Profile> profileList; String img_url;
-    int s_id;
 %>
 <html>
 <head>
@@ -53,6 +52,7 @@
             const f = document.form;
             f.action = targetUri;
             f.method="POST";
+            f.setAttribute("s_id", s_id);
             f.submit();
         }
     </script>
@@ -88,9 +88,9 @@
 <%profileList = (List<Profile>) request.getAttribute("profileList");%>
 <form name="form">
     <c:forEach var="profile" items="${profileList}">
-        <input type="hidden" name="s_id" value="${profile.s_id}"/>
+        <input type="hidden" name="s_id" value="${profile.s_id}">
         <div class="card-margin">
-            <div class="card mb-3" style="border-radius: 10px; max-width: 600px;" onclick="card_click('${pageContext.request.contextPath}/student/main/detail')">
+            <div class="card mb-3" style="border-radius: 10px; max-width: 600px;" onclick="card_click('${pageContext.request.contextPath}/student/main/detail', ${profile.s_id})">
                 <div class="row g-0">
                     <div class="col-md-4">
                         <c:if test="${profile.pr_img eq 0}"><%img_url = "/images/man1.png";%></c:if>
