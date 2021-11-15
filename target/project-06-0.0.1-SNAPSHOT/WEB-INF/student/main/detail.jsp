@@ -94,9 +94,7 @@
     <a href="${pageContext.request.contextPath}/student/main"><h3>Roomie</h3></a>
     <img src="/images/logo-font.png" id="logo"/>
 </div>
-<script>
-    alert("확인");
-</script>
+
 <% profile = (Profile) request.getAttribute("profile");
     img_url = "/images/";
     if (profile.getPr_img()==0)
@@ -197,10 +195,6 @@
     else
         mbti = "ISTP";
 %>
-
-<script>
-    alert("확인");
-</script>
 
 <div align="center">
     <table style="border-radius: 10px; align: center; margin-top: 50px;">
