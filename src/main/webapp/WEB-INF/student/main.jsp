@@ -3,7 +3,7 @@
 <%@page import="model.*" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%!
-	List<Profile> profileList;
+	List<Profile> profileList; String img_url;
 %>
 <html>
 <head>
@@ -87,7 +87,11 @@
             <div class="card mb-3" style="border-radius: 10px; max-width: 600px;" onclick="card_click('${pageContext.request.contextPath}/student/main/detail')">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img style="border-radius: 10px;" src="<c:url value='/images/jjang.jpg' />" class="img-fluid rounded-start" alt="...">
+                        <c:if test="${profile.pr_img eq 0}"><%img_url = "/images/man1.png";%></c:if>
+                        <c:if test="${profile.pr_img eq 1}"><%img_url = "/images/man2.png";%></c:if>
+                        <c:if test="${profile.pr_img eq 2}"><%img_url = "/images/woman1.png";%></c:if>
+                        <c:if test="${profile.pr_img eq 3}"><%img_url = "/images/woman2.png";%></c:if>
+                        <img style="border-radius: 10px;" src="<c:url value='<%=img_url%>' />" class="img-fluid rounded-start" alt="...">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
@@ -117,27 +121,6 @@
 <%--    }--%>
 <%--%>--%>
 
-<%--<div class="card-margin">--%>
-<%--    <% for (i = 1; i <= countList; i++) { %>--%>
-<%--    <div class="card mb-3" onClick="location.href='${pageContext.request.contextPath}/student/main/detail'">--%>
-<%--        <div class="row g-0">--%>
-<%--            <div class="col-md-4">--%>
-<%--                <img style="border-radius: 10px;" src="<c:url value='/images/jjang.jpg' />" class="img-fluid rounded-start" alt="...">--%>
-<%--            </div>--%>
-<%--            <div class="col-md-8">--%>
-<%--                <div class="card-body">--%>
-<%--                    <h5 class="card-title">짱구</h5>--%>
-<%--                    <p class="card-text">전공: 컴퓨터학과&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <br>나이: 21&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>--%>
-<%--                    <p class="card-text"><small class="text-muted"></small></p>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--    <%--%>
-<%--        }--%>
-<%--    %>--%>
-<%--</div>--%>
-<%--<br>--%>
 <div class="page-float">
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
