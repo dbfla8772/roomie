@@ -202,7 +202,7 @@ public class ProfileDAO {
 
     /*search 페이징 X*/
     public List<Profile> findProfileList(int s_id, int sleep_habit, int lifestyle, int smoking,
-                                         int cleaning, int indoor_eating, int mbti, int sharing, int habitude)
+                                         int cleaning, int indoor_eating, int mbti, int sharing, int habitude, int grade)
             throws SQLException {
         String sql1 = "SELECT gender, c_id "
                 + "FROM PROFILE p JOIN STUDENT s ON p.s_id = s.s_id "
@@ -264,6 +264,10 @@ public class ProfileDAO {
         if (habitude != -1) {
             sql2 += "AND habitude=? ";
             params.add(habitude);
+        }
+        if (grade != -1) {
+            sql2 += "AND grade=? ";
+            params.add(grade);
         }
         sql2 += "ORDER BY p.s_id";
 
