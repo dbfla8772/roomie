@@ -4,6 +4,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%!
 	List<Profile> profileList;
+    int idx, size;
+    int s_id[];
 %>
 <html>
 <head>
@@ -79,11 +81,24 @@
     </div>
 </div>
 
-<%profileList = (List<Profile>) request.getAttribute("profileList");%>
+<%
+    profileList = (List<Profile>) request.getAttribute("profileList");
+    size = profileList.size();
+    s_id = new int[size];
+
+//    for (int i=0; i < size; i++) {
+//        s_id[i] = profileList.get(i).getS_id();
+//    }
+%>
+<%--<script>--%>
+<%--    for (var i=0; i < size; i++) {--%>
+<%--        document.write("<input type='text' name='s_id"+ i +"' value='" + s_id[i] + "' readonly");--%>
+<%--    }--%>
+<%--</script>--%>
+
 <form name="form">
-    <c:forEach var="profile" items="${profileList}">
-        <input type="text" name="s_id" value="${profile.s_id}" readonly>
-        <input type="hidden" name="s_id" value="${profile.s_id}">
+    <c:forEach var="profile" items="${profileList}" varStatus="status">
+        <input type="hidden" name="s_id${status.index}" value="${profile.s_id}">
         <div class="card-margin">
             <div class="card mb-3" style="border-radius: 10px; max-width: 600px;" onclick="card_click('${pageContext.request.contextPath}/student/main/detail')">
                 <div class="row g-0">
