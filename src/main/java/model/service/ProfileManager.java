@@ -48,12 +48,20 @@ public class ProfileManager {
         return profileDAO.findUserList(1, 10, c_id, gender, s_id);
     }
 
+    public List<Profile> findProfileList(int c_id, int gender, int s_id) throws SQLException, StudentNotFoundException {
+        return profileDAO.findProfileList(c_id, gender, s_id);
+    }
+
+    /*public List<Profile> findUserListPage(int currentPage, int countPerPage, int c_id, int gender, int s_id) throws SQLException, StudentNotFoundException {
+        return profileDAO.findUserList(currentPage, countPerPage, c_id, gender, s_id);
+    }*/
+
     /*search 필터를 프로필 객체로 전달*/
     public List<Profile> findProfileList(int studentId, int sleep_habit, int lifestyle, int smoking,
-                                         int cleaning, int indoor_eating, int mbti, int sharing, int habitude)
+                                         int cleaning, int indoor_eating, int mbti, int sharing, int habitude, int grade)
             throws SQLException, StudentNotFoundException {
         return profileDAO.findProfileList(studentId, sleep_habit, lifestyle, smoking,
-                cleaning, indoor_eating, mbti, sharing, habitude);
+                cleaning, indoor_eating, mbti, sharing, habitude, grade);
     }
 
 

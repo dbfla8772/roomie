@@ -3,10 +3,11 @@
 <%@page import="model.*" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%!
-	List<Profile> profileList; String img_url;
+	List<Profile> profileList; String img_url; int s_id;
 %>
 <html>
 <head>
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
     <title>메인 페이지</title>
     <style>
         @font-face {
@@ -26,20 +27,29 @@
             width: auto;
             height: auto;
         }
+        a {
+            font-family: SBAggroL;
+        }
         h1 {
+            padding-top: 10px;
             font-family: SBAggroB;
         }
         .card-margin {
             margin-left: 5%;
+            font-family: SBAggroL;
         }
         .mb-3 {
+            cursor: pointer;
             float: left;
             border-radius: 10px;
             width: 40%;
-            margin: 0px 5% 100px 5%;
+            margin: 0px 0% 100px 5%;
         }
         .page-float {
             clear: left;
+            position: absolute;
+            bottom: 1px;
+            right: 43%
         }
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -47,15 +57,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script>
-        function card_click(targetUri) {
-            const f = document.form;
-
-            f.action = targetUri;
-            f.method="POST";
-            f.submit();
-        }
-    </script>
 </head>
 <body>
 <div class="w-auto p-2" style="background-color: lightcyan; text-align: center;"><h4 style="font-family: SBAggroL";>당신의 루미를 찾아보세요! <button class="btn btn-outline-success" type="submit">자동매칭 하러가기</button></h4></div>
@@ -88,9 +89,8 @@
 <%profileList = (List<Profile>) request.getAttribute("profileList");%>
 <form name="form">
     <c:forEach var="profile" items="${profileList}">
-        <input type="hidden" name="s_id" value="${profile.s_id}"/>
         <div class="card-margin">
-            <div class="card mb-3" style="border-radius: 10px; max-width: 600px;" onclick="card_click('${pageContext.request.contextPath}/student/main/detail')">
+            <div class="card mb-3" style="border-radius: 10px; max-width: 600px;" onclick="location.href='/student/main/detail?s_id=' + ${profile.s_id}">
                 <div class="row g-0">
                     <div class="col-md-4">
                         <c:if test="${profile.pr_img eq 0}"><%img_url = "/images/man1.png";%></c:if>
@@ -102,7 +102,7 @@
                     <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title">${profile.name}</h5>
-                            <p class="card-text">전공: ${profile.major}&emsp;&emsp;&emsp;&emsp;&emsp; <br>나이: ${profile.age}&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
+                            <p class="card-text">${profile.major} (${profile.grade}학년)&emsp;&emsp;&emsp;&emsp;&emsp; <br>${profile.age}세&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
                             <p class="card-text"><small class="text-muted"></small></p>
                         </div>
                     </div>
@@ -127,7 +127,7 @@
 <%--    }--%>
 <%--%>--%>
 
-<div class="page-float">
+<%--<div class="page-float">
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
             <li class="page-item disabled">
@@ -141,6 +141,6 @@
             </li>
         </ul>
     </nav>
-</div>
+</div>--%>
 </body>
 </html>

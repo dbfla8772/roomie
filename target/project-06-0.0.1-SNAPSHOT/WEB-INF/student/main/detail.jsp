@@ -5,6 +5,7 @@
 <html>
 <head>
     <title>detail profile</title>
+
     <style>
         @font-face {
             font-family: 'SBAggroB';
@@ -46,6 +47,7 @@
         td {
             padding-left: 10px;
             padding-bottom: 15px;
+            font-family: SBAggroL;
         }
 
         ul.space_list li {
@@ -82,6 +84,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
+
 </head>
 <body>
 <div class="w-auto p-2" style="background-color: lightcyan; text-align: center;">
@@ -94,6 +97,7 @@
     <a href="${pageContext.request.contextPath}/student/main"><h3>Roomie</h3></a>
     <img src="/images/logo-font.png" id="logo"/>
 </div>
+
 <% profile = (Profile) request.getAttribute("profile");
     img_url = "/images/";
     if (profile.getPr_img()==0)
@@ -199,7 +203,7 @@
     <table style="border-radius: 10px; align: center; margin-top: 50px;">
         <tr>
             <td colspan="2" rowspan="2">
-                <img style="border-radius: 10px; width:300px; height:400px;" src="<%=img_url%>"/>
+                <img style="border-radius: 10px; width:300px; height:400px; object-fit:contain;" src="<%=img_url%>"/>
             </td>
             <td width="100"></td>
             <td colspan="2"
@@ -264,22 +268,29 @@
         </tr>
         <tr>
             <td align="center">
+                <% if (request.getAttribute("scrap").equals("false")) {%>
                 <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/scrap/view">
-                    <input type="hidden" name="sc_id" value="${profile.s_id}">
+                    <input type="hidden" name="scrap_id" value="${profile.s_id}">
                     <input type="submit" class="button" value="스크랩">
                 </form>
-<%--
-                <button class="button" name="sc_id" value="${profile.s_id}" type="submit" onClick="location.href='/scrap/view'">스크랩</button>
---%>
+                <%} else {%>
+                <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/scrap/delete"--%>
+                    <input type="hidden" name="scrap_id" value="${profile.s_id}">
+                    <input type="submit" class="button" value="스크랩 취소">
+                </form>
+                <%} %>
             </td>
             <td align="center">
-                <button class="button">쪽지</button>
+                <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/chat/send">
+                    <input type="hidden" name="receiver" value="${profile.s_id}">
+                    <input type="submit" class="button" value="쪽지">
+                </form>
             </td>
             <td width="100"></td>
         </tr>
         <tr>
             <td colspan="2" align="center">
-                <button class="button">나의 루미 pick!</button>
+                <button class="button">나의 루미로 pick!</button>
             </td>
             <td width="100"></td>
         </tr>

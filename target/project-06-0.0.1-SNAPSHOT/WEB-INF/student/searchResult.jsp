@@ -1,6 +1,8 @@
+<%@ page import="model.Profile" %>
+<%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
+<%! List<Profile> profileList; %>
 <html>
 <head>
     <!-- Bootstrap CSS -->
@@ -31,9 +33,15 @@
             font-weight: normal;
             font-style: normal;
         }
+        @font-face {
+            font-family: 'SBAggroL';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroL.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
 
         body {
-            margin: 5%;
+            margin: 5% 8%;
             align-content: center;
         }
 
@@ -45,6 +53,7 @@
         h3 {
             font-family: SBAggroB;
             float: left;
+            color: black;
         }
 
         table {
@@ -59,6 +68,7 @@
 
         td {
             padding: 2% 1% 2% 5%;
+            font-family: SBAggroL;
         }
 
         select {
@@ -76,6 +86,7 @@
         .btn {
             margin-top: 10px;
             margin-right: 8%;
+            font-family: SBAggroL;
         }
 
         .search-img {
@@ -106,6 +117,7 @@
             float: left;
             max-width: 600px;
             margin: 0px 5% 100px 5%;
+            font-family: SBAggroL;
         }
 
         .page-float {
@@ -117,8 +129,9 @@
 
 </head>
 <body>
-<h3>Roomie 루미</h3>
-<img src="/images/logo-font.png" id="logo" />
+
+<a href = "${pageContext.request.contextPath}/student/main"><h3>&nbsp;Roomie</h3></a>
+<a href = "${pageContext.request.contextPath}/student/main"><img src="/images/logo-font.png" id="logo"/></a>
 
 <%-- 검색 필터 --%>
 <%--<form name="form" method="get" action="<c:url value="/student/searchResult">">--%>
@@ -181,63 +194,29 @@
     </div>
 </form>
 
-
+<% profileList = (List<Profile>) request.getAttribute("profileList"); %>
 <%-- 프로필 카드 for문 이용 --%>
-<%--<c:forEach var="profile" items="${profileList}">--%>
-<div class="card mb-3" onclick="search('${pageContext.request.contextPath}/student/login')">
-    <div class="row g-0">
-        <div class="col-md-4">
-            <img src="https://media.istockphoto.com/vectors/teddy-bear-character-isolated-on-white-background-soft-toy-in-flat-vector-id691840414?k=20&m=691840414&s=612x612&w=0&h=f19dyCnUA0QWienuthsMdHzKEzY1RnMOYcJp8dF_iaA="
-                 class="img-fluid rounded-start" alt="card">
-        </div>
-        <div class="col-md-8">
-            <div class="card-body">
-                <p class="card-text">나이 : ${profile.age}</p>
-                <p class="card-text">학년 : ${profile.grade}</p>
-                <p class="card-text">전공 : ${profile.major}</p>
-                <p class="card-text"><small class="text-muted">뭐 적지</small></p>
+<c:forEach var="profile" items="${profileList}">
+    <div class="card mb-3" onclick="location.href='/student/main/detail?s_id=' + ${profile.s_id}">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="https://media.istockphoto.com/vectors/teddy-bear-character-isolated-on-white-background-soft-toy-in-flat-vector-id691840414?k=20&m=691840414&s=612x612&w=0&h=f19dyCnUA0QWienuthsMdHzKEzY1RnMOYcJp8dF_iaA="
+                     class="img-fluid rounded-start" alt="card">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <p class="card-text">나이 : ${profile.age}</p>
+                    <p class="card-text">학년 : ${profile.grade}</p>
+                    <p class="card-text">전공 : ${profile.major}</p>
+                    <p class="card-text"><small class="text-muted">뭐 적지</small></p>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="card mb-3" onclick="search('${pageContext.request.contextPath}/student/login')">
-    <div class="row g-0">
-        <div class="col-md-4">
-            <img src="https://media.istockphoto.com/vectors/teddy-bear-character-isolated-on-white-background-soft-toy-in-flat-vector-id691840414?k=20&m=691840414&s=612x612&w=0&h=f19dyCnUA0QWienuthsMdHzKEzY1RnMOYcJp8dF_iaA="
-                 class="img-fluid rounded-start" alt="card">
-        </div>
-        <div class="col-md-8">
-            <div class="card-body">
-                <p class="card-text">나이 : ${profile.age}</p>
-                <p class="card-text">학년 : ${profile.grade}</p>
-                <p class="card-text">전공 : ${profile.major}</p>
-                <p class="card-text"><small class="text-muted">뭐 적지</small></p>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="card mb-3" onclick="search('${pageContext.request.contextPath}/student/login')">
-    <div class="row g-0">
-        <div class="col-md-4">
-            <img style="border-radius: 10px;"
-                 src="https://media.istockphoto.com/vectors/teddy-bear-character-isolated-on-white-background-soft-toy-in-flat-vector-id691840414?k=20&m=691840414&s=612x612&w=0&h=f19dyCnUA0QWienuthsMdHzKEzY1RnMOYcJp8dF_iaA="
-                 class="img-fluid rounded-start" alt="card">
-        </div>
-        <div class="col-md-8">
-            <div class="card-body">
-                <p class="card-text">나이 : ${profile.age}</p>
-                <p class="card-text">학년 : ${profile.grade}</p>
-                <p class="card-text">전공 : ${profile.major}</p>
-                <p class="card-text"><small class="text-muted">뭐 적지</small></p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<%--</c:forEach>--%>
+</c:forEach>
 
 <%-- 페이징 --%>
-<div class="page-float">
+<%--<div class="page-float">
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
             <li class="page-item disabled">
@@ -251,6 +230,6 @@
             </li>
         </ul>
     </nav>
-</div>
+</div>--%>
 </body>
 </html>
