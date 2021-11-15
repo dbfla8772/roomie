@@ -17,7 +17,7 @@ public class ScrapDAO {
     }
 
     public int create(Scrap scrap) throws SQLException {
-        String sql = "INSERT INTO scrap VALUES(SCRAPSEQ.nextval, ?, ?)";
+        String sql = "INSERT INTO scrap VALUES(?, SCRAPSEQ.nextval, ?)";
         Object[] param = new Object[] {scrap.getS_id(), scrap.getScrap_id()};
         jdbcUtil.setSqlAndParameters(sql, param);
 

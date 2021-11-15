@@ -94,6 +94,7 @@
     <a href="${pageContext.request.contextPath}/student/main"><h3>Roomie</h3></a>
     <img src="/images/logo-font.png" id="logo"/>
 </div>
+
 <% profile = (Profile) request.getAttribute("profile");
     img_url = "/images/";
     if (profile.getPr_img()==0)
@@ -199,7 +200,7 @@
     <table style="border-radius: 10px; align: center; margin-top: 50px;">
         <tr>
             <td colspan="2" rowspan="2">
-                <img style="border-radius: 10px; width:300px; height:400px;" src="<%=img_url%>"/>
+                <img style="border-radius: 10px; width:300px; height:400px; object-fit:contain;" src="<%=img_url%>"/>
             </td>
             <td width="100"></td>
             <td colspan="2"
@@ -265,7 +266,7 @@
         <tr>
             <td align="center">
                 <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/scrap/view">
-                    <input type="hidden" name="sc_id" value="${profile.s_id}">
+                    <input type="hidden" name="scrap_id" value="${profile.s_id}">
                     <input type="submit" class="button" value="스크랩">
                 </form>
 <%--
@@ -273,7 +274,10 @@
 --%>
             </td>
             <td align="center">
-                <button class="button">쪽지</button>
+                <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/chat/send">
+                    <input type="hidden" name="receiver" value="${profile.s_id}">
+                    <input type="submit" class="button" value="쪽지">
+                </form>
             </td>
             <td width="100"></td>
         </tr>
