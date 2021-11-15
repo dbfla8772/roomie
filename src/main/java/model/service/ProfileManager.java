@@ -44,17 +44,14 @@ public class ProfileManager {
         return profile;
     }
 
-    public List<Profile> findUserList(int c_id, int gender, int s_id) throws SQLException, StudentNotFoundException {
+  /*  public List<Profile> findUserList(int c_id, int gender, int s_id) throws SQLException, StudentNotFoundException {
         return profileDAO.findUserList(1, 10, c_id, gender, s_id);
-    }
+    }*/
 
     public List<Profile> findProfileList(int c_id, int gender, int s_id) throws SQLException, StudentNotFoundException {
         return profileDAO.findProfileList(c_id, gender, s_id);
     }
 
-    /*public List<Profile> findUserListPage(int currentPage, int countPerPage, int c_id, int gender, int s_id) throws SQLException, StudentNotFoundException {
-        return profileDAO.findUserList(currentPage, countPerPage, c_id, gender, s_id);
-    }*/
 
     /*search 필터를 프로필 객체로 전달*/
     public List<Profile> findProfileList(int studentId, int sleep_habit, int lifestyle, int smoking,
