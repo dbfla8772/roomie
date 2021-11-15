@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 
 public class ViewProfileController implements Controller {
 	private static final Logger log = LoggerFactory.getLogger(ViewProfileController.class);
@@ -22,7 +23,7 @@ public class ViewProfileController implements Controller {
 		ProfileManager manager = ProfileManager.getInstance();
 
 		int userId = Integer.parseInt(request.getParameter("s_id"));
-		log.debug("s_id확인: " + userId);
+		log.debug("s_id확인::" + userId);
 
     	Profile profile = null;
     	try {
