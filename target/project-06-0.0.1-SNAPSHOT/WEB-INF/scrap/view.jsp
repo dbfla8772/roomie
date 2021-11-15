@@ -48,7 +48,7 @@
         h3.scraptitle {
             font-family:SBAggroL;
             text-align: right;
-            padding-top: 10px;
+            padding-top: 5px;
             padding-bottom: 10px;
             margin-right:8%;
         }
