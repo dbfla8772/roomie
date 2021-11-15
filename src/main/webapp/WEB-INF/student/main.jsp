@@ -78,8 +78,7 @@
 
 <%profileList = (List<Profile>) request.getAttribute("profileList");%>
 <form name="form">
-    <c:forEach var="profile" items="${profileList}" varStatus="status">
-        <input type="hidden" name="s_id${status.index}" value="${profile.s_id}">
+    <c:forEach var="profile" items="${profileList}">
         <div class="card-margin">
             <div class="card mb-3" style="border-radius: 10px; max-width: 600px;" onclick="location.href='/student/main/detail?s_id=' + ${profile.s_id}">
                 <div class="row g-0">
