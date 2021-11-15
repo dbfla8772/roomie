@@ -166,14 +166,14 @@
                     <tr height="40">
                         <td class="commHead">학년</td>
                         <td class="commCell">
+                            <input type="radio" name="grade" value=0
+                                <%if (profile.getGrade() == 0) {%> checked <%} %>>1학년
                             <input type="radio" name="grade" value="1"
-                                <%if (profile.getGrade() == 1) {%> checked <%} %>>1학년
+                                <%if (profile.getGrade() == 1) {%> checked <%} %>>2학년
                             <input type="radio" name="grade" value="2"
-                                <%if (profile.getGrade() == 2) {%> checked <%} %>>2학년
+                                <%if (profile.getGrade() == 2) {%> checked <%} %>>3학년
                             <input type="radio" name="grade" value="3"
-                                <%if (profile.getGrade() == 3) {%> checked <%} %>>3학년
-                            <input type="radio" name="grade" value="4"
-                                <%if (profile.getGrade() == 4) {%> checked <%} %>>4학년
+                                <%if (profile.getGrade() == 3) {%> checked <%} %>>4학년
                         </td>
                     </tr>
                     <tr height="40">
