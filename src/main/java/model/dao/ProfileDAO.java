@@ -204,7 +204,7 @@ public class ProfileDAO {
                 + "FROM PROFILE p JOIN STUDENT s ON p.s_id = s.s_id "
                 + "WHERE s.s_id=?";
         jdbcUtil.setSqlAndParameters(sql1, new Object[] {s_id});
-        int gender;
+        int gender = 0;
         try {
             ResultSet rs = jdbcUtil.executeQuery();
             gender = rs.getInt("gender");
@@ -214,11 +214,51 @@ public class ProfileDAO {
             jdbcUtil.close();		// resource 반환
         }
 
-        String sql2 = "SELECT activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, " +
+        String sql2 = "SELECT p.s_id, activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, " +
                 "major, cleaning, indoor_eating, mbti, sharing, habitude "
                 + "FROM PROFILE p JOIN STUDENT s ON p.s_id = s.s_id "
-                + "WHERE s.gender=? AND p.activation='1' AND " /*where문 수정 or sql 2개로 하기 gender 고려*/
-                + "ORDER BY p.s_id";
+//                + "WHERE s.gender=? AND p.activation='1' AND " /*where문 수정 or sql 2개로 하기 gender 고려*/
+                + "WHERE s.gender=? ";
+
+        List<Object> params = new ArrayList<>();
+
+        params.add(gender);
+        if (sleep_habit != -1) {
+            sql2 += "AND sleep_habit=? ";
+            params.add(sleep_habit);
+        }
+        if (lifestyle != -1) {
+            sql2 += "AND lifestyle=? ";
+            params.add(lifestyle);
+        }
+        if (smoking != -1) {
+            sql2 += "AND smoking=? ";
+            params.add(smoking);
+        }
+        if (cleaning != -1) {
+            sql2 += "AND cleaning=? ";
+            params.add(cleaning);
+        }
+        if (indoor_eating != -1) {
+            sql2 += "AND indoor_eating=? ";
+            params.add(indoor_eating);
+        }
+        if (mbti != -1) {
+            sql2 += "AND mbti=? ";
+            params.add(mbti);
+        }
+        if (sharing != -1) {
+            sql2 += "AND sharing=? ";
+            params.add(sharing);
+        }
+        if (habitude != -1) {
+            sql2 += "AND habitude=? ";
+            params.add(habitude);
+        }
+        sql2 += "ORDER BY p.s_id";
+
+
+//                + "ORDER BY p.s_id";
                 /*
         int sleep_habit = searchProfile.getSleep_habit();
         int lifestyle = searchProfile.getLifestyle();
@@ -229,8 +269,11 @@ public class ProfileDAO {
         int sharing = searchProfile.getSharing();
         int habitude = searchProfile.getHabitude();*/
 
+        int size = params.size();
+        Object[] param = params.toArray(new Object[size]);
+
         jdbcUtil.setSqlAndParameters(sql2,
-                new Object[] {s_id, sleep_habit, lifestyle, smoking, cleaning, indoor_eating, mbti, sharing, habitude},					// JDBCUtil에 query문 설정
+                param,					// JDBCUtil에 query문 설정
                 ResultSet.TYPE_SCROLL_INSENSITIVE,				// cursor scroll 가능
                 ResultSet.CONCUR_READ_ONLY);
 
