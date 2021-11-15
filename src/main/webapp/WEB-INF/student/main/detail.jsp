@@ -21,7 +21,7 @@
         }
 
         html, body {
-            margin: 0;
+            margin: 0 auto;
             width: auto;
             height: auto;
         }
@@ -265,7 +265,7 @@
         <tr>
             <td align="center">
                 <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/scrap/view">
-                    <input type="hidden" name="sc_id" value="${profile.s_id}">
+                    <input type="hidden" name="scrap_id" value="${profile.s_id}">
                     <input type="submit" class="button" value="스크랩">
                 </form>
 <%--
@@ -273,7 +273,10 @@
 --%>
             </td>
             <td align="center">
-                <button class="button">쪽지</button>
+                <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/chat/send">
+                    <input type="hidden" name="receiver" value="${profile.s_id}">
+                    <input type="submit" class="button" value="쪽지">
+                </form>
             </td>
             <td width="100"></td>
         </tr>

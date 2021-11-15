@@ -8,6 +8,7 @@ import model.Scrap;
 import model.dao.ScrapDAO;
 import model.service.ProfileManager;
 import model.service.StudentManager;
+import model.service.StudentNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,15 +32,19 @@ public class ScrapController implements Controller {
             return "/scrap/view.jsp";
         }
 
-        /* post */
+        /* POST */
         try {
             //스크랩 버튼 눌렀을 때
             ProfileManager manager = ProfileManager.getInstance();
             Profile profile = manager.findProfile(s_id);	// 스크랩하려는 사용자 정보 검색
-            Scrap s = new Scrap(profile.getS_id(), Integer.parseInt(request.getParameter("sc_id")));
+            Scrap s = new Scrap(profile.getS_id(), Integer.parseInt(request.getParameter("scrap_id")));
 
             scrap.create(s);
 
+            int userId = Integer.parseInt(request.getParameter("s_id"));
+            log.debug("s_id확인: " + userId);
+
+            request.setAttribute("profile", profile);		// 사용자 정보 저장
             return "/student/main/detail.jsp";
 
         } catch (Exception e) {
