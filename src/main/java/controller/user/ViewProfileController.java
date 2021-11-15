@@ -32,16 +32,17 @@ public class ViewProfileController implements Controller {
 		log.debug("detail user_id확인: " + userId);
 
     	Profile profile = null;
-		boolean scrap;
+		String scrap;
     	try {
 			profile = manager.findProfile(userId);	// 사용자 정보 검색
 
-			scrap = scrapManager.isScraped(s_id, userId);
+			scrap = String.valueOf(scrapManager.isScraped(s_id, userId));
 
 			log.debug("scrap 여부 확인: " + scrap);
 			
 			request.setAttribute("profile", profile);		// 사용자 정보 저장
 			request.setAttribute("scrap", scrap);		// 스크랩 여부 저장
+
 			return "/student/main/detail.jsp";				// 사용자 보기 화면으로 이동
 		} catch (StudentNotFoundException e) {
 	        return "redirect:/student/main";

@@ -27,16 +27,20 @@ public class DeleteScrapController implements Controller {
         try {
             //스크랩 삭제 버튼 눌렀을 때
             int scrap_id = Integer.parseInt(request.getParameter("scrap_id"));
-            Scrap s = new Scrap(s_id, scrap_id);
+            /*Scrap s = new Scrap(s_id, scrap_id);*/
 
-            scrapManager.remove(s);
+            scrapManager.remove(s_id, scrap_id);
 
             log.debug("s_id확인: " + s_id + " scrap_id확인: " + scrap_id);
 
             ProfileManager manager = ProfileManager.getInstance();
             Profile profile = manager.findProfile(scrap_id);
 
+            String scrap = String.valueOf(scrapManager.isScraped(s_id, scrap_id));
+
             request.setAttribute("profile", profile);		// 사용자 정보 저장
+            request.setAttribute("scrap", scrap);		// 스크랩 여부 저장
+
             return "/student/main/detail.jsp";
 
         } catch (Exception e) {

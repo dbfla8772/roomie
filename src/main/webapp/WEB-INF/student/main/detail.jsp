@@ -84,19 +84,6 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
 
-    <script>
-        function newS(targetUri) {
-            form.action = targetUri;
-            form.method="POST";		// register form 요청
-            form.submit();
-        }
-        function deleteS(targetUri) {
-            form.action = targetUri;
-            form.method="POST";		// register form 요청
-            form.submit();
-        }
-    </script>
-
 </head>
 <body>
 <div class="w-auto p-2" style="background-color: lightcyan; text-align: center;">
@@ -280,14 +267,17 @@
         </tr>
         <tr>
             <td align="center">
-                <form name="form" method="POST"<%-- action="${pageContext.servletContext.contextPath}/scrap/view"--%>>
+                <% if (request.getAttribute("scrap").equals("false")) {%>
+                <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/scrap/view">
                     <input type="hidden" name="scrap_id" value="${profile.s_id}">
-                    <% if (request.getAttribute("scrap").equals("false")) {%>
-                    <input type="submit" class="button" value="스크랩" onclick="newS('${pageContext.servletContext.contextPath}/scrap/view')">
-                    <%} else {%>
-                    <input type="submit" class="button" value="스크랩 취소" onclick="deleteS('${pageContext.servletContext.contextPath}/scrap/delete')">
-                    <%} %>
+                    <input type="submit" class="button" value="스크랩">
                 </form>
+                <%} else {%>
+                <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/scrap/delete"--%>
+                    <input type="hidden" name="scrap_id" value="${profile.s_id}">
+                    <input type="submit" class="button" value="스크랩 취소">
+                </form>
+                <%} %>
             </td>
             <td align="center">
                 <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/chat/send">
