@@ -7,6 +7,7 @@
 %>
 <html>
 <head>
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
     <title>스크랩 목록</title>
     <style>
         @font-face {
@@ -42,7 +43,11 @@
             margin-top: 0;
             width: 70px;
         }
+        a {
+            font-family: SBAggroL;
+        }
         .card-margin {
+            font-family: SBAggroL;
             margin-left: 7%;
             margin-right: 7%;
         }

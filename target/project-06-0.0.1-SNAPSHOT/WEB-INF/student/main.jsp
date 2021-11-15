@@ -7,6 +7,7 @@
 %>
 <html>
 <head>
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
     <title>메인 페이지</title>
     <style>
         @font-face {
@@ -26,11 +27,15 @@
             width: auto;
             height: auto;
         }
+        a {
+            font-family: SBAggroL;
+        }
         h1 {
             font-family: SBAggroB;
         }
         .card-margin {
             margin-left: 5%;
+            font-family: SBAggroL;
         }
         .mb-3 {
             cursor: pointer;
@@ -43,7 +48,7 @@
             clear: left;
             position: absolute;
             bottom: 1px;
-            right: 42%
+            right: 43%
         }
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -96,7 +101,7 @@
                     <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title">${profile.name}</h5>
-                            <p class="card-text">${profile.major}(${profile.grade}학년)&emsp;&emsp;&emsp;&emsp;&emsp; <br>${profile.age}세&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
+                            <p class="card-text">${profile.major} (${profile.grade}학년)&emsp;&emsp;&emsp;&emsp;&emsp; <br>${profile.age}세&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
                             <p class="card-text"><small class="text-muted"></small></p>
                         </div>
                     </div>

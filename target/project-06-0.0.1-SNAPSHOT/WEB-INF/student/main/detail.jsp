@@ -47,6 +47,7 @@
         td {
             padding-left: 10px;
             padding-bottom: 15px;
+            font-family: SBAggroL;
         }
 
         ul.space_list li {

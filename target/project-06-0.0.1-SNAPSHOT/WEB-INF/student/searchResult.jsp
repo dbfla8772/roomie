@@ -33,6 +33,12 @@
             font-weight: normal;
             font-style: normal;
         }
+        @font-face {
+            font-family: 'SBAggroL';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroL.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
 
         body {
             margin: 5%;
@@ -47,6 +53,7 @@
         h3 {
             font-family: SBAggroB;
             float: left;
+            color: black;
         }
 
         table {
@@ -61,6 +68,7 @@
 
         td {
             padding: 2% 1% 2% 5%;
+            font-family: SBAggroL;
         }
 
         select {
@@ -78,6 +86,7 @@
         .btn {
             margin-top: 10px;
             margin-right: 8%;
+            font-family: SBAggroL;
         }
 
         .search-img {
@@ -108,6 +117,7 @@
             float: left;
             max-width: 600px;
             margin: 0px 5% 100px 5%;
+            font-family: SBAggroL;
         }
 
         .page-float {
@@ -119,8 +129,9 @@
 
 </head>
 <body>
-<h3>Roomie 루미</h3>
-<img src="/images/logo-font.png" id="logo" />
+
+<a href = "${pageContext.request.contextPath}/student/main"><h3>&nbsp;Roomie</h3></a>
+<a href = "${pageContext.request.contextPath}/student/main"><img src="/images/logo-font.png" id="logo"/></a>
 
 <%-- 검색 필터 --%>
 <%--<form name="form" method="get" action="<c:url value="/student/searchResult">">--%>

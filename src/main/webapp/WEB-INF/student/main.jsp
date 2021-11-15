@@ -7,6 +7,7 @@
 %>
 <html>
 <head>
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
     <title>메인 페이지</title>
     <style>
         @font-face {
@@ -26,11 +27,15 @@
             width: auto;
             height: auto;
         }
+        a {
+            font-family: SBAggroL;
+        }
         h1 {
             font-family: SBAggroB;
         }
         .card-margin {
             margin-left: 5%;
+            font-family: SBAggroL;
         }
         .mb-3 {
             cursor: pointer;
