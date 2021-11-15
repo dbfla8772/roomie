@@ -85,13 +85,13 @@
 <% profile = (Profile) request.getAttribute("profile");
     img_url = "/images/";
     if (profile.getPr_img()==0)
-        img_url += "man1.jpg";
+        img_url += "man1.png";
     else if (profile.getPr_img()==1)
-        img_url += "man2.jpg";
+        img_url += "man2.png";
     else if (profile.getPr_img()==2)
-        img_url += "woman1.jpg";
+        img_url += "woman1.png";
     else
-        img_url += "woman2.jpg";
+        img_url += "woman2.png";
 
     if (profile.getSmoking()==0)
         smoking = "O";

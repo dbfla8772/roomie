@@ -97,13 +97,13 @@
 <% profile = (Profile) request.getAttribute("profile");
     img_url = "/images/";
     if (profile.getPr_img()==0)
-        img_url += "man1.jpg";
+        img_url += "man1.png";
     else if (profile.getPr_img()==1)
-        img_url += "man2.jpg";
+        img_url += "man2.png";
     else if (profile.getPr_img()==2)
-        img_url += "woman1.jpg";
+        img_url += "woman1.png";
     else
-        img_url += "woman2.jpg";
+        img_url += "woman2.png";
 
     if (profile.getSmoking()==0)
         smoking = "O";
@@ -196,7 +196,7 @@
 <div align="center">
     <table style="border-radius: 10px; align: center; margin-top: 50px;">
         <tr>
-            <td colspan="2" rowspan="2">
+            <td colspan="2" rowspan="2" bgcolor="#F8E3C6">
                 <img style="border-radius: 10px; width:300px; height:400px;" src="<%=img_url%>"/>
             </td>
             <td width="100"></td>
