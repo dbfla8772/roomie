@@ -200,14 +200,18 @@ public class ProfileDAO {
     public List<Profile> findProfileList(int s_id, int sleep_habit, int lifestyle, int smoking,
                                          int cleaning, int indoor_eating, int mbti, int sharing, int habitude)
             throws SQLException {
-        String sql1 = "SELECT gender "
+        String sql1 = "SELECT gender, c_id "
                 + "FROM PROFILE p JOIN STUDENT s ON p.s_id = s.s_id "
                 + "WHERE s.s_id=?";
         jdbcUtil.setSqlAndParameters(sql1, new Object[] {s_id});
         int gender = 0;
+        int c_id = 0;
         try {
             ResultSet rs = jdbcUtil.executeQuery();
-            gender = rs.getInt("gender");
+            while (rs.next()) {
+                gender = rs.getInt("gender");
+                c_id = rs.getInt("c_id");
+            }
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
@@ -218,11 +222,13 @@ public class ProfileDAO {
                 "major, cleaning, indoor_eating, mbti, sharing, habitude "
                 + "FROM PROFILE p JOIN STUDENT s ON p.s_id = s.s_id "
 //                + "WHERE s.gender=? AND p.activation='1' AND " /*where문 수정 or sql 2개로 하기 gender 고려*/
-                + "WHERE s.gender=? ";
+                + "WHERE s.gender=? AND s.c_id=? ";
 
         List<Object> params = new ArrayList<>();
 
         params.add(gender);
+        params.add(c_id);
+
         if (sleep_habit != -1) {
             sql2 += "AND sleep_habit=? ";
             params.add(sleep_habit);
@@ -287,7 +293,7 @@ public class ProfileDAO {
                         rs.getString("name"),
                         rs.getInt("pr_img"),
                         rs.getInt("age"),
-                        rs.getInt("sleep"),
+                        rs.getInt("sleep_habit"),
                         rs.getInt("lifestyle"),
                         rs.getInt("smoking"),
                         rs.getInt("grade"),
