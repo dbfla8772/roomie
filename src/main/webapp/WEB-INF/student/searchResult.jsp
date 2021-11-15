@@ -84,19 +84,17 @@
             padding: 3px 0;
         }
 
-        div {
-            float: right;
-        }
-
         .btn {
             margin-top: 10px;
             margin-right: 8%;
             font-family: SBAggroL;
+            float: right;
         }
 
         .search-img {
             margin-top: 15px;
-            margin-right: -200px;
+            margin-right: -10px;
+            float: right;
         }
 
         #magnifier {
@@ -104,7 +102,7 @@
         }
 
         .btn-outline-secondary {
-            width: 160px;
+            width: 150px;
             padding: 5px;
             color: black;
             border-color: lightgrey;
@@ -112,20 +110,22 @@
         }
 
         div.search {
-            width: auto;
-            height: 100px;
+            width: 100%;
+            height: 150px;
+            float: right;
         }
 
-        .card-margin {
-            margin-left: 5%;
+        .card-margin {/*
+            margin-left: 5%;*/
             font-family: SBAggroL;
         }
+
         .mb-3 {
             cursor: pointer;
             float: left;
             border-radius: 10px;
             width: 40%;
-            margin: 0px 0% 100px 5%;
+            margin: 0px 5% 100px 5%;
         }
     </style>
 
