@@ -201,7 +201,18 @@ public class ProfileDAO {
                                          int cleaning, int indoor_eating, int mbti, int sharing, int habitude)
             throws SQLException {
         String sql1 = "SELECT gender "
-                + "FROM PROFILE p JOIN STUDENT s ON p.s_id = s.s_id ";
+                + "FROM PROFILE p JOIN STUDENT s ON p.s_id = s.s_id "
+                + "WHERE s.s_id=?";
+        jdbcUtil.setSqlAndParameters(sql1, new Object[] {s_id});
+        int gender;
+        try {
+            ResultSet rs = jdbcUtil.executeQuery();
+            gender = rs.getInt("gender");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            jdbcUtil.close();		// resource 반환
+        }
 
         String sql2 = "SELECT activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, " +
                 "major, cleaning, indoor_eating, mbti, sharing, habitude "
