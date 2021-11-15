@@ -1,7 +1,8 @@
 <%@page contentType="text/html; charset=utf-8" language="java" %>
 <%@page import="model.*" %>
+<%@ page import="com.sun.org.apache.xpath.internal.operations.Bool" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%! Profile profile; String img_url, smoking, sharing, lifestyle, grade, habitude, sleep_habit, cleaning, indoor_eating, mbti;%>
+<%! Profile profile; String activation, img_url, smoking, sharing, lifestyle, grade, habitude, sleep_habit, cleaning, indoor_eating, mbti; %>
 <html>
 <head>
     <title>마이 페이지</title>
@@ -24,6 +25,7 @@
             font-weight: normal;
             font-style: normal;
         }
+
         @font-face {
             font-family: 'SBAggroL';
             src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroL.woff') format('woff');
@@ -31,72 +33,80 @@
             font-style: normal;
         }
 
-        body {
-            margin: 5% 8%;
-            align-content: center;
+        html, body {
+            margin: 0;
+            width: auto;
+            height: auto;
+        }
+
+        h3 {
+            font-family: SBAggroB;
+            float: left;
+            padding-top: 30px;
+            padding-left: 100px;
+            color: black;
+        }
+
+        h4 {
+            font-family: SBAggroL;
         }
 
         #logo {
-            margin-top: 10px;
             width: 70px;
+            margin-left: 5px;
         }
 
-        h3.roomietitle {
-            font-family: SBAggroB;
-            float: left;
-            color: black;
-            margin-top: 40px;
-        }
-
-        th, td {
-            font-family: SBAggroL;
-            font-size: 12px;
-            line-height: 18px;
+        td {
             padding-left: 10px;
-            padding-right: 10px;
+            padding-bottom: 15px;
         }
 
-        .title {
-            font-family: SBAggroL;
-            font-size: 12pt;
-            font-weight: bold;
-            color: Black;
-            background-color: Beige;
-            line-height: 22px;
+        ul.space_list li {
+            margin-bottom: 1em;
         }
 
-        /* Form css */
-        .text, .textarea, .password, .file, .select {
-            font-family: SBAggroL;
-            font-size: 8pt;
-            color: #333333;
+        ul.none {
+            margin-bottom: 1em;
+            list-style: none;
         }
 
-        table.commTable {
-            background: MediumBlue;
+        .layer {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%)
         }
 
-        td.commHead, th.commHead {
-            height: 22px;
-            text-align: center;
-            background: PowderBlue;
-            font-weight: bold;
-        }
-
-        td.commCell {
-            text-align: left;
-            background: White;
-            padding-left: 10px;
-            padding-right: 10px;
+        .button {
+            border: 0px;
+            border-radius: 10px;
+            background-color: lightgray;
+            padding: 7px 50px 7px 50px;
         }
     </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
 </head>
 <body>
 
-<a href = "${pageContext.request.contextPath}/student/main"><h3 class="roomietitle">&nbsp;Roomie</h3></a>
+<a href = "${pageContext.request.contextPath}/student/main" style="color: black"><h3>&nbsp;Roomie</h3></a>
 <a href = "${pageContext.request.contextPath}/student/main"><img src="/images/logo-font.png" id="logo"/></a>
 
+
 <% profile = (Profile) request.getAttribute("profile");
+    if (profile.getActivation())
+        activation = "활성화";
+    else
+        activation = "비활성화";
     img_url = "/images/";
     if (profile.getPr_img()==0)
         img_url += "man1.png";
@@ -115,7 +125,6 @@
     if (profile.getSharing()==0)
         sharing = "O";
     else
-
         sharing = "X";
     if (profile.getLifestyle()==0)
         lifestyle = "아침형";
@@ -197,109 +206,88 @@
         mbti = "ISTP";
 %>
 <br>
-<table style="width:100%">
-    <tr>
-        <td width="20"></td>
-        <td>
-            <table>
-                <tr>
-                    <td class="title">&nbsp;&nbsp;<b>마이 페이지</b>&nbsp;&nbsp;</td>
-                </tr>
-            </table>
-            <br>
-            <table class="commTable">
-                <tr>
-                    <td class="commHead">이름</td>
-                    <td class="commCell">
-                        ${profile.name}
-                    </td>
-                </tr>
-                <tr>
-                    <td class="commHead">프로필 이미지</td>
-                    <td class="commCell">
-                        <img style="border-radius: 10px; width:300px; height:400px; object-fit: contain;" src="<%=img_url%>" style="width: 100px; height: 100px;"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="commHead">나이</td>
-                    <td class="commCell">
-                        ${profile.age}
-                    </td>
-                </tr>
-                <tr>
-                    <td class="commHead">잠버릇</td>
-                    <td class="commCell">
-                        <%=sleep_habit%>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="commHead">생활형</td>
-                    <td class="commCell">
-                        <%=lifestyle%>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="commHead">흡연 여부</td>
-                    <td class="commCell">
-                        <%=smoking%>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="commHead">학년</td>
-                    <td class="commCell">
-                        <%=grade%>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="commHead">학과</td>
-                    <td class="commCell">
-                        ${profile.major}
-                    </td>
-                </tr>
-                <tr>
-                    <td class="commHead">MBTI</td>
-                    <td class="commCell">
-                        <%=mbti%>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="commHead">청소주기</td>
-                    <td class="commCell">
-                        <%=cleaning%>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="commHead">실내 취식여부</td>
-                    <td class="commCell">
-                        <%=indoor_eating%>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="commHead">생필품 공유여부</td>
-                    <td class="commCell">
-                        <%=sharing%>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="commHead">체질</td>
-                    <td class="commCell">
-                        <%=habitude%>
-                    </td>
-                </tr>
-            </table>
-            <br>
-            <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/profile/update">
-                <input type="hidden" name="s_id" value="${profile.s_id}">
-                <input type="button" class="button" value="수정하기" onclick="update()">
-            </form>
-            <br><br>
+<div align="center">
+    <table style="border-radius: 10px; align: center; margin-top: 50px;">
+        <tr>
+            <td colspan="2" rowspan="2">
+                <img style="border-radius: 10px; width:300px; height:400px;" src="<%=img_url%>"/>
+            </td>
+            <td width="100"></td>
+            <td colspan="2"
+                style="width:400px; text-align: center; font-size: x-large; font-weight: 800; padding-top: 5px;">프로필 옵션
+            </td>
+            <td/>
+        </tr>
+        <tr>
+            <td width="100"></td>
+            <td width="400" rowspan="3">
+                <table style="font-size: large; width:400px;">
+                    <tr>
+                        <td>활성화 여부</td>
+                        <td>: &emsp;&emsp;&emsp;<%=activation%></td>
+                    </tr>
+                    <tr>
+                        <td>닉네임</td>
+                        <td>: &emsp;&emsp;&emsp;${profile.name}</td>
+                    </tr>
+                    <tr>
+                        <td>흡연유무</td>
+                        <td>: &emsp;&emsp;&emsp;<%=smoking%></td>
+                    </tr>
+                    <tr>
+                        <td>전공</td>
+                        <td>: &emsp;&emsp;&emsp;${profile.major}</td>
+                    </tr>
+                    <tr>
+                        <td>생필품 공유</td>
+                        <td>: &emsp;&emsp;&emsp;<%=sharing%></td>
+                    </tr>
+                    <tr>
+                        <td>생활 패턴</td>
+                        <td>: &emsp;&emsp;&emsp;<%=lifestyle%></td>
+                    </tr>
+                    <tr>
+                        <td>학년</td>
+                        <td>: &emsp;&emsp;&emsp;<%=grade%></td>
+                    </tr>
+                    <tr>
+                        <td>체질</td>
+                        <td>: &emsp;&emsp;&emsp;<%=habitude%></td>
+                    </tr>
+                    <tr>
+                        <td>잠버릇</td>
+                        <td>: &emsp;&emsp;&emsp;<%=sleep_habit%></td>
+                    </tr>
+                    <tr>
+                        <td>청소 주기</td>
+                        <td>: &emsp;&emsp;&emsp;<%=cleaning%></td>
+                    </tr>
+                    <tr>
+                        <td>나이</td>
+                        <td>: &emsp;&emsp;&emsp;${profile.age}</td>
+                    </tr>
+                    <tr>
+                        <td>실내취식</td>
+                        <td>: &emsp;&emsp;&emsp;<%=indoor_eating%></td>
+                    </tr>
+                    <tr>
+                        <td>MBTI</td>
+                        <td>: &emsp;&emsp;&emsp;<%=mbti%></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/profile/update">
+                    <input type="hidden" name="s_id" value="${profile.s_id}">
+                    <input type="button" class="button" value="수정하기" onclick="update()">
+                </form>
+                <%--
+                                <button class="button" name="sc_id" value="${profile.s_id}" type="submit" onClick="location.href='/scrap/view'">스크랩</button>
+                --%>
+            </td>
+        </tr>
+    </table>
+</div>
 
-            <!-- 수정이 실패한 경우 exception 객체에 저장된 오류 메시지를 출력 -->
-            <%-- <c:if test="${updateFailed}">
-                 <font color="red"><c:out value="${exception.getMessage()}" /></font>
-             </c:if>--%>
-        </td>
-    </tr>
-</table>
-</body>
-</html>
