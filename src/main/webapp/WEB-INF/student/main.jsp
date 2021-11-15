@@ -3,7 +3,7 @@
 <%@page import="model.*" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%!
-	List<Profile> profileList; String img_url; int s_id;
+	List<Profile> profileList; String img_url;
 %>
 <html>
 <head>
