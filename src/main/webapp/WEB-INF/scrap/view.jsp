@@ -47,6 +47,7 @@
             margin-right: 7%;
         }
         .mb-3 {
+            cursor: pointer;
             float: left;
             border-radius: 10px;
             width: 40%;
