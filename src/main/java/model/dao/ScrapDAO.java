@@ -17,7 +17,7 @@ public class ScrapDAO {
     }
 
     public int create(Scrap scrap) throws SQLException {
-        String sql = "INSERT INTO myroomie VALUES(IDSEQ.nextval, ?, ?)";
+        String sql = "INSERT INTO scrap VALUES(?, SCRAPSEQ.nextval, ?)";
         Object[] param = new Object[] {scrap.getS_id(), scrap.getScrap_id()};
         jdbcUtil.setSqlAndParameters(sql, param);
 
@@ -34,9 +34,9 @@ public class ScrapDAO {
         return 0;
     }
 
-    public int remove(Scrap scrap) throws SQLException {
-        String sql = "DELETE FROM scrap WHERE scrap_id=?";
-        jdbcUtil.setSqlAndParameters(sql, new Object[] {scrap.getScrap_id()});
+    public int remove(int s_id, int scrap_id) throws SQLException {
+        String sql = "DELETE FROM scrap WHERE s_id=? AND scrap_id=?";
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {s_id, scrap_id});
 
         try {
             int result = jdbcUtil.executeUpdate();
@@ -52,9 +52,9 @@ public class ScrapDAO {
         return 0;
     }
 
-    public boolean isScraped(Scrap scrap) {
-        String sql = "SELECT count(*) FROM scrap WHERE scrap_id=?";
-        jdbcUtil.setSqlAndParameters(sql, new Object[] {scrap.getScrap_id()});
+    public boolean isScraped(int s_id, int scrap_id) {
+        String sql = "SELECT count(*) FROM scrap WHERE s_id=? AND scrap_id=?";
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {s_id, scrap_id});
 
         try {
             ResultSet rs = jdbcUtil.executeQuery();
@@ -70,11 +70,12 @@ public class ScrapDAO {
         return false;
     }
 
-    public List<Profile> findScarpList() throws SQLException {
-        String sql = "SELECT scrap_id, activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, major, mbti, cleaning, indoor_eation, sharting, habitude "
+    public List<Profile> findScarpList(int s_id) throws SQLException {
+        String sql = "SELECT scrap_id, activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, major, cleaning, indoor_eating, mbti, sharing, habitude "
                 + "FROM scrap s JOIN profile p ON s.scrap_id=p.s_id "
+                + "WHERE s.s_id = ? "
                 + "ORDER BY sc_id DESC";
-        jdbcUtil.setSqlAndParameters(sql, null);
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {s_id});
 
         try {
             ResultSet rs = jdbcUtil.executeQuery();
@@ -91,10 +92,10 @@ public class ScrapDAO {
                         rs.getInt("smoking"),
                         rs.getInt("grade"),
                         rs.getString("major"),
-                        rs.getInt("mbti"),
                         rs.getInt("cleaning"),
-                        rs.getInt("indoor_eation"),
-                        rs.getInt("sharting"),
+                        rs.getInt("indoor_eating"),
+                        rs.getInt("mbti"),
+                        rs.getInt("sharing"),
                         rs.getInt("habitude"));
                 ScrapList.add(scrap);				// List에 User 객체 저장
             }

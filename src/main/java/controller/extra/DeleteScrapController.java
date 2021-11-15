@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
-public class ScrapController implements Controller {
-    private static final Logger log = LoggerFactory.getLogger(ScrapController.class);
+public class DeleteScrapController implements Controller {
+    private static final Logger log = LoggerFactory.getLogger(DeleteScrapController.class);
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         HttpSession session = request.getSession();
@@ -23,22 +23,15 @@ public class ScrapController implements Controller {
 
         ScrapManager scrapManager = ScrapManager.getInstance();
 
-        if (request.getMethod().equals("GET")) {
-            List<Profile> scrapList = scrapManager.findScarpList(s_id);
-            request.setAttribute("scrapList", scrapList);
-
-            return "/scrap/view.jsp";
-        }
-
         /* POST */
         try {
-            //스크랩 버튼 눌렀을 때
+            //스크랩 삭제 버튼 눌렀을 때
             int scrap_id = Integer.parseInt(request.getParameter("scrap_id"));
-            Scrap s = new Scrap(s_id, scrap_id);
+            /*Scrap s = new Scrap(s_id, scrap_id);*/
 
-            scrapManager.create(s);
+            scrapManager.remove(s_id, scrap_id);
 
-            log.debug("s_id 확인: " + s_id + " scrap_id 확인: " + scrap_id);
+            log.debug("s_id확인: " + s_id + " scrap_id확인: " + scrap_id);
 
             ProfileManager manager = ProfileManager.getInstance();
             Profile profile = manager.findProfile(scrap_id);

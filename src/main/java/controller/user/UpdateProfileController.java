@@ -18,11 +18,16 @@ public class UpdateProfileController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)	throws Exception {
+		int s_id;
+		// 로그인 여부 확인
+		if (!UserSessionUtils.hasLogined(request.getSession())) {
+			return "redirect:/student/login";		// login form 요청으로 redirect
+		}
 
 		if (request.getMethod().equals("GET")) {
 			// GET request: 회원정보 수정 form 요청
 			// 원래는 UpdateUserFormController가 처리하던 작업을 여기서 수행
-			int s_id = Integer.parseInt(request.getParameter("s_id"));
+			s_id = Integer.parseInt(request.getParameter("s_id"));
 
 			log.debug("UpdateForm Request : {}", s_id);
 
@@ -30,9 +35,10 @@ public class UpdateProfileController implements Controller {
 			Profile profile = manager.findProfile(s_id);	// 수정하려는 사용자 정보 검색
 			request.setAttribute("profile", profile);
 
-			HttpSession session = request.getSession();
-			if (UserSessionUtils.isLoginUser(s_id, session) ||
-					UserSessionUtils.isLoginUser(0, session)) {  //관리자의 s_id = 0
+			/*HttpSession session = request.getSession();
+			*//* 관리자 이거 수정해라 꼭 *//*
+			if (*//*UserSessionUtils.isLoginUser(s_id, session) ||*//*
+					*//*!UserSessionUtils.isLoginUser(0, session) *//*) {  //관리자의 s_id = 0
 
 				return "/profile/updateForm.jsp";   // 검색한 사용자 정보를 update form으로 전송
 			}
@@ -41,7 +47,9 @@ public class UpdateProfileController implements Controller {
 			request.setAttribute("updateFailed", true);
 			request.setAttribute("exception",
 					new IllegalStateException("타인의 정보는 수정할 수 없습니다."));
-			return "/student/loginForm.jsp";	// 사용자 보기 화면으로 이동 (forwarding)
+			return "/student/loginForm.jsp";	// 사용자 보기 화면으로 이동 (forwarding)*/
+
+			return "/profile/myPage/updateForm.jsp";
 		}
 
 		// POST request (회원정보가 parameter로 전송됨)
@@ -67,6 +75,6 @@ public class UpdateProfileController implements Controller {
 
 		ProfileManager manager = ProfileManager.getInstance();
 		manager.update(updateStudent);
-		return "redirect:/profile/view";
+		return "redirect:/profile/myPage";
 	}
 }

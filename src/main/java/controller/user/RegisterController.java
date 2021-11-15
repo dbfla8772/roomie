@@ -25,7 +25,7 @@ public class RegisterController implements Controller {
 			log.debug("RegisterForm Request");
 
 			List<College> colList = CollegeManager.getInstance().findCollegeList();	// 커뮤니티 리스트 검색
-			request.setAttribute("commList", colList);
+			request.setAttribute("colList", colList);
 
 			return "/student/registerForm.jsp";   // 검색한 사용자 정보를 update form으로 전송
 		}
@@ -36,15 +36,16 @@ public class RegisterController implements Controller {
 				request.getParameter("email"),
 				request.getParameter("password"),
 				Integer.parseInt(request.getParameter("gender")),
-				request.getParameter("college"));
+				Integer.parseInt(request.getParameter("college")));
 
 		log.debug("Create Student : {}", student);
-
+		String email = request.getParameter("email");
 		try {
 			StudentManager manager = StudentManager.getInstance();
 			manager.create(student);
 //			return "redirect:/student/loginForm.jsp";
-			return "/student/loginForm.jsp";
+			request.setAttribute("email", email);
+			return "/profile/myPage/createForm.jsp";
 
 		} catch (ExistingStudentException e) {	// 예외 발생 시 회원가입 form으로 forwarding
 			request.setAttribute("registerFailed", true);

@@ -35,9 +35,9 @@
             top: 200px;
         }
         #logo {
-            width: 11%;
-            margin-left: -5%;
-            margin-top: -1.5%;
+            width: 130px;
+            margin-left: -4.5%;
+            margin-top: -1.3%;
         }
         .roomie {
             font-family: SBAggroB;
@@ -52,17 +52,21 @@
         .in {
             font-size: 13px;
             float: right;
+            padding-top: 15px;
             margin-left: 20%;
             margin-right: 23%;
-            /* padding-top: 50px;*/
+        }
+        input {
+            margin: 2px;
+            padding: 5px;
         }
         .img {
             position: relative;
-            top: 6px;
+            top: 13px;
         }
         .btn {
             position: relative;
-            left: 120px;
+            float: right;
         }
     </style>
 </head>
@@ -70,17 +74,20 @@
 <br>
 <form name="form" method="POST" action="${pageContext.request.contextPath}/student/login">
     <div class="main">
-        <img src="images/logo-font.png" id="logo" />
-        <div class="roomie">Roomie<br>루미</div>
-        <div class="in"x>
+        <div class="roomie" style="font-family: SBAggroB">
+            <img src="/images/logo-font.png" id="logo" /><br>
+            Roomie
+        </div>
+        <div class="in">
+            <br>
             <input type="image" class="img" src="/images/id.png" width="20px" height="20px">
             <input type="email" size="30" name="email">
-            <p/>
+            <br>
             <input type="image" class="img" src="/images/password2.png" width="20px" height="20px">
             <input type="password" size="30" name="password">
             <p/>
-            <input type="button" class="btn" value="회원가입" onClick="studentCreate('${pageContext.request.contextPath}/student/register')">&nbsp;
             <input type="button" class="btn" value="로그인" onClick="login()">
+            <input type="button" class="btn" value="회원가입" onClick="studentCreate('${pageContext.request.contextPath}/student/register')">&nbsp;
         </div>
     </div>
 </form>

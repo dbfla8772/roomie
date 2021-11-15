@@ -1,10 +1,23 @@
-<%@page contentType="text/html; charset=utf-8" %>
+<%@page contentType="text/html; charset=utf-8" language="java" %>
 <%@page import="model.*" %>
+<%@ page import="com.sun.org.apache.xpath.internal.operations.Bool" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%! Profile profile; String activation, img_url, smoking, sharing, lifestyle, grade, habitude, sleep_habit, cleaning, indoor_eating, mbti; %>
 <html>
 <head>
-    <title>커뮤니티 관리</title>
+    <title>마이 페이지</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script>
+        /*function update() {/!*
+            form.action = targetUri;
+            form.method = "POST";  *!/    //register form 요청
+            form.submit();
+        }*/
+        function update() {
+            form.method = "GET";
+            form.submit();
+        }
+    </script>
     <style>
         @font-face {
             font-family: 'SBAggroB';
@@ -12,167 +25,269 @@
             font-weight: normal;
             font-style: normal;
         }
-        #logo {
-            margin-top: -2.5%;
-            width: 6%;
+
+        @font-face {
+            font-family: 'SBAggroL';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroL.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        html, body {
+            margin: 0;
+            width: auto;
+            height: auto;
         }
 
         h3 {
             font-family: SBAggroB;
             float: left;
+            padding-top: 30px;
+            padding-left: 100px;
+            color: black;
         }
 
-        th, td {
-            font-family: 돋움;
-            font-size: 12px;
-            line-height: 18px;
+        h4 {
+            font-family: SBAggroL;
+        }
+
+        #logo {
+            width: 70px;
+            margin-left: 5px;
+        }
+
+        td {
             padding-left: 10px;
-            padding-right: 10px;
+            padding-bottom: 15px;
         }
 
-        .title {
-            font-family: 돋움;
-            font-size: 12pt;
-            font-weight: bold;
-            color: Black;
-            background-color: Beige;
-            line-height: 22px;
+        ul.space_list li {
+            margin-bottom: 1em;
         }
 
-        /* Form css */
-        .text, .textarea, .password, .file, .select {
-            font-family: 돋움;
-            font-size: 8pt;
-            color: #333333;
+        ul.none {
+            margin-bottom: 1em;
+            list-style: none;
         }
 
-        table.commTable {
-            background: MediumBlue;
+        .layer {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%)
         }
 
-        td.commHead, th.commHead {
-            height: 22px;
-            text-align: center;
-            background: PowderBlue;
-            font-weight: bold;
-        }
-
-        td.commCell {
-            text-align: left;
-            background: White;
-            padding-left: 10px;
-            padding-right: 10px;
+        .button {
+            border: 0px;
+            border-radius: 10px;
+            background-color: lightgray;
+            padding: 7px 50px 7px 50px;
         }
     </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
 </head>
 <body>
 
-<h3>&nbsp;Roomie</h3>
-<img src="images/logo-font.png" id="logo" />
+<a href = "${pageContext.request.contextPath}/student/main" style="color: black"><h3>&nbsp;Roomie</h3></a>
+<a href = "${pageContext.request.contextPath}/student/main"><img src="/images/logo-font.png" id="logo"/></a>
 
+
+<% profile = (Profile) request.getAttribute("profile");
+    if (profile.getActivation())
+        activation = "활성화";
+    else
+        activation = "비활성화";
+    img_url = "/images/";
+    if (profile.getPr_img()==0)
+        img_url += "man1.png";
+    else if (profile.getPr_img()==1)
+        img_url += "man2.png";
+    else if (profile.getPr_img()==2)
+        img_url += "woman1.png";
+    else
+        img_url += "woman2.png";
+
+    if (profile.getSmoking()==0)
+        smoking = "O";
+    else
+        smoking = "X";
+
+    if (profile.getSharing()==0)
+        sharing = "O";
+    else
+        sharing = "X";
+    if (profile.getLifestyle()==0)
+        lifestyle = "아침형";
+    else
+        lifestyle = "저녁형";
+
+    if (profile.getGrade()==0)
+        grade = "1학년";
+    else if (profile.getGrade()==1)
+        grade = "2학년";
+    else if (profile.getGrade()==2)
+        grade = "3학년";
+    else if (profile.getGrade()==3)
+        grade = "4학년";
+
+    if (profile.getHabitude()==0)
+        habitude = "추위를 탐";
+    else if (profile.getHabitude()==1)
+        habitude = "더위를 탐";
+    else
+        habitude = "둘 다 안 탐";
+
+    if (profile.getSleep_habit()==0)
+        sleep_habit = "없음";
+    else if (profile.getSleep_habit()==1)
+        sleep_habit = "코골이";
+    else if (profile.getSleep_habit()==2)
+        sleep_habit = "이갈이";
+    else
+        sleep_habit = "몽유병";
+
+    if (profile.getCleaning()==0)
+        cleaning = "매일";
+    else if (profile.getCleaning()==1)
+        cleaning = "3일";
+    else if (profile.getCleaning()==2)
+        cleaning = "1주";
+    else
+        cleaning = "2주";
+
+    if (profile.getIndoor_eating()==0)
+        indoor_eating = "냄새나는 음식도 가능";
+    else if (profile.getIndoor_eating()==0)
+        indoor_eating = "냄새 안 나는 음식만 가능";
+    else
+        indoor_eating = "불가능";
+
+    if (profile.getMbti()==0)
+        mbti = "ENFJ";
+    else if (profile.getMbti()==1)
+        mbti = "ENFP";
+    else if (profile.getMbti()==2)
+        mbti = "ENTJ";
+    else if (profile.getMbti()==3)
+        mbti = "ENTP";
+    else if (profile.getMbti()==4)
+        mbti = "ESFJ";
+    else if (profile.getMbti()==5)
+        mbti = "ESFP";
+    else if (profile.getMbti()==6)
+        mbti = "ESTJ";
+    else if (profile.getMbti()==7)
+        mbti = "ESTP";
+    else if (profile.getMbti()==8)
+        mbti = "INFJ";
+    else if (profile.getMbti()==9)
+        mbti = "INFP";
+    else if (profile.getMbti()==10)
+        mbti = "INTJ";
+    else if (profile.getMbti()==11)
+        mbti = "INTP";
+    else if (profile.getMbti()==12)
+        mbti = "ISFJ";
+    else if (profile.getMbti()==13)
+        mbti = "ISFP";
+    else if (profile.getMbti()==14)
+        mbti = "ISTJ";
+    else
+        mbti = "ISTP";
+%>
 <br>
-<table style="width:100%">
-    <tr>
-        <td width="20"></td>
-        <td>
-            <table>
-                <tr>
-                    <td class="title">&nbsp;&nbsp;<b>마이 페이지</b>&nbsp;&nbsp;</td>
-                </tr>
-            </table>
-            <br>
-            <table class="commTable">
-                <tr>
-                    <td class="commHead">이름</td>
-                    <td class="commCell">
-                        ${profile.name}
-                    </td>
-                </tr>
-                <tr>
-                    <td class="commHead">프로필 이미지</td>
-                    <td class="commCell">
-                        ${profile.pr_img}
-                    </td>
-                </tr>
-                <tr>
-                    <td class="commHead">나이</td>
-                    <td class="commCell">
-                        ${profile.age}
-                    </td>
-                </tr>
-                <tr>
-                    <td class="commHead">잠버릇</td>
-                    <td class="commCell">
-                        ${profile.sleep_habit}
-                    </td>
-                </tr>
-                <tr>
-                    <td class="commHead">생활형</td>
-                    <td class="commCell">
-                        ${profile.lifestyle}
-                    </td>
-                </tr>
-                <tr>
-                    <td class="commHead">흡연 여부</td>
-                    <td class="commCell">
-                        ${profile.smoking}
-                    </td>
-                </tr>
-                <tr>
-                    <td class="commHead">학년</td>
-                    <td class="commCell">
-                        ${profile.grade}
-                    </td>
-                </tr>
-                <tr>
-                    <td class="commHead">학과</td>
-                    <td class="commCell">
-                        ${profile.major}
-                    </td>
-                </tr>
-                <tr>
-                    <td class="commHead">MBTI</td>
-                    <td class="commCell">
-                        ${profile.mbti}
-                    </td>
-                </tr>
-                <tr>
-                    <td class="commHead">청소주기</td>
-                    <td class="commCell">
-                        ${profile.cleaning}
-                    </td>
-                </tr>
-                <tr>
-                    <td class="commHead">실내 취식여부</td>
-                    <td class="commCell">
-                        ${profile.indoor_eating}
-                    </td>
-                </tr>
-                <tr>
-                    <td class="commHead">생필품 공유여부</td>
-                    <td class="commCell">
-                        ${community.sharing}
-                    </td>
-                </tr>
-                <tr>
-                    <td class="commHead">체질</td>
-                    <td class="commCell">
-                        ${community.habitude}
-                    </td>
-                </tr>
-            </table>
-            <br>
-            <a href="${pageContext.serveltContext.contextPath}/profile/update">
-                <c:param name='s_id' value='${profile.s_id}'/>수정하기</a> &nbsp;
-            <a href="${pageContext.serveltContext.contextPath}/student/main">메인으로</a>
-            <br><br>
+<div align="center">
+    <table style="border-radius: 10px; align: center; margin-top: 50px;">
+        <tr>
+            <td colspan="2" rowspan="2">
+                <img style="border-radius: 10px; width:300px; height:400px;" src="<%=img_url%>"/>
+            </td>
+            <td width="100"></td>
+            <td colspan="2"
+                style="width:400px; text-align: center; font-size: x-large; font-weight: 800; padding-top: 5px;">프로필 옵션
+            </td>
+            <td/>
+        </tr>
+        <tr>
+            <td width="100"></td>
+            <td width="400" rowspan="3">
+                <table style="font-size: large; width:400px;">
+                    <tr>
+                        <td>활성화 여부</td>
+                        <td>: &emsp;&emsp;&emsp;<%=activation%></td>
+                    </tr>
+                    <tr>
+                        <td>닉네임</td>
+                        <td>: &emsp;&emsp;&emsp;${profile.name}</td>
+                    </tr>
+                    <tr>
+                        <td>흡연유무</td>
+                        <td>: &emsp;&emsp;&emsp;<%=smoking%></td>
+                    </tr>
+                    <tr>
+                        <td>전공</td>
+                        <td>: &emsp;&emsp;&emsp;${profile.major}</td>
+                    </tr>
+                    <tr>
+                        <td>생필품 공유</td>
+                        <td>: &emsp;&emsp;&emsp;<%=sharing%></td>
+                    </tr>
+                    <tr>
+                        <td>생활 패턴</td>
+                        <td>: &emsp;&emsp;&emsp;<%=lifestyle%></td>
+                    </tr>
+                    <tr>
+                        <td>학년</td>
+                        <td>: &emsp;&emsp;&emsp;<%=grade%></td>
+                    </tr>
+                    <tr>
+                        <td>체질</td>
+                        <td>: &emsp;&emsp;&emsp;<%=habitude%></td>
+                    </tr>
+                    <tr>
+                        <td>잠버릇</td>
+                        <td>: &emsp;&emsp;&emsp;<%=sleep_habit%></td>
+                    </tr>
+                    <tr>
+                        <td>청소 주기</td>
+                        <td>: &emsp;&emsp;&emsp;<%=cleaning%></td>
+                    </tr>
+                    <tr>
+                        <td>나이</td>
+                        <td>: &emsp;&emsp;&emsp;${profile.age}</td>
+                    </tr>
+                    <tr>
+                        <td>실내취식</td>
+                        <td>: &emsp;&emsp;&emsp;<%=indoor_eating%></td>
+                    </tr>
+                    <tr>
+                        <td>MBTI</td>
+                        <td>: &emsp;&emsp;&emsp;<%=mbti%></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/profile/update">
+                    <input type="hidden" name="s_id" value="${profile.s_id}">
+                    <input type="button" class="button" value="수정하기" onclick="update()">
+                </form>
+                <%--
+                                <button class="button" name="sc_id" value="${profile.s_id}" type="submit" onClick="location.href='/scrap/view'">스크랩</button>
+                --%>
+            </td>
+        </tr>
+    </table>
+</div>
 
-            <!-- 수정이 실패한 경우 exception 객체에 저장된 오류 메시지를 출력 -->
-            <c:if test="${updateFailed}">
-                <font color="red"><c:out value="${exception.getMessage()}" /></font>
-            </c:if>
-        </td>
-    </tr>
-</table>
-</body>
-</html>

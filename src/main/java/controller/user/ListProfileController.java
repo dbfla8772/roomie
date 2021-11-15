@@ -3,19 +3,24 @@ package controller.user;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import controller.Controller;
 import model.Profile;
+import model.Student;
 import model.service.ProfileManager;
+import model.service.StudentManager;
 
 public class ListProfileController implements Controller {
-	private static final int countProfilePage = 10;	// ?•œ ?™”ë©´ì— ì¶œë ¥?•  ?‚¬?š©? ?ˆ˜
+	private static final int countProfilePage = 10;	// í•œ í™”ë©´ì— ì¶œë ¥í•  ì‚¬ìš©ì ìˆ˜
 
-    @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response)	throws Exception {
-		// ·Î±×ÀÎ ¿©ºÎ È®ÀÎ
-    	if (!UserSessionUtils.hasLogined(request.getSession())) {
-            return "redirect:/student/login";		// login form ¿äÃ»À¸·Î redirect
-        }
+	@Override
+	public String execute(HttpServletRequest request, HttpServletResponse response)	throws Exception {
+		// ë¡œê·¸ì¸ ì—¬ë¶€ í™•ì¸
+		if (!UserSessionUtils.hasLogined(request.getSession())) {
+			return "redirect:/student/login";		// login form ìš”ì²­ìœ¼ë¡œ redirect
+		}
+
 
 		String currentpagePro = request.getParameter("currentPage");
 		int currentPage = 1;
@@ -23,17 +28,24 @@ public class ListProfileController implements Controller {
 			currentPage = Integer.parseInt(currentpagePro);
 		}
 
-		int s_id = (int)UserSessionUtils.getLoginUserId(request.getSession());
+		HttpSession session = request.getSession();
+		String email = (String) session.getAttribute(UserSessionUtils.USER_SESSION_KEY);
+
+		StudentManager student = StudentManager.getInstance();
+		Student s = student.findStudent(email);
+
+		int s_id = (int)UserSessionUtils.getS_Id(request.getSession());
 		ProfileManager manager = ProfileManager.getInstance();
-		List<Profile> profileList = (List<Profile>) manager.findProfile(s_id);
-//		List<Profile> profileList = manager.findProfileList(currentPage, countProfilePage);
+		//List<Profile> profileList = (List<Profile>) manager.findUserList(s.getC_id(), s.getGender(), s_id);
+		List<Profile> profileList = (List<Profile>) manager.findProfileList(s.getC_id(), s.getGender(), s_id);
+//		List<Profile> profileList = manager.findProfileList(currentPage, countProfilePage, s.getC_id(), s.getGender(), s_id);
 
 
-		// profileList ê°ì²´?? ?˜„?¬ ë¡œê·¸?¸?•œ ?‚¬?š©? IDë¥? request?— ???¥?•˜?—¬ ? „?‹¬
+		// profileList ê°ì²´ì™€ í˜„ì¬ ë¡œê·¸ì¸í•œ ì‚¬ìš©ì IDë¥¼ requestì— ì €ì¥í•˜ì—¬ ì „ë‹¬
 		request.setAttribute("profileList", profileList);
 		request.setAttribute("s_id", s_id);
 
-		// ?‚¬?š©? ë¦¬ìŠ¤?Š¸ ?™”ë©´ìœ¼ë¡? ?´?™(forwarding)
+		// ì‚¬ìš©ì ë¦¬ìŠ¤íŠ¸ í™”ë©´ìœ¼ë¡œ ì´ë™(forwarding)
 		return "/student/main.jsp";
 	}
 }

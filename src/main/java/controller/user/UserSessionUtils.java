@@ -3,19 +3,20 @@ package controller.user;
 import javax.servlet.http.HttpSession;
 
 public class UserSessionUtils {
-    public static final String USER_SESSION_KEY = "userId";
+    public static final String USER_SESSION_KEY = "userId";  //email
+    public static final String USER_SESSION_ID = "s_id";
 
     /* 현재 로그인한 사용자의 ID를 구함 */
     public static Object getLoginUserId(HttpSession session) {
         Object userId = session.getAttribute(USER_SESSION_KEY);
 
-        if (userId.getClass().getSimpleName().equals("String")) {
-            userId = (String)userId;
-        } else {
-            userId = (int)userId;
-        }
-
         return userId;
+    }
+
+    public static Object getS_Id(HttpSession session) {
+        Object s_id = session.getAttribute(USER_SESSION_ID);
+
+        return s_id;
     }
 
     /* 로그인한 상태인지를 검사 */
@@ -49,7 +50,7 @@ public class UserSessionUtils {
     }
 
     public static boolean isLoginUser(String userId, HttpSession session) {
-        String loginUser = (String)getLoginUserId(session);
+        String loginUser = (String) getLoginUserId(session);
         if (loginUser == null) {
             return false;
         }

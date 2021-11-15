@@ -5,31 +5,41 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import controller.Controller;
+import controller.extra.ScrapController;
+import model.Student;
 import model.service.StudentManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class LoginController implements Controller {
+	private static final Logger log = LoggerFactory.getLogger(LoginController.class);
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String studentId = request.getParameter("email");
+		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		
+
 		try {
-			// ¸ğµ¨¿¡ ·Î±×ÀÎ Ã³¸®¸¦ À§ÀÓ
+			// ëª¨ë¸ì— ë¡œê·¸ì¸ ì²˜ë¦¬ë¥¼ ìœ„ì„
 			StudentManager manager = StudentManager.getInstance();
-			manager.login(studentId, password);
-	
-			// ¼¼¼Ç¿¡ »ç¿ëÀÚ ¾ÆÀÌµğ ÀúÀå
+			manager.login(email, password);
+
+			StudentManager student = StudentManager.getInstance();
+			Student s = student.findStudent(email);
+
+			// ì„¸ì…˜ì— ì‚¬ìš©ì ì•„ì´ë”” ì €ì¥
 			HttpSession session = request.getSession();
-            session.setAttribute(UserSessionUtils.USER_SESSION_KEY, studentId);
-            
-            return "redirect:/student/main";
+			session.setAttribute(UserSessionUtils.USER_SESSION_KEY, email);
+			log.debug("login s_id::: " + s.getS_id());
+			session.setAttribute(UserSessionUtils.USER_SESSION_ID, s.getS_id());
+
+			return "redirect:/student/main";
 		} catch (Exception e) {
-			/* UserNotFoundExceptionÀÌ³ª PasswordMismatchException ¹ß»ı ½Ã
-			 * ´Ù½Ã login formÀ» »ç¿ëÀÚ¿¡°Ô Àü¼ÛÇÏ°í ¿À·ù ¸Ş¼¼Áöµµ Ãâ·Â
+			/* UserNotFoundExceptionì´ë‚˜ PasswordMismatchException ë°œìƒ ì‹œ
+			 * ë‹¤ì‹œ login formì„ ì‚¬ìš©ìì—ê²Œ ì „ì†¡í•˜ê³  ì˜¤ë¥˜ ë©”ì„¸ì§€ë„ ì¶œë ¥
 			 */
-            request.setAttribute("loginFailed", true);
+			request.setAttribute("loginFailed", true);
 			request.setAttribute("exception", e);
-            return "/student/loginForm.jsp";
-		}	
-    }
+			return "/student/loginForm.jsp";
+		}
+	}
 }
