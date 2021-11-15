@@ -34,9 +34,9 @@ public class ScrapDAO {
         return 0;
     }
 
-    public int remove(Scrap scrap) throws SQLException {
-        String sql = "DELETE FROM scrap WHERE scrap_id=?";
-        jdbcUtil.setSqlAndParameters(sql, new Object[] {scrap.getScrap_id()});
+    public int remove(int s_id, int scrap_id) throws SQLException {
+        String sql = "DELETE FROM scrap WHERE s_id=? AND scrap_id=?";
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {s_id, scrap_id});
 
         try {
             int result = jdbcUtil.executeUpdate();
@@ -52,9 +52,9 @@ public class ScrapDAO {
         return 0;
     }
 
-    public boolean isScraped(Scrap scrap) {
-        String sql = "SELECT count(*) FROM scrap WHERE scrap_id=?";
-        jdbcUtil.setSqlAndParameters(sql, new Object[] {scrap.getScrap_id()});
+    public boolean isScraped(int s_id, int scrap_id) {
+        String sql = "SELECT count(*) FROM scrap WHERE s_id=? AND scrap_id=?";
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {s_id, scrap_id});
 
         try {
             ResultSet rs = jdbcUtil.executeQuery();

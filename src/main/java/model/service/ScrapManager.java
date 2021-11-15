@@ -29,11 +29,16 @@ public class ScrapManager {
         return scrapDAO.create(scrap);
     }
 
-    public int update(Scrap scrap) throws SQLException {
-        return scrapDAO.remove(scrap);
+    public int remove(int s_id, int scrap_id) throws SQLException {
+        return scrapDAO.remove(s_id, scrap_id);
     }
 
-    public List<Profile> findScarpList(int s_id) throws SQLException, StudentNotFoundException {
+    public List<Profile> findScarpList(int s_id) throws SQLException {
         return scrapDAO.findScarpList(s_id);
     }
+
+    public boolean isScraped(int s_id, int scrap_id) throws SQLException {
+        return scrapDAO.isScraped(s_id, scrap_id);
+    }
+
 }
