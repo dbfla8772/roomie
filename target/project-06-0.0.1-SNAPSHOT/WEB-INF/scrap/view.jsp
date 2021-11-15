@@ -3,7 +3,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%!
-    List<Profile> scrapList;
+    List<Profile> scrapList; String img_url;
 %>
 <html>
 <head>
@@ -98,7 +98,11 @@
         <div class="card mb-3" style="border-radius: 10px; max-width: 600px;" onClick="location.href='/student/main/detail'">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img style="border-radius: 10px;" src="<c:url value='/images/jjang.jpg' />" class="img-fluid rounded-start" alt="...">
+                    <c:if test="${profile.pr_img eq 0}"><%img_url = "/images/man1.png";%></c:if>
+                    <c:if test="${profile.pr_img eq 1}"><%img_url = "/images/man2.png";%></c:if>
+                    <c:if test="${profile.pr_img eq 2}"><%img_url = "/images/woman1.png";%></c:if>
+                    <c:if test="${profile.pr_img eq 3}"><%img_url = "/images/woman2.png";%></c:if>
+                    <img style="border-radius: 10px;" src="<c:url value='<%=img_url%>' />" class="img-fluid rounded-start" alt="...">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">

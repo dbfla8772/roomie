@@ -18,15 +18,15 @@ public class SearchProfileController implements Controller {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        HttpSession session = request.getSession();
+        int s_id = (int) session.getAttribute(UserSessionUtils.USER_SESSION_ID);
         // 로그인 여부 확인
-        if (!UserSessionUtils.hasLogined(request.getSession())) {
+        if (!UserSessionUtils.hasLogined(session)) {
             return "redirect:/student/login";        // login 요청으로 redirect
         }
 
         if (request.getMethod().equals("GET")) {
             // GET request: 검색필터
-            int s_id = Integer.parseInt(request.getParameter("s_id"));
-
             log.debug("SearchForm Request : {}", s_id);
 
             return "/student/search.jsp";
@@ -34,9 +34,6 @@ public class SearchProfileController implements Controller {
         }
 
         /* POST */
-
-        HttpSession session = request.getSession();
-        int studentId = (int) UserSessionUtils.getLoginUserId(request.getSession());
 
         Boolean.parseBoolean(request.getParameter("activation"));
 
@@ -49,7 +46,7 @@ public class SearchProfileController implements Controller {
         int sharing = Integer.parseInt(request.getParameter("sharing"));
         int habitude = Integer.parseInt(request.getParameter("habitude"));
 
-        log.debug("Search User : {}", studentId);
+        log.debug("Search User : {}", s_id);
 
 
       /*  String currentpagePro = request.getParameter("currentPage");
@@ -60,13 +57,13 @@ public class SearchProfileController implements Controller {
 
         //지금 s_id로만 매개변수 전달하여 프로필리스트 생성, 고쳐야함 manager에 메소드 새로 생성 + DAO에 검색필터 매개변수 추가하여 메소드
         ProfileManager manager = ProfileManager.getInstance();
-        List<Profile> profileList = (List<Profile>) manager.findProfileList(studentId, sleep_habit, lifestyle, smoking, cleaning, indoor_eating, mbti, sharing, habitude);
+        List<Profile> profileList = (List<Profile>) manager.findProfileList(s_id, sleep_habit, lifestyle, smoking, cleaning, indoor_eating, mbti, sharing, habitude);
 //		List<Profile> profileList = manager.findProfileList(currentPage, countProfilePage);
 
 
         // profileList 객체와 현재 로그인한 사용자 ID를 request에 저장하여 전달
         request.setAttribute("profileList", profileList);
-        request.setAttribute("s_id", studentId);
+        request.setAttribute("s_id", s_id);
 
         // 사용자 리스트 화면으로 이동(forwarding)
         return "/student/searchResult.jsp";
