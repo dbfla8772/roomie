@@ -15,6 +15,12 @@
             font-weight: normal;
             font-style: normal;
         }
+        @font-face {
+            font-family: 'SBAggroL';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroL.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
         html, body {
             magrin: 0;
             width: auto;
@@ -52,7 +58,7 @@
     </script>
 </head>
 <body>
-<div class="w-auto p-2" style="background-color: lightcyan; text-align: center;"><h4>당신의 루미를 찾아보세요! <button class="btn btn-outline-success" type="submit">자동매칭 하러가기</button></h4></div>
+<div class="w-auto p-2" style="background-color: lightcyan; text-align: center;"><h4 style="font-family: SBAggroL";>당신의 루미를 찾아보세요! <button class="btn btn-outline-success" type="submit">자동매칭 하러가기</button></h4></div>
 <div class="container">
     <header class="blog-header py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
