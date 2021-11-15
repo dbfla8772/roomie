@@ -200,7 +200,7 @@
                 </tr>
                 <tr>
                     <td class="commHead">프로필 이미지</td>
-                    <td class="commCell">
+                    <td class="commCell" >
                         <img style="border-radius: 10px; width:300px; height:400px;" src="<%=img_url%>"/>
                     </td>
                 </tr>

@@ -1,6 +1,10 @@
 <%@page contentType="text/html; charset=utf-8" %>
 <%@page import="model.*" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+    Profile profile = (Profile) request.getAttribute("profile");
+%>
+<!DOCTYPE html>
 <html>
 <head>
     <title>프로필 수정</title>
@@ -109,17 +113,17 @@
                         <td class="commHead">프로필 이미지</td>
                         <td class="commCell">
                             <input type="radio" name="pr_img" value="0"
-                            <c:if test="${profile.pr_img eq '0'}"> checked </c:if>>
-                            <img src="">
+                                <%if (profile.getPr_img() == 0) {%> checked <%} %>>
+                                <img src="/images/woman1.png" width="150px" height="150px">
                             <input type="radio" name="pr_img" value="1"
-                            <c:if test="${profile.pr_img eq '1'}"> checked </c:if>>
-                            <img src="">
+                                <%if (profile.getPr_img() == 1) {%> checked <%} %>>
+                                <img src="/images/woman2.png" width="150px" height="150px">
                             <input type="radio" name="pr_img" value="2"
-                            <c:if test="${profile.pr_img eq '2'}"> checked </c:if>>
-                            <img src="">
+                                <%if (profile.getPr_img() == 2) {%> checked <%} %>>
+                                <img src="/images/man1.png" width="150px" height="150px">
                             <input type="radio" name="pr_img" value="3"
-                            <c:if test="${profile.pr_img eq '3'}"> checked </c:if>>
-                            <img src="">
+                                <%if (profile.getPr_img() == 3) {%> checked <%} %>>
+                                <img src="/images/man2.png" width="150px" height="150px">
                         </td>
                     </tr>
                     <tr height="40">
@@ -132,44 +136,44 @@
                         <td class="commHead">잠버릇</td>
                         <td class="commCell">
                             <input type="radio" name="sleep_habit" value="0"
-                            <c:if test="${profile.sleep_habit eq '0'}"> checked </c:if>>없음
+                                <%if (profile.getSleep_habit() == 0) {%> checked <%} %>>없음
                             <input type="radio" name="sleep_habit" value="1"
-                            <c:if test="${profile.sleep_habit eq '1'}"> checked </c:if>>코골이
+                                <%if (profile.getSleep_habit() == 1) {%> checked <%} %>>코골이
                             <input type="radio" name="sleep_habit" value="2"
-                            <c:if test="${profile.sleep_habit eq '2'}"> checked </c:if>>이갈이
+                                <%if (profile.getSleep_habit() == 2) {%> checked <%} %>>이갈이
                             <input type="radio" name="sleep_habit" value="3"
-                            <c:if test="${profile.sleep_habit eq '3'}"> checked </c:if>>몽유병
+                                <%if (profile.getSleep_habit() == 3) {%> checked <%} %>>몽유병
                         </td>
                     </tr>
                     <tr height="40">
                         <td class="commHead">생활형</td>
                         <td class="commCell">
                             <input type="radio" name="lifestyle" value="0"
-                            <c:if test="${profile.lifestyle eq '0'}"> checked </c:if>>아침형
+                                <%if (profile.getLifestyle() == 0) {%> checked <%} %>>아침형
                             <input type="radio" name="lifestyle" value="1"
-                            <c:if test="${profile.lifestyle eq '1'}"> checked </c:if>>저녁형
+                                <%if (profile.getLifestyle() == 1) {%> checked <%} %>>저녁형
                         </td>
                     </tr>
                     <tr height="40">
                         <td class="commHead">흡연 여부</td>
                         <td class="commCell">
                             <input type="radio" name="smoking" value="0"
-                            <c:if test="${profile.smoking eq '0'}"> checked </c:if>>O
+                                <%if (profile.getSmoking() == 0) {%> checked <%} %>>O
                             <input type="radio" name="smoking" value="1"
-                            <c:if test="${profile.smoking eq '1'}"> checked </c:if>>X
+                                <%if (profile.getSmoking() == 1) {%> checked <%} %>>X
                         </td>
                     </tr>
                     <tr height="40">
                         <td class="commHead">학년</td>
                         <td class="commCell">
                             <input type="radio" name="grade" value="1"
-                            <c:if test="${profile.grade eq '1'}"> checked </c:if>>1학년
+                                <%if (profile.getGrade() == 1) {%> checked <%} %>>1학년
                             <input type="radio" name="grade" value="2"
-                            <c:if test="${profile.grade eq '2'}"> checked </c:if>>2학년
+                                <%if (profile.getGrade() == 2) {%> checked <%} %>>2학년
                             <input type="radio" name="grade" value="3"
-                            <c:if test="${profile.grade eq '3'}"> checked </c:if>>3학년
+                                <%if (profile.getGrade() == 3) {%> checked <%} %>>3학년
                             <input type="radio" name="grade" value="4"
-                            <c:if test="${profile.grade eq '4'}"> checked </c:if>>4학년
+                                <%if (profile.getGrade() == 4) {%> checked <%} %>>4학년
                         </td>
                     </tr>
                     <tr height="40">
@@ -182,22 +186,22 @@
                         <td class="commHead">MBTI</td>
                         <td class="commCell">
                             <select name="mbti">
-                                <option value="0"> <%--<c:if test="${profile.mbti eq '0'}"> selected </c:if>--%>ENFJ</option>
-                                <option value="1" <c:if test="${profile.mbti eq '1'}"> </c:if>ENFP</option>
-                                <option value="2" <c:if test="${profile.mbti eq '2'}"> </c:if>ENTJ</option>
-                                <option value="3" <c:if test="${profile.mbti eq '3'}"> </c:if>ENTP</option>
-                                <option value="4" <c:if test="${profile.mbti eq '4'}"> </c:if>ESFJ</option>
-                                <option value="5" <c:if test="${profile.mbti eq '5'}"> </c:if>ESFP</option>
-                                <option value="6" <c:if test="${profile.mbti eq '6'}"> </c:if>ESTJ</option>
-                                <option value="7" <c:if test="${profile.mbti eq '7'}"> </c:if>ESTP</option>
-                                <option value="8" <c:if test="${profile.mbti eq '8'}"> </c:if>INFJ</option>
-                                <option value="9" <c:if test="${profile.mbti eq '9'}"> </c:if>INFP</option>
-                                <option value="10" <c:if test="${profile.mbti eq '10'}"> </c:if>INTJ</option>
-                                <option value="11" <c:if test="${profile.mbti eq '11'}"> </c:if>INTP</option>
-                                <option value="12" <c:if test="${profile.mbti eq '12'}"> </c:if>ISFJ</option>
-                                <option value="13" <c:if test="${profile.mbti eq '13'}"> </c:if>ISFP</option
-                                <option value="14" <c:if test="${profile.mbti eq '14'}"> </c:if>ISTJ</option>
-                                <option value="15" <c:if test="${profile.mbti eq '15'}"> </c:if>ISTP</option>
+                                <option value="0" <% if(profile.getMbti() == 0) {%> selected <% } %>>ENFJ</option>
+                                <option value="1" <% if(profile.getMbti() == 1) {%> selected <% } %>>ENFP</option>
+                                <option value="2" <% if(profile.getMbti() == 2) {%> selected <% } %>>ENTJ</option>
+                                <option value="3" <% if(profile.getMbti() == 3) {%> selected <% } %>>ENTP</option>
+                                <option value="4" <% if(profile.getMbti() == 4) {%> selected <% } %>>ESFJ</option>
+                                <option value="5" <% if(profile.getMbti() == 5) {%> selected <% } %>>ESFP</option>
+                                <option value="6" <% if(profile.getMbti() == 6) {%> selected <% } %>>ESTJ</option>
+                                <option value="7" <% if(profile.getMbti() == 7) {%> selected <% } %>>ESTP</option>
+                                <option value="8" <% if(profile.getMbti() == 8) {%> selected <% } %>>INFJ</option>
+                                <option value="9" <% if(profile.getMbti() == 9) {%> selected <% } %>>INFP</option>
+                                <option value="10" <% if(profile.getMbti() == 10) {%> selected <% } %>>INTJ</option>
+                                <option value="11" <% if(profile.getMbti() == 11) {%> selected <% } %>>INTP</option>
+                                <option value="12" <% if(profile.getMbti() == 12) {%> selected <% } %>>ISFJ</option>
+                                <option value="13" <% if(profile.getMbti() == 13) {%> selected <% } %>>ISFP</option
+                                <option value="14" <% if(profile.getMbti() == 14) {%> selected <% } %>>ISTJ</option>
+                                <option value="15" <% if(profile.getMbti() == 15) {%> selected <% } %>>ISTP</option>
                             </select>
                         </td>
                     </tr>
@@ -205,46 +209,46 @@
                         <td class="commHead">청소주기</td>
                         <td class="commCell">
                             <input type="radio" name="cleaning" value="0"
-                            <c:if test="${profile.cleaning eq '0'}"> checked </c:if>>매일
+                                <%if (profile.getCleaning() == 0) {%> checked <%} %>>매일
                             <input type="radio" name="cleaning" value="1"
-                            <c:if test="${profile.cleaning eq '1'}"> checked </c:if>>3일
+                                <%if (profile.getCleaning() == 1) {%> checked <%} %>>3일
                             <input type="radio" name="cleaning" value="2"
-                            <c:if test="${profile.cleaning eq '2'}"> checked </c:if>>1주
+                                <%if (profile.getCleaning() == 2) {%> checked <%} %>>1주
                             <input type="radio" name="cleaning" value="3"
-                            <c:if test="${profile.cleaning eq '3'}"> checked </c:if>>2주
+                                <%if (profile.getCleaning() == 3) {%> checked <%} %>>2주
                         </td>
                     </tr>
                     <tr height="40">
                         <td class="commHead">실내 취식여부</td>
                         <td class="commCell">
                             <input type="radio" name="indoor_eating" value="0"
-                            <c:if test="${profile.indoor_eating eq '0'}"> checked </c:if>>냄새 나는 음식도 가능
+                                <%if (profile.getIndoor_eating() == 0) {%> checked <%} %>>냄새 나는 음식도 가능
                             <input type="radio" name="indoor_eating" value="1"
-                            <c:if test="${profile.indoor_eating eq '1'}"> checked </c:if>>냄새 안나는 음식만 가능
+                                <%if (profile.getIndoor_eating() == 1) {%> checked <%} %>>냄새 안나는 음식만 가능
                             <input type="radio" name="indoor_eating" value="2"
-                            <c:if test="${profile.indoor_eating eq '2'}"> checked </c:if>>불가능
+                                <%if (profile.getIndoor_eating() == 2) {%> checked <%} %>>불가능
                         </td>
                     </tr>
                     <tr height="40">
                         <td class="commHead">생필품 공유여부</td>
                         <td class="commCell">
                             <input type="radio" name="sharing" value="0"
-                            <c:if test="${profile.sharing eq '0'}"> checked </c:if>>전부 가능
+                                <%if (profile.getSharing() == 0) {%> checked <%} %>>전부 가능
                             <input type="radio" name="sharing" value="1"
-                            <c:if test="${profile.sharing eq '1'}"> checked </c:if>>공용 용품만 가능
+                                <%if (profile.getSharing() == 1) {%> checked <%} %>>공용 용품만 가능
                             <input type="radio" name="sharing" value="2"
-                            <c:if test="${profile.sharing eq '2'}"> checked </c:if>>전부 불가능
+                                <%if (profile.getSharing() == 2) {%> checked <%} %>>전부 불가능
                         </td>
                     </tr>
                     <tr height="40">
                         <td class="commHead">체질</td>
                         <td class="commCell">
                             <input type="radio" name="habitude" value="0"
-                            <c:if test="${profile.habitude eq '0'}"> checked </c:if>>추위를 탐
+                                <%if (profile.getHabitude() == 0) {%> checked <%} %>>추위를 탐
                             <input type="radio" name="habitude" value="1"
-                            <c:if test="${profile.habitude eq '1'}"> checked </c:if>>더위를 탐
+                                <%if (profile.getHabitude() == 1) {%> checked <%} %>>더위를 탐
                             <input type="radio" name="habitude" value="2"
-                            <c:if test="${profile.habitude eq '2'}"> checked </c:if>>둘 다 안탐
+                                <%if (profile.getHabitude() == 2) {%> checked <%} %>>둘 다 안탐
                         </td>
                     </tr>
                 </table>
