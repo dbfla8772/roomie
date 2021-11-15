@@ -196,7 +196,7 @@
 <div align="center">
     <table style="border-radius: 10px; align: center; margin-top: 50px;">
         <tr>
-            <td colspan="2" rowspan="2" bgcolor="#F8E3C6">
+            <td colspan="2" rowspan="2">
                 <img style="border-radius: 10px; width:300px; height:400px;" src="<%=img_url%>"/>
             </td>
             <td width="100"></td>

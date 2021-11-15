@@ -18,6 +18,7 @@ public class UpdateProfileController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)	throws Exception {
+		int s_id;
 		// 로그인 여부 확인
 		if (!UserSessionUtils.hasLogined(request.getSession())) {
 			return "redirect:/student/login";		// login form 요청으로 redirect
@@ -26,7 +27,7 @@ public class UpdateProfileController implements Controller {
 		if (request.getMethod().equals("GET")) {
 			// GET request: 회원정보 수정 form 요청
 			// 원래는 UpdateUserFormController가 처리하던 작업을 여기서 수행
-			int s_id = Integer.parseInt(request.getParameter("s_id"));
+			s_id = Integer.parseInt(request.getParameter("s_id"));
 
 			log.debug("UpdateForm Request : {}", s_id);
 
@@ -74,6 +75,6 @@ public class UpdateProfileController implements Controller {
 
 		ProfileManager manager = ProfileManager.getInstance();
 		manager.update(updateStudent);
-		return "redirect:/profile/view";
+		return "redirect:/profile/myPage";
 	}
 }

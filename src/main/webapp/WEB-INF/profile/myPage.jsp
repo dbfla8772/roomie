@@ -80,8 +80,8 @@
 </head>
 <body>
 
-<h3>&nbsp;Roomie</h3>
-<img src="/images/logo-font.png" id="logo"/>
+<a href = "${pageContext.request.contextPath}/student/main"><h3>&nbsp;Roomie</h3></a>
+<a href = "${pageContext.request.contextPath}/student/main"><img src="/images/logo-font.png" id="logo"/></a>
 <% profile = (Profile) request.getAttribute("profile");
     img_url = "/images/";
     if (profile.getPr_img()==0)
