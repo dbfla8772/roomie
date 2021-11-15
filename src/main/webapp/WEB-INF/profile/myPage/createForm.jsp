@@ -78,6 +78,8 @@
             padding-right: 10px;
         }
     </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
 
@@ -86,7 +88,53 @@
 
 <br>
 <!-- Create Form  -->
+<div style="text-align: center">
+    <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/profile/create">
+        <table border="1px solid black" width="500px">
+            <tr>
+                <td>
+                    <div class="mb-3">
+                        <label for="input2" class="form-label">닉네임</label>
+                        <input type="email" class="form-control" id="input2" placeholder="닉네임을 입력해주세요." name="name">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="pr_img" value="0" id="flexRadio1">
+                        <img src="/images/man1.png" width="150px" height="150px">
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
 <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/profile/create">
+<%--    <div class="form-check">--%>
+<%--        <label class="form-check-label" for="flexRadio1">--%>
+<%--            <input class="form-check-input" type="radio" name="pr_img" value="0" id="flexRadio1">--%>
+<%--            <img src="/images/man1.png" width="150px" height="150px">--%>
+<%--        </label>--%>
+<%--    </div>--%>
+    <div class="form-check">
+        <input class="form-check-input" type="radio"name="pr_img" value="1" id="flexRadio2">
+        <label class="form-check-label" for="flexRadio2">
+            <img src="/images/man2.png" width="150px" height="150px">
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio"name="pr_img" value="2" id="flexRadio3">
+        <label class="form-check-label" for="flexRadio3">
+            <img src="/images/woman1.png" width="150px" height="150px">
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio"name="pr_img" value="3" id="flexRadio4">
+        <label class="form-check-label" for="flexRadio4">
+            <img src="/images/woman2.png" width="150px" height="150px">
+        </label>
+    </div>
     <table style="width: 100%">
         <tr>
             <td width="20"></td>
@@ -101,7 +149,7 @@
                     <tr height="40">
                         <td class="commHead">이메일</td>
                         <td class="commCell">
-                            <input type="text" readonly style="width: 240px" name="email" value="<%=(String)request.getAttribute("email")%>">
+                            <input class="form-control" id="disabledInput" type="email" name="email" value="<%=(String)request.getAttribute("email")%>" disabled readonly>
                         </td>
                     </tr>
                     <tr height="40">
@@ -114,7 +162,7 @@
                         <td class="commHead">프로필 이미지</td>
                         <td class="commCell">
                             <input type="radio" name="pr_img" value="0">
-                                <img src="/images/man1.png">
+                                <img src="/images/man1.png" width="150px" height="150px">
                             <input type="radio" name="pr_img" value="1">
                                 <img src="/images/man2.png">
                             <input type="radio" name="pr_img" value="2">
@@ -154,10 +202,10 @@
                     <tr height="40">
                         <td class="commHead">학년</td>
                         <td class="commCell">
-                            <input type="radio" name="grade" value="1">1학년
-                            <input type="radio" name="grade" value="2">2학년
-                            <input type="radio" name="grade" value="3">3학년
-                            <input type="radio" name="grade" value="4">4학년
+                            <input type="radio" name="grade" value="0">1학년
+                            <input type="radio" name="grade" value="1">2학년
+                            <input type="radio" name="grade" value="2">3학년
+                            <input type="radio" name="grade" value="3">4학년
                         </td>
                     </tr>
                     <tr height="40">

@@ -82,14 +82,79 @@
             padding-right: 10px;
         }
     </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
 
-<h3>&nbsp;Roomie</h3>
-<img src="/images/logo-font.png" id="logo" />
-
+<div>
+    <h3>&nbsp;Roomie</h3>
+    <img src="/images/logo-font.png" id="logo" />
+</div>
 <br>
 <!-- Update Form  -->
+<div class="col-md-8 order-md-1">
+    <h4 class="mb-3">Billing address</h4>
+    <form class="needs-validation" novalidate>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="firstName">First name</label>
+                <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                    Valid first name is required.
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="lastName">Last name</label>
+                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                    Valid last name is required.
+                </div>
+            </div>
+        </div>
+    <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/profile/create">
+        <table border="1px solid black" width="500px">
+            <tr>
+                <td>
+                    <div class="mb-3">
+                        <label for="input1" class="form-label">닉네임</label>
+                        <input type="text" class="form-control" id="input1" name="name" value="${profile.name}">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="pr_img" value="0"
+                        <%if (profile.getPr_img() == 0) {%> checked <%} %>>
+                        <img src="/images/man1.png" width="150px" height="150px">
+                    </div>
+                </td>
+                <td>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="pr_img" value="1"
+                        <%if (profile.getPr_img() == 1) {%> checked <%} %>>
+                        <img src="/images/man2.png" width="150px" height="150px">
+                    </div>
+                </td>
+                <td>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="pr_img" value="2"
+                        <%if (profile.getPr_img() == 2) {%> checked <%} %>>
+                        <img src="/images/woman1.png" width="150px" height="150px">
+                    </div>
+                </td>
+                <td>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="pr_img" value="3"
+                        <%if (profile.getPr_img() == 3) {%> checked <%} %>>
+                        <img src="/images/woman2.png" width="150px" height="150px">
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
 <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/profile/update">
     <input type="hidden" name="s_id" value="${profile.s_id}"/>
     <table style="width: 100%">
