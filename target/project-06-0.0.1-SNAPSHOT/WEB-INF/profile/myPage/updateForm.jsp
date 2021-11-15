@@ -114,16 +114,16 @@
                         <td class="commCell">
                             <input type="radio" name="pr_img" value="0"
                                 <%if (profile.getPr_img() == 0) {%> checked <%} %>>
-                                <img src="/images/woman1.png" width="150px" height="150px">
+                                <img src="/images/man1.png" width="150px" height="150px">
                             <input type="radio" name="pr_img" value="1"
                                 <%if (profile.getPr_img() == 1) {%> checked <%} %>>
-                                <img src="/images/woman2.png" width="150px" height="150px">
+                                <img src="/images/man2.png" width="150px" height="150px">
                             <input type="radio" name="pr_img" value="2"
                                 <%if (profile.getPr_img() == 2) {%> checked <%} %>>
-                                <img src="/images/man1.png" width="150px" height="150px">
+                                <img src="/images/woman1.png" width="150px" height="150px">
                             <input type="radio" name="pr_img" value="3"
                                 <%if (profile.getPr_img() == 3) {%> checked <%} %>>
-                                <img src="/images/man2.png" width="150px" height="150px">
+                                <img src="/images/woman2.png" width="150px" height="150px">
                         </td>
                     </tr>
                     <tr height="40">
