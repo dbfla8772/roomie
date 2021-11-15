@@ -34,18 +34,27 @@
             font-style: normal;
         }
 
+        @font-face {
+            font-family: 'SBAggroL';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroL.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         body {
-            margin: 5%;
+            margin: 5% 8%;
             align-content: center;
         }
+
         #logo {
+            margin-top: -2.5%;
             width: 70px;
-            margin-left: 5px;
         }
 
         h3 {
             font-family: SBAggroB;
             float: left;
+            color: black;
         }
 
         table {
@@ -55,11 +64,11 @@
             position: relative;
             top: 20%;
             background-color: lightgrey;
-            border-radius: 5px;
         }
 
         td {
             padding: 2% 1% 2% 5%;
+            font-family: SBAggroL;
         }
 
         select {
@@ -69,19 +78,25 @@
             border-radius: 4px;
             outline: 0 none;
         }
+        .select option {
+            background: black;
+            color: #fff;
+            padding: 3px 0;
+        }
 
-        .btn, .search-img {
+        div {
             float: right;
         }
 
         .btn {
             margin-top: 10px;
             margin-right: 8%;
+            font-family: SBAggroL;
         }
 
         .search-img {
             margin-top: 15px;
-            margin-right: -20px;
+            margin-right: -200px;
         }
 
         #magnifier {
@@ -89,7 +104,7 @@
         }
 
         .btn-outline-secondary {
-            width: 100px;
+            width: 160px;
             padding: 5px;
             color: black;
             border-color: lightgrey;
@@ -101,30 +116,25 @@
             height: 100px;
         }
 
+        .card-margin {
+            margin-left: 5%;
+            font-family: SBAggroL;
+        }
         .mb-3 {
-            width: 40%;
-            border-radius: 10px;
+            cursor: pointer;
             float: left;
-            max-width: 600px;
-            margin: 0px 5% 100px 5%;
+            border-radius: 10px;
+            width: 40%;
+            margin: 0px 0% 100px 5%;
         }
-
-        .page-float {
-            clear: left;
-        }
-
-
     </style>
 
 </head>
 <body>
-<div>
-    <a href="${pageContext.request.contextPath}/student/main"><h3>Roomie</h3></a>
-    <img src="/images/logo-font.png" id="logo"/>
-</div>
+<a href = "${pageContext.request.contextPath}/student/main"><h3>&nbsp;Roomie</h3></a>
+<a href = "${pageContext.request.contextPath}/student/main"><img src="/images/logo-font.png" id="logo"/></a>
 
 <%-- 검색 필터 --%>
-<%--<form name="form" method="get" action="<c:url value="/student/searchResult">">--%>
 <form name="form" method="GET" action="">
     <table>
         <tr>
