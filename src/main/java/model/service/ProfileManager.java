@@ -29,7 +29,9 @@ public class ProfileManager {
         return profileDAO.create(profile);
     }
 
-    public int update(Profile profile) {return 1;}
+    public int update(Profile profile) throws SQLException {
+        return profileDAO.update(profile);
+    }
 
 
     public Profile findProfile(int studentId)
