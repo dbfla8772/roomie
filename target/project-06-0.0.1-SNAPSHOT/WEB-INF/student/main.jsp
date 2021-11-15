@@ -33,13 +33,17 @@
             margin-left: 5%;
         }
         .mb-3 {
+            cursor: pointer;
             float: left;
             border-radius: 10px;
             width: 40%;
-            margin: 0px 5% 100px 5%;
+            margin: 0px 0% 100px 5%;
         }
         .page-float {
             clear: left;
+            position: absolute;
+            bottom: 1px;
+            right: 43%
         }
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -78,8 +82,7 @@
 
 <%profileList = (List<Profile>) request.getAttribute("profileList");%>
 <form name="form">
-    <c:forEach var="profile" items="${profileList}" varStatus="status">
-        <input type="hidden" name="s_id${status.index}" value="${profile.s_id}">
+    <c:forEach var="profile" items="${profileList}">
         <div class="card-margin">
             <div class="card mb-3" style="border-radius: 10px; max-width: 600px;" onclick="location.href='/student/main/detail?s_id=' + ${profile.s_id}">
                 <div class="row g-0">
@@ -93,7 +96,7 @@
                     <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title">${profile.name}</h5>
-                            <p class="card-text">전공: ${profile.major}&emsp;&emsp;&emsp;&emsp;&emsp; <br>나이: ${profile.age}&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
+                            <p class="card-text">${profile.major} (${profile.grade}학년)&emsp;&emsp;&emsp;&emsp;&emsp; <br>${profile.age}세&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
                             <p class="card-text"><small class="text-muted"></small></p>
                         </div>
                     </div>
