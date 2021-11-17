@@ -85,7 +85,7 @@
 <a href = "${pageContext.request.contextPath}/student/main" style="color: black"><h3>&nbsp;Roomie</h3></a>
 <a href = "${pageContext.request.contextPath}/student/main"><img src="/images/logo-font.png" id="logo"/></a>
 
-<h2 style="text-align: center">프로필 등록</h2>
+<h2>프로필 등록</h2>
 <!-- Create Form  -->
 <div style="text-align: center">
     <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/profile/create">

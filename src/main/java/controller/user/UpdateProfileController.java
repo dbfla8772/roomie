@@ -55,6 +55,7 @@ public class UpdateProfileController implements Controller {
 		// POST request (회원정보가 parameter로 전송됨)
 		Profile updateStudent = new Profile(
 				Integer.parseInt(request.getParameter("s_id")),
+				Integer.parseInt(request.getParameter("activation")),
 				request.getParameter("name"),
 				Integer.parseInt(request.getParameter("pr_img")),
 				Integer.parseInt(request.getParameter("age")),
