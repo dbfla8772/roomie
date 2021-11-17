@@ -2,7 +2,7 @@
 <%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%! List<Profile> profileList; String img_url; %>
+<%! List<Profile> profileList; String img_url; List filter;%>
 <html>
 <head>
     <!-- Bootstrap CSS -->
@@ -133,6 +133,8 @@
 <body>
 <a href = "${pageContext.request.contextPath}/student/main"><h3>&nbsp;Roomie</h3></a>
 <a href = "${pageContext.request.contextPath}/student/main"><img src="/images/logo-font.png" id="logo"/></a>
+
+<%--<%filter = (List) request.getAttribute("filter");%>--%>
 
 <%-- 검색 필터 --%>
 <form name="form" method="GET" action="">

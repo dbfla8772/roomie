@@ -54,7 +54,7 @@ public class ProfileManager {
 
 
     /*search 필터를 프로필 객체로 전달*/
-    public List<Profile> findProfileList(int studentId, int sleep_habit, int lifestyle, int smoking, int grade, int major,
+    public List<Profile> findProfileList(int studentId, int sleep_habit, int lifestyle, int smoking, int grade, String major,
                                          int cleaning, int indoor_eating, int mbti, int sharing, int habitude)
             throws SQLException, StudentNotFoundException {
         return profileDAO.findProfileList(studentId, sleep_habit, lifestyle, smoking, grade, major,

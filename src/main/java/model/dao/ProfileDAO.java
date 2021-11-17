@@ -201,22 +201,20 @@ public class ProfileDAO {
     }
 
     /*search 페이징 X*/
-    public List<Profile> findProfileList(int s_id, int sleep_habit, int lifestyle, int smoking, int grade, int major,
+    public List<Profile> findProfileList(int s_id, int sleep_habit, int lifestyle, int smoking, int grade, String major,
                                          int cleaning, int indoor_eating, int mbti, int sharing, int habitude)
             throws SQLException {
-        String sql1 = "SELECT gender, c_id, major"
+        String sql1 = "SELECT gender, c_id "
                 + "FROM PROFILE p JOIN STUDENT s ON p.s_id = s.s_id "
                 + "WHERE s.s_id=?";
         jdbcUtil.setSqlAndParameters(sql1, new Object[] {s_id});
         int gender = 0;
         int c_id = 0;
-        String major_s = null;
         try {
             ResultSet rs = jdbcUtil.executeQuery();
             while (rs.next()) {
                 gender = rs.getInt("gender");
                 c_id = rs.getInt("c_id");
-                major_s = rs.getString("major");
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -227,7 +225,6 @@ public class ProfileDAO {
         String sql2 = "SELECT p.s_id, activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, " +
                 "major, cleaning, indoor_eating, mbti, sharing, habitude "
                 + "FROM PROFILE p JOIN STUDENT s ON p.s_id = s.s_id "
-//                + "WHERE s.gender=? AND p.activation='1' AND " /*where문 수정 or sql 2개로 하기 gender 고려*/
                 + "WHERE s.gender=? AND s.c_id=? AND NOT p.s_id IN (?)";
 
         List<Object> params = new ArrayList<>();
@@ -252,9 +249,9 @@ public class ProfileDAO {
             sql2 += "AND grade=? ";
             params.add(grade);
         }
-        if (major != -1) {
+        if (major != null) {
             sql2 += "AND major=? ";
-            params.add(major_s);
+            params.add(major);
         }
         if (cleaning != -1) {
             sql2 += "AND cleaning=? ";
@@ -278,24 +275,11 @@ public class ProfileDAO {
         }
         sql2 += "ORDER BY p.s_id";
 
-
-//                + "ORDER BY p.s_id";
-                /*
-        int sleep_habit = searchProfile.getSleep_habit();
-        int lifestyle = searchProfile.getLifestyle();
-        int smoking = searchProfile.getSmoking();
-        int cleaning = searchProfile.getCleaning();
-        int indoor_eating = searchProfile.getIndoor_eating();
-        int mbti = searchProfile.getMbti();
-        int sharing = searchProfile.getSharing();
-        int habitude = searchProfile.getHabitude();*/
-
         int size = params.size();
         Object[] param = params.toArray(new Object[size]);
 
         jdbcUtil.setSqlAndParameters(sql2,
-                param,					// JDBCUtil에 query문 설정
-                ResultSet.TYPE_SCROLL_INSENSITIVE,				// cursor scroll 가능
+                param, ResultSet.TYPE_SCROLL_INSENSITIVE,				// cursor scroll 가능
                 ResultSet.CONCUR_READ_ONLY);
 
         try {
