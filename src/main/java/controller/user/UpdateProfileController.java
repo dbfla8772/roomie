@@ -51,11 +51,16 @@ public class UpdateProfileController implements Controller {
 
 			return "/profile/myPage/updateForm.jsp";
 		}
-
+		int activation;
+		if (request.getParameter("activation") != null) {
+			activation = 1;
+		} else {
+			activation = 0;
+		}
 		// POST request (회원정보가 parameter로 전송됨)
 		Profile updateStudent = new Profile(
 				Integer.parseInt(request.getParameter("s_id")),
-				Integer.parseInt(request.getParameter("activation")),
+				activation,
 				request.getParameter("name"),
 				Integer.parseInt(request.getParameter("pr_img")),
 				Integer.parseInt(request.getParameter("age")),
