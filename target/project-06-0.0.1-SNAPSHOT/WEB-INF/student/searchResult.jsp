@@ -127,6 +127,12 @@
             width: 40%;
             margin: 0px 5% 100px 5%;
         }
+
+        #mbti {
+            padding: 5px 10px;
+            font-size: 15px;
+            margin: 2px;
+        }
     </style>
 
 </head>
