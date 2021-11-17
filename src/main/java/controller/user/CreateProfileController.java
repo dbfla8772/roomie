@@ -38,7 +38,6 @@ public class CreateProfileController implements Controller {
 
         Profile createProfile = new Profile(            //생성자와 순서 맞으면 ok
                 s.getS_id(),
-                Integer.parseInt(request.getParameter("activation")),
                 request.getParameter("name"),
                 Integer.parseInt(request.getParameter("pr_img")),
                 Integer.parseInt(request.getParameter("age")),
