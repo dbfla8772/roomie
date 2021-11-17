@@ -73,6 +73,9 @@ public class SearchProfileController implements Controller {
 
         if (request.getParameter("major") != null) {
             major = request.getParameter("major");
+            filter[4] = 0;
+        }
+        else {
             filter[4] = -1;
         }
 
@@ -90,8 +93,8 @@ public class SearchProfileController implements Controller {
         else
             indoor_eating = Integer.parseInt(request.getParameter("indoor_eating"));
 
-        filter[7] = -1;
         mbti = Integer.parseInt(request.getParameter("mbti"));
+        filter[7] = mbti;
 
         if (request.getParameter("sharing") == null) {
             sharing = -1;
