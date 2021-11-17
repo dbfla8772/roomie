@@ -39,7 +39,7 @@ public class SearchProfileController implements Controller {
         }
 
         /* POST */
-        int activation, sleep_habit, lifestyle, smoking, grade, cleaning, indoor_eating, mbti, sharing, habitude;
+        int sleep_habit, lifestyle, smoking, grade, cleaning, indoor_eating, mbti, sharing, habitude;
         String major = null;
         /* POST */
 
