@@ -37,25 +37,31 @@
             font-weight: normal;
             font-style: normal;
         }
-        #logo {
-            margin-top: -2.5%;
-            width: 70px;
+        @font-face {
+            font-family: 'SBAggroL';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroL.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
         }
-        h3 {
+        html, body {
+            magrin: 0;
+            width: auto;
+            height: auto;
+        }
+        a {
+            font-family: SBAggroL;
+        }
+        h1 {
+            padding-top: 10px;
             font-family: SBAggroB;
-            float: left;
-        }
-        th {
-            width: 200px;
         }
     </style>
 </head>
 <body>
 
-<h3>&nbsp;Roomie</h3>
-<img src="/images/logo-font.png" id="logo" />
+<a href = "${pageContext.request.contextPath}/student/main" style="color: black"><h3>&nbsp;Roomie</h3></a>
+<a href = "${pageContext.request.contextPath}/student/main"><img src="/images/logo-font.png" id="logo"/></a>
 
-<br>
 <h2 style="text-align: center">프로필 등록</h2>
 <!-- Create Form  -->
 <div style="text-align: center">
