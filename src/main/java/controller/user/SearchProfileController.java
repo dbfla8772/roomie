@@ -39,15 +39,9 @@ public class SearchProfileController implements Controller {
         }
 
         /* POST */
-
-        log.debug("search parameter::: {}", request.getParameter("mbti"));
         int activation, sleep_habit, lifestyle, smoking, grade, cleaning, indoor_eating, mbti, sharing, habitude;
         String major = null;
         /* POST */
-        if (request.getParameter("activation") == null)
-            activation = -1;
-        else
-            activation = Integer.parseInt(request.getParameter("activation"));
 
         if (request.getParameter("sleep_habit") == null) {
             sleep_habit = -1;
@@ -79,6 +73,9 @@ public class SearchProfileController implements Controller {
 
         if (request.getParameter("major") != null) {
             major = request.getParameter("major");
+            filter[4] = 0;
+        }
+        else {
             filter[4] = -1;
         }
 
@@ -96,12 +93,8 @@ public class SearchProfileController implements Controller {
         else
             indoor_eating = Integer.parseInt(request.getParameter("indoor_eating"));
 
-        if (request.getParameter("mbti") == null) {
-            mbti = -1;
-            filter[7] = -1;
-        }
-        else
-            mbti = Integer.parseInt(request.getParameter("mbti"));
+        mbti = Integer.parseInt(request.getParameter("mbti"));
+        filter[7] = mbti;
 
         if (request.getParameter("sharing") == null) {
             sharing = -1;
@@ -134,6 +127,7 @@ public class SearchProfileController implements Controller {
         // profileList 객체와 현재 로그인한 사용자 ID를 request에 저장하여 전달
         request.setAttribute("profileList", profileList);
         request.setAttribute("s_id", s_id);
+        request.setAttribute("filter", filter);
 
         // 사용자 리스트 화면으로 이동(forwarding)
         return "/student/searchResult.jsp";
