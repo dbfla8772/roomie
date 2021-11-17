@@ -28,6 +28,9 @@ public class SearchProfileController implements Controller {
         if (request.getMethod().equals("GET")) {
             // GET request: 검색필터
             log.debug("SearchForm Request : {}", s_id);
+            ProfileManager manager = ProfileManager.getInstance();
+            Profile profile = manager.findProfile(s_id);
+            request.setAttribute("profile", profile);
 
             return "/student/search.jsp";
 
@@ -35,7 +38,8 @@ public class SearchProfileController implements Controller {
 
         /* POST */
 
-        int activation, sleep_habit, lifestyle, smoking, grade, major, cleaning, indoor_eating, mbti, sharing, habitude;
+        int activation, sleep_habit, lifestyle, smoking, grade, cleaning, indoor_eating, mbti, sharing, habitude;
+        String major = null;
         /* POST */
         if (request.getParameter("activation") == null)
             activation = -1;
@@ -62,10 +66,8 @@ public class SearchProfileController implements Controller {
         else
             grade = Integer.parseInt(request.getParameter("grade"));
 
-        if (request.getParameter("major") == null)
-            major = -1;
-        else
-            major = Integer.parseInt(request.getParameter("major"));
+        if (request.getParameter("major") != null)
+            major = request.getParameter("major");
 
 
         if (request.getParameter("cleaning") == null)
