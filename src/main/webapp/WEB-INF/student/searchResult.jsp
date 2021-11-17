@@ -2,7 +2,7 @@
 <%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%! List<Profile> profileList; String img_url; int[] filter = new int[10]; int i; String[] check = new String[10]; %>
+<%! List<Profile> profileList; String img_url; int[] filter; int i; String[] check; %>
 <html>
 <head>
     <!-- Bootstrap CSS -->
@@ -135,7 +135,10 @@
 <a href = "${pageContext.request.contextPath}/student/main"><img src="/images/logo-font.png" id="logo"/></a>
 
 <%
+    filter = new int[10];
     filter = (int[]) request.getAttribute("filter");
+
+    check = new String[10];
 
     for (i = 0; i < filter.length; i++) {
         if(filter[i] != -1) {
@@ -171,23 +174,23 @@
             <td><input type="checkbox" id="indoor_eating" name="searchFilter" <%=check[6]%> disabled="disabled"><label>&nbsp;실내 취식</label></td>
             <td><label>&nbsp;&nbsp;&nbsp;MBTI&nbsp;
                 <select id="mbti" name="searchFilter" disabled="disabled">
-                    <option value="-1" <% if(Integer.parseInt(check[7]) == -1) {%> selected <% } %>>선택안함</option>
-                    <option value="0" <% if(Integer.parseInt(check[7]) == 0) {%> selected <% } %>>ENFJ</option>
-                    <option value="1" <% if(Integer.parseInt(check[7]) == 1) {%> selected <% } %>>ENFP</option>
-                    <option value="2" <% if(Integer.parseInt(check[7]) == 2) {%> selected <% } %>>ENTJ</option>
-                    <option value="3" <% if(Integer.parseInt(check[7]) == 3) {%> selected <% } %>>ENTP</option>
-                    <option value="4" <% if(Integer.parseInt(check[7]) == 4) {%> selected <% } %>>ESFJ</option>
-                    <option value="5" <% if(Integer.parseInt(check[7]) == 5) {%> selected <% } %>>ESFP</option>
-                    <option value="6" <% if(Integer.parseInt(check[7]) == 6) {%> selected <% } %>>ESTJ</option>
-                    <option value="7" <% if(Integer.parseInt(check[7]) == 7) {%> selected <% } %>>ESTP</option>
-                    <option value="8" <% if(Integer.parseInt(check[7]) == 8) {%> selected <% } %>>INFJ</option>
-                    <option value="9" <% if(Integer.parseInt(check[7]) == 9) {%> selected <% } %>>INFP</option>
-                    <option value="10" <% if(Integer.parseInt(check[7]) == 10) {%> selected <% } %>>INTJ</option>
-                    <option value="11" <% if(Integer.parseInt(check[7]) == 11) {%> selected <% } %>>INTP</option>
-                    <option value="12" <% if(Integer.parseInt(check[7]) == 12) {%> selected <% } %>>ISFJ</option>
-                    <option value="13" <% if(Integer.parseInt(check[7]) == 13) {%> selected <% } %>>ISFP</option
-                    <option value="14" <% if(Integer.parseInt(check[7]) == 14) {%> selected <% } %>>ISTJ</option>
-                    <option value="15" <% if(Integer.parseInt(check[7]) == 15) {%> selected <% } %>>ISTP</option>
+                    <option value="-1" <% if(filter[7] == -1) {%> selected <% } %>>선택안함</option>
+                    <option value="0" <% if(filter[7] == 0) {%> selected <% } %>>ENFJ</option>
+                    <option value="1" <% if(filter[7] == 1) {%> selected <% } %>>ENFP</option>
+                    <option value="2" <% if(filter[7] == 2) {%> selected <% } %>>ENTJ</option>
+                    <option value="3" <% if(filter[7] == 3) {%> selected <% } %>>ENTP</option>
+                    <option value="4" <% if(filter[7] == 4) {%> selected <% } %>>ESFJ</option>
+                    <option value="5" <% if(filter[7] == 5) {%> selected <% } %>>ESFP</option>
+                    <option value="6" <% if(filter[7] == 6) {%> selected <% } %>>ESTJ</option>
+                    <option value="7" <% if(filter[7] == 7) {%> selected <% } %>>ESTP</option>
+                    <option value="8" <% if(filter[7] == 8) {%> selected <% } %>>INFJ</option>
+                    <option value="9" <% if(filter[7] == 9) {%> selected <% } %>>INFP</option>
+                    <option value="10" <% if(filter[7] == 10) {%> selected <% } %>>INTJ</option>
+                    <option value="11" <% if(filter[7] == 11) {%> selected <% } %>>INTP</option>
+                    <option value="12" <% if(filter[7] == 12) {%> selected <% } %>>ISFJ</option>
+                    <option value="13" <% if(filter[7] == 13) {%> selected <% } %>>ISFP</option
+                    <option value="14" <% if(filter[7] == 14) {%> selected <% } %>>ISTJ</option>
+                    <option value="15" <% if(filter[7] == 15) {%> selected <% } %>>ISTP</option>
                 </select>
             </label></td>
             <br>
