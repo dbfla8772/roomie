@@ -7,6 +7,9 @@
     <title>detail profile</title>
 
     <style>
+        .dv {
+            margin-top: 0%;
+        }
         @font-face {
             font-family: 'SBAggroB';
             src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
@@ -200,15 +203,14 @@
         mbti = "ISTP";
 %>
 
-<div align="center">
-    <table style="border-radius: 10px; align: center; margin-top: 50px;">
+<div class="dv" align="center">
+    <table style="border-radius: 10px; align: center;">
         <tr>
             <td colspan="2" rowspan="2">
                 <img style="border-radius: 10px; width:300px; height:400px; object-fit:contain;" src="<%=img_url%>"/>
             </td>
-            <td width="100"></td>
-            <td colspan="2"
-                style="width:400px; text-align: center; font-size: x-large; font-weight: 800; padding-top: 5px;">프로필 옵션
+            <td colspan="3" style="width:400px; text-align: left; font-size: x-large; font-weight: 800; padding-top: 5px;">
+                &nbsp;&nbsp;프로필 옵션<br><br>
             </td>
             <td/>
         </tr>

@@ -42,9 +42,11 @@
         }
     </script>
     <style>
+        .frm {
+            margin-top: 7%;
+        }
         table {
-            margin-top: 100px;
-            width: 60%;
+            width: 55%;
             font-size: 13px;
             /*border: black 1px solid;*/
         }
@@ -74,10 +76,9 @@
         }
     </style>
 </head>
-
 <body>
 <form name="form" method="POST" action="${pageContext.request.contextPath}/student/register">
-    <div align="center">
+    <div class="frm" align="center">
         <table>
             <tr>
                 <td rowspan="3">
