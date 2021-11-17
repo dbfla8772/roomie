@@ -41,16 +41,46 @@
             font-weight: normal;
             font-style: normal;
         }
-        #logo {
-            margin-top: -2.5%;
-            width: 70px;
+        @font-face {
+            font-family: 'SBAggroL';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroL.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        html, body {
+            margin: 0;
+            width: auto;
+            height: auto;
+        }
+        h2 {
+            font-family: SBAggroB;
+            text-align: center;
         }
         h3 {
             font-family: SBAggroB;
             float: left;
+            padding-top: 30px;
+            padding-left: 100px;
+            color: black;
         }
-        th {
-            width: 200px;
+        h4 {
+            font-family: SBAggroL;
+        }
+        #logo {
+            width: 70px;
+            margin-left: 5px;
+        }
+        td, th {
+            font-family: SBAggroL;
+            padding-left: 10px;
+            padding-bottom: 15px;
+        }
+        ul.space_list li {
+            margin-bottom: 1em;
+        }
+        ul.none {
+            margin-bottom: 1em;
+            list-style: none;
         }
     </style>
 </head>
@@ -59,7 +89,7 @@
 <a href = "${pageContext.request.contextPath}/student/main" style="color: black"><h3>&nbsp;Roomie</h3></a>
 <a href = "${pageContext.request.contextPath}/student/main"><img src="/images/logo-font.png" id="logo"/></a>
 
-<h2 style="text-align: center">마이 페이지 수정</h2>
+<h2>마이 페이지 수정</h2>
 <!-- Update Form  -->
 <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/profile/update">
     <input type="hidden" name="s_id" value="${profile.s_id}"/>
@@ -95,8 +125,8 @@
             <td>
                 <input type="text" style="width: 240px" name="name" value="${profile.name}">
             </td>
-        <>/tr>
-        <tr
+        </tr>
+        <tr>
             <th>전공</th>
             <td>
                 <input type="text" style="width: 240px" name="major" value="${profile.major}">

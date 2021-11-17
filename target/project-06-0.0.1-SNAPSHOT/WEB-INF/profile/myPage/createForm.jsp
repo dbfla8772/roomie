@@ -44,16 +44,39 @@
             font-style: normal;
         }
         html, body {
-            magrin: 0;
+            margin: 0;
             width: auto;
             height: auto;
         }
-        a {
+        h2 {
+            font-family: SBAggroB;
+            text-align: center;
+        }
+        h3 {
+            font-family: SBAggroB;
+            float: left;
+            padding-top: 30px;
+            padding-left: 100px;
+            color: black;
+        }
+        h4 {
             font-family: SBAggroL;
         }
-        h1 {
-            padding-top: 10px;
-            font-family: SBAggroB;
+        #logo {
+            width: 70px;
+            margin-left: 5px;
+        }
+        td, th {
+            font-family: SBAggroL;
+            padding-left: 10px;
+            padding-bottom: 15px;
+        }
+        ul.space_list li {
+            margin-bottom: 1em;
+        }
+        ul.none {
+            margin-bottom: 1em;
+            list-style: none;
         }
     </style>
 </head>
