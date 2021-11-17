@@ -25,6 +25,7 @@
             margin: 0;
             width: auto;
             height: auto;
+            margin-bottom: 3%;
         }
 
         h3 {

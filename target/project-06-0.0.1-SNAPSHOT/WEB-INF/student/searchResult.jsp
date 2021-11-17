@@ -256,6 +256,7 @@
         </div>
     </c:forEach>
 </form>
+<br>
 
 <%-- 페이징 --%>
 <%--<div class="page-float">--%>
