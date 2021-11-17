@@ -39,15 +39,9 @@ public class SearchProfileController implements Controller {
         }
 
         /* POST */
-
-        log.debug("search parameter::: {}", request.getParameter("mbti"));
         int activation, sleep_habit, lifestyle, smoking, grade, cleaning, indoor_eating, mbti, sharing, habitude;
         String major = null;
         /* POST */
-        if (request.getParameter("activation") == null)
-            activation = -1;
-        else
-            activation = Integer.parseInt(request.getParameter("activation"));
 
         if (request.getParameter("sleep_habit") == null) {
             sleep_habit = -1;
@@ -96,12 +90,8 @@ public class SearchProfileController implements Controller {
         else
             indoor_eating = Integer.parseInt(request.getParameter("indoor_eating"));
 
-        if (request.getParameter("mbti") == null) {
-            mbti = -1;
-            filter[7] = -1;
-        }
-        else
-            mbti = Integer.parseInt(request.getParameter("mbti"));
+        filter[7] = -1;
+        mbti = Integer.parseInt(request.getParameter("mbti"));
 
         if (request.getParameter("sharing") == null) {
             sharing = -1;
