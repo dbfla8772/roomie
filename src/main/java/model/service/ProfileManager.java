@@ -54,11 +54,11 @@ public class ProfileManager {
 
 
     /*search 필터를 프로필 객체로 전달*/
-    public List<Profile> findProfileList(int studentId, int sleep_habit, int lifestyle, int smoking,
-                                         int cleaning, int indoor_eating, int mbti, int sharing, int habitude, int grade)
+    public List<Profile> findProfileList(int studentId, int sleep_habit, int lifestyle, int smoking, int grade, int major,
+                                         int cleaning, int indoor_eating, int mbti, int sharing, int habitude)
             throws SQLException, StudentNotFoundException {
-        return profileDAO.findProfileList(studentId, sleep_habit, lifestyle, smoking,
-                cleaning, indoor_eating, mbti, sharing, habitude, grade);
+        return profileDAO.findProfileList(studentId, sleep_habit, lifestyle, smoking, grade, major,
+                cleaning, indoor_eating, mbti, sharing, habitude);
     }
 
 
