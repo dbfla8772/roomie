@@ -31,8 +31,7 @@
             font-style: normal;
         }
         .main {
-            position: relative;
-            top: 200px;
+            margin-top: 14%;
         }
         #logo {
             width: 130px;
