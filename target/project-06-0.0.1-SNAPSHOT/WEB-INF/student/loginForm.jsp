@@ -30,8 +30,14 @@
             font-weight: normal;
             font-style: normal;
         }
+        @font-face {
+            font-family: 'SBAggroL';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroL.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
         .main {
-            margin-top: 14%;
+            margin-top: 11%;
         }
         #logo {
             width: 130px;
@@ -58,6 +64,7 @@
         input {
             margin: 2px;
             padding: 5px;
+            font-family: SBAggroL;
         }
         .img {
             position: relative;
@@ -66,6 +73,10 @@
         .btn {
             position: relative;
             float: right;
+            font-family: SBAggroL;
+        }
+        td {
+           font-family: SBAggroL;
         }
     </style>
 </head>
