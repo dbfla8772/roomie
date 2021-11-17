@@ -201,20 +201,22 @@ public class ProfileDAO {
     }
 
     /*search 페이징 X*/
-    public List<Profile> findProfileList(int s_id, int sleep_habit, int lifestyle, int smoking,
-                                         int cleaning, int indoor_eating, int mbti, int sharing, int habitude, int grade)
+    public List<Profile> findProfileList(int s_id, int sleep_habit, int lifestyle, int smoking, int grade, int major,
+                                         int cleaning, int indoor_eating, int mbti, int sharing, int habitude)
             throws SQLException {
-        String sql1 = "SELECT gender, c_id "
+        String sql1 = "SELECT gender, c_id, major"
                 + "FROM PROFILE p JOIN STUDENT s ON p.s_id = s.s_id "
                 + "WHERE s.s_id=?";
         jdbcUtil.setSqlAndParameters(sql1, new Object[] {s_id});
         int gender = 0;
         int c_id = 0;
+        String major_s = null;
         try {
             ResultSet rs = jdbcUtil.executeQuery();
             while (rs.next()) {
                 gender = rs.getInt("gender");
                 c_id = rs.getInt("c_id");
+                major_s = rs.getString("major");
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -245,6 +247,14 @@ public class ProfileDAO {
             sql2 += "AND smoking=? ";
             params.add(smoking);
         }
+        if (grade != -1) {
+            sql2 += "AND grade=? ";
+            params.add(grade);
+        }
+        if (major != -1) {
+            sql2 += "AND major=? ";
+            params.add(major_s);
+        }
         if (cleaning != -1) {
             sql2 += "AND cleaning=? ";
             params.add(cleaning);
@@ -264,10 +274,6 @@ public class ProfileDAO {
         if (habitude != -1) {
             sql2 += "AND habitude=? ";
             params.add(habitude);
-        }
-        if (grade != -1) {
-            sql2 += "AND grade=? ";
-            params.add(grade);
         }
         sql2 += "ORDER BY p.s_id";
 
