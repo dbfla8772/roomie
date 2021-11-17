@@ -51,6 +51,7 @@
             margin-left: 5px;
         }
         td {
+            font-family: SBAggroL;
             padding-left: 10px;
             padding-bottom: 15px;
         }
@@ -204,7 +205,7 @@
     <table style="border-radius: 10px; align: center; margin-top: 50px;">
         <tr>
             <td colspan="2" rowspan="2">
-                <img style="border-radius: 10px; width:300px; height:400px;" src="<%=img_url%>"/>
+                <img style="border-radius: 10px; width:300px; height:400px; object-fit: contain" src="<%=img_url%>"/>
             </td>
             <td width="100"></td>
             <td colspan="2"
