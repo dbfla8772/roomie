@@ -3,7 +3,7 @@
 <%@ page import="org.apache.commons.logging.Log" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%! List<Profile> profileList; String img_url; int[] filter; int i; String[] check;%>
+<%! List<Profile> profileList; String img_url; int[] filter; int i; String[] check; %>
 <html>
 <head>
     <!-- Bootstrap CSS -->
@@ -138,15 +138,17 @@
 <%
     filter = new int[10];
     filter = (int[]) request.getAttribute("filter");
-    for (i = 0; i < filter.length; i++) {
-        System.out.println(filter[i]);
-    }
 
     check = new String[10];
-    for (i = 0; i < filter.length; i++) ;{
+
+    for (i = 0; i < filter.length; i++) {
         if(filter[i] != -1) {
             check[i] = "checked";
         }
+    }
+
+    for (i = 0; i < check.length; i++) {
+        System.out.println(filter[i]);
     }
 %>
 
@@ -154,22 +156,22 @@
 <form name="form" method="GET" action="">
     <table>
         <tr>
-            <td><input type="checkbox" id="habitude" name="searchFilter" <%=check[9]%>> disabled><label>&nbsp;체질</label></td>
-            <td><input type="checkbox" id="sleep_habit" name="searchFilter" <%=check[0]%>> disabled><label>&nbsp;잠버릇</label></td>
-            <td><input type="checkbox" id="lifestyle" name="searchFilter" <%=check[1]%>> disabled><label>&nbsp;생활 패턴</label></td>
+            <td><input type="checkbox" id="habitude" name="searchFilter" checked="<%=check[9]%>" disabled="disabled"><label>&nbsp;체질</label></td>
+            <td><input type="checkbox" id="sleep_habit" name="searchFilter" checked="<%=check[0]%>" disabled="disabled"><label>&nbsp;잠버릇</label></td>
+            <td><input type="checkbox" id="lifestyle" name="searchFilter" checked="<%=check[1]%>" disabled="disabled"><label>&nbsp;생활 패턴</label></td>
             <br>
         </tr>
         <tr>
-            <td><input type="checkbox" id="smoking" name="searchFilter" <%=check[2]%>> disabled><label>&nbsp;흡연 유무</label></td>
-            <td><input type="checkbox" id="grade" name="searchFilter" <%=check[3]%>> disabled><label>&nbsp;학년</label></td>
-            <td><input type="checkbox" id="major" name="searchFilter" <%=check[4]%>> disabled><label>&nbsp;전공</label></td>
+            <td><input type="checkbox" id="smoking" name="searchFilter" checked="<%=check[2]%>" disabled="disabled"><label>&nbsp;흡연 유무</label></td>
+            <td><input type="checkbox" id="grade" name="searchFilter" checked="<%=check[3]%>" disabled="disabled"><label>&nbsp;학년</label></td>
+            <td><input type="checkbox" id="major" name="searchFilter" checked="<%=check[4]%>" disabled="disabled"><label>&nbsp;전공</label></td>
             <br>
         </tr>
         <tr>
-            <td><input type="checkbox" id="cleaning" name="searchFilter" <%=check[5]%>> disabled><label>&nbsp;청소 주기</label></td>
-            <td><input type="checkbox" id="indoor_eating" name="searchFilter" <%=check[6]%>> disabled><label>&nbsp;실내 취식</label></td>
+            <td><input type="checkbox" id="cleaning" name="searchFilter" checked="<%=check[5]%>" disabled="disabled"><label>&nbsp;청소 주기</label></td>
+            <td><input type="checkbox" id="indoor_eating" name="searchFilter" checked="<%=check[6]%>" disabled="disabled"><label>&nbsp;실내 취식</label></td>
             <td><label>&nbsp;&nbsp;&nbsp;MBTI&nbsp;
-                <select id="mbti" name="searchFilter" <%=check[7]%>> disabled>
+                <select id="mbti" name="searchFilter" check="<%=check[7]%>" disabled="disabled">
                     <option value="0">ENFJ</option>
                     <option value="1">ENFP</option>
                     <option value="2">ENTJ</option>
@@ -191,7 +193,7 @@
             <br>
         </tr>
         <tr>
-            <td><input type="checkbox" id="sharing" name="searchFilter" <%=check[8]%>> disabled><label>&nbsp;생필품 공유</label></td>
+            <td><input type="checkbox" id="sharing" name="searchFilter" checked="<%=check[8]%>" disabled="disabled"><label>&nbsp;생필품 공유</label></td>
         </tr>
     </table>
 
