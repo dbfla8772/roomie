@@ -96,7 +96,7 @@
                 <td>
                     <br>
                     비밀번호<br>
-                    <input type="password" placeholder="비밀번호는 6자이상으로 입력하세요." size="40" name="password">
+                    <input type="password" placeholder="비밀번호를 입력하세요." size="40" name="password">
                 </td>
             </tr>
             <tr>
