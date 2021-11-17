@@ -35,7 +35,7 @@ public class SearchProfileController implements Controller {
 
         /* POST */
 
-        int activation, sleep_habit, lifestyle, smoking, cleaning, indoor_eating, mbti, sharing, habitude, grade;
+        int activation, sleep_habit, lifestyle, smoking, grade, major, cleaning, indoor_eating, mbti, sharing, habitude;
         /* POST */
         if (request.getParameter("activation") == null)
             activation = -1;
@@ -56,6 +56,17 @@ public class SearchProfileController implements Controller {
             smoking = -1;
         else
             smoking = Integer.parseInt(request.getParameter("smoking"));
+
+        if (request.getParameter("grade") == null)
+            grade = -1;
+        else
+            grade = Integer.parseInt(request.getParameter("grade"));
+
+        if (request.getParameter("major") == null)
+            major = -1;
+        else
+            major = Integer.parseInt(request.getParameter("major"));
+
 
         if (request.getParameter("cleaning") == null)
             cleaning = -1;
@@ -82,11 +93,6 @@ public class SearchProfileController implements Controller {
         else
             habitude = Integer.parseInt(request.getParameter("habitude"));
 
-        if (request.getParameter("grade") == null)
-            grade = -1;
-        else
-            grade = Integer.parseInt(request.getParameter("grade"));
-
         log.debug("Search User : {}", s_id);
 
 
@@ -98,7 +104,7 @@ public class SearchProfileController implements Controller {
 
         //지금 s_id로만 매개변수 전달하여 프로필리스트 생성, 고쳐야함 manager에 메소드 새로 생성 + DAO에 검색필터 매개변수 추가하여 메소드
         ProfileManager manager = ProfileManager.getInstance();
-        List<Profile> profileList = (List<Profile>) manager.findProfileList(s_id, sleep_habit, lifestyle, smoking, cleaning, indoor_eating, mbti, sharing, habitude, grade);
+        List<Profile> profileList = (List<Profile>) manager.findProfileList(s_id, sleep_habit, lifestyle, smoking, grade, major, cleaning, indoor_eating, mbti, sharing, habitude);
 //		List<Profile> profileList = manager.findProfileList(currentPage, countProfilePage);
 
 
