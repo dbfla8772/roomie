@@ -38,6 +38,7 @@ public class SearchProfileController implements Controller {
 
         /* POST */
 
+        log.debug("search parameter::: {}", request.getParameter("mbti"));
         int activation, sleep_habit, lifestyle, smoking, grade, cleaning, indoor_eating, mbti, sharing, habitude;
         String major = null;
         /* POST */
