@@ -23,6 +23,11 @@
                 form.password.focus();
                 return false;
             }
+            if (form.password.value.length == 0) {
+                alert("비밀번호를 6자 이상으로 입력하세요.");
+                form.password.focus();
+                return false;
+            }
             if (form.password.value != form.password2.value) {
                 alert("비밀번호가 일치하지 않습니다.");
                 form.password2.focus();
