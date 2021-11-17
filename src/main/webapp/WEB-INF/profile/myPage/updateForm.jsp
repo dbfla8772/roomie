@@ -101,7 +101,7 @@
         <tr>
             <th>나이</th>
             <td>
-                <input type="text" style="width: 240px" name="age" value="${profile.age}">
+                <input type="number" style="width: 240px" name="age" value="${profile.age}" min="20" max="30">
             </td>
         </tr>
         <tr>
