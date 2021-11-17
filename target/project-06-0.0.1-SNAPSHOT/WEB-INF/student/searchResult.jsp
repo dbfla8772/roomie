@@ -133,6 +133,13 @@
             font-size: 15px;
             margin: 2px;
         }
+
+        .empty {
+            text-align: center;
+        }
+        h5 {
+            font-family: SBAggroL;
+        }
     </style>
 
 </head>
@@ -221,7 +228,10 @@
 </form>
 
 <%profileList = (List<Profile>) request.getAttribute("profileList");%>
-<%--<c:if test="${profileList}"></c:if>--%>
+<div class="empty">
+    <c:if test="${empty profileList}"><h5>검색 결과가 없습니다.</h5></c:if>
+</div>
+
 <form name="form">
     <c:forEach var="profile" items="${profileList}">
         <div class="card-margin">
