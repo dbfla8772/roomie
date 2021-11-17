@@ -2,7 +2,7 @@ package model;
 
 public class Profile {
     private int s_id;
-    private boolean activation;
+    private int activation;
     private String name;
     private int pr_img;
     private int age;
@@ -20,9 +20,26 @@ public class Profile {
     public Profile() {}
 
 
-    public Profile(int s_id, boolean activation, String name, int pr_img, int age, int sleep_habit, int lifestyle, int smoking, int grade, String major, int cleaning, int indoor_eating, int mbti, int sharing, int habitude) {
+    public Profile(int s_id, int activation, String name, int pr_img, int age, int sleep_habit, int lifestyle, int smoking, int grade, String major, int cleaning, int indoor_eating, int mbti, int sharing, int habitude) {
         this.s_id = s_id;
         this.activation = activation;
+        this.name = name;
+        this.pr_img = pr_img;
+        this.age = age;
+        this.sleep_habit = sleep_habit;
+        this.lifestyle = lifestyle;
+        this.smoking = smoking;
+        this.grade = grade;
+        this.major = major;
+        this.cleaning = cleaning;
+        this.indoor_eating = indoor_eating;
+        this.mbti = mbti;
+        this.sharing = sharing;
+        this.habitude = habitude;
+    }
+
+    public Profile(int s_id, String name, int pr_img, int age, int sleep_habit, int lifestyle, int smoking, int grade, String major, int cleaning, int indoor_eating, int mbti, int sharing, int habitude) {
+        this.s_id = s_id;
         this.name = name;
         this.pr_img = pr_img;
         this.age = age;
@@ -46,11 +63,11 @@ public class Profile {
         this.s_id = s_id;
     }
 
-    public boolean getActivation() {
+    public int getActivation() {
         return activation;
     }
 
-    public void setActivation(boolean activation) {
+    public void setActivation(int activation) {
         this.activation = activation;
     }
 
@@ -159,7 +176,7 @@ public class Profile {
     }
 
     boolean isActivation(Profile profile) {
-        if (profile.activation)
+        if (profile.activation==1)
             return true;
         else
             return false;

@@ -83,7 +83,7 @@ public class ScrapDAO {
             while (rs.next()) {
                 Profile scrap = new Profile(
                         rs.getInt("scrap_id"),
-                        rs.getBoolean("activation"),
+                        rs.getInt("activation"),
                         rs.getString("name"),
                         rs.getInt("pr_img"),
                         rs.getInt("age"),

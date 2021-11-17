@@ -2,7 +2,7 @@
 <%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%! List<Profile> profileList; String img_url; %>
+<%! List<Profile> profileList; String img_url; int[] filter; int i; String[] check; %>
 <html>
 <head>
     <!-- Bootstrap CSS -->
@@ -127,6 +127,19 @@
             width: 40%;
             margin: 0px 5% 100px 5%;
         }
+
+        #mbti {
+            padding: 5px 10px;
+            font-size: 15px;
+            margin: 2px;
+        }
+
+        .empty {
+            text-align: center;
+        }
+        h5 {
+            font-family: SBAggroL;
+        }
     </style>
 
 </head>
@@ -134,49 +147,69 @@
 <a href = "${pageContext.request.contextPath}/student/main"><h3>&nbsp;Roomie</h3></a>
 <a href = "${pageContext.request.contextPath}/student/main"><img src="/images/logo-font.png" id="logo"/></a>
 
+<%
+    filter = new int[10];
+    filter = (int[]) request.getAttribute("filter");
+
+    check = new String[10];
+
+    for (i = 0; i < filter.length; i++) {
+        if(filter[i] != -1) {
+            check[i] = "checked";
+            if(i == 7) {
+                check[i] = String.valueOf(filter[i]);
+            }
+        }
+    }
+
+    for (i = 0; i < check.length; i++) {
+        System.out.println(filter[i]);
+    }
+%>
+
 <%-- 검색 필터 --%>
 <form name="form" method="GET" action="">
     <table>
         <tr>
-            <td><input type="checkbox" id="age" name="searchFilter" disabled><label>&nbsp;나이</label></td>
-            <td><input type="checkbox" id="sleep_habit" name="searchFilter" disabled><label>&nbsp;잠버릇</label></td>
-            <td><input type="checkbox" id="lifestyle" name="searchFilter" disabled><label>&nbsp;생활 패턴</label></td>
+            <td><input type="checkbox" id="habitude" name="searchFilter" <%=check[9]%> disabled="disabled"><label>&nbsp;체질</label></td>
+            <td><input type="checkbox" id="sleep_habit" name="searchFilter" <%=check[0]%> disabled="disabled"><label>&nbsp;잠버릇</label></td>
+            <td><input type="checkbox" id="lifestyle" name="searchFilter" <%=check[1]%> disabled="disabled"><label>&nbsp;생활 패턴</label></td>
             <br>
         </tr>
         <tr>
-            <td><input type="checkbox" id="smoking" name="searchFilter" disabled><label>&nbsp;흡연 유무</label></td>
-            <td><input type="checkbox" id="grade" name="searchFilter" disabled><label>&nbsp;학년</label></td>
-            <td><input type="checkbox" id="major" name="searchFilter" disabled><label>&nbsp;전공</label></td>
+            <td><input type="checkbox" id="smoking" name="searchFilter" <%=check[2]%> disabled="disabled"><label>&nbsp;흡연 유무</label></td>
+            <td><input type="checkbox" id="grade" name="searchFilter" <%=check[3]%> disabled="disabled"><label>&nbsp;학년</label></td>
+            <td><input type="checkbox" id="major" name="searchFilter" <%=check[4]%> disabled="disabled"><label>&nbsp;전공</label></td>
             <br>
         </tr>
         <tr>
-            <td><input type="checkbox" id="cleaning" name="searchFilter" disabled><label>&nbsp;청소 주기</label></td>
-            <td><input type="checkbox" id="indoor_eating" name="searchFilter" disabled><label>&nbsp;실내 취식</label></td>
+            <td><input type="checkbox" id="cleaning" name="searchFilter" <%=check[5]%> disabled="disabled"><label>&nbsp;청소 주기</label></td>
+            <td><input type="checkbox" id="indoor_eating" name="searchFilter" <%=check[6]%> disabled="disabled"><label>&nbsp;실내 취식</label></td>
             <td><label>&nbsp;&nbsp;&nbsp;MBTI&nbsp;
-                <select id="mbti" name="searchFilter" disabled>
-                    <option value="0">ENFJ</option>
-                    <option value="1">ENFP</option>
-                    <option value="2">ENTJ</option>
-                    <option value="3">ENTP</option>
-                    <option value="4">ESFJ</option>
-                    <option value="5">ESFP</option>
-                    <option value="6">ESTJ</option>
-                    <option value="7">ESTP</option>
-                    <option value="8">INFJ</option>
-                    <option value="9">INFP</option>
-                    <option value="10">INTJ</option>
-                    <option value="11">INTP</option>
-                    <option value="12">ISFJ</option>
-                    <option value="13">ISFP</option>
-                    <option value="14">ISTJ</option>
-                    <option value="15">ISTP</option>
+                <select id="mbti" name="searchFilter" disabled="disabled">
+                    <option value="-1" <% if(filter[7] == -1) {%> selected <% } %>>선택안함</option>
+                    <option value="0" <% if(filter[7] == 0) {%> selected <% } %>>ENFJ</option>
+                    <option value="1" <% if(filter[7] == 1) {%> selected <% } %>>ENFP</option>
+                    <option value="2" <% if(filter[7] == 2) {%> selected <% } %>>ENTJ</option>
+                    <option value="3" <% if(filter[7] == 3) {%> selected <% } %>>ENTP</option>
+                    <option value="4" <% if(filter[7] == 4) {%> selected <% } %>>ESFJ</option>
+                    <option value="5" <% if(filter[7] == 5) {%> selected <% } %>>ESFP</option>
+                    <option value="6" <% if(filter[7] == 6) {%> selected <% } %>>ESTJ</option>
+                    <option value="7" <% if(filter[7] == 7) {%> selected <% } %>>ESTP</option>
+                    <option value="8" <% if(filter[7] == 8) {%> selected <% } %>>INFJ</option>
+                    <option value="9" <% if(filter[7] == 9) {%> selected <% } %>>INFP</option>
+                    <option value="10" <% if(filter[7] == 10) {%> selected <% } %>>INTJ</option>
+                    <option value="11" <% if(filter[7] == 11) {%> selected <% } %>>INTP</option>
+                    <option value="12" <% if(filter[7] == 12) {%> selected <% } %>>ISFJ</option>
+                    <option value="13" <% if(filter[7] == 13) {%> selected <% } %>>ISFP</option
+                    <option value="14" <% if(filter[7] == 14) {%> selected <% } %>>ISTJ</option>
+                    <option value="15" <% if(filter[7] == 15) {%> selected <% } %>>ISTP</option>
                 </select>
             </label></td>
             <br>
         </tr>
         <tr>
-            <td><input type="checkbox" id="sharing" name="searchFilter" disabled><label>&nbsp;생필품 공유</label></td>
-            <td><input type="checkbox" id="habitude" name="searchFilter" disabled><label>&nbsp;체질</label></td>
+            <td><input type="checkbox" id="sharing" name="searchFilter" <%=check[8]%> disabled="disabled"><label>&nbsp;생필품 공유</label></td>
         </tr>
     </table>
 
@@ -195,6 +228,10 @@
 </form>
 
 <%profileList = (List<Profile>) request.getAttribute("profileList");%>
+<div class="empty">
+    <c:if test="${empty profileList}"><h5>검색 결과가 없습니다.</h5></c:if>
+</div>
+
 <form name="form">
     <c:forEach var="profile" items="${profileList}">
         <div class="card-margin">

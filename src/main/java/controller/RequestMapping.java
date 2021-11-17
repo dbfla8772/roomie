@@ -15,11 +15,9 @@ import controller.user.*;
 public class RequestMapping {
     private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
 
-    // ?? ??? uri?? ???? controller ????? ?????? HashMap ????
     private Map<String, Controller> mappings = new HashMap<String, Controller>();
 
     public void initMapping() {
-        // ?? uri?? ??????? controller ????? ???? ?? ????
         mappings.put("/", new ForwardController("/student/loginForm.jsp"));
         mappings.put("/student/login", new LoginController());
         mappings.put("/student/register", new RegisterController());
@@ -29,7 +27,6 @@ public class RequestMapping {
         mappings.put("/student/search", new SearchProfileController());
         mappings.put("/student/automatch", new AutoMatchController());
         mappings.put("/student/main/detail", new ViewProfileController());
-
         mappings.put("/scrap/view", new ScrapController());
         mappings.put("/scrap/delete", new DeleteScrapController());
         mappings.put("/chat/send", new ChatController());
@@ -37,11 +34,6 @@ public class RequestMapping {
         mappings.put("/chat/receiveList", new ChatController());
         mappings.put("/profile/myPage", new myPageController());
 
-
-        // ????? ???? ???? ?? ????? ???? ??? ??? ????
-        mappings.put("/user/update/form", new UpdateProfileController());
-        mappings.put("/user/update", new UpdateProfileController());
-        mappings.put("/user/delete", new DeleteStudentController());
 
         logger.info("Initialized Request Mapping!");
     }

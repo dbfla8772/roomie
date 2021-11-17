@@ -80,7 +80,7 @@ public class ProfileDAO {
             if (rs.next()) {						// 학생 정보 발견
                 Profile profile = new Profile(		// Profile 객체를 생성하여 정보를 저장
                         s_Id,
-                        rs.getBoolean("activation"),
+                        rs.getInt("activation"),
                         rs.getString("name"),
                         rs.getInt("pr_img"),
                         rs.getInt("age"),
@@ -125,7 +125,7 @@ public class ProfileDAO {
             while (rs.next()) {
                 Profile profile = new Profile(            // Profile 객체를 생성하여 현재 행의 정보를 저장
                         rs.getInt("s_id"),
-                        rs.getBoolean("activation"),
+                        rs.getInt("activation"),
                         rs.getString("name"),
                         rs.getInt("pr_img"),
                         rs.getInt("age"),
@@ -174,7 +174,7 @@ public class ProfileDAO {
                 do {
                     Profile profile = new Profile(			// Profile 객체를 생성하여 현재 행의 정보를 저장
                             rs.getInt("s_id"),
-                            rs.getBoolean("activation"),
+                            rs.getInt("activation"),
                             rs.getString("name"),
                             rs.getInt("pr_img"),
                             rs.getInt("age"),
@@ -201,8 +201,8 @@ public class ProfileDAO {
     }
 
     /*search 페이징 X*/
-    public List<Profile> findProfileList(int s_id, int sleep_habit, int lifestyle, int smoking,
-                                         int cleaning, int indoor_eating, int mbti, int sharing, int habitude, int grade)
+    public List<Profile> findProfileList(int s_id, int sleep_habit, int lifestyle, int smoking, int grade, String major,
+                                         int cleaning, int indoor_eating, int mbti, int sharing, int habitude)
             throws SQLException {
         String sql1 = "SELECT gender, c_id "
                 + "FROM PROFILE p JOIN STUDENT s ON p.s_id = s.s_id "
@@ -225,7 +225,6 @@ public class ProfileDAO {
         String sql2 = "SELECT p.s_id, activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, " +
                 "major, cleaning, indoor_eating, mbti, sharing, habitude "
                 + "FROM PROFILE p JOIN STUDENT s ON p.s_id = s.s_id "
-//                + "WHERE s.gender=? AND p.activation='1' AND " /*where문 수정 or sql 2개로 하기 gender 고려*/
                 + "WHERE s.gender=? AND s.c_id=? AND NOT p.s_id IN (?)";
 
         List<Object> params = new ArrayList<>();
@@ -245,6 +244,14 @@ public class ProfileDAO {
         if (smoking != -1) {
             sql2 += "AND smoking=? ";
             params.add(smoking);
+        }
+        if (grade != -1) {
+            sql2 += "AND grade=? ";
+            params.add(grade);
+        }
+        if (major != null) {
+            sql2 += "AND major=? ";
+            params.add(major);
         }
         if (cleaning != -1) {
             sql2 += "AND cleaning=? ";
@@ -266,30 +273,13 @@ public class ProfileDAO {
             sql2 += "AND habitude=? ";
             params.add(habitude);
         }
-        if (grade != -1) {
-            sql2 += "AND grade=? ";
-            params.add(grade);
-        }
         sql2 += "ORDER BY p.s_id";
-
-
-//                + "ORDER BY p.s_id";
-                /*
-        int sleep_habit = searchProfile.getSleep_habit();
-        int lifestyle = searchProfile.getLifestyle();
-        int smoking = searchProfile.getSmoking();
-        int cleaning = searchProfile.getCleaning();
-        int indoor_eating = searchProfile.getIndoor_eating();
-        int mbti = searchProfile.getMbti();
-        int sharing = searchProfile.getSharing();
-        int habitude = searchProfile.getHabitude();*/
 
         int size = params.size();
         Object[] param = params.toArray(new Object[size]);
 
         jdbcUtil.setSqlAndParameters(sql2,
-                param,					// JDBCUtil에 query문 설정
-                ResultSet.TYPE_SCROLL_INSENSITIVE,				// cursor scroll 가능
+                param, ResultSet.TYPE_SCROLL_INSENSITIVE,				// cursor scroll 가능
                 ResultSet.CONCUR_READ_ONLY);
 
         try {
@@ -298,7 +288,7 @@ public class ProfileDAO {
             while (rs.next()) {
                 Profile profile = new Profile(			// Profile 객체를 생성하여 현재 행의 정보를 저장
                         rs.getInt("s_id"),
-                        rs.getBoolean("activation"),
+                        rs.getInt("activation"),
                         rs.getString("name"),
                         rs.getInt("pr_img"),
                         rs.getInt("age"),

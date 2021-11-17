@@ -19,26 +19,29 @@
         }
     </script>
     <style>
+        .dv {
+            margin-top: -1%;
+        }
+        .dvv {
+            margin-top: 3%;
+        }
         @font-face {
             font-family: 'SBAggroB';
             src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
             font-weight: normal;
             font-style: normal;
         }
-
         @font-face {
             font-family: 'SBAggroL';
             src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroL.woff') format('woff');
             font-weight: normal;
             font-style: normal;
         }
-
         html, body {
             margin: 0;
             width: auto;
             height: auto;
         }
-
         h3 {
             font-family: SBAggroB;
             float: left;
@@ -46,37 +49,35 @@
             padding-left: 100px;
             color: black;
         }
-
         h4 {
             font-family: SBAggroL;
         }
-
         #logo {
             width: 70px;
             margin-left: 5px;
         }
-
         td {
+            /*border : black 1px solid;*/
+            font-family: SBAggroL;
             padding-left: 10px;
             padding-bottom: 15px;
         }
-
+        /*table {*/
+        /*    border : black 1px solid;*/
+        /*}*/
         ul.space_list li {
             margin-bottom: 1em;
         }
-
         ul.none {
             margin-bottom: 1em;
             list-style: none;
         }
-
         .layer {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%)
         }
-
         .button {
             border: 0px;
             border-radius: 10px;
@@ -97,16 +98,18 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
+<div class="dvv">
+    <a href = "${pageContext.request.contextPath}/student/main" style="color: black;"><h3>&nbsp;Roomie</h3></a>
+    <a href = "${pageContext.request.contextPath}/student/main"><img src="/images/logo-font.png" id="logo"/></a>
+</div>
 
-<a href = "${pageContext.request.contextPath}/student/main" style="color: black"><h3>&nbsp;Roomie</h3></a>
-<a href = "${pageContext.request.contextPath}/student/main"><img src="/images/logo-font.png" id="logo"/></a>
 
-
-<% profile = (Profile) request.getAttribute("profile");
-    if (profile.getActivation())
+    <% profile = (Profile) request.getAttribute("profile");
+    if (profile.getActivation()==1)
         activation = "활성화";
     else
         activation = "비활성화";
+
     img_url = "/images/";
     if (profile.getPr_img()==0)
         img_url += "man1.png";
@@ -123,9 +126,12 @@
         smoking = "X";
 
     if (profile.getSharing()==0)
-        sharing = "O";
+        sharing = "전부 가능";
+    else if (profile.getSharing() == 1)
+        sharing = "공용 용품만 가능";
     else
-        sharing = "X";
+        sharing = "전부 불가능";
+
     if (profile.getLifestyle()==0)
         lifestyle = "아침형";
     else
@@ -167,7 +173,7 @@
 
     if (profile.getIndoor_eating()==0)
         indoor_eating = "냄새나는 음식도 가능";
-    else if (profile.getIndoor_eating()==0)
+    else if (profile.getIndoor_eating()==1)
         indoor_eating = "냄새 안 나는 음식만 가능";
     else
         indoor_eating = "불가능";
@@ -206,15 +212,14 @@
         mbti = "ISTP";
 %>
 <br>
-<div align="center">
-    <table style="border-radius: 10px; align: center; margin-top: 50px;">
+<div class="dv" align="center">
+    <table style="border-radius: 10px; align: center;">
         <tr>
             <td colspan="2" rowspan="2">
-                <img style="border-radius: 10px; width:300px; height:400px;" src="<%=img_url%>"/>
+                <img style="border-radius: 10px; width:300px; height:400px; object-fit: contain" src="<%=img_url%>"/>
             </td>
-            <td width="100"></td>
-            <td colspan="2"
-                style="width:400px; text-align: center; font-size: x-large; font-weight: 800; padding-top: 5px;">프로필 옵션
+            <td colspan="3" style="width:400px; text-align: left; font-size: x-large; font-weight: 800; padding-top: 5px;">
+                &nbsp;&nbsp;프로필 옵션<br><br>
             </td>
             <td/>
         </tr>
@@ -231,44 +236,44 @@
                         <td>: &emsp;&emsp;&emsp;${profile.name}</td>
                     </tr>
                     <tr>
-                        <td>흡연유무</td>
-                        <td>: &emsp;&emsp;&emsp;<%=smoking%></td>
-                    </tr>
-                    <tr>
                         <td>전공</td>
                         <td>: &emsp;&emsp;&emsp;${profile.major}</td>
-                    </tr>
-                    <tr>
-                        <td>생필품 공유</td>
-                        <td>: &emsp;&emsp;&emsp;<%=sharing%></td>
-                    </tr>
-                    <tr>
-                        <td>생활 패턴</td>
-                        <td>: &emsp;&emsp;&emsp;<%=lifestyle%></td>
                     </tr>
                     <tr>
                         <td>학년</td>
                         <td>: &emsp;&emsp;&emsp;<%=grade%></td>
                     </tr>
                     <tr>
-                        <td>체질</td>
-                        <td>: &emsp;&emsp;&emsp;<%=habitude%></td>
+                        <td>나이</td>
+                        <td>: &emsp;&emsp;&emsp;${profile.age}</td>
+                    </tr>
+                    <tr>
+                        <td>흡연유무</td>
+                        <td>: &emsp;&emsp;&emsp;<%=smoking%></td>
                     </tr>
                     <tr>
                         <td>잠버릇</td>
                         <td>: &emsp;&emsp;&emsp;<%=sleep_habit%></td>
                     </tr>
                     <tr>
+                        <td>생활 패턴</td>
+                        <td>: &emsp;&emsp;&emsp;<%=lifestyle%></td>
+                    </tr>
+                    <tr>
                         <td>청소 주기</td>
                         <td>: &emsp;&emsp;&emsp;<%=cleaning%></td>
                     </tr>
                     <tr>
-                        <td>나이</td>
-                        <td>: &emsp;&emsp;&emsp;${profile.age}</td>
-                    </tr>
-                    <tr>
                         <td>실내취식</td>
                         <td>: &emsp;&emsp;&emsp;<%=indoor_eating%></td>
+                    </tr>
+                    <tr>
+                        <td>생필품 공유</td>
+                        <td>: &emsp;&emsp;&emsp;<%=sharing%></td>
+                    </tr>
+                    <tr>
+                        <td>체질</td>
+                        <td>: &emsp;&emsp;&emsp;<%=habitude%></td>
                     </tr>
                     <tr>
                         <td>MBTI</td>
@@ -290,4 +295,5 @@
         </tr>
     </table>
 </div>
-
+</body>
+</html>

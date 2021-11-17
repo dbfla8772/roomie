@@ -13,21 +13,25 @@
                 form.name.focus();
                 return false;
             }
+
             if (form.email.value == "") {
                 alert("이메일을 입력하세요.");
                 form.email.focus();
                 return false;
             }
+
             if (form.password.value == "") {
                 alert("비밀번호를 입력하세요.");
                 form.password.focus();
                 return false;
             }
+
             if (form.password.value != form.password2.value) {
                 alert("비밀번호가 일치하지 않습니다.");
                 form.password2.focus();
                 return false;
             }
+
             var emailExp = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
             if(emailExp.test(form.email.value) == false) {
                 alert("이메일 형식이 올바르지 않습니다.");
@@ -38,9 +42,11 @@
         }
     </script>
     <style>
+        .frm {
+            margin-top: 7%;
+        }
         table {
-            margin-top: 100px;
-            width: 60%;
+            width: 55%;
             font-size: 13px;
             /*border: black 1px solid;*/
         }
@@ -72,7 +78,7 @@
 </head>
 <body>
 <form name="form" method="POST" action="${pageContext.request.contextPath}/student/register">
-    <div align="center">
+    <div class="frm" align="center">
         <table>
             <tr>
                 <td rowspan="3">
@@ -96,7 +102,7 @@
                 <td>
                     <br>
                     비밀번호<br>
-                    <input type="password" placeholder="비밀번호는 6자이상으로 입력하세요." size="40" name="password">
+                    <input type="password" placeholder="비밀번호를 입력하세요." size="40" name="password">
                 </td>
             </tr>
             <tr>

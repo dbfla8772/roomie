@@ -7,6 +7,9 @@
     <title>detail profile</title>
 
     <style>
+        .dv {
+            margin-top: 0%;
+        }
         @font-face {
             font-family: 'SBAggroB';
             src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
@@ -199,15 +202,14 @@
         mbti = "ISTP";
 %>
 
-<div align="center">
-    <table style="border-radius: 10px; align: center; margin-top: 50px;">
+<div class="dv" align="center">
+    <table style="border-radius: 10px; align: center;">
         <tr>
             <td colspan="2" rowspan="2">
                 <img style="border-radius: 10px; width:300px; height:400px; object-fit:contain;" src="<%=img_url%>"/>
             </td>
-            <td width="100"></td>
-            <td colspan="2"
-                style="width:400px; text-align: center; font-size: x-large; font-weight: 800; padding-top: 5px;">프로필 옵션
+            <td colspan="3" style="width:400px; text-align: left; font-size: x-large; font-weight: 800; padding-top: 5px;">
+                &nbsp;&nbsp;프로필 옵션<br><br>
             </td>
             <td/>
         </tr>
@@ -220,44 +222,44 @@
                         <td>: &emsp;&emsp;&emsp;${profile.name}</td>
                     </tr>
                     <tr>
-                        <td>흡연유무</td>
-                        <td>: &emsp;&emsp;&emsp;<%=smoking%></td>
+                    <td>전공</td>
+                    <td>: &emsp;&emsp;&emsp;${profile.major}</td>
                     </tr>
                     <tr>
-                        <td>전공</td>
-                        <td>: &emsp;&emsp;&emsp;${profile.major}</td>
-                    </tr>
-                    <tr>
-                        <td>생필품 공유</td>
-                        <td>: &emsp;&emsp;&emsp;<%=sharing%></td>
-                    </tr>
-                    <tr>
-                        <td>생활 패턴</td>
-                        <td>: &emsp;&emsp;&emsp;<%=lifestyle%></td>
-                    </tr>
-                    <tr>
-                        <td>학년</td>
-                        <td>: &emsp;&emsp;&emsp;<%=grade%></td>
-                    </tr>
-                    <tr>
-                        <td>체질</td>
-                        <td>: &emsp;&emsp;&emsp;<%=habitude%></td>
-                    </tr>
-                    <tr>
-                        <td>잠버릇</td>
-                        <td>: &emsp;&emsp;&emsp;<%=sleep_habit%></td>
-                    </tr>
-                    <tr>
-                        <td>청소 주기</td>
-                        <td>: &emsp;&emsp;&emsp;<%=cleaning%></td>
+                    <td>학년</td>
+                    <td>: &emsp;&emsp;&emsp;<%=grade%></td>
                     </tr>
                     <tr>
                         <td>나이</td>
                         <td>: &emsp;&emsp;&emsp;${profile.age}</td>
                     </tr>
                     <tr>
+                        <td>흡연유무</td>
+                        <td>: &emsp;&emsp;&emsp;<%=smoking%></td>
+                    </tr>
+                    <tr>
+                        <td>잠버릇</td>
+                        <td>: &emsp;&emsp;&emsp;<%=sleep_habit%></td>
+                    </tr>
+                    <tr>
+                        <td>생활 패턴</td>
+                        <td>: &emsp;&emsp;&emsp;<%=lifestyle%></td>
+                    </tr>
+                    <tr>
+                        <td>청소 주기</td>
+                        <td>: &emsp;&emsp;&emsp;<%=cleaning%></td>
+                    </tr>
+                    <tr>
                         <td>실내취식</td>
                         <td>: &emsp;&emsp;&emsp;<%=indoor_eating%></td>
+                    </tr>
+                    <tr>
+                        <td>생필품 공유</td>
+                        <td>: &emsp;&emsp;&emsp;<%=sharing%></td>
+                    </tr>
+                    <tr>
+                        <td>체질</td>
+                        <td>: &emsp;&emsp;&emsp;<%=habitude%></td>
                     </tr>
                     <tr>
                         <td>MBTI</td>

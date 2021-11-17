@@ -1,6 +1,7 @@
+<%@ page import="model.Profile" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
+<%! Profile profile; %>
 <html>
 <head>
     <!-- Bootstrap CSS -->
@@ -108,6 +109,12 @@
             border-color: lightgrey;
             background-color: white;
         }
+
+        #mbti {
+            padding: 5px 10px;
+            font-size: 15px;
+            margin: 2px;
+        }
     </style>
 
 </head>
@@ -119,25 +126,27 @@
 
 <%-- 검색 필터 --%>
 <%--<form name="form" method="post" action="<c:url value='/student/searchResult'>">--%>
+<% profile = (Profile) request.getAttribute("profile"); %>
 <form name="form" method="POST" action="${pageContext.request.contextPath}/student/searchResult">
     <table>
         <tr>
-            <td><input type="checkbox" name="age" value="1"><label>&nbsp;나이</label></td>
-            <td><input type="checkbox" name="sleep_habit" value="1"><label>&nbsp;잠버릇</label></td>
-            <td><input type="checkbox" name="lifestyle" value="1"><label>&nbsp;생활 패턴</label></td>
+            <td><input type="checkbox" name="habitude" value="<%= profile.getHabitude() %>"><label>&nbsp;체질</label></td>
+            <td><input type="checkbox" name="sleep_habit" value="<%= profile.getSleep_habit() %>"><label>&nbsp;잠버릇</label></td>
+            <td><input type="checkbox" name="lifestyle" value="<%= profile.getLifestyle() %>"><label>&nbsp;생활 패턴</label></td>
             <br>
         </tr>
         <tr>
-            <td><input type="checkbox" name="smoking" value="1"><label>&nbsp;흡연 유무</label></td>
-            <td><input type="checkbox" name="grade" value="1"><label>&nbsp;학년</label></td>
-            <td><input type="checkbox" name="major" value="1"><label>&nbsp;전공</label></td>
+            <td><input type="checkbox" name="smoking" value="<%= profile.getSmoking() %>"><label>&nbsp;흡연 유무</label></td>
+            <td><input type="checkbox" name="grade" value="<%= profile.getGrade() %>"><label>&nbsp;학년</label></td>
+            <td><input type="checkbox" name="major" value="<%= profile.getMajor() %>"><label>&nbsp;전공</label></td>
             <br>
         </tr>
         <tr>
-            <td><input type="checkbox" name="cleaning" value="1"><label>&nbsp;청소 주기</label></td>
-            <td><input type="checkbox" name="indoor_eating" value="1"><label>&nbsp;실내 취식</label></td>
+            <td><input type="checkbox" name="cleaning" value="<%= profile.getCleaning() %>"><label>&nbsp;청소 주기</label></td>
+            <td><input type="checkbox" name="indoor_eating" value="<%= profile.getIndoor_eating() %>"><label>&nbsp;실내 취식</label></td>
             <td><label>&nbsp;&nbsp;&nbsp;MBTI&nbsp;
-                <select name="mbti">
+                <select id="mbti" name="mbti">
+                    <option value="-1">선택안함</option>
                     <option value="0">ENFJ</option>
                     <option value="1">ENFP</option>
                     <option value="2">ENTJ</option>
@@ -159,8 +168,7 @@
             <br>
         </tr>
         <tr>
-            <td><input type="checkbox" name="sharing" value="1"><label>&nbsp;생필품 공유</label></td>
-            <td><input type="checkbox" name="habitude" value="1"><label>&nbsp;체질</label></td>
+            <td><input type="checkbox" name="sharing" value="<%= profile.getSharing() %>"><label>&nbsp;생필품 공유</label></td>
         </tr>
     </table>
 
