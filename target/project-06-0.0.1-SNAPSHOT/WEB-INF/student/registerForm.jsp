@@ -76,7 +76,6 @@
         }
     </style>
 </head>
-
 <body>
 <form name="form" method="POST" action="${pageContext.request.contextPath}/student/register">
     <div class="frm" align="center">
