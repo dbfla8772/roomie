@@ -25,20 +25,17 @@
             font-weight: normal;
             font-style: normal;
         }
-
         @font-face {
             font-family: 'SBAggroL';
             src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroL.woff') format('woff');
             font-weight: normal;
             font-style: normal;
         }
-
         html, body {
             margin: 0;
             width: auto;
             height: auto;
         }
-
         h3 {
             font-family: SBAggroB;
             float: left;
@@ -46,37 +43,30 @@
             padding-left: 100px;
             color: black;
         }
-
         h4 {
             font-family: SBAggroL;
         }
-
         #logo {
             width: 70px;
             margin-left: 5px;
         }
-
         td {
             padding-left: 10px;
             padding-bottom: 15px;
         }
-
         ul.space_list li {
             margin-bottom: 1em;
         }
-
         ul.none {
             margin-bottom: 1em;
             list-style: none;
         }
-
         .layer {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%)
         }
-
         .button {
             border: 0px;
             border-radius: 10px;
@@ -102,7 +92,7 @@
 <a href = "${pageContext.request.contextPath}/student/main"><img src="/images/logo-font.png" id="logo"/></a>
 
 
-<% profile = (Profile) request.getAttribute("profile");
+    <% profile = (Profile) request.getAttribute("profile");
     if (profile.getActivation())
         activation = "활성화";
     else
@@ -116,24 +106,20 @@
         img_url += "woman1.png";
     else
         img_url += "woman2.png";
-
     if (profile.getSmoking()==0)
         smoking = "O";
     else
         smoking = "X";
-
     if (profile.getSharing()==0)
         sharing = "전부 가능";
     else if (profile.getSharing() == 1)
         sharing = "공용 용품만 가능";
     else
         sharing = "전부 불가능";
-
     if (profile.getLifestyle()==0)
         lifestyle = "아침형";
     else
         lifestyle = "저녁형";
-
     if (profile.getGrade()==0)
         grade = "1학년";
     else if (profile.getGrade()==1)
@@ -142,14 +128,12 @@
         grade = "3학년";
     else if (profile.getGrade()==3)
         grade = "4학년";
-
     if (profile.getHabitude()==0)
         habitude = "추위를 탐";
     else if (profile.getHabitude()==1)
         habitude = "더위를 탐";
     else
         habitude = "둘 다 안 탐";
-
     if (profile.getSleep_habit()==0)
         sleep_habit = "없음";
     else if (profile.getSleep_habit()==1)
@@ -158,7 +142,6 @@
         sleep_habit = "이갈이";
     else
         sleep_habit = "몽유병";
-
     if (profile.getCleaning()==0)
         cleaning = "매일";
     else if (profile.getCleaning()==1)
@@ -167,14 +150,12 @@
         cleaning = "1주";
     else
         cleaning = "2주";
-
     if (profile.getIndoor_eating()==0)
         indoor_eating = "냄새나는 음식도 가능";
     else if (profile.getIndoor_eating()==1)
         indoor_eating = "냄새 안 나는 음식만 가능";
     else
         indoor_eating = "불가능";
-
     if (profile.getMbti()==0)
         mbti = "ENFJ";
     else if (profile.getMbti()==1)
@@ -213,7 +194,7 @@
     <table style="border-radius: 10px; align: center; margin-top: 50px;">
         <tr>
             <td colspan="2" rowspan="2">
-                <img style="border-radius: 10px; width:300px; height:400px; object-fit: contain" src="<%=img_url%>"/>
+                <img style="border-radius: 10px; width:300px; height:400px;" src="<%=img_url%>"/>
             </td>
             <td width="100"></td>
             <td colspan="2"
@@ -293,4 +274,5 @@
         </tr>
     </table>
 </div>
-
+</body>
+</html>
