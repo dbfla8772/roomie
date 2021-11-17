@@ -123,9 +123,12 @@
         smoking = "X";
 
     if (profile.getSharing()==0)
-        sharing = "O";
+        sharing = "전부 가능";
+    else if (profile.getSharing() == 1)
+        sharing = "공용 용품만 가능";
     else
-        sharing = "X";
+        sharing = "전부 불가능";
+
     if (profile.getLifestyle()==0)
         lifestyle = "아침형";
     else
@@ -167,7 +170,7 @@
 
     if (profile.getIndoor_eating()==0)
         indoor_eating = "냄새나는 음식도 가능";
-    else if (profile.getIndoor_eating()==0)
+    else if (profile.getIndoor_eating()==1)
         indoor_eating = "냄새 안 나는 음식만 가능";
     else
         indoor_eating = "불가능";
@@ -231,48 +234,48 @@
                         <td>: &emsp;&emsp;&emsp;${profile.name}</td>
                     </tr>
                     <tr>
-                        <td>흡연유무</td>
-                        <td>: &emsp;&emsp;&emsp;<%=smoking%></td>
-                    </tr>
-                    <tr>
-                        <td>전공</td>
-                        <td>: &emsp;&emsp;&emsp;${profile.major}</td>
-                    </tr>
-                    <tr>
-                        <td>생필품 공유</td>
-                        <td>: &emsp;&emsp;&emsp;<%=sharing%></td>
-                    </tr>
-                    <tr>
-                        <td>생활 패턴</td>
-                        <td>: &emsp;&emsp;&emsp;<%=lifestyle%></td>
-                    </tr>
-                    <tr>
-                        <td>학년</td>
-                        <td>: &emsp;&emsp;&emsp;<%=grade%></td>
-                    </tr>
-                    <tr>
-                        <td>체질</td>
-                        <td>: &emsp;&emsp;&emsp;<%=habitude%></td>
+                        <td>나이</td>
+                        <td>: &emsp;&emsp;&emsp;${profile.age}</td>
                     </tr>
                     <tr>
                         <td>잠버릇</td>
                         <td>: &emsp;&emsp;&emsp;<%=sleep_habit%></td>
                     </tr>
                     <tr>
-                        <td>청소 주기</td>
-                        <td>: &emsp;&emsp;&emsp;<%=cleaning%></td>
+                        <td>생활 패턴</td>
+                        <td>: &emsp;&emsp;&emsp;<%=lifestyle%></td>
                     </tr>
                     <tr>
-                        <td>나이</td>
-                        <td>: &emsp;&emsp;&emsp;${profile.age}</td>
+                        <td>흡연유무</td>
+                        <td>: &emsp;&emsp;&emsp;<%=smoking%></td>
+                    </tr>
+                    <tr>
+                        <td>학년</td>
+                        <td>: &emsp;&emsp;&emsp;<%=grade%></td>
+                    </tr>
+                    <tr>
+                        <td>학과</td>
+                        <td>: &emsp;&emsp;&emsp;${profile.major}</td>
+                    </tr>
+                    <tr>
+                        <td>MBTI</td>
+                        <td>: &emsp;&emsp;&emsp;<%=mbti%></td>
+                    </tr>
+                    <tr>
+                        <td>청소 주기</td>
+                        <td>: &emsp;&emsp;&emsp;<%=cleaning%></td>
                     </tr>
                     <tr>
                         <td>실내취식</td>
                         <td>: &emsp;&emsp;&emsp;<%=indoor_eating%></td>
                     </tr>
                     <tr>
-                        <td>MBTI</td>
-                        <td>: &emsp;&emsp;&emsp;<%=mbti%></td>
+                        <td>생필품 공유</td>
+                        <td>: &emsp;&emsp;&emsp;<%=sharing%></td>
+                    </tr>
+                    <tr>
+                        <td>체질</td>
+                        <td>: &emsp;&emsp;&emsp;<%=habitude%></td>
                     </tr>
                 </table>
             </td>
