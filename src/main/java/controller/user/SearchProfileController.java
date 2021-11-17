@@ -133,6 +133,7 @@ public class SearchProfileController implements Controller {
         // profileList 객체와 현재 로그인한 사용자 ID를 request에 저장하여 전달
         request.setAttribute("profileList", profileList);
         request.setAttribute("s_id", s_id);
+        request.setAttribute("filter", filter);
 
         // 사용자 리스트 화면으로 이동(forwarding)
         return "/student/searchResult.jsp";
