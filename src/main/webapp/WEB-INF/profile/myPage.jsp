@@ -20,7 +20,10 @@
     </script>
     <style>
         .dv {
-            margin-top: 2%;
+            margin-top: -1%;
+        }
+        .dvv {
+            margin-top: 3%;
         }
         @font-face {
             font-family: 'SBAggroB';
@@ -95,9 +98,10 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-
-<a href = "${pageContext.request.contextPath}/student/main" style="color: black"><h3>&nbsp;Roomie</h3></a>
-<a href = "${pageContext.request.contextPath}/student/main"><img src="/images/logo-font.png" id="logo"/></a>
+<div class="dvv">
+    <a href = "${pageContext.request.contextPath}/student/main" style="color: black;"><h3>&nbsp;Roomie</h3></a>
+    <a href = "${pageContext.request.contextPath}/student/main"><img src="/images/logo-font.png" id="logo"/></a>
+</div>
 
 
     <% profile = (Profile) request.getAttribute("profile");
