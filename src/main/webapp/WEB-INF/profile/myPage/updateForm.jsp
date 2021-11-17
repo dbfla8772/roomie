@@ -70,7 +70,7 @@
             <th>활성화 여부</th>
             <td>
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" <%if (profile.getActivation()) {%> checked <%} %>>
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" <%if (profile.getActivation()==1) {%> checked <%} %>>
                     <label class="form-check-label" for="flexSwitchCheckChecked">활성화 여부</label>
                 </div>
             </td>

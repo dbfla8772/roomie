@@ -94,7 +94,7 @@
 
 
     <% profile = (Profile) request.getAttribute("profile");
-    if (profile.getActivation())
+    if (profile.getActivation()==1)
         activation = "활성화";
     else
         activation = "비활성화";
@@ -226,8 +226,20 @@
                         <td>: &emsp;&emsp;&emsp;${profile.name}</td>
                     </tr>
                     <tr>
+                        <td>전공</td>
+                        <td>: &emsp;&emsp;&emsp;${profile.major}</td>
+                    </tr>
+                    <tr>
+                        <td>학년</td>
+                        <td>: &emsp;&emsp;&emsp;<%=grade%></td>
+                    </tr>
+                    <tr>
                         <td>나이</td>
                         <td>: &emsp;&emsp;&emsp;${profile.age}</td>
+                    </tr>
+                    <tr>
+                        <td>흡연유무</td>
+                        <td>: &emsp;&emsp;&emsp;<%=smoking%></td>
                     </tr>
                     <tr>
                         <td>잠버릇</td>
@@ -236,22 +248,6 @@
                     <tr>
                         <td>생활 패턴</td>
                         <td>: &emsp;&emsp;&emsp;<%=lifestyle%></td>
-                    </tr>
-                    <tr>
-                        <td>흡연유무</td>
-                        <td>: &emsp;&emsp;&emsp;<%=smoking%></td>
-                    </tr>
-                    <tr>
-                        <td>학년</td>
-                        <td>: &emsp;&emsp;&emsp;<%=grade%></td>
-                    </tr>
-                    <tr>
-                        <td>학과</td>
-                        <td>: &emsp;&emsp;&emsp;${profile.major}</td>
-                    </tr>
-                    <tr>
-                        <td>MBTI</td>
-                        <td>: &emsp;&emsp;&emsp;<%=mbti%></td>
                     </tr>
                     <tr>
                         <td>청소 주기</td>
@@ -268,6 +264,10 @@
                     <tr>
                         <td>체질</td>
                         <td>: &emsp;&emsp;&emsp;<%=habitude%></td>
+                    </tr>
+                    <tr>
+                        <td>MBTI</td>
+                        <td>: &emsp;&emsp;&emsp;<%=mbti%></td>
                     </tr>
                 </table>
             </td>
