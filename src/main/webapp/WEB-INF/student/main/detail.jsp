@@ -220,44 +220,44 @@
                         <td>: &emsp;&emsp;&emsp;${profile.name}</td>
                     </tr>
                     <tr>
-                        <td>흡연유무</td>
-                        <td>: &emsp;&emsp;&emsp;<%=smoking%></td>
+                    <td>전공</td>
+                    <td>: &emsp;&emsp;&emsp;${profile.major}</td>
                     </tr>
                     <tr>
-                        <td>전공</td>
-                        <td>: &emsp;&emsp;&emsp;${profile.major}</td>
-                    </tr>
-                    <tr>
-                        <td>생필품 공유</td>
-                        <td>: &emsp;&emsp;&emsp;<%=sharing%></td>
-                    </tr>
-                    <tr>
-                        <td>생활 패턴</td>
-                        <td>: &emsp;&emsp;&emsp;<%=lifestyle%></td>
-                    </tr>
-                    <tr>
-                        <td>학년</td>
-                        <td>: &emsp;&emsp;&emsp;<%=grade%></td>
-                    </tr>
-                    <tr>
-                        <td>체질</td>
-                        <td>: &emsp;&emsp;&emsp;<%=habitude%></td>
-                    </tr>
-                    <tr>
-                        <td>잠버릇</td>
-                        <td>: &emsp;&emsp;&emsp;<%=sleep_habit%></td>
-                    </tr>
-                    <tr>
-                        <td>청소 주기</td>
-                        <td>: &emsp;&emsp;&emsp;<%=cleaning%></td>
+                    <td>학년</td>
+                    <td>: &emsp;&emsp;&emsp;<%=grade%></td>
                     </tr>
                     <tr>
                         <td>나이</td>
                         <td>: &emsp;&emsp;&emsp;${profile.age}</td>
                     </tr>
                     <tr>
+                        <td>흡연유무</td>
+                        <td>: &emsp;&emsp;&emsp;<%=smoking%></td>
+                    </tr>
+                    <tr>
+                        <td>잠버릇</td>
+                        <td>: &emsp;&emsp;&emsp;<%=sleep_habit%></td>
+                    </tr>
+                    <tr>
+                        <td>생활 패턴</td>
+                        <td>: &emsp;&emsp;&emsp;<%=lifestyle%></td>
+                    </tr>
+                    <tr>
+                        <td>청소 주기</td>
+                        <td>: &emsp;&emsp;&emsp;<%=cleaning%></td>
+                    </tr>
+                    <tr>
                         <td>실내취식</td>
                         <td>: &emsp;&emsp;&emsp;<%=indoor_eating%></td>
+                    </tr>
+                    <tr>
+                        <td>생필품 공유</td>
+                        <td>: &emsp;&emsp;&emsp;<%=sharing%></td>
+                    </tr>
+                    <tr>
+                        <td>체질</td>
+                        <td>: &emsp;&emsp;&emsp;<%=habitude%></td>
                     </tr>
                     <tr>
                         <td>MBTI</td>

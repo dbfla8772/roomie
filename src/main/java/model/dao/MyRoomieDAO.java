@@ -82,7 +82,7 @@ public class MyRoomieDAO {
             while (rs.next()) {
                 Profile roomie = new Profile(
                         rs.getInt("roomie_id"),
-                        rs.getBoolean("activation"),
+                        rs.getInt("activation"),
                         rs.getString("name"),
                         rs.getInt("pr_img"),
                         rs.getInt("age"),

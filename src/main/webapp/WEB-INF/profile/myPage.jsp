@@ -94,10 +94,11 @@
 
 
     <% profile = (Profile) request.getAttribute("profile");
-    if (profile.getActivation())
+    if (profile.getActivation()==1)
         activation = "활성화";
     else
         activation = "비활성화";
+
     img_url = "/images/";
     if (profile.getPr_img()==0)
         img_url += "man1.png";
@@ -107,20 +108,24 @@
         img_url += "woman1.png";
     else
         img_url += "woman2.png";
+
     if (profile.getSmoking()==0)
         smoking = "O";
     else
         smoking = "X";
+
     if (profile.getSharing()==0)
         sharing = "전부 가능";
     else if (profile.getSharing() == 1)
         sharing = "공용 용품만 가능";
     else
         sharing = "전부 불가능";
+
     if (profile.getLifestyle()==0)
         lifestyle = "아침형";
     else
         lifestyle = "저녁형";
+
     if (profile.getGrade()==0)
         grade = "1학년";
     else if (profile.getGrade()==1)
@@ -129,12 +134,14 @@
         grade = "3학년";
     else if (profile.getGrade()==3)
         grade = "4학년";
+
     if (profile.getHabitude()==0)
         habitude = "추위를 탐";
     else if (profile.getHabitude()==1)
         habitude = "더위를 탐";
     else
         habitude = "둘 다 안 탐";
+
     if (profile.getSleep_habit()==0)
         sleep_habit = "없음";
     else if (profile.getSleep_habit()==1)
@@ -143,6 +150,7 @@
         sleep_habit = "이갈이";
     else
         sleep_habit = "몽유병";
+
     if (profile.getCleaning()==0)
         cleaning = "매일";
     else if (profile.getCleaning()==1)
@@ -151,12 +159,14 @@
         cleaning = "1주";
     else
         cleaning = "2주";
+
     if (profile.getIndoor_eating()==0)
         indoor_eating = "냄새나는 음식도 가능";
     else if (profile.getIndoor_eating()==1)
         indoor_eating = "냄새 안 나는 음식만 가능";
     else
         indoor_eating = "불가능";
+
     if (profile.getMbti()==0)
         mbti = "ENFJ";
     else if (profile.getMbti()==1)
@@ -216,8 +226,20 @@
                         <td>: &emsp;&emsp;&emsp;${profile.name}</td>
                     </tr>
                     <tr>
+                        <td>전공</td>
+                        <td>: &emsp;&emsp;&emsp;${profile.major}</td>
+                    </tr>
+                    <tr>
+                        <td>학년</td>
+                        <td>: &emsp;&emsp;&emsp;<%=grade%></td>
+                    </tr>
+                    <tr>
                         <td>나이</td>
                         <td>: &emsp;&emsp;&emsp;${profile.age}</td>
+                    </tr>
+                    <tr>
+                        <td>흡연유무</td>
+                        <td>: &emsp;&emsp;&emsp;<%=smoking%></td>
                     </tr>
                     <tr>
                         <td>잠버릇</td>
@@ -226,22 +248,6 @@
                     <tr>
                         <td>생활 패턴</td>
                         <td>: &emsp;&emsp;&emsp;<%=lifestyle%></td>
-                    </tr>
-                    <tr>
-                        <td>흡연유무</td>
-                        <td>: &emsp;&emsp;&emsp;<%=smoking%></td>
-                    </tr>
-                    <tr>
-                        <td>학년</td>
-                        <td>: &emsp;&emsp;&emsp;<%=grade%></td>
-                    </tr>
-                    <tr>
-                        <td>학과</td>
-                        <td>: &emsp;&emsp;&emsp;${profile.major}</td>
-                    </tr>
-                    <tr>
-                        <td>MBTI</td>
-                        <td>: &emsp;&emsp;&emsp;<%=mbti%></td>
                     </tr>
                     <tr>
                         <td>청소 주기</td>
@@ -258,6 +264,10 @@
                     <tr>
                         <td>체질</td>
                         <td>: &emsp;&emsp;&emsp;<%=habitude%></td>
+                    </tr>
+                    <tr>
+                        <td>MBTI</td>
+                        <td>: &emsp;&emsp;&emsp;<%=mbti%></td>
                     </tr>
                 </table>
             </td>
