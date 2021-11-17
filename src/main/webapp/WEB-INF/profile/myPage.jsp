@@ -94,7 +94,7 @@
 
 
     <% profile = (Profile) request.getAttribute("profile");
-    if (profile.getActivation())
+    if (profile.getActivation()==1)
         activation = "활성화";
     else
         activation = "비활성화";
