@@ -56,6 +56,12 @@
             font-weight: normal;
             font-style: normal;
         }
+        @font-face {
+            font-family: 'SBAggroL';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroL.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
         #logo {
             margin-top: 0;
             width: 130px;
@@ -68,11 +74,26 @@
         input {
             margin: 2px;
             padding: 5px;
+            font-family: SBAggroL;
         }
         #college {
             padding: 5px 10px;
             font-size: 12px;
             margin: 2px;
+        }
+        td {
+            font-family: SBAggroL;
+        }
+        button {
+            font-family: SBAggroL;
+            height: 30px;
+            width: 370px;
+        }
+        select {
+            font-family: SBAggroL;
+        }
+        option {
+            font-family: SBAggroL;
         }
     </style>
 </head>
@@ -88,7 +109,7 @@
                 <td width="20%">
                     <br>
                     이름<br>
-                    <input type="text" placeholder="닉네임을 입력하세요." size="40" name="name">
+                    <input type="text" placeholder="실명을 입력하세요." size="40" name="name">
                 </td>
             </tr>
             <tr>
@@ -138,7 +159,7 @@
                 <td></td>
                 <td>
                     <br>
-                    <input type="button" style="width: 238px;" value="가입하기" onClick="studentCreate()">
+                    <button type="button" value="가입하기" onClick="studentCreate()">가입하기</button>
                 </td>
             </tr>
         </table>

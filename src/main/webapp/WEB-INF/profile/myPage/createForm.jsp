@@ -7,9 +7,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-          rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+          rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
     <script>
         function profCreate() {
             if (form.name.value == "") {
@@ -37,21 +39,25 @@
             font-weight: normal;
             font-style: normal;
         }
+
         @font-face {
             font-family: 'SBAggroL';
             src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroL.woff') format('woff');
             font-weight: normal;
             font-style: normal;
         }
+
         html, body {
-            margin: 0;
+            margin: 4% 0;
             width: auto;
             height: auto;
         }
+
         h2 {
             font-family: SBAggroB;
             text-align: center;
         }
+
         h3 {
             font-family: SBAggroB;
             float: left;
@@ -59,21 +65,26 @@
             padding-left: 100px;
             color: black;
         }
+
         h4 {
             font-family: SBAggroL;
         }
+
         #logo {
             width: 70px;
             margin-left: 5px;
         }
+
         td, th {
             font-family: SBAggroL;
             padding-left: 10px;
             padding-bottom: 15px;
         }
+
         ul.space_list li {
             margin-bottom: 1em;
         }
+
         ul.none {
             margin-bottom: 1em;
             list-style: none;
@@ -82,10 +93,12 @@
 </head>
 <body>
 
-<a href = "${pageContext.request.contextPath}/student/main" style="color: black"><h3>&nbsp;Roomie</h3></a>
-<a href = "${pageContext.request.contextPath}/student/main"><img src="/images/logo-font.png" id="logo"/></a>
+<a href="${pageContext.request.contextPath}/student/main" style="color: black"><h3>&nbsp;Roomie</h3></a>
+<a href="${pageContext.request.contextPath}/student/main"><img src="/images/logo-font.png" id="logo"/></a>
 
-<h2>프로필 등록</h2>
+<div style="margin: 30px">
+    <h2>프로필 등록</h2>
+</div>
 <!-- Create Form  -->
 <div style="text-align: center">
     <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/profile/create">
@@ -93,7 +106,8 @@
             <tr>
                 <th>이메일</th>
                 <td>
-                    <input type="text" readonly style="width: 240px" name="email" value="<%=(String)request.getAttribute("email")%>">
+                    <input type="text" readonly style="width: 240px" name="email"
+                           value="<%=(String)request.getAttribute("email")%>">
                 </td>
             </tr>
             <tr>
@@ -220,8 +234,8 @@
                     <input type="button" value="등록" class="btn btn-outline-primary" onClick="profCreate()"> &nbsp;
                 </td>
             </tr>
-    </table>
-</form>
+        </table>
+    </form>
 </div>
 </body>
 </html>
