@@ -26,6 +26,7 @@
             magrin: 0;
             width: auto;
             height: auto;
+            margin-bottom: 4%;
         }
         a {
             font-family: SBAggroL;

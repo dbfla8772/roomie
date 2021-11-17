@@ -28,7 +28,7 @@
             margin: 0;
             width: auto;
             height: auto;
-            margin-bottom: 3%;
+            margin-bottom: 4%;
         }
 
         h3 {
