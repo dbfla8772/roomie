@@ -38,6 +38,23 @@ public class Profile {
         this.habitude = habitude;
     }
 
+    public Profile(int s_id, String name, int pr_img, int age, int sleep_habit, int lifestyle, int smoking, int grade, String major, int cleaning, int indoor_eating, int mbti, int sharing, int habitude) {
+        this.s_id = s_id;
+        this.name = name;
+        this.pr_img = pr_img;
+        this.age = age;
+        this.sleep_habit = sleep_habit;
+        this.lifestyle = lifestyle;
+        this.smoking = smoking;
+        this.grade = grade;
+        this.major = major;
+        this.cleaning = cleaning;
+        this.indoor_eating = indoor_eating;
+        this.mbti = mbti;
+        this.sharing = sharing;
+        this.habitude = habitude;
+    }
+
     public int getS_id() {
         return s_id;
     }
