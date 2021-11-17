@@ -204,7 +204,7 @@ public class ProfileDAO {
     public List<Profile> findProfileList(int s_id, int sleep_habit, int lifestyle, int smoking, int grade, String major,
                                          int cleaning, int indoor_eating, int mbti, int sharing, int habitude)
             throws SQLException {
-        String sql1 = "SELECT gender, c_id"
+        String sql1 = "SELECT gender, c_id "
                 + "FROM PROFILE p JOIN STUDENT s ON p.s_id = s.s_id "
                 + "WHERE s.s_id=?";
         jdbcUtil.setSqlAndParameters(sql1, new Object[] {s_id});
@@ -250,7 +250,7 @@ public class ProfileDAO {
             params.add(grade);
         }
         if (major != null) {
-            sql2 += "AND major='?' ";
+            sql2 += "AND major=? ";
             params.add(major);
         }
         if (cleaning != -1) {
