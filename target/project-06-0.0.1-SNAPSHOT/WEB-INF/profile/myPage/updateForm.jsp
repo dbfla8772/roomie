@@ -48,9 +48,12 @@
             font-style: normal;
         }
         html, body {
-            margin: 0;
+            margin: 1% 0 2% 0;
             width: auto;
             height: auto;
+        }
+        div {
+            margin: 30px;
         }
         h2 {
             font-family: SBAggroB;
@@ -89,7 +92,9 @@
 <a href = "${pageContext.request.contextPath}/student/main" style="color: black"><h3>&nbsp;Roomie</h3></a>
 <a href = "${pageContext.request.contextPath}/student/main"><img src="/images/logo-font.png" id="logo"/></a>
 
-<h2>마이 페이지 수정</h2>
+<div class="mypage-title">
+    <h2>마이 페이지 수정</h2>
+</div>
 <!-- Update Form  -->
 <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/profile/update">
     <input type="hidden" name="s_id" value="${profile.s_id}"/>
