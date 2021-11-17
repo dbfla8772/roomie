@@ -80,7 +80,7 @@ public class ProfileDAO {
             if (rs.next()) {						// 학생 정보 발견
                 Profile profile = new Profile(		// Profile 객체를 생성하여 정보를 저장
                         s_Id,
-                        rs.getBoolean("activation"),
+                        rs.getInt("activation"),
                         rs.getString("name"),
                         rs.getInt("pr_img"),
                         rs.getInt("age"),
@@ -125,7 +125,7 @@ public class ProfileDAO {
             while (rs.next()) {
                 Profile profile = new Profile(            // Profile 객체를 생성하여 현재 행의 정보를 저장
                         rs.getInt("s_id"),
-                        rs.getBoolean("activation"),
+                        rs.getInt("activation"),
                         rs.getString("name"),
                         rs.getInt("pr_img"),
                         rs.getInt("age"),
@@ -174,7 +174,7 @@ public class ProfileDAO {
                 do {
                     Profile profile = new Profile(			// Profile 객체를 생성하여 현재 행의 정보를 저장
                             rs.getInt("s_id"),
-                            rs.getBoolean("activation"),
+                            rs.getInt("activation"),
                             rs.getString("name"),
                             rs.getInt("pr_img"),
                             rs.getInt("age"),
@@ -304,7 +304,7 @@ public class ProfileDAO {
             while (rs.next()) {
                 Profile profile = new Profile(			// Profile 객체를 생성하여 현재 행의 정보를 저장
                         rs.getInt("s_id"),
-                        rs.getBoolean("activation"),
+                        rs.getInt("activation"),
                         rs.getString("name"),
                         rs.getInt("pr_img"),
                         rs.getInt("age"),

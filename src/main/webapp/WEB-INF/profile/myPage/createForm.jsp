@@ -5,6 +5,11 @@
 <head>
     <title>프로필 등록</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script>
         function profCreate() {
             if (form.name.value == "") {
@@ -44,11 +49,6 @@
             width: 200px;
         }
     </style>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -62,18 +62,22 @@
     <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/profile/create">
         <table class="table table-bordered" style="margin: auto auto; width: 1000px">
             <tr>
-                <th>활성화 여부</th>
-                <td>
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" value="1" checked >
-                        <label class="form-check-label" for="flexSwitchCheckChecked">활성화/비활성화</label>
-                    </div>
-                </td>
-            </tr>
-            <tr>
                 <th>이메일</th>
                 <td>
                     <input type="text" readonly style="width: 240px" name="email" value="<%=(String)request.getAttribute("email")%>">
+                </td>
+            </tr>
+            <tr>
+                <th>프로필 이미지</th>
+                <td>
+                    <input type="radio" name="pr_img" value="0">
+                    <img src="/images/man1.png" width="150px" height="150px">
+                    <input type="radio" name="pr_img" value="1">
+                    <img src="/images/man2.png" width="150px" height="150px">
+                    <input type="radio" name="pr_img" value="2">
+                    <img src="/images/woman1.png" width="150px" height="150px">
+                    <input type="radio" name="pr_img" value="3">
+                    <img src="/images/woman2.png" width="150px" height="150px">
                 </td>
             </tr>
             <tr>
@@ -83,22 +87,31 @@
                 </td>
             </tr>
             <tr>
-                <th>프로필 이미지</th>
+                <th>전공</th>
                 <td>
-                    <input type="radio" name="pr_img" value="0">
-                        <img src="/images/man1.png" width="150px" height="150px">
-                    <input type="radio" name="pr_img" value="1">
-                        <img src="/images/man2.png" width="150px" height="150px">
-                    <input type="radio" name="pr_img" value="2">
-                        <img src="/images/woman1.png" width="150px" height="150px">
-                    <input type="radio" name="pr_img" value="3">
-                        <img src="/images/woman2.png" width="150px" height="150px">
+                    <input type="text" style="width: 240px" name="major">
+                </td>
+            </tr>
+            <tr>
+                <th>학년</th>
+                <td>
+                    <input type="radio" name="grade" value="0">1학년
+                    <input type="radio" name="grade" value="1">2학년
+                    <input type="radio" name="grade" value="2">3학년
+                    <input type="radio" name="grade" value="3">4학년
                 </td>
             </tr>
             <tr>
                 <th>나이</th>
                 <td>
                     <input type="number" style="width: 240px" name="age" min="20" max="30">
+                </td>
+            </tr>
+            <tr>
+                <th>흡연 여부</th>
+                <td>
+                    <input type="radio" name="smoking" value="0">O
+                    <input type="radio" name="smoking" value="1">X
                 </td>
             </tr>
             <tr>
@@ -118,25 +131,36 @@
                 </td>
             </tr>
             <tr>
-                <th>흡연 여부</th>
+                <th>청소주기</th>
                 <td>
-                    <input type="radio" name="smoking" value="0">O
-                    <input type="radio" name="smoking" value="1">X
+                    <input type="radio" name="cleaning" value="0">매일
+                    <input type="radio" name="cleaning" value="1">3일
+                    <input type="radio" name="cleaning" value="2">1주
+                    <input type="radio" name="cleaning" value="3">2주
                 </td>
             </tr>
             <tr>
-                <th>학년</th>
-                <td>
-                    <input type="radio" name="grade" value="0">1학년
-                    <input type="radio" name="grade" value="1">2학년
-                    <input type="radio" name="grade" value="2">3학년
-                    <input type="radio" name="grade" value="3">4학년
+                <th>실내 취식</th>
+                <td class="commCell">
+                    <input type="radio" name="indoor_eating" value="0">냄새나는 음식도 가능
+                    <input type="radio" name="indoor_eating" value="1">냄새 안 나는 음식만 가능
+                    <input type="radio" name="indoor_eating" value="2">불가능
                 </td>
             </tr>
             <tr>
-                <th>학과</th>
+                <th>생필품 공유</th>
+                <td class="commCell">
+                    <input type="radio" name="sharing" value="0">전부 가능
+                    <input type="radio" name="sharing" value="1">공용 용품만 가능
+                    <input type="radio" name="sharing" value="2">전부 불가능
+                </td>
+            </tr>
+            <tr>
+                <th>체질</th>
                 <td>
-                    <input type="text" style="width: 240px" name="major">
+                    <input type="radio" name="habitude" value="0">추위를 탐
+                    <input type="radio" name="habitude" value="1">더위를 탐
+                    <input type="radio" name="habitude" value="2">둘 다 안탐
                 </td>
             </tr>
             <tr>
@@ -160,39 +184,6 @@
                         <option value="14">ISTJ</option>
                         <option value="15">ISTP</option>
                     </select>
-                </td>
-            </tr>
-            <tr>
-                <th>청소주기</th>
-                <td>
-                    <input type="radio" name="cleaning" value="0">매일
-                    <input type="radio" name="cleaning" value="1">3일
-                    <input type="radio" name="cleaning" value="2">1주
-                    <input type="radio" name="cleaning" value="3">2주
-                </td>
-            </tr>
-            <tr>
-                <th>실내 취식여부</th>
-                <td class="commCell">
-                    <input type="radio" name="indoor_eating" value="0">냄새나는 음식도 가능
-                    <input type="radio" name="indoor_eating" value="1">냄새 안 나는 음식만 가능
-                    <input type="radio" name="indoor_eating" value="2">불가능
-                </td>
-            </tr>
-            <tr>
-                <th>생필품 공유여부</th>
-                <td class="commCell">
-                    <input type="radio" name="sharing" value="0">전부 가능
-                    <input type="radio" name="sharing" value="1">공용 용품만 가능
-                    <input type="radio" name="sharing" value="2">전부 불가능
-                </td>
-            </tr>
-            <tr>
-                <th>체질</th>
-                <td>
-                    <input type="radio" name="habitude" value="0">추위를 탐
-                    <input type="radio" name="habitude" value="1">더위를 탐
-                    <input type="radio" name="habitude" value="2">둘 다 안탐
                 </td>
             </tr>
             <tr>
