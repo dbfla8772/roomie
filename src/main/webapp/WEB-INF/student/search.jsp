@@ -109,6 +109,12 @@
             border-color: lightgrey;
             background-color: white;
         }
+
+        #mbti {
+            padding: 5px 10px;
+            font-size: 15px;
+            margin: 2px;
+        }
     </style>
 
 </head>
@@ -124,7 +130,7 @@
 <form name="form" method="POST" action="${pageContext.request.contextPath}/student/searchResult">
     <table>
         <tr>
-            <td><input type="checkbox" name="age" value="<%= profile.getAge() %>"><label>&nbsp;나이</label></td>
+            <td><input type="checkbox" name="habitude" value="<%= profile.getHabitude() %>"><label>&nbsp;체질</label></td>
             <td><input type="checkbox" name="sleep_habit" value="<%= profile.getSleep_habit() %>"><label>&nbsp;잠버릇</label></td>
             <td><input type="checkbox" name="lifestyle" value="<%= profile.getLifestyle() %>"><label>&nbsp;생활 패턴</label></td>
             <br>
@@ -139,7 +145,8 @@
             <td><input type="checkbox" name="cleaning" value="<%= profile.getCleaning() %>"><label>&nbsp;청소 주기</label></td>
             <td><input type="checkbox" name="indoor_eating" value="<%= profile.getIndoor_eating() %>"><label>&nbsp;실내 취식</label></td>
             <td><label>&nbsp;&nbsp;&nbsp;MBTI&nbsp;
-                <select name="mbti">
+                <select id="mbti" name="mbti">
+                    <option value="-1">선택안함</option>
                     <option value="0">ENFJ</option>
                     <option value="1">ENFP</option>
                     <option value="2">ENTJ</option>
@@ -162,7 +169,6 @@
         </tr>
         <tr>
             <td><input type="checkbox" name="sharing" value="<%= profile.getSharing() %>"><label>&nbsp;생필품 공유</label></td>
-            <td><input type="checkbox" name="habitude" value="<%= profile.getHabitude() %>"><label>&nbsp;체질</label></td>
         </tr>
     </table>
 
