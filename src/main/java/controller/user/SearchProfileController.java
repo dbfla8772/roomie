@@ -47,29 +47,37 @@ public class SearchProfileController implements Controller {
             sleep_habit = -1;
             filter[0] = -1;
         }
-        else
+        else {
             sleep_habit = Integer.parseInt(request.getParameter("sleep_habit"));
+            filter[0] = 0;
+        }
 
         if (request.getParameter("lifestyle") == null) {
             lifestyle = -1;
             filter[1] = -1;
         }
-        else
+        else {
             lifestyle = Integer.parseInt(request.getParameter("lifestyle"));
+            filter[1] = 0;
+        }
 
         if (request.getParameter("smoking") == null) {
             smoking = -1;
             filter[2] = -1;
         }
-        else
+        else {
             smoking = Integer.parseInt(request.getParameter("smoking"));
+            filter[2] = 0;
+        }
 
         if (request.getParameter("grade") == null) {
             grade = -1;
             filter[3] = -1;
         }
-        else
+        else {
             grade = Integer.parseInt(request.getParameter("grade"));
+            filter[3] = 0;
+        }
 
         if (request.getParameter("major") != null) {
             major = request.getParameter("major");
@@ -83,16 +91,19 @@ public class SearchProfileController implements Controller {
             cleaning = -1;
             filter[5] = -1;
         }
-        else
+        else {
             cleaning = Integer.parseInt(request.getParameter("cleaning"));
+            filter[5] = 0;
+        }
 
         if (request.getParameter("indoor_eating") == null) {
             indoor_eating = -1;
             filter[6] = -1;
         }
-        else
+        else {
             indoor_eating = Integer.parseInt(request.getParameter("indoor_eating"));
-
+            filter[6] = 0;
+        }
         mbti = Integer.parseInt(request.getParameter("mbti"));
         filter[7] = mbti;
 
@@ -100,16 +111,19 @@ public class SearchProfileController implements Controller {
             sharing = -1;
             filter[8] = -1;
         }
-        else
+        else {
             sharing = Integer.parseInt(request.getParameter("sharing"));
+            filter[8] = 0;
+        }
 
         if (request.getParameter("habitude") == null) {
             habitude = -1;
             filter[9] = -1;
         }
-        else
+        else {
             habitude = Integer.parseInt(request.getParameter("habitude"));
-
+            filter[9] = 0;
+        }
         log.debug("Search User : {}", s_id);
 
 
