@@ -204,10 +204,8 @@
             <th>실내 취식</th>
             <td>
                 <input type="radio" name="indoor_eating" value="0"
-                    <%if (profile.getIndoor_eating() == 0) {%> checked <%} %>>냄새 나는 음식도 가능
+                    <%if (profile.getIndoor_eating() == 0) {%> checked <%} %>>가능
                 <input type="radio" name="indoor_eating" value="1"
-                    <%if (profile.getIndoor_eating() == 1) {%> checked <%} %>>냄새 안나는 음식만 가능
-                <input type="radio" name="indoor_eating" value="2"
                     <%if (profile.getIndoor_eating() == 2) {%> checked <%} %>>불가능
             </td>
         </tr>
@@ -215,11 +213,9 @@
             <th>생필품 공유</th>
             <td>
                 <input type="radio" name="sharing" value="0"
-                    <%if (profile.getSharing() == 0) {%> checked <%} %>>전부 가능
+                    <%if (profile.getSharing() == 0) {%> checked <%} %>>가능
                 <input type="radio" name="sharing" value="1"
-                    <%if (profile.getSharing() == 1) {%> checked <%} %>>공용 용품만 가능
-                <input type="radio" name="sharing" value="2"
-                    <%if (profile.getSharing() == 2) {%> checked <%} %>>전부 불가능
+                    <%if (profile.getSharing() == 2) {%> checked <%} %>>불가능
             </td>
         </tr>
         <tr>
@@ -230,7 +226,9 @@
                 <input type="radio" name="habitude" value="1"
                     <%if (profile.getHabitude() == 1) {%> checked <%} %>>더위를 탐
                 <input type="radio" name="habitude" value="2"
-                    <%if (profile.getHabitude() == 2) {%> checked <%} %>>둘 다 안탐
+                    <%if (profile.getHabitude() == 2) {%> checked <%} %>>둘 다 탐
+                <input type="radio" name="habitude" value="3"
+                    <%if (profile.getHabitude() == 2) {%> checked <%} %>>상관없음
             </td>
         </tr>
         <tr>
