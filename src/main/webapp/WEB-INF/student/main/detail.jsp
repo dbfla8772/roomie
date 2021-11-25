@@ -137,12 +137,33 @@
     else if (profile.getGrade()==3)
         grade = "4학년";
 
+    if (profile.getSharing()==0)
+        sharing = "가능";
+    else
+        sharing = "불가능";
+
+    if (profile.getLifestyle()==0)
+        lifestyle = "아침형";
+    else
+        lifestyle = "저녁형";
+
+    if (profile.getGrade()==0)
+        grade = "1학년";
+    else if (profile.getGrade()==1)
+        grade = "2학년";
+    else if (profile.getGrade()==2)
+        grade = "3학년";
+    else if (profile.getGrade()==3)
+        grade = "4학년";
+
     if (profile.getHabitude()==0)
         habitude = "추위를 탐";
     else if (profile.getHabitude()==1)
         habitude = "더위를 탐";
+    else if (profile.getHabitude()==2)
+        habitude = "둘 다 탐";
     else
-        habitude = "둘 다 안 탐";
+        habitude = "상관없음";
 
     if (profile.getSleep_habit()==0)
         sleep_habit = "없음";
@@ -163,9 +184,7 @@
         cleaning = "2주";
 
     if (profile.getIndoor_eating()==0)
-        indoor_eating = "냄새나는 음식도 가능";
-    else if (profile.getIndoor_eating()==0)
-        indoor_eating = "냄새 안 나는 음식만 가능";
+        indoor_eating = "가능";
     else
         indoor_eating = "불가능";
 
