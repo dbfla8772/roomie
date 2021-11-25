@@ -69,7 +69,7 @@
 <body>
 <div align="center">
     <h3>쪽지쓰기</h3>
-    <form name="form" method="POST" action="${pageContext.request.contextPath}/message/send">
+    <form name="form" method="POST" action="${pageContext.request.contextPath}/mail/send">
         <table align="center">
             <tr>
                 <td width="12%" class="title">받는사람</td>
@@ -85,7 +85,7 @@
             </tr>
         </table>
         <button type="button" value="전송" onClick="SendMessage()" class="btn btn-outline-dark">전송</button>&nbsp;
-        <button type="button" value="취소" class="btn btn-outline-dark" onClick="SendCancel('${pageContext.request.contextPath}/chat/sendList')">취소</button>
+        <button type="button" value="취소" class="btn btn-outline-dark" onClick="SendCancel('${pageContext.request.contextPath}/mail/sendList')">취소</button>
     </form>
 </div>
 </body>
