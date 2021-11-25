@@ -2,12 +2,10 @@ package controller.user;
 
 import controller.Controller;
 import model.College;
+import model.Point;
 import model.Profile;
 import model.Student;
-import model.service.CollegeManager;
-import model.service.ExistingStudentException;
-import model.service.ProfileManager;
-import model.service.StudentManager;
+import model.service.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -52,10 +50,32 @@ public class CreateProfileController implements Controller {
                 Integer.parseInt(request.getParameter("sharing")),
                 Integer.parseInt(request.getParameter("habitude"))
         );
+
+        String p_dec, p_bin, p;
+        p = request.getParameter("smoking");
+        p += request.getParameter("sleep_habit");
+        p += request.getParameter("lifestyle");
+        p += request.getParameter("cleaning");
+        p += request.getParameter("indoor_eating");
+        p += request.getParameter("habitude");
+        p += request.getParameter("mbti");
+
+        p_bin = Integer.toBinaryString(Integer.parseInt(p));
+        p_dec = String.valueOf(Integer.parseInt(p_bin, 2));
+
+        Point createPoint = new Point(
+                s.getS_id(),
+                p_bin,
+                p_dec
+        );
+
         log.debug("Create Profile : {}", createProfile);
         try {
             ProfileManager manager = ProfileManager.getInstance();
             manager.create(createProfile);
+
+            AutoMatchManager auto = AutoMatchManager.getInstance();
+            auto.create(createPoint);
             return "/student/loginForm.jsp";
 
         } catch (ExistingStudentException e) {	// 예외 발생 시 회원가입 form으로 forwarding
