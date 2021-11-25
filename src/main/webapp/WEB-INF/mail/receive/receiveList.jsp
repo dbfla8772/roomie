@@ -38,6 +38,7 @@
             <small>And some small print.</small>
         </a>
     </div>
+    </c:forEach>
 </div>
 </body>
 </html>
