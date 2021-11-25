@@ -16,7 +16,7 @@ public class PointDAO {
 
     public int create(Point point) throws SQLException {
         String sql = "INSERT INTO point VALUES (?, ?, ?)";
-        Object[] param = new Object[] {point.getS_id(), point.getPoint_binary(), point.getPoint_dec()};
+        Object[] param = new Object[] {point.getPoint_binary(), point.getPoint_dec(), point.getS_id()};
         jdbcUtil.setSqlAndParameters(sql, param);	// JDBCUtil 에 insert문과 매개 변수 설정
 
         try {
@@ -37,7 +37,7 @@ public class PointDAO {
                 + "SET point_binary=?, point_dec=? "
                 + "WHERE s_id=?";
 
-        Object[] param = new Object[] { point.getPoint_binary(), point.getPoint_dec()};
+        Object[] param = new Object[] {point.getPoint_binary(), point.getPoint_dec(), point.getS_id()};
         jdbcUtil.setSqlAndParameters(sql, param);	// JDBCUtil에 update문과 매개 변수 설정
 
         try {
