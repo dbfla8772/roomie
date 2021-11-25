@@ -11,6 +11,9 @@ import model.service.StudentManager;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class MailController implements Controller {
@@ -38,9 +41,16 @@ public class MailController implements Controller {
         //POST
         try {
             //전송 버튼 눌렀을 때
-            int receiver =
-            int scrap_id = Integer.parseInt(request.getParameter("scrap_id"));
-            Scrap s = new Scrap(s_id, scrap_id);
+            int receiver = Integer.parseInt(request.getParameter("receiver"));
+            String message = request.getParameter("message");
+
+            //날짜, 시간 구하기
+            LocalDateTime now = LocalDateTime.now();
+            System.out.println(now); // 2021-06-17T06:43:21.419878100
+            String formatedNow = now.format(DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 HH시 mm분 ss초"));
+
+            Mail m = new Mail(s_id, receiver, message, formatedNow, 0);
+            Scrap s = new Scrap(s_id, receiver);
 
             scrapManager.create(s);
 

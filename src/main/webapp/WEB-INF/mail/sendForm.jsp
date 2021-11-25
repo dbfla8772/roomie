@@ -84,7 +84,6 @@
                 </td>
             </tr>
         </table>
-        <input type="hidden" name="scrap_id" value="${profile.s_id}">
         <button type="button" value="전송" onClick="SendMessage()" class="btn btn-outline-dark">전송</button>&nbsp;
         <button type="button" value="취소" class="btn btn-outline-dark" onClick="SendCancel('${pageContext.request.contextPath}/mail/receiveList')">취소</button>
     </form>

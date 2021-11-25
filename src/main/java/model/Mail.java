@@ -11,8 +11,7 @@ public class Mail {
     private int chatCheck;
 
     public Mail() {}
-    public Mail(long ch_id, int sender, int receiver, String message, Date datetime, int chatCheck) {
-        this.ch_id = ch_id;
+    public Mail(int sender, int receiver, String message, Date datetime, int chatCheck) {
         this.sender = sender;
         this.receiver = receiver;
         this.message = message;
