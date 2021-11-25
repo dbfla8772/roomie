@@ -185,17 +185,15 @@
             <tr>
                 <th>실내 취식</th>
                 <td class="commCell">
-                    <input type="radio" name="indoor_eating" value="0">냄새나는 음식도 가능
-                    <input type="radio" name="indoor_eating" value="1">냄새 안 나는 음식만 가능
-                    <input type="radio" name="indoor_eating" value="2">불가능
+                    <input type="radio" name="indoor_eating" value="0">가능
+                    <input type="radio" name="indoor_eating" value="1">불가능
                 </td>
             </tr>
             <tr>
                 <th>생필품 공유</th>
                 <td class="commCell">
-                    <input type="radio" name="sharing" value="0">전부 가능
-                    <input type="radio" name="sharing" value="1">공용 용품만 가능
-                    <input type="radio" name="sharing" value="2">전부 불가능
+                    <input type="radio" name="sharing" value="0">가능
+                    <input type="radio" name="sharing" value="1">불가능
                 </td>
             </tr>
             <tr>
@@ -203,7 +201,8 @@
                 <td>
                     <input type="radio" name="habitude" value="0">추위를 탐
                     <input type="radio" name="habitude" value="1">더위를 탐
-                    <input type="radio" name="habitude" value="2">둘 다 안탐
+                    <input type="radio" name="habitude" value="2">둘 다 탐
+                    <input type="radio" name="habitude" value="3">상관없음
                 </td>
             </tr>
             <tr>

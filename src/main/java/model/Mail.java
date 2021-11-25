@@ -10,8 +10,18 @@ public class Mail {
     private String datetime;
     private int mailCheck;
 
-    public Mail(int ch_id, int sender, int receiver, String message, String datetime, int mailCheck) {
+    public Mail() {}
+
+    public Mail(int ch_id, int sender, int receiver, String message, String datetime, int chatCheck) {
         this.ch_id = ch_id;
+        this.sender = sender;
+        this.receiver = receiver;
+        this.message = message;
+        this.datetime = datetime;
+        this.mailCheck = mailCheck;
+    }
+
+    public Mail(int sender, int receiver, String message, String datetime, int chatCheck) {
         this.sender = sender;
         this.receiver = receiver;
         this.message = message;
