@@ -7,6 +7,8 @@ import model.Mail;
 import model.service.MailManager;
 import model.service.ProfileManager;
 import model.service.StudentManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +19,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class MailController implements Controller {
+    private static final Logger log = LoggerFactory.getLogger(MailController.class);
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         // 로그인 여부 확인
@@ -52,19 +55,11 @@ public class MailController implements Controller {
             Mail m = new Mail(s_id, receiver, message, formatedNow, 0);
             Scrap s = new Scrap(s_id, receiver);
 
-            scrapManager.create(s);
+            mailManager.create(m);
 
-            log.debug("s_id 확인: " + s_id + " scrap_id 확인: " + scrap_id);
+            log.debug("s_id 확인: " + s_id + " receiver_id 확인: " + receiver);
 
-            ProfileManager manager = ProfileManager.getInstance();
-            Profile profile = manager.findProfile(scrap_id);
-
-            String scrap = String.valueOf(scrapManager.isScraped(s_id, scrap_id));
-
-            request.setAttribute("profile", profile);		// 사용자 정보 저장
-            request.setAttribute("scrap", scrap);		// 스크랩 여부 저장
-
-            return "/student/main/detail.jsp";
+            return "/mail/sendList.jsp";
 
         } catch (Exception e) {
             return "/student/main.jsp";
