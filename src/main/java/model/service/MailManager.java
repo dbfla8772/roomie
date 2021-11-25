@@ -1,6 +1,7 @@
 package model.service;
 
 import model.Mail;
+import model.Scrap;
 import model.dao.MailDAO;
 
 import java.sql.SQLException;
@@ -21,6 +22,10 @@ public class MailManager {
 
     public static MailManager getInstance() {
         return manager;
+    }
+
+    public int create(Mail mail) throws SQLException, ExistingStudentException {
+        return mailDAO.create(mail);
     }
 
     public Mail findMail(int ch_id) throws Exception {

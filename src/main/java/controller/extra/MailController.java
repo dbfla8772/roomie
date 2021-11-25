@@ -2,9 +2,8 @@ package controller.extra;
 
 import controller.Controller;
 import controller.user.UserSessionUtils;
+import model.*;
 import model.Mail;
-import model.Mail;
-import model.Student;
 import model.service.MailManager;
 import model.service.ProfileManager;
 import model.service.StudentManager;
@@ -17,23 +16,49 @@ import java.util.List;
 public class MailController implements Controller {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        HttpSession session = request.getSession();
-        int s_id = (int) session.getAttribute(UserSessionUtils.USER_SESSION_ID);
-
         // 로그인 여부 확인
         if (!UserSessionUtils.hasLogined(request.getSession())) {
             return "redirect:/student/login";		// login form 요청으로 redirect
         }
-        
+        HttpSession session = request.getSession();
+        int s_id = (int) session.getAttribute(UserSessionUtils.USER_SESSION_ID);
         MailManager mailManager = MailManager.getInstance();
-        Mail mail = null;
-        
-        List<Mail> mailList = (List<Mail>) mailManager.findMailList(s_id);
 
-        // receive mail list 전달
-        request.setAttribute("receiveList", mailList);
+        if (request.getMethod().equals("GET")) {
+            Mail mail = null;
 
-        return "/mail/receive/receiveList.jsp";
+            List<Mail> mailList = (List<Mail>) mailManager.findMailList(s_id);
+
+            // receive mail list 전달
+            request.setAttribute("receiveList", mailList);
+
+            return "/mail/receive/receiveList.jsp";
+        }
+
+        //POST
+        try {
+            //전송 버튼 눌렀을 때
+            int receiver =
+            int scrap_id = Integer.parseInt(request.getParameter("scrap_id"));
+            Scrap s = new Scrap(s_id, scrap_id);
+
+            scrapManager.create(s);
+
+            log.debug("s_id 확인: " + s_id + " scrap_id 확인: " + scrap_id);
+
+            ProfileManager manager = ProfileManager.getInstance();
+            Profile profile = manager.findProfile(scrap_id);
+
+            String scrap = String.valueOf(scrapManager.isScraped(s_id, scrap_id));
+
+            request.setAttribute("profile", profile);		// 사용자 정보 저장
+            request.setAttribute("scrap", scrap);		// 스크랩 여부 저장
+
+            return "/student/main/detail.jsp";
+
+        } catch (Exception e) {
+            return "/student/main.jsp";
+        }
 
     }
 
