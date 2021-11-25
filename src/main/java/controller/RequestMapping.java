@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import controller.extra.AutoMatchController;
-import controller.extra.ChatController;
+import controller.extra.MailController;
 import controller.extra.DeleteScrapController;
 import controller.extra.ScrapController;
 import org.slf4j.Logger;
@@ -29,9 +29,10 @@ public class RequestMapping {
         mappings.put("/student/main/detail", new ViewProfileController());
         mappings.put("/scrap/view", new ScrapController());
         mappings.put("/scrap/delete", new DeleteScrapController());
-        mappings.put("/chat/send", new ChatController());
-        mappings.put("/chat/sendList", new ChatController());
-        mappings.put("/chat/receiveList", new ChatController());
+        mappings.put("/mail/send", new MailController());
+        mappings.put("/mail/sendList", new MailController());
+        mappings.put("/mail/receive/receiveList", new MailController());
+        mappings.put("/mail/receive/detail", new MailController());
         mappings.put("/profile/myPage", new myPageController());
 
 
@@ -39,7 +40,6 @@ public class RequestMapping {
     }
 
     public Controller findController(String uri) {
-        // ????? uri?? ??????? controller ????? ??? ???
         return mappings.get(uri);
     }
 }
