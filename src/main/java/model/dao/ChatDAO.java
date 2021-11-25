@@ -13,27 +13,20 @@ public class ChatDAO {
     }
 
     public int create(Chat chat) throws SQLException {
-        String sql = "INSERT INTO chat VALUES (?, ?, ?, ?, ?, ?)";
-        Object[] param = new Object[]{chat.getCh_id(), chat.getSender(),
-                chat.getReceiver(), chat.getMessage(), chat.getDatetime(),
-                chat.getS_id()};
+        String sql = "INSERT INTO chat VALUES (?, ?, CHATSEQ.nextval, ?, ?, ?)";
+        Object[] param = new Object[]{chat.getMessage(), chat.getDatetime(), chat.getChatCheck(),
+                                                            chat.getSender(), chat.getReceiver()};
         jdbcUtil.setSqlAndParameters(sql, param);    // JDBCUtil 에 insert문과 매개 변수 설정
 
-        String key[] = {"ch_id"};    // PK 컬럼의 이름
-
         try {
-            jdbcUtil.executeUpdate(key);  // insert 문 실행
-            ResultSet rs = jdbcUtil.getGeneratedKeys();
-            if (rs.next()) {
-                int generatedKey = rs.getInt(1);   // 생성된 PK 값
-                chat.setCh_id(generatedKey);    // id필드에 저장
-            }
+            int result = jdbcUtil.executeUpdate();	// insert 문 실행
+            return result;
         } catch (Exception ex) {
             jdbcUtil.rollback();
             ex.printStackTrace();
         } finally {
             jdbcUtil.commit();
-            jdbcUtil.close();    // resource 반환
+            jdbcUtil.close();	// resource 반환
         }
         return 0;
     }
