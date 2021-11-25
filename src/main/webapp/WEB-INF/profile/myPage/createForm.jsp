@@ -201,7 +201,7 @@
                 <td>
                     <input type="radio" name="habitude" value="0">추위를 탐
                     <input type="radio" name="habitude" value="1">더위를 탐
-                    <input type="radio" name="habitude" value="2">추위, 더위 둘 다 탐
+                    <input type="radio" name="habitude" value="2">둘 다 탐
                     <input type="radio" name="habitude" value="3">상관없음
                 </td>
             </tr>

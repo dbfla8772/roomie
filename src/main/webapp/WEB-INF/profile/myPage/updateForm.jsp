@@ -226,7 +226,7 @@
                 <input type="radio" name="habitude" value="1"
                     <%if (profile.getHabitude() == 1) {%> checked <%} %>>더위를 탐
                 <input type="radio" name="habitude" value="2"
-                    <%if (profile.getHabitude() == 2) {%> checked <%} %>>추위, 더위 둘 다 탐
+                    <%if (profile.getHabitude() == 2) {%> checked <%} %>>둘 다 탐
                 <input type="radio" name="habitude" value="3"
                     <%if (profile.getHabitude() == 2) {%> checked <%} %>>상관없음
             </td>
