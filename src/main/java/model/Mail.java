@@ -2,7 +2,7 @@ package model;
 
 import java.util.Date;
 
-public class Chat {
+public class Mail {
     private long ch_id;
     private int sender;
     private int receiver;
@@ -10,8 +10,8 @@ public class Chat {
     private Date datetime;
     private int chatCheck;
 
-    public Chat() {}
-    public Chat(long ch_id, int sender, int receiver, String message, Date datetime, int chatCheck) {
+    public Mail() {}
+    public Mail(long ch_id, int sender, int receiver, String message, Date datetime, int chatCheck) {
         this.ch_id = ch_id;
         this.sender = sender;
         this.receiver = receiver;
