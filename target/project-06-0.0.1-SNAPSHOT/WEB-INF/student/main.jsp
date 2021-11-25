@@ -9,6 +9,8 @@
 <head>
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <title>메인 페이지</title>
+    <script>
+    </script>
     <style>
         @font-face {
             font-family: 'SBAggroB';
@@ -60,7 +62,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="w-auto p-2" style="background-color: lightcyan; text-align: center;"><h4 style="font-family: SBAggroL";>당신의 루미를 찾아보세요! <button class="btn btn-outline-success" type="submit">자동매칭 하러가기</button></h4></div>
+<div class="w-auto p-2" style="background-color: lightcyan; text-align: center;"><h4 style="font-family: SBAggroL">당신의 루미를 찾아보세요! <button class="btn btn-outline-success" type="submit">자동매칭 하러가기</button></h4></div>
 <div class="container">
     <header class="blog-header py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
@@ -81,7 +83,8 @@
         <nav class="nav d-flex justify-content-between">
             <a class="p-2 link-secondary" href="${pageContext.request.contextPath}/profile/myPage">마이페이지</a>
             <a class="p-2 link-secondary" href="${pageContext.request.contextPath}/scrap/view">스크랩</a>
-            <a class="p-2 link-secondary" href="${pageContext.request.contextPath}/chat/receiveList">쪽지</a>
+            <a class="p-2 link-secondary" href="${pageContext.request.contextPath}/chat/receiveList"
+               onClick="window.open(this.href, '', 'width=500, height=530'); return false;">쪽지</a>
             <a class="p-2 link-secondary" href="/WEB-INF/profile/myroomie/view.jsp">나의 루미</a> <%--myRoomie controller 생성 후 수정--%>
         </nav>
     </div>
