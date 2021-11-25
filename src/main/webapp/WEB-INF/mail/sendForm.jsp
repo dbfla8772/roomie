@@ -1,4 +1,3 @@
-<%--<% response.sendRedirect(request.getContextPath() + "/student/login"); %>--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -68,26 +67,26 @@
     </style>
 </head>
 <body>
-    <div align="center">
-        <h3>쪽지쓰기</h3>
-        <form name="form" method="POST" action="${pageContext.request.contextPath}/message/send">
-            <table align="center">
-                <tr>
-                    <td width="12%" class="title">받는사람</td>
-                    <td>
-                        <input type="text" size="51" name="name" style="margin: 2px;" readonly>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="title">내용</td>
-                    <td>
-                        <textarea name="message" cols="50" rows="17" style="margin: 2px;"></textarea>
-                    </td>
-                </tr>
-            </table>
-            <button type="button" value="전송" onClick="SendMessage()" class="btn btn-outline-dark">전송</button>&nbsp;
-            <button type="button" value="취소" class="btn btn-outline-secondary" onClick="SendCancel('${pageContext.request.contextPath}/chat/sendList')">취소</button>
-        </form>
-    </div>
+<div align="center">
+    <h3>쪽지쓰기</h3>
+    <form name="form" method="POST" action="${pageContext.request.contextPath}/mail/send">
+        <table align="center">
+            <tr>
+                <td width="12%" class="title">받는사람</td>
+                <td>
+                    <input type="text" size="51" name="name" style="margin: 2px;" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td class="title">내용</td>
+                <td>
+                    <textarea name="message" cols="50" rows="17" style="margin: 2px;"></textarea>
+                </td>
+            </tr>
+        </table>
+        <button type="button" value="전송" onClick="SendMessage()" class="btn btn-outline-dark">전송</button>&nbsp;
+        <button type="button" value="취소" class="btn btn-outline-dark" onClick="SendCancel('${pageContext.request.contextPath}/mail/receiveList')">취소</button>
+    </form>
+</div>
 </body>
 </html>

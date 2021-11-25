@@ -2,29 +2,38 @@ package model;
 
 import java.util.Date;
 
-public class Chat {
-    private long ch_id;
+public class Mail {
+    private int ch_id;
     private int sender;
     private int receiver;
     private String message;
-    private Date datetime;
-    private int s_id;
+    private String datetime;
+    private int mailCheck;
 
-    public Chat() {}
-    public Chat(long ch_id, int sender, int receiver, String message, Date datetime, int s_id) {
+    public Mail() {}
+
+    public Mail(int ch_id, int sender, int receiver, String message, String datetime, int chatCheck) {
         this.ch_id = ch_id;
         this.sender = sender;
         this.receiver = receiver;
         this.message = message;
         this.datetime = datetime;
-        this.s_id = s_id;
+        this.mailCheck = mailCheck;
     }
 
-    public long getCh_id() {
+    public Mail(int sender, int receiver, String message, String datetime, int chatCheck) {
+        this.sender = sender;
+        this.receiver = receiver;
+        this.message = message;
+        this.datetime = datetime;
+        this.mailCheck = mailCheck;
+    }
+
+    public int getCh_id() {
         return ch_id;
     }
 
-    public void setCh_id(long ch_id) {
+    public void setCh_id(int ch_id) {
         this.ch_id = ch_id;
     }
 
@@ -52,19 +61,19 @@ public class Chat {
         this.message = message;
     }
 
-    public Date getDatetime() {
+    public String getDatetime() {
         return datetime;
     }
 
-    public void setDatetime(Date datetime) {
+    public void setDatetime(String datetime) {
         this.datetime = datetime;
     }
 
-    public int getS_id() {
-        return s_id;
+    public int getMailCheck() {
+        return mailCheck;
     }
 
-    public void setS_id(int s_id) {
-        this.s_id = s_id;
+    public void setMailCheck(int mailCheck) {
+        this.mailCheck = mailCheck;
     }
 }

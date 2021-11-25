@@ -302,7 +302,7 @@
                 <%} %>
             </td>
             <td align="center">
-                <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/chat/send">
+                <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/mail/send">
                     <input type="hidden" name="receiver" value="${profile.s_id}">
                     <input type="submit" class="button" value="쪽지">
                 </form>
