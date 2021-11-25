@@ -6,8 +6,6 @@ import model.Mail;
 import model.Mail;
 import model.Student;
 import model.service.MailManager;
-import model.service.ProfileManager;
-import model.service.StudentManager;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
