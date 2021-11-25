@@ -3,12 +3,12 @@ package model;
 import java.util.Date;
 
 public class Mail {
-    private long ch_id;
+    private int ch_id;
     private int sender;
     private int receiver;
     private String message;
-    private Date datetime;
-    private int chatCheck;
+    private String datetime;
+    private int mailCheck;
 
     public Mail() {}
     public Mail(int sender, int receiver, String message, Date datetime, int chatCheck) {
@@ -16,14 +16,14 @@ public class Mail {
         this.receiver = receiver;
         this.message = message;
         this.datetime = datetime;
-        this.chatCheck = chatCheck;
+        this.mailCheck = mailCheck;
     }
 
-    public long getCh_id() {
+    public int getCh_id() {
         return ch_id;
     }
 
-    public void setCh_id(long ch_id) {
+    public void setCh_id(int ch_id) {
         this.ch_id = ch_id;
     }
 
@@ -51,19 +51,19 @@ public class Mail {
         this.message = message;
     }
 
-    public Date getDatetime() {
+    public String getDatetime() {
         return datetime;
     }
 
-    public void setDatetime(Date datetime) {
+    public void setDatetime(String datetime) {
         this.datetime = datetime;
     }
 
-    public int getChatCheck() {
-        return chatCheck;
+    public int getMailCheck() {
+        return mailCheck;
     }
 
-    public void setChatCheck(int chatCheck) {
-        this.chatCheck = chatCheck;
+    public void setMailCheck(int mailCheck) {
+        this.mailCheck = mailCheck;
     }
 }
