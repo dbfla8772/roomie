@@ -17,12 +17,6 @@
             crossorigin="anonymous"></script>
     <script>
         function SendMessage() {
-            if (form.message.value == "") {
-                alert("내용을 입력하세요.");
-                form.message.focus();
-                return false;
-            }
-            alert("성공적으로 전송되었습니다!");
             form.submit();
         }
         function MailDelete(targetUri) {
@@ -82,6 +76,7 @@
         a:hover {
             font-weight: bold;
             text-decoration-line: none;
+            color: #858585;
         }
         a:link {
             color: #858585;
@@ -111,7 +106,7 @@
         <a href="${pageContext.request.contextPath}/mail/receive/receiveList" class="receive">받은쪽지</a>&nbsp;
         <a href="${pageContext.request.contextPath}/mail/send/sendList">보낸쪽지</a>
     </span>
-    <form name="form" method="POST" action="${pageContext.request.contextPath}/mail/send">
+    <form name="form" method="POST" action="${pageContext.request.contextPath}/mail/sendForm">
         <table align="center">
             <tr>
                 <td width="12%" class="title">보낸사람</td>

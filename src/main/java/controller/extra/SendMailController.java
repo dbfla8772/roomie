@@ -41,5 +41,6 @@ public class SendMailController implements Controller {
         request.setAttribute("receiver_name", profile.getName());
 
         return "/mail/send/sendForm.jsp";
+
     }
 }
