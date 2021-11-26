@@ -1,6 +1,6 @@
 <%@ page import="model.Mail" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%! Mail mail; String receiverName; %>
+<%! Mail mail; String receiver; %>
 <html>
 <head>
     <title>쪽지내용</title>
@@ -99,7 +99,7 @@
 <body>
 <%
     mail = (Mail) request.getAttribute("mail");
-    receiverName = (String) request.getAttribute("receiverName");
+    receiver = (String) request.getAttribute("receiver");
 %>
 <div align="center">
     <h3>쪽지내용</h3>
@@ -112,7 +112,7 @@
             <tr>
                 <td width="12%" class="title">받는사람</td>
                 <td>
-                    <input type="text" size="51" value="<%=receiverName%>" style="margin: 2px;" readonly>
+                    <input type="text" size="51" value="<%=receiver%>" style="margin: 2px;" readonly>
                 </td>
             </tr>
             <tr>

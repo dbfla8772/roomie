@@ -152,8 +152,7 @@
 <%--            <button type="button" value="삭제" class="btn btn-outline-dark"--%>
 <%--                    onClick="Go('${pageContext.request.contextPath}/mail/delete?flag=1')">삭제</button>&nbsp;--%>
             <button type="button" value="목록" class="btn btn-outline-dark"
-                    onClick="Go('${pageContext.request.contextPath}/mail/send/sendList')">목록</button>
-        </span>
+                    onClick="document.location.href='${pageContext.request.contextPath}/mail/receive/receiveList?flag=0'">목록</button>        </span>
     </form>
 </div>
 </body>
