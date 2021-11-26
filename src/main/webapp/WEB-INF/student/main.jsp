@@ -83,7 +83,7 @@
         <nav class="nav d-flex justify-content-between">
             <a class="p-2 link-secondary" href="${pageContext.request.contextPath}/profile/myPage">마이페이지</a>
             <a class="p-2 link-secondary" href="${pageContext.request.contextPath}/scrap/view">스크랩</a>
-            <a class="p-2 link-secondary" href="${pageContext.request.contextPath}/mail/receive/receiveList"
+            <a class="p-2 link-secondary" href="${pageContext.request.contextPath}/mail/receive/receiveList?flag=0"
                onClick="window.open(this.href, '', 'width=500, height=530'); return false;">쪽지</a>
             <a class="p-2 link-secondary" href="/WEB-INF/profile/myroomie/view.jsp">나의 루미</a> <%--myRoomie controller 생성 후 수정--%>
         </nav>

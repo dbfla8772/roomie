@@ -24,15 +24,20 @@ public class ViewMailController implements Controller {
         Mail mail = null;
 
         try {
-            //받은 메세지 디테일
+            //메세지 디테일
             int ch_id = Integer.parseInt(request.getParameter("ch_id"));
-            //log.debug("s_id확인: " + s_id + " ch_id확인: " + ch_id);
 
             mail = mailManager.findMail(ch_id);
+            request.setAttribute("mail", mail);        // 메일 정보 저장
 
-            request.setAttribute("mail", mail);		// 사용자 정보 저장
-
-            return "/mail/receive/detail.jsp";
+            //받은 메세지
+            if (Integer.parseInt(request.getParameter("flag")) == 0) {
+                return "/mail/receive/detail.jsp";
+            }
+            // 보낸 메세지
+            else {
+                return "/mail/send/detail.jsp";
+            }
 
         } catch (Exception e) {
             return "/mail/receive/receiveList.jsp";
