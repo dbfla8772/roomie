@@ -96,16 +96,17 @@ public class PointDAO {
             jdbcUtil.close();		// resource 반환
         }
 
-        String sql = "SELECT s_id, point_binary, point_dec "
+        String sql = "SELECT p.s_id, point_binary, point_dec "
                 + "FROM POINT p JOIN STUDENT s ON p.s_id = s.s_id "
                 + "WHERE s.gender=? AND s.c_id=? AND NOT p.s_id IN (?)";
         jdbcUtil.setSqlAndParameters(sql, new Object[]{gender, c_id, sId});    // JDBCUtil에 query문과 매개 변수 설정
 
        Point point = null;
+
             try {
                 ResultSet rs = jdbcUtil.executeQuery();        // query 실행
                 List<Point> pointList = new ArrayList<Point>();
-                if (rs.next()) {                        // 학생 정보 발견
+                while (rs.next()) {                        // 학생 정보 발견
                     point = new Point(        // Community 객체를 생성하여 커뮤니티 정보를 저장
                             rs.getInt("s_id"),
                             rs.getString("point_binary"),

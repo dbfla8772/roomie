@@ -51,16 +51,24 @@ public class CreateProfileController implements Controller {
                 Integer.parseInt(request.getParameter("habitude"))
         );
 
-        String p_dec, p_bin, p;
-        p = request.getParameter("smoking");
-        p += request.getParameter("sleep_habit");
-        p += request.getParameter("lifestyle");
-        p += request.getParameter("cleaning");
-        p += request.getParameter("indoor_eating");
-        p += request.getParameter("habitude");
-        p += request.getParameter("mbti");
+        String p_dec, p_bin, sleep_habit, cleaning, habitude, mbti;
+        sleep_habit = Integer.toBinaryString(Integer.parseInt(request.getParameter("sleep_habit")));
 
-        p_bin = Integer.toBinaryString(Integer.parseInt(p));
+        cleaning = Integer.toBinaryString(Integer.parseInt(request.getParameter("cleaning")));
+
+        habitude = Integer.toBinaryString(Integer.parseInt(request.getParameter("habitude")));
+
+        mbti = Integer.toBinaryString(Integer.parseInt(request.getParameter("mbti")));
+
+        p_bin = Integer.toBinaryString(Integer.parseInt(request.getParameter("smoking")));
+        p_bin += String.format("%02d", Integer.parseInt(sleep_habit));
+        p_bin += Integer.toBinaryString(Integer.parseInt(request.getParameter("lifestyle")));
+        p_bin += String.format("%02d", Integer.parseInt(cleaning));
+        p_bin += Integer.toBinaryString(Integer.parseInt(request.getParameter("indoor_eating")));
+        p_bin += Integer.toBinaryString(Integer.parseInt(request.getParameter("sharing")));
+        p_bin += String.format("%02d", Integer.parseInt(habitude));
+        p_bin += String.format("%04d", Integer.parseInt(mbti));
+
         p_dec = String.valueOf(Integer.parseInt(p_bin, 2));
 
         Point createPoint = new Point(

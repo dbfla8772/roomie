@@ -1,18 +1,20 @@
 package model.service;
 
+import controller.extra.AutoMatchController;
 import model.Point;
 import model.Profile;
 import model.Scrap;
 import model.dao.PointDAO;
 import model.dao.ScrapDAO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.SQLException;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class AutoMatchManager {
     private PointDAO pointDAO;
+    private static final Logger log = LoggerFactory.getLogger(AutoMatchManager.class);
     private static AutoMatchManager manager = new AutoMatchManager();
 
     private AutoMatchManager() {
@@ -52,23 +54,33 @@ public class AutoMatchManager {
     public List<Integer> sortedPointList(int s_id) throws SQLException {
         Point loginP = findPoint(s_id);
         List<Point> pointList = findPointList(s_id);
-        List<Integer> sortedList = null;
-        HashMap<Integer, Integer> cnt = new HashMap<>();
+        List<Integer> sortedList = new ArrayList<Integer>();
+        Map<Integer, Integer> cnt = new HashMap<>();
 
-        int logDec = Integer.parseInt(loginP.getPoint_dec());
-        int logBin = Integer.parseInt(loginP.getPoint_binary());
+//        int logDec = Integer.parseInt(loginP.getPoint_dec());
+//        int logBin = Integer.parseInt(loginP.getPoint_binary());
+        String logDec = loginP.getPoint_dec();
+        String logBin = loginP.getPoint_binary();
 
-        int dec, bin;
+//        int dec, bin;
+        String dec, bin;
+        int count;
 
         for (int i = 0; i < pointList.size(); i++) {
-            dec = Integer.parseInt(pointList.get(i).getPoint_dec());
-            bin = Integer.parseInt(pointList.get(i).getPoint_binary());
+            dec = pointList.get(i).getPoint_dec();
+            bin = pointList.get(i).getPoint_binary();
+            count = 0;
 
-            if (logDec == dec) {
+            if (logDec.equals(dec)) {
                 sortedList.add(pointList.get(i).getS_id());
             } else {
-                String b = Integer.toBinaryString(logBin ^ bin);
-                cnt.put(14 - countChar(b, '1'), pointList.get(i).getS_id());
+//                String b = Integer.toBinaryString(logBin ^ bin);
+                for (int j = 0; j < bin.length(); j++) {
+                    if (logBin.charAt(j) == bin.charAt(j)) {
+                        count++;
+                    }
+                }
+                cnt.put(count, pointList.get(i).getS_id());
             }
         }
         Object[] pointMap = cnt.keySet().toArray();

@@ -221,7 +221,6 @@
         mbti = "ISTP";
 
     isScraped = (String) request.getAttribute("scrap");
-    System.out.println(isScraped);
 %>
 <script>
     function scrapBtn() {
