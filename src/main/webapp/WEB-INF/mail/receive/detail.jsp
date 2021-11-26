@@ -1,10 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@page import="java.util.*" %>
-<%@page import="model.*" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>쪽지 세부</title>
+    <title>쪽지 내용</title>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -19,9 +16,7 @@
             crossorigin="anonymous"></script>
 
 </head>
-<%!
-    Mail mail;
-%>
+
 <body>
 
 </body>

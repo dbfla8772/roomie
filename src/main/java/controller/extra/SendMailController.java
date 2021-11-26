@@ -34,35 +34,12 @@ public class SendMailController implements Controller {
         log.debug("s_id 확인: " + s_id + " receiver_id 확인: " + receiver);
 
         //GET
-        if (request.getMethod().equals("GET")) {
-            Profile profile = ProfileManager.getInstance().findProfile(receiver);
+        Profile profile = ProfileManager.getInstance().findProfile(receiver);
 
-            log.debug("receiver의 name 확인 :: " + profile.getName());
-            request.setAttribute("receiver", receiver);
-            request.setAttribute("receiver_name", profile.getName());
+        log.debug("receiver의 name 확인 :: " + profile.getName());
+        request.setAttribute("receiver", receiver);
+        request.setAttribute("receiver_name", profile.getName());
 
-            return "/mail/sendForm.jsp";
-        }
-
-        //POST
-        try {
-            //전송 버튼 눌렀을 때
-            String message = request.getParameter("message");
-
-            //날짜, 시간 구하기
-            LocalDateTime now = LocalDateTime.now();
-            System.out.println(now); // 2021-06-17T06:43:21.419878100
-            String formatedNow = now.format(DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 HH시 mm분 ss초"));
-
-            Mail m = new Mail(s_id, receiver, message, formatedNow, 0);
-            Scrap s = new Scrap(s_id, receiver);
-
-            mailManager.create(m);
-
-            return "/mail/sendList.jsp";
-
-        } catch (Exception e) {
-            return "/student/main.jsp";
-        }
+        return "/mail/send/sendForm.jsp";
     }
 }
