@@ -61,7 +61,8 @@ public class MailDAO {
         return null;
     }
 
-    public List<Mail> findMailList(int s_id) {
+    //받은 메일 리스트
+    public List<Mail> findReceiveMailList(int s_id) {
         String sql = "SELECT ch_id, sender, message, datetime, mailCheck "
                 + "FROM MAIL "
                 + "WHERE receiver=?";
@@ -76,6 +77,37 @@ public class MailDAO {
                         rs.getInt("ch_id"),
                         rs.getInt("sender"),
                         s_id,
+                        rs.getString("message"),
+                        rs.getString("datetime"),
+                        rs.getInt("mailCheck")
+                );
+                mailList.add(mail);
+                return mailList;
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            jdbcUtil.close();		// resource 반환
+        }
+        return null;
+    }
+
+    // 보낸 메일 리스트
+    public List<Mail> findSendMailList(int s_id) {
+        String sql = "SELECT ch_id, receiver, message, datetime, mailCheck "
+                + "FROM MAIL "
+                + "WHERE sender=?";
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {s_id});
+
+        try {
+            ResultSet rs = jdbcUtil.executeQuery();				// query 실행
+            List<Mail> mailList = new ArrayList<Mail>();
+
+            if (rs.next()) {						// 학생 정보 발견
+                Mail mail = new Mail(		// Profile 객체를 생성하여 정보를 저장
+                        rs.getInt("ch_id"),
+                        s_id,
+                        rs.getInt("receiver"),
                         rs.getString("message"),
                         rs.getString("datetime"),
                         rs.getInt("mailCheck")

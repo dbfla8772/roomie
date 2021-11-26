@@ -33,12 +33,21 @@ public class MailController implements Controller {
         if (request.getMethod().equals("GET")) {
             Mail mail = null;
 
-            List<Mail> mailList = (List<Mail>) mailManager.findMailList(s_id);
+            // 받은 쪽지함으로
+            if (Integer.parseInt(request.getParameter("flag")) == 0) {
+                List<Mail> mailList = (List<Mail>) mailManager.findReceiveMailList(s_id);
+                request.setAttribute("receiveList", mailList);
 
-            // receive mail list 전달
-            request.setAttribute("receiveList", mailList);
+                return "/mail/receive/receiveList.jsp";
+            }
+            // 보낸 쪽지함으로
+            else {
+                List<Mail> mailList = (List<Mail>) mailManager.findSendMailList(s_id);
+                request.setAttribute("sendList", mailList);
 
-            return "/mail/receive/receiveList.jsp";
+                return "/mail/send/sendList.jsp";
+            }
+
         }
 
         //POST
