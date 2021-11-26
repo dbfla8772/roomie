@@ -44,15 +44,15 @@
             font-style: normal;
         }
         h3 {
-            margin-top: 2%;
+            margin-top: 3%;
             font-family: SBAggroL;
             font-weight: bold;
         }
         table {
-            margin-top: 1%;
             font-family: SBAggroL;
             border: black 1px solid;
             font-size: 15px;
+            margin-top: 1%;
         }
         td {
             border: black 1px solid;
@@ -65,6 +65,22 @@
             font-family: SBAggroL;
             font-size: 15px;
         }
+        .link {
+            font-family: SBAggroL;
+            font-size: 14px;
+            position: relative;
+            top : 1%;
+            right: 235px;
+        }
+        a:hover {
+            font-weight: bold;
+        }
+        a:link {
+            color: #858585;
+        }
+        a {
+            text-decoration-line: none;
+        }
     </style>
 </head>
 <body>
@@ -74,6 +90,10 @@
 %>
 <div align="center">
     <h3>쪽지쓰기</h3>
+    <span class="link">
+        <a href="${pageContext.request.contextPath}/mail/receive/receiveList">받은쪽지</a>&nbsp;
+        <a href="${pageContext.request.contextPath}/mail/send/sendList">보낸쪽지</a>
+    </span>
     <form name="form" method="POST" action="${pageContext.request.contextPath}/mail/send">
         <table align="center">
             <tr>
