@@ -79,7 +79,7 @@
             <tr>
                 <td width="12%" class="title">받는사람</td>
                 <td>
-                    <input type="hidden" name="receiver" value="<%=receiver%>>">
+                    <input type="hidden" name="receiver" value="<%=receiver%>">
                     <input type="text" size="51" name="name" value="<%=receiver_name%>" style="margin: 2px;" readonly>
                 </td>
             </tr>
