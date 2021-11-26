@@ -1,0 +1,93 @@
+package model.dao;
+
+import model.Mail;
+import model.Profile;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class MailDAO {
+    private JDBCUtil jdbcUtil = null;
+
+    public MailDAO() {
+        jdbcUtil = new JDBCUtil();    // JDBCUtil 객체 생성
+    }
+
+    public int create(Mail mail) throws SQLException {
+        String sql = "INSERT INTO mail VALUES (?, ?, CHATSEQ.nextval, ?, ?, ?)";
+        Object[] param = new Object[]{mail.getMessage(), mail.getDatetime(), mail.getMailCheck(),
+                                                            mail.getSender(), mail.getReceiver()};
+        jdbcUtil.setSqlAndParameters(sql, param);    // JDBCUtil 에 insert문과 매개 변수 설정
+
+        try {
+            int result = jdbcUtil.executeUpdate();	// insert 문 실행
+            return result;
+        } catch (Exception ex) {
+            jdbcUtil.rollback();
+            ex.printStackTrace();
+        } finally {
+            jdbcUtil.commit();
+            jdbcUtil.close();	// resource 반환
+        }
+        return 0;
+    }
+
+    public Mail findMail(int ch_id) throws SQLException {
+        String sql = "SELECT sender, receiver, message, datetime, mailCheck "
+                + "FROM MAIL "
+                + "WHERE ch_id=?";
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {ch_id});
+
+        try {
+            ResultSet rs = jdbcUtil.executeQuery();		// query 실행
+            if (rs.next()) {						// 학생 정보 발견
+                Mail mail = new Mail(		// Profile 객체를 생성하여 정보를 저장
+                        ch_id,
+                        rs.getInt("sender"),
+                        rs.getInt("receiver"),
+                        rs.getString("message"),
+                        rs.getString("datetime"),
+                        rs.getInt("mailCheck")
+                );
+                return mail;
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            jdbcUtil.close();		// resource 반환
+        }
+        return null;
+    }
+
+    public List<Mail> findMailList(int s_id) {
+        String sql = "SELECT ch_id, sender, message, datetime, mailCheck "
+                + "FROM MAIL "
+                + "WHERE receiver=?";
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {s_id});
+
+        try {
+            ResultSet rs = jdbcUtil.executeQuery();				// query 실행
+            List<Mail> mailList = new ArrayList<Mail>();
+
+            if (rs.next()) {						// 학생 정보 발견
+                Mail mail = new Mail(		// Profile 객체를 생성하여 정보를 저장
+                        rs.getInt("ch_id"),
+                        rs.getInt("sender"),
+                        s_id,
+                        rs.getString("message"),
+                        rs.getString("datetime"),
+                        rs.getInt("mailCheck")
+                );
+                mailList.add(mail);
+                return mailList;
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            jdbcUtil.close();		// resource 반환
+        }
+        return null;
+    }
+}

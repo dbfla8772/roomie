@@ -112,7 +112,7 @@ public class ProfileDAO {
         String sql = "SELECT activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, " +
                 "major, cleaning, indoor_eating, mbti, sharing, habitude, p.s_id "
                 + "FROM PROFILE p JOIN STUDENT s ON p.s_id = s.s_id "
-                + "WHERE s.c_id=? AND s.gender=? AND NOT p.s_id IN (?) "
+                + "WHERE activation=1 AND s.c_id=? AND s.gender=? AND NOT p.s_id IN (?) "
                 + "ORDER BY p.s_id";
         jdbcUtil.setSqlAndParameters(sql, new Object[] {c_Id, gender, s_id},				// JDBCUtil에 query문 설정
                 ResultSet.TYPE_SCROLL_INSENSITIVE,				// cursor scroll 가능
@@ -225,7 +225,7 @@ public class ProfileDAO {
         String sql2 = "SELECT p.s_id, activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, " +
                 "major, cleaning, indoor_eating, mbti, sharing, habitude "
                 + "FROM PROFILE p JOIN STUDENT s ON p.s_id = s.s_id "
-                + "WHERE s.gender=? AND s.c_id=? AND NOT p.s_id IN (?)";
+                + "WHERE activation=1 AND s.gender=? AND s.c_id=? AND NOT p.s_id IN (?)";
 
         List<Object> params = new ArrayList<>();
 
