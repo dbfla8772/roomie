@@ -32,10 +32,10 @@ public class ViewMailController implements Controller {
 
             request.setAttribute("mail", mail);		// 사용자 정보 저장
 
-            return "/mail/receiveList/detail.jsp";
+            return "/mail/receive/detail.jsp";
 
         } catch (Exception e) {
-            return "/mail/receiveList.jsp";
+            return "/mail/receive/receiveList.jsp";
         }
     }
 
