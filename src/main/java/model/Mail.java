@@ -12,7 +12,7 @@ public class Mail {
 
     public Mail() {}
 
-    public Mail(int ch_id, int sender, int receiver, String message, String datetime, int chatCheck) {
+    public Mail(int ch_id, int sender, int receiver, String message, String datetime, int mailCheck) {
         this.ch_id = ch_id;
         this.sender = sender;
         this.receiver = receiver;
@@ -21,7 +21,7 @@ public class Mail {
         this.mailCheck = mailCheck;
     }
 
-    public Mail(int sender, int receiver, String message, String datetime, int chatCheck) {
+    public Mail(int sender, int receiver, String message, String datetime, int mailCheck) {
         this.sender = sender;
         this.receiver = receiver;
         this.message = message;

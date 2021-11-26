@@ -60,7 +60,7 @@ public class MailController implements Controller {
 
             //날짜, 시간 구하기
             LocalDateTime now = LocalDateTime.now();
-            String formatedNow = now.format(DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 HH시 mm분 ss초"));
+            String formatedNow = now.format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"));
 
             Mail m = new Mail(s_id, receiver, message, formatedNow, 0);
             mailManager.create(m);

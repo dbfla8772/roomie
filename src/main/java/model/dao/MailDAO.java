@@ -16,9 +16,9 @@ public class MailDAO {
     }
 
     public int create(Mail mail) throws SQLException {
-        String sql = "INSERT INTO mail VALUES (?, ?, CHATSEQ.nextval, ?, ?, ?)";
-        Object[] param = new Object[]{mail.getMessage(), mail.getDatetime(), mail.getMailCheck(),
-                                                            mail.getSender(), mail.getReceiver()};
+        String sql = "INSERT INTO mail VALUES (?, CHATSEQ.nextval, ?, ?, ?, ?)";
+        Object[] param = new Object[]{mail.getMessage(), mail.getMailCheck(),
+                                                            mail.getSender(), mail.getReceiver(),  mail.getDatetime()};
         jdbcUtil.setSqlAndParameters(sql, param);    // JDBCUtil 에 insert문과 매개 변수 설정
 
         try {
@@ -53,7 +53,7 @@ public class MailDAO {
     }
 
     public Mail findMail(int ch_id) throws SQLException {
-        String sql = "SELECT sender, receiver, message, datetime, mailCheck "
+        String sql = "SELECT sender, receiver, message, mailCheck, datetime "
                 + "FROM MAIL "
                 + "WHERE ch_id=?";
         jdbcUtil.setSqlAndParameters(sql, new Object[] {ch_id});
