@@ -29,7 +29,7 @@
 <div class="list-group">
     <c:forEach var="receiveMail" items="${receiveList}">
     <div class="list-group">
-        <a href="'${pageContext.request.contextPath}/mail/receive/detail?ch_id=' + ${receiveMail.ch_id}" class="list-group-item list-group-item-action active" aria-current="true">
+        <a href="'${pageContext.request.contextPath}/mail/receive/detail?ch_id=' + ${receiveMail.ch_id} + '&flag=0'" class="list-group-item list-group-item-action active" aria-current="true">
             <div class="d-flex w-100 justify-content-between">
                 <p class="mb-1">${receiveMail.message}</p>
                 <small>${receiveMail.datetime}</small>
