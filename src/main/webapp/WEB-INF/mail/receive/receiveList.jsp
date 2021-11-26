@@ -2,6 +2,7 @@
 <%@page import="java.util.*" %>
 <%@page import="model.*" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html>
 <head>
     <title>받은 쪽지함</title>
@@ -31,11 +32,16 @@
     <div class="list-group">
         <a href="'${pageContext.request.contextPath}/mail/receive/detail?ch_id=' + ${receiveMail.ch_id} + '&flag=0'" class="list-group-item list-group-item-action active" aria-current="true">
             <div class="d-flex w-100 justify-content-between">
-                <p class="mb-1">${receiveMail.message}</p>
+                <c:choose>
+                    <c:when test="${fn:length(receiveMail.message.nm) > 14}">
+                        <p class="mb-1">${fn:substring(receiveMail.message.nm,0,13)}...</p>
+                    </c:when>
+                    <c:otherwise>
+                        <p class="mb-1">${receiveMail.message.nm}</p>
+                    </c:otherwise>
+                </c:choose>
                 <small>${receiveMail.datetime}</small>
             </div>
-            <p class="mb-1">Some placeholder content in a paragraph.</p>
-            <small>And some small print.</small>
         </a>
     </div>
     </c:forEach>
