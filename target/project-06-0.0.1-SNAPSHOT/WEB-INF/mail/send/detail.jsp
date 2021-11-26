@@ -25,13 +25,7 @@
             alert("성공적으로 전송되었습니다!");
             form.submit();
         }
-        function MailDelete(targetUri) {
-            form.action = targetUri;
-            form.method="POST";
-            form.submit();
-        }
-
-        function GoList(targetUri) {
+        function Go(targetUri) {
             form.action = targetUri;
             form.method="GET";      //register form 요청
             form.submit();
@@ -81,11 +75,10 @@
         }
         a:hover {
             font-weight: bold;
+            text-decoration-line: none;
         }
         a:link {
             color: #858585;
-        }
-        a {
             text-decoration-line: none;
         }
         .btn {
@@ -98,6 +91,7 @@
         }
         .send:link {
             color: black;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -135,8 +129,8 @@
         </table>
         <span class="btn">
             <button type="button" value="답장" onClick="SendMessage()" class="btn btn-outline-dark">답장</button>&nbsp;
-            <button type="button" value="삭제" class="btn btn-outline-dark" onClick="MailDelete('${pageContext.request.contextPath}/mail/delete')">삭제</button>&nbsp;
-            <button type="button" value="목록" class="btn btn-outline-dark" onClick="GoList('${pageContext.request.contextPath}/mail/send/sendList')">목록</button>
+            <button type="button" value="삭제" class="btn btn-outline-dark" onClick="Go('${pageContext.request.contextPath}/mail/delete?flag=1')">삭제</button>&nbsp;
+            <button type="button" value="목록" class="btn btn-outline-dark" onClick="Go('${pageContext.request.contextPath}/mail/send/sendList')">목록</button>
         </span>
     </form>
 </div>

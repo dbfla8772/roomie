@@ -45,6 +45,8 @@
 
         .move-link:hover {
             font-weight: bold;
+            color: #858585;
+            text-decoration-line: none;
         }
 
         .move-link {
@@ -58,7 +60,7 @@
         }
 
         #outline {
-            margin: 10px 1% 0 1%;
+            margin-top: 10px;
         }
 
         #content {
@@ -73,10 +75,10 @@
 <body>
 <h4>받은 쪽지함</h4> <br>
 
-<span class="link">
+<div class="link" align="center">
     <a href="${pageContext.request.contextPath}/mail/receive/receiveList" class="move-link">받은쪽지</a>&nbsp;
     <a href="${pageContext.request.contextPath}/mail/send/sendList" class="move-link">보낸쪽지</a>
-</span>
+</div>
 
 <div class="list-group" align="center">
     <div class="list-group">
