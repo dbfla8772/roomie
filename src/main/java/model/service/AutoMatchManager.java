@@ -89,6 +89,7 @@ public class AutoMatchManager {
         for (Integer key : cnt.keySet()) {
             sortedList.add(cnt.get(key));
         }
+        log.debug("Sorted list:::" + sortedList);
         return sortedList;
     }
 }
