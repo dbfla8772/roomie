@@ -4,7 +4,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>받은 쪽지함</title>
+    <title>보낸 쪽지함</title>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -20,25 +20,26 @@
 
 </head>
 <%!
-    List<Mail> receiveList;
+    List<Mail> sendList;
 %>
 <body>
-<h4>받은 쪽지함</h4>
+<h4>보낸 쪽지함</h4>
 
-<% receiveList = (List<Mail>) request.getAttribute("receiveList"); %>
+<% sendList = (List<Mail>) request.getAttribute("sendList"); %>
 <div class="list-group">
-    <c:forEach var="receiveMail" items="${receiveList}">
-    <div class="list-group">
-        <a href="'${pageContext.request.contextPath}/mail/receive/detail?ch_id=' + ${receiveMail.ch_id}" class="list-group-item list-group-item-action active" aria-current="true">
-            <div class="d-flex w-100 justify-content-between">
-                <p class="mb-1">${receiveMail.message}</p>
-                <small>${receiveMail.datetime}</small>
-            </div>
-            <p class="mb-1">Some placeholder content in a paragraph.</p>
-            <small>And some small print.</small>
-        </a>
-    </div>
+    <c:forEach var="sendMail" items="${sendList}">
+        <div class="list-group">
+            <a href="'${pageContext.request.contextPath}/mail/send/detail?ch_id=' + ${sendMail.ch_id}" class="list-group-item list-group-item-action active" aria-current="true">
+                <div class="d-flex w-100 justify-content-between">
+                    <p class="mb-1">${sendMail.message}</p>
+                    <small>${sendMail.datetime}</small>
+                </div>
+                <p class="mb-1">Some placeholder content in a paragraph.</p>
+                <small>And some small print.</small>
+            </a>
+        </div>
     </c:forEach>
 </div>
+
 </body>
 </html>
