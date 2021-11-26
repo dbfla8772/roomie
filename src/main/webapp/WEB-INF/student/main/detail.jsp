@@ -292,12 +292,12 @@
                 <% if (request.getAttribute("scrap").equals("false")) {%>
                 <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/scrap/view">
                     <input type="hidden" name="scrap_id" value="${profile.s_id}">
-                    <input type="submit" class="button" value="스크랩">
+                    <input type="submit" class="button" value="스크랩" onclick="alert('스크랩되었습니다.')">
                 </form>
                 <%} else {%>
                 <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/scrap/delete"--%>
                     <input type="hidden" name="scrap_id" value="${profile.s_id}">
-                    <input type="submit" class="button" value="스크랩 취소">
+                    <input type="submit" class="button" value="스크랩 취소" onclick="alert('스크랩 취소되었습니다.')">
                 </form>
                 <%} %>
             </td>
