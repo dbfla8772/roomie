@@ -32,7 +32,7 @@ public class RequestMapping {
         mappings.put("/scrap/view", new ScrapController());
         mappings.put("/scrap/delete", new DeleteScrapController());
 
-        mappings.put("/mail/send", new MailController());
+        mappings.put("/mail/send", new SendMailController());
         mappings.put("/mail/send/sendList", new MailController());
         mappings.put("/mail/send/detail", new ViewMailController());
         mappings.put("/mail/receive/receiveList", new MailController());

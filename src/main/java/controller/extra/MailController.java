@@ -57,14 +57,11 @@ public class MailController implements Controller {
 
             mailManager.create(m);
 
-            log.debug("s_id 확인: " + s_id + " receiver_id 확인: " + receiver);
-
-            return "/mail/sendList.jsp";
+            return "/mail/send/sendList.jsp";
 
         } catch (Exception e) {
             return "/student/main.jsp";
         }
-
     }
 
 

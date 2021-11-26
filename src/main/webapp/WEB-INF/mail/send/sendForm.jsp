@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%! String receiver_name; int receiver; %>
 <html>
 <head>
     <title>쪽지보내기</title>
@@ -67,6 +68,10 @@
     </style>
 </head>
 <body>
+<%
+    receiver_name = (String) request.getAttribute("receiver_name");
+    receiver = (int) request.getAttribute("receiver");
+%>
 <div align="center">
     <h3>쪽지쓰기</h3>
     <form name="form" method="POST" action="${pageContext.request.contextPath}/mail/send">
@@ -74,7 +79,8 @@
             <tr>
                 <td width="12%" class="title">받는사람</td>
                 <td>
-                    <input type="text" size="51" name="name" style="margin: 2px;" readonly>
+                    <input type="hidden" name="receiver" value="<%=receiver%>">
+                    <input type="text" size="51" name="name" value="<%=receiver_name%>" style="margin: 2px;" readonly>
                 </td>
             </tr>
             <tr>
@@ -85,7 +91,7 @@
             </tr>
         </table>
         <button type="button" value="전송" onClick="SendMessage()" class="btn btn-outline-dark">전송</button>&nbsp;
-        <button type="button" value="취소" class="btn btn-outline-dark" onClick="SendCancel('${pageContext.request.contextPath}/mail/receiveList')">취소</button>
+        <button type="button" value="취소" class="btn btn-outline-dark" onClick="SendCancel('${pageContext.request.contextPath}/mail/receive/receiveList')">취소</button>
     </form>
 </div>
 </body>
