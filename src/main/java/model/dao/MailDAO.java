@@ -53,7 +53,7 @@ public class MailDAO {
     }
 
     public Mail findMail(int ch_id) throws SQLException {
-        String sql = "SELECT sender, receiver, message, mailCheck, datetime "
+        String sql = "SELECT sender, receiver, message, mail_check, datetime "
                 + "FROM MAIL "
                 + "WHERE ch_id=?";
         jdbcUtil.setSqlAndParameters(sql, new Object[] {ch_id});
@@ -67,7 +67,7 @@ public class MailDAO {
                         rs.getInt("receiver"),
                         rs.getString("message"),
                         rs.getString("datetime"),
-                        rs.getInt("mailCheck")
+                        rs.getInt("mail_check")
                 );
                 return mail;
             }
@@ -81,7 +81,7 @@ public class MailDAO {
 
     //받은 메일 리스트
     public List<Mail> findReceiveMailList(int s_id) {
-        String sql = "SELECT ch_id, sender, message, datetime, mailCheck "
+        String sql = "SELECT ch_id, sender, message, datetime, mail_check "
                 + "FROM MAIL "
                 + "WHERE receiver=?";
         jdbcUtil.setSqlAndParameters(sql, new Object[] {s_id});
@@ -97,7 +97,7 @@ public class MailDAO {
                         s_id,
                         rs.getString("message"),
                         rs.getString("datetime"),
-                        rs.getInt("mailCheck")
+                        rs.getInt("mail_check")
                 );
                 mailList.add(mail);
                 return mailList;
@@ -112,7 +112,7 @@ public class MailDAO {
 
     // 보낸 메일 리스트
     public List<Mail> findSendMailList(int s_id) {
-        String sql = "SELECT ch_id, receiver, message, datetime, mailCheck "
+        String sql = "SELECT ch_id, receiver, message, datetime, mail_check "
                 + "FROM MAIL "
                 + "WHERE sender=?";
         jdbcUtil.setSqlAndParameters(sql, new Object[] {s_id});
@@ -128,7 +128,7 @@ public class MailDAO {
                         rs.getInt("receiver"),
                         rs.getString("message"),
                         rs.getString("datetime"),
-                        rs.getInt("mailCheck")
+                        rs.getInt("mail_check")
                 );
                 mailList.add(mail);
                 return mailList;
