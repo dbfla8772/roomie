@@ -1,7 +1,7 @@
 <%@ page import="model.Profile" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%! Profile profile; String img_url, smoking, sharing, lifestyle, grade, habitude, sleep_habit, cleaning, indoor_eating, mbti; %>
+<%! Profile profile; String img_url, smoking, sharing, lifestyle, grade, habitude, sleep_habit, cleaning, indoor_eating, mbti, isScraped; %>
 <html>
 <head>
     <title>detail profile</title>
@@ -219,7 +219,21 @@
         mbti = "ISTJ";
     else
         mbti = "ISTP";
+
+    isScraped = (String) request.getAttribute("scrap");
+    System.out.println(isScraped);
 %>
+<script>
+    function scrapBtn() {
+        <c:set var="s" value="<%=isScraped%>" />
+        <c:if test="${s eq 'true'}">
+        alert('스크랩 취소되었습니다.');
+        </c:if>
+        <c:if test="${s eq 'false'}">
+        alert('스크랩되었습니다.');
+        </c:if>
+    }
+</script>
 
 <div class="dv" align="center">
     <table style="border-radius: 10px; align: center;">
@@ -289,15 +303,15 @@
         </tr>
         <tr>
             <td align="center">
-                <% if (request.getAttribute("scrap").equals("false")) {%>
+                <% if (request.getAttribute("scrap").equals("false")) { %>
                 <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/scrap/view">
                     <input type="hidden" name="scrap_id" value="${profile.s_id}">
-                    <input type="submit" class="button" value="스크랩" onclick="alert('스크랩되었습니다.')">
+                    <input type="submit" class="button" value="스크랩" onclick="scrapBtn()">
                 </form>
                 <%} else {%>
-                <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/scrap/delete"--%>
+                <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/scrap/delete">
                     <input type="hidden" name="scrap_id" value="${profile.s_id}">
-                    <input type="submit" class="button" value="스크랩 취소" onclick="alert('스크랩 취소되었습니다.')">
+                    <input type="submit" class="button" value="스크랩 취소" onclick="scrapBtn()">
                 </form>
                 <%} %>
             </td>
