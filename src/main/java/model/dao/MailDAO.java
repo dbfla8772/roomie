@@ -34,6 +34,24 @@ public class MailDAO {
         return 0;
     }
 
+    public int remove(int ch_id) throws SQLException {
+        String sql = "DELETE FROM mail WHERE ch_id=?";
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {ch_id});
+
+        try {
+            int result = jdbcUtil.executeUpdate();
+            return result;
+        } catch (Exception ex) {
+            jdbcUtil.rollback();
+            ex.printStackTrace();
+        }
+        finally {
+            jdbcUtil.commit();
+            jdbcUtil.close();
+        }
+        return 0;
+    }
+
     public Mail findMail(int ch_id) throws SQLException {
         String sql = "SELECT sender, receiver, message, datetime, mailCheck "
                 + "FROM MAIL "

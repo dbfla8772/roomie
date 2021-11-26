@@ -28,6 +28,10 @@ public class MailManager {
         return mailDAO.create(mail);
     }
 
+    public int remove(int ch_id) throws SQLException {
+        return mailDAO.remove(ch_id);
+    }
+
     public Mail findMail(int ch_id) throws Exception {
         Mail mail = mailDAO.findMail(ch_id);
 
