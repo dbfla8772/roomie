@@ -34,6 +34,7 @@ public class MailController implements Controller {
             Mail mail = null;
 
             // 받은 쪽지함으로
+            log.debug("flag " + request.getParameter("flag"));
             if (Integer.parseInt(request.getParameter("flag")) == 0) {
                 List<Mail> mailList = (List<Mail>) mailManager.findReceiveMailList(s_id);
                 request.setAttribute("receiveList", mailList);

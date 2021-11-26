@@ -35,6 +35,23 @@
             height: auto;
         }
 
+        .link {
+            font-family: SBAggroL;
+            font-size: 14px;
+            position: relative;
+            top: 1%;
+            right: 235px;
+        }
+
+        .move-link:hover {
+            font-weight: bold;
+        }
+
+        .move-link {
+            color: #858585;
+            text-decoration-line: none;
+        }
+
         h4, p {
             font-family: SBAggroL;
             text-align: center;
@@ -55,6 +72,11 @@
 %>
 <body>
 <h4>받은 쪽지함</h4> <br>
+
+<span class="link">
+    <a href="${pageContext.request.contextPath}/mail/receive/receiveList" class="move-link">받은쪽지</a>&nbsp;
+    <a href="${pageContext.request.contextPath}/mail/send/sendList" class="move-link">보낸쪽지</a>
+</span>
 
 <div class="list-group" align="center">
     <div class="list-group">
