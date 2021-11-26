@@ -78,11 +78,10 @@
         }
         a:hover {
             font-weight: bold;
+            text-decoration-line: none;
         }
         a:link {
             color: #858585;
-        }
-        a {
             text-decoration-line: none;
         }
         .btn {
@@ -92,6 +91,10 @@
             position: relative;
             top : 1%;
             left: 105px;
+        }
+        .send:link {
+            color: black;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -103,7 +106,7 @@
     <h3>쪽지내용</h3>
     <span class="link">
         <a href="${pageContext.request.contextPath}/mail/receive/receiveList">받은쪽지</a>&nbsp;
-        <a href="${pageContext.request.contextPath}/mail/send/sendList">보낸쪽지</a>
+        <a href="${pageContext.request.contextPath}/mail/send/sendList" class="send">보낸쪽지</a>
     </span>
     <form name="form" method="POST" action="${pageContext.request.contextPath}/mail/send">
         <table align="center">
