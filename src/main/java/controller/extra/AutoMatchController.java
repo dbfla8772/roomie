@@ -32,7 +32,7 @@ public class AutoMatchController implements Controller {
             }
 
             request.setAttribute("profileList", profileList);
-            return "/profile/autoMatch.jsp";
+            return "/profile/automatch.jsp";
         } catch (Exception e) {
             return "redirect:/student/main";
         }
