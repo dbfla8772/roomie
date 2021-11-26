@@ -125,7 +125,7 @@
         <div class="list-group">
             <a href="${pageContext.request.contextPath}/mail/receive/detail?ch_id=${receiveMail.ch_id}&flag=0" class="list-group-item list-group-item-action" aria-current="true">
                 <div class="d-flex w-100 justify-content-between">
-                    <p class="mb-1">${receiveMail.sender}</p>
+                    <p class="mb-1">${receiveMail.sender_s}</p>
                     <%--<c:choose>
                     <c:when test="${fn:length(receiveMail.message.nm) > 14}">
                         <p class="mb-1">${fn:substring(receiveMail.message.nm,0,13)}...</p>

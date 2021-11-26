@@ -2,6 +2,7 @@
 <%@page import="java.util.*" %>
 <%@page import="model.*" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html>
 <head>
     <title>보낸 쪽지함</title>
@@ -18,28 +19,93 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
 
+    <style>
+        @font-face {
+            font-family: 'SBAggroL';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroL.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            margin: 3%;
+            width: auto;
+            height: auto;
+        }
+
+        .link {
+            font-family: SBAggroL;
+            font-size: 14px;
+            position: relative;
+            top: 1%;
+            right: 235px;
+        }
+
+        .move-link:hover {
+            font-weight: bold;
+            color: #858585;
+            text-decoration-line: none;
+        }
+
+        .move-link {
+            color: #858585;
+            text-decoration-line: none;
+        }
+
+        h4, p {
+            font-family: SBAggroL;
+            text-align: center;
+        }
+
+        #outline {
+            margin-top: 10px;
+        }
+
+        #content {
+            text-align: center;
+        }
+
+    </style>
 </head>
 <%!
     List<Mail> sendList;
 %>
 <body>
-<h4>보낸 쪽지함</h4>
+<h4>보낸 쪽지함</h4> <br>
+
+<div class="link" align="center">
+    <a href="${pageContext.request.contextPath}/mail/receive/receiveList?flag=0" class="move-link">받은쪽지</a>&nbsp;
+    <a href="${pageContext.request.contextPath}/mail/send/sendList?flag=1" class="move-link">보낸쪽지</a>
+</div>
+
 
 <% sendList = (List<Mail>) request.getAttribute("sendList"); %>
 <div class="list-group">
-    <c:forEach var="sendMail" items="${sendList}">
-        <div class="list-group">
-            <a href="'${pageContext.request.contextPath}/mail/send/detail?ch_id=' + ${sendMail.ch_id} + '&flag=1'" class="list-group-item list-group-item-action active" aria-current="true">
-                <div class="d-flex w-100 justify-content-between">
-                    <p class="mb-1">${sendMail.message}</p>
-                    <small>${sendMail.datetime}</small>
-                </div>
-                <p class="mb-1">Some placeholder content in a paragraph.</p>
-                <small>And some small print.</small>
-            </a>
-        </div>
-    </c:forEach>
-</div>
+    <div id="outline" class="d-flex w-100 justify-content-between" align="center">
+        <p>받는 사람</p>
+        <p id="content">내용</p>
+        <p>날짜</p>
+    </div>
 
+        <div class="list-group">
+            <c:forEach var="sendMail" items="${sendList}">
+            <a href="${pageContext.request.contextPath}/mail/send/detail?ch_id=${sendMail.ch_id}&flag=1" class="list-group-item list-group-item-action" aria-current="true">
+                <div class="d-flex w-100 justify-content-between">
+                    <p class="mb-1">${sendMail.receiver_s}</p>
+                        <%--<c:choose>
+                        <c:when test="${fn:length(receiveMail.message.nm) > 14}">
+                            <p class="mb-1">${fn:substring(receiveMail.message.nm,0,13)}...</p>
+                        </c:when>
+                        <c:otherwise>
+                            <p class="mb-1">${receiveMail.message.nm}</p>
+                        </c:otherwise>
+                    </c:choose>--%>
+                    <p class="mb-1">${sendMail.message}</p>
+                    <p class="mb-1">${sendMail.datetime}</p>
+                </div>
+            </a>
+            </c:forEach>
+        </div>
+</div>
 </body>
 </html>

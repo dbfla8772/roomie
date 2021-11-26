@@ -81,27 +81,29 @@ public class MailDAO {
 
     //받은 메일 리스트
     public List<Mail> findReceiveMailList(int s_id) {
-        String sql = "SELECT ch_id, sender, message, datetime, mail_check "
-                + "FROM MAIL "
+        String sql = "SELECT ch_id, name, message, datetime, mail_check "
+                + "FROM MAIL m JOIN Profile p ON p.s_id=m.sender "
                 + "WHERE receiver=?";
+
         jdbcUtil.setSqlAndParameters(sql, new Object[] {s_id});
 
         try {
             ResultSet rs = jdbcUtil.executeQuery();				// query 실행
             List<Mail> mailList = new ArrayList<Mail>();
 
-            if (rs.next()) {						// 학생 정보 발견
+            while (rs.next()) {						// 학생 정보 발견
                 Mail mail = new Mail(		// Profile 객체를 생성하여 정보를 저장
                         rs.getInt("ch_id"),
-                        rs.getInt("sender"),
-                        s_id,
+                        rs.getString("name"),
+                        String.valueOf(s_id),
                         rs.getString("message"),
                         rs.getString("datetime"),
                         rs.getInt("mail_check")
                 );
                 mailList.add(mail);
-                return mailList;
             }
+            return mailList;
+
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
@@ -112,8 +114,8 @@ public class MailDAO {
 
     // 보낸 메일 리스트
     public List<Mail> findSendMailList(int s_id) {
-        String sql = "SELECT ch_id, receiver, message, datetime, mail_check "
-                + "FROM MAIL "
+        String sql = "SELECT ch_id, name, message, datetime, mail_check "
+                + "FROM MAIL m JOIN Profile p ON p.s_id=m.receiver "
                 + "WHERE sender=?";
         jdbcUtil.setSqlAndParameters(sql, new Object[] {s_id});
 
@@ -121,18 +123,18 @@ public class MailDAO {
             ResultSet rs = jdbcUtil.executeQuery();				// query 실행
             List<Mail> mailList = new ArrayList<Mail>();
 
-            if (rs.next()) {						// 학생 정보 발견
+            while (rs.next()) {						// 학생 정보 발견
                 Mail mail = new Mail(		// Profile 객체를 생성하여 정보를 저장
                         rs.getInt("ch_id"),
-                        s_id,
-                        rs.getInt("receiver"),
+                        String.valueOf(s_id),
+                        rs.getString("name"),
                         rs.getString("message"),
                         rs.getString("datetime"),
                         rs.getInt("mail_check")
                 );
                 mailList.add(mail);
-                return mailList;
             }
+            return mailList;
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
