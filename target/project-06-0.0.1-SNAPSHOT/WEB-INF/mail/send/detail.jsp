@@ -1,6 +1,6 @@
 <%@ page import="model.Mail" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%! Mail mail; %>
+<%! Mail mail; String receiverName; %>
 <html>
 <head>
     <title>쪽지내용</title>
@@ -69,12 +69,12 @@
         }
         a:hover {
             font-weight: bold;
-            text-decoration-line: none;
             color: #858585;
+            text-decoration-line: none;
         }
-        a:link {
-            color: #858585;
+        a {
             text-decoration-line: none;
+            color: #858585;
         }
         .btn {
             margin-top: 1%;
@@ -84,29 +84,35 @@
             top : 1%;
             left: 105px;
         }
-        .send:link {
+        .sender {
             color: black;
             font-weight: bold;
+            text-decoration-line: none;
+        }
+        .sender:hover {
+            font-weight: bold;
+            color: black;
+            text-decoration-line: none;
         }
     </style>
 </head>
 <body>
 <%
     mail = (Mail) request.getAttribute("mail");
+    receiverName = (String) request.getAttribute("receiverName");
 %>
 <div align="center">
     <h3>쪽지내용</h3>
     <span class="link">
         <a href="${pageContext.request.contextPath}/mail/receive/receiveList">받은쪽지</a>&nbsp;
-        <a href="${pageContext.request.contextPath}/mail/send/sendList" class="send">보낸쪽지</a>
+        <a href="${pageContext.request.contextPath}/mail/send/sendList" class="sender">보낸쪽지</a>
     </span>
     <form name="form" method="POST" action="${pageContext.request.contextPath}/mail/sendForm">
         <table align="center">
             <tr>
                 <td width="12%" class="title">받는사람</td>
                 <td>
-                    <input type="hidden" name="ch_id" value="<%=mail.getCh_id()%>">
-                    <input type="text" size="51" value="<%=mail.getReceiver()%>" style="margin: 2px;" readonly>
+                    <input type="text" size="51" value="<%=receiverName%>" style="margin: 2px;" readonly>
                 </td>
             </tr>
             <tr>
@@ -123,7 +129,6 @@
             </tr>
         </table>
         <span class="btn">
-            <button type="button" value="답장" onClick="SendMessage()" class="btn btn-outline-dark">답장</button>&nbsp;
             <button type="button" value="삭제" class="btn btn-outline-dark" onClick="Go('${pageContext.request.contextPath}/mail/delete?flag=1')">삭제</button>&nbsp;
             <button type="button" value="목록" class="btn btn-outline-dark" onClick="Go('${pageContext.request.contextPath}/mail/send/sendList')">목록</button>
         </span>

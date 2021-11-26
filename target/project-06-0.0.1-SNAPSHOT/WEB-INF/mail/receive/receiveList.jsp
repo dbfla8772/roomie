@@ -3,6 +3,7 @@
 <%@page import="model.*" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%! String sender; %>
 <html>
 <head>
     <title>받은 쪽지함</title>
@@ -78,43 +79,10 @@
     <a href="${pageContext.request.contextPath}/mail/send/sendList?flag=1" class="move-link">보낸쪽지</a>
 </div>
 
-<%--<div class="list-group" align="center">
-    <div class="list-group">
-        <div id="outline" class="d-flex w-100 justify-content-between" align="center">
-            <p>보낸 사람</p>
-            <p id="content">내용</p>
-            <p>날짜</p>
-        </div>
-        <a href="'${pageContext.request.contextPath}/mail/receive/detail?ch_id=' &lt;%&ndash;+ ${receiveMail.ch_id} + '&flag=0'&ndash;%&gt;"
-           class="list-group-item list-group-item-action" aria-current="true">
-            <div class="d-flex w-100 justify-content-between">
-                <p class="mb-1">보낸 사람</p>
-                <p class="mb-1">쪽지 내용</p>
-                <p class="mb-1">날짜</p>
-            </div>
-        </a>
-        <a href="'${pageContext.request.contextPath}/mail/receive/detail?ch_id=' &lt;%&ndash;+ ${receiveMail.ch_id} + '&flag=0'&ndash;%&gt;"
-           class="list-group-item list-group-item-action" aria-current="true">
-            <div class="d-flex w-100 justify-content-between">
-                <p class="mb-1">보낸 사람</p>
-                <p class="mb-1">쪽지 내용</p>
-                <p class="mb-1">날짜</p>
-            </div>
-        </a>
-        <a href="'${pageContext.request.contextPath}/mail/receive/detail?ch_id=' &lt;%&ndash;+ ${receiveMail.ch_id} + '&flag=0'&ndash;%&gt;"
-           class="list-group-item list-group-item-action" aria-current="true">
-            <div class="d-flex w-100 justify-content-between">
-                <p class="mb-1">보낸 사람</p>
-                <p class="mb-1">쪽지 내용</p>
-                <p class="mb-1">날짜</p>
-            </div>
-        </a>
-    </div>
-
-</div>--%>
-
-
-<% receiveList = (List<Mail>) request.getAttribute("receiveList"); %>
+<%
+    receiveList = (List<Mail>) request.getAttribute("receiveList");
+    sender = (String) request.getAttribute("sender");
+%>
 <div class="list-group">
     <div id="outline" class="d-flex w-100 justify-content-between" align="center">
         <p>보낸 사람</p>

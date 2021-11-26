@@ -4,11 +4,14 @@ import controller.Controller;
 import controller.user.UserSessionUtils;
 import controller.user.ViewProfileController;
 import model.Mail;
+import model.Profile;
 import model.service.MailManager;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.service.ProfileManager;
+import model.service.StudentManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,11 +24,8 @@ public class ViewMailController implements Controller {
             return "redirect:/student/login";		// login form 요청으로 redirect
         }
 
-        /*int s_id = (int)UserSessionUtils.getLoginUserId(request.getSession());
-        request.setAttribute("s_id", s_id);
-        return "/chat/sendList.jsp";*/
-
         MailManager mailManager = MailManager.getInstance();
+        ProfileManager profiletManager = ProfileManager.getInstance();
         Mail mail = null;
 
         try {
@@ -35,9 +35,16 @@ public class ViewMailController implements Controller {
             log.debug("ch_id :: " + request.getParameter("ch_id"));
 
             mail = mailManager.findMail(ch_id);
-            request.setAttribute("mail", mail);        // 메일 정보 저장
+            Profile receiver_pro = profiletManager.findProfile(mail.getReceiver());
+            Profile sender_pro = profiletManager.findProfile(mail.getSender());
+            String receiver = receiver_pro.getName();
+            String sender = sender_pro.getName();
 
-            log.debug("메세지 :: " + mail.getMessage());
+            request.setAttribute("mail", mail);        // 메일 정보 저장
+            request.setAttribute("receiver", receiver);
+            request.setAttribute("sender", sender);
+
+            log.debug("Message :: " + mail.getMessage());
 
             //받은 메세지
             if (Integer.parseInt(request.getParameter("flag")) == 0) {
