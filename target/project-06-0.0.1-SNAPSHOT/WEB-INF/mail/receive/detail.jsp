@@ -1,6 +1,6 @@
 <%@ page import="model.Mail" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%! Mail mail; %>
+<%! Mail mail; String sender;%>
 <html>
 <head>
     <title>쪽지내용</title>
@@ -84,13 +84,12 @@
 
         a:hover {
             font-weight: bold;
-            text-decoration-line: none;
             color: #858585;
+            text-decoration-line: none;
         }
-
-        a:link {
-            color: #858585;
+        a {
             text-decoration-line: none;
+            color: #858585;
         }
 
         .btn {
@@ -102,51 +101,60 @@
             left: 105px;
         }
 
-        .receive:link {
+        .receive {
             color: black;
             font-weight: bold;
+            text-decoration-line: none;
+        }
+        .receive:hover {
+            font-weight: bold;
+            color: black;
+            text-decoration-line: none;
         }
     </style>
 </head>
 <body>
 <%
     mail = (Mail) request.getAttribute("mail");
+    sender = (String) request.getAttribute("sender");
 %>
+<div align="center">
 <h3>쪽지내용</h3>
-<span class="link">
-        <a href="${pageContext.request.contextPath}/mail/receive/receiveList" class="receive">받은쪽지</a>&nbsp;
-        <a href="${pageContext.request.contextPath}/mail/send/sendList">보낸쪽지</a>
+    <span class="link">
+        <a href="${pageContext.request.contextPath}/mail/receive/receiveList?flag=0" class="receive">받은쪽지</a>&nbsp;
+        <a href="${pageContext.request.contextPath}/mail/send/sendList?flag=1">보낸쪽지</a>
     </span>
 
-<form name="form" method="POST" action="${pageContext.request.contextPath}/mail/sendForm">
-    <table align="center">
-        <tr>
-            <td width="12%" class="title">보낸 사람</td>
-            <td>
-                <input type="hidden" name="ch_id" value="<%=mail.getCh_id()%>">
-                <input type="text" size="51" value="<%=mail.getReceiver()%>" style="margin: 2px;" readonly>
-            </td>
-        </tr>
-        <tr>
-            <td width="12%" class="title">보낸시간</td>
-            <td>
-                <input type="text" size="51" value="<%=mail.getDatetime()%>" style="margin: 2px;" readonly>
-            </td>
-        </tr>
-        <tr>
-            <td class="title">내용</td>
-            <td>
-                <textarea cols="50" rows="17" value="<%=mail.getMessage()%>" style="margin: 2px;" readonly></textarea>
-            </td>
-        </tr>
-    </table>
-    <span class="btn">
+    <form name="form" method="POST" action="${pageContext.request.contextPath}/mail/sendForm">
+        <table align="center">
+            <tr>
+                <td width="12%" class="title">보낸 사람</td>
+                <td>
+                    <input type="hidden" name="receiver" value="<%=mail.getSender()%>"> <%--답장할 경우 receiver가 되므로--%>
+                    <input type="text" size="51" value="<%=sender%>" style="margin: 2px;" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td width="12%" class="title">보낸시간</td>
+                <td>
+                    <input type="text" size="51" value="<%=mail.getDatetime()%>" style="margin: 2px;" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td class="title">내용</td>
+                <td>
+                    <textarea cols="50" rows="17" name="message" value="<%=mail.getMessage()%>" style="margin: 2px;" readonly></textarea>
+                </td>
+            </tr>
+        </table>
+        <span class="btn">
             <button type="button" value="답장" onClick="SendMessage()" class="btn btn-outline-dark">답장</button>&nbsp;
             <button type="button" value="삭제" class="btn btn-outline-dark"
                     onClick="Go('${pageContext.request.contextPath}/mail/delete?flag=1')">삭제</button>&nbsp;
             <button type="button" value="목록" class="btn btn-outline-dark"
-                    onClick="document.location.href='${pageContext.request.contextPath}/mail/receive/receiveList?flag=0'">목록</button>
-    </span>
-</form>
+                    onClick="Go('${pageContext.request.contextPath}/mail/send/sendList')">목록</button>
+        </span>
+    </form>
+</div>
 </body>
 </html>
