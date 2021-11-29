@@ -48,6 +48,9 @@
             width: 40%;
             margin: 0px 0% 100px 5%;
         }
+        .text {
+            font-family: SBAggroL;
+        }
         .page-float {
             clear: left;
             position: absolute;
@@ -73,6 +76,7 @@
                 <a class="blog-header-logo text-dark" href="${pageContext.request.contextPath}/student/main"><h1>Roomie 루미</h1></a>
             </div>
             <div class="col-4 d-flex justify-content-end align-items-center">
+                <text class="text"><%= request.getAttribute("name") %>님 / </><a style="color:black" href="${pageContext.request.contextPath}/student/logout">로그아웃</a>
                 <a class="link-secondary" href="${pageContext.request.contextPath}/student/search" aria-label="Search">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
                 </a>
