@@ -17,7 +17,9 @@ public class RequestMapping {
     public void initMapping() {
         mappings.put("/", new ForwardController("/student/loginForm.jsp"));
         mappings.put("/student/login", new LoginController());
+        mappings.put("/student/logout", new LogoutController());
         mappings.put("/student/register", new RegisterController());
+        mappings.put("/student/delete", new DeleteStudentController());
 
         mappings.put("/profile/create", new CreateProfileController());
         mappings.put("/profile/myPage", new myPageController());
@@ -32,7 +34,8 @@ public class RequestMapping {
         mappings.put("/scrap/view", new ScrapController());
         mappings.put("/scrap/delete", new DeleteScrapController());
 
-        mappings.put("/mail/send", new SendMailController());
+        mappings.put("/mail/sendForm", new SendMailController());
+        mappings.put("/mail/send", new MailController());
         mappings.put("/mail/send/sendList", new MailController());
         mappings.put("/mail/send/detail", new ViewMailController());
         mappings.put("/mail/receive/receiveList", new MailController());

@@ -33,28 +33,36 @@ public class MailController implements Controller {
         if (request.getMethod().equals("GET")) {
             Mail mail = null;
 
-            List<Mail> mailList = (List<Mail>) mailManager.findMailList(s_id);
+            // 받은 쪽지함으로
+            log.debug("flag " + request.getParameter("flag"));
+            if (Integer.parseInt(request.getParameter("flag")) == 0) {
+                List<Mail> mailList = (List<Mail>) mailManager.findReceiveMailList(s_id);
+                request.setAttribute("receiveList", mailList);
 
-            // receive mail list 전달
-            request.setAttribute("receiveList", mailList);
+                return "/mail/receive/receiveList.jsp";
+            }
+            // 보낸 쪽지함으로
+            else {
+                List<Mail> mailList = (List<Mail>) mailManager.findSendMailList(s_id);
+                request.setAttribute("sendList", mailList);
 
-            return "/mail/receive/receiveList.jsp";
+                return "/mail/send/sendList.jsp";
+            }
         }
+
 
         //POST
         try {
             //전송 버튼 눌렀을 때
             int receiver = Integer.parseInt(request.getParameter("receiver"));
             String message = request.getParameter("message");
+            log.debug("메세지 확인 :: " + message);
 
             //날짜, 시간 구하기
             LocalDateTime now = LocalDateTime.now();
-            System.out.println(now); // 2021-06-17T06:43:21.419878100
-            String formatedNow = now.format(DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 HH시 mm분 ss초"));
+            String formatedNow = now.format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"));
 
             Mail m = new Mail(s_id, receiver, message, formatedNow, 0);
-            Scrap s = new Scrap(s_id, receiver);
-
             mailManager.create(m);
 
             return "/mail/send/sendList.jsp";
@@ -62,6 +70,7 @@ public class MailController implements Controller {
         } catch (Exception e) {
             return "/student/main.jsp";
         }
+
     }
 
 

@@ -315,10 +315,10 @@
                 <%} %>
             </td>
             <td align="center">
-                <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/mail/send">
-                    <input type="hidden" name="receiver" value="${profile.s_id}">
-                    <input type="submit" class="button" value="쪽지">
-                </form>
+                <a href="${pageContext.request.contextPath}/mail/sendForm?receiver=${profile.s_id}"
+                   onClick="window.open(this.href, '', 'width=600, height=550'); return false;">
+                        <input type="submit" class="button" value="쪽지" style="margin-top: -9%">
+                </a>
             </td>
             <td width="100"></td>
         </tr>

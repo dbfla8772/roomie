@@ -28,6 +28,10 @@ public class MailManager {
         return mailDAO.create(mail);
     }
 
+    public int remove(int ch_id) throws SQLException {
+        return mailDAO.remove(ch_id);
+    }
+
     public Mail findMail(int ch_id) throws Exception {
         Mail mail = mailDAO.findMail(ch_id);
 
@@ -37,8 +41,12 @@ public class MailManager {
         return mail;
     }
 
-    public List<Mail> findMailList(int s_id) throws SQLException {
-       return (List<Mail>) mailDAO.findMailList(s_id);
+    public List<Mail> findReceiveMailList(int s_id) throws SQLException {
+       return (List<Mail>) mailDAO.findReceiveMailList(s_id);
+    }
+
+    public List<Mail> findSendMailList(int s_id) throws SQLException {
+        return (List<Mail>) mailDAO.findSendMailList(s_id);
     }
 
 }
