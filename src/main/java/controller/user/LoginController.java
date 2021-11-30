@@ -31,6 +31,7 @@ public class LoginController implements Controller {
 			session.setAttribute(UserSessionUtils.USER_SESSION_KEY, email);
 			log.debug("login s_id::: " + s.getS_id());
 			session.setAttribute(UserSessionUtils.USER_SESSION_ID, s.getS_id());
+			session.setAttribute("login", 0);
 
 			return "redirect:/student/main";
 		} catch (Exception e) {

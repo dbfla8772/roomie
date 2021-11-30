@@ -30,6 +30,7 @@
                 return false;
             }
             form.submit();
+            alert("회원가입되었습니다.");
         }
     </script>
     <style>

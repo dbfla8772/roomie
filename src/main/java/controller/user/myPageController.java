@@ -13,6 +13,7 @@ public class myPageController implements Controller {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         HttpSession session = request.getSession();
+        session.setAttribute("login", 1);
         ProfileManager profileManager = ProfileManager.getInstance();
         Profile profile = profileManager.findProfile((Integer) session.getAttribute(UserSessionUtils.USER_SESSION_ID));
 

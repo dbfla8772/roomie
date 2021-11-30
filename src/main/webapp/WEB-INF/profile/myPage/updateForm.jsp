@@ -32,6 +32,7 @@
                 return false;
             }
             form.submit();
+            alert("수정되었습니다.");
         }
     </script>
     <style>
