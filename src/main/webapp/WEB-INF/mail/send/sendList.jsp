@@ -83,7 +83,7 @@
             <c:forEach var="sendMail" items="${sendList}">
             <a href="${pageContext.request.contextPath}/mail/send/detail?ch_id=${sendMail.ch_id}&flag=1" class="list-group-item list-group-item-action" aria-current="true">
                 <div class="d-flex w-100 justify-content-between" align="center">
-                    <span class="mb-1" style="width:15%; text-align: left;">${sendMail.sender_s}</span>
+                    <span class="mb-1" style="width:15%; text-align: left;">${sendMail.receiver_s}</span>
                         <%--<c:choose>
                         <c:when test="${fn:length(receiveMail.message.nm) > 14}">
                             <p class="mb-1">${fn:substring(receiveMail.message.nm,0,13)}...</p>
