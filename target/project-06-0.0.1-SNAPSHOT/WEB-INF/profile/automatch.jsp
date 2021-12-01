@@ -150,15 +150,16 @@
 <%--        </button>--%>
 <%--    </form>--%>
 <%--</div>--%>
-<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <h4 style="text-align: center">매칭 결과</h4>
+
+<%--<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">--%>
+<%--    <div class="carousel-indicators">--%>
+<%--        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>--%>
+<%--        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>--%>
+<%--        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>--%>
+<%--    </div>--%>
+<%--    <div class="carousel-inner">--%>
+<%--        <div class="carousel-item active">--%>
+<%--            <h4 style="text-align: center">매칭 결과</h4>--%>
 <%--            <div class="card-margin">--%>
 <%--                <div class="card mb-3" style="border-radius: 10px; max-width: 600px;" onclick="location.href='/student/main/detail?s_id=' + <%= profileList.get(i).getS_id() %>">--%>
 <%--                    <div class="row g-0">--%>
@@ -182,44 +183,95 @@
 <%--                    </div>--%>
 <%--                </div>--%>
 <%--            </div>--%>
-        </div>
+<%--        </div>--%>
 
-        <% for (int i = 0; i < profileList.size(); i++) { %>
-        <div class="carousel-item" style="text-align: center">
-            <div class="card-margin">
-                <div class="card mb-3" style="border-radius: 10px; max-width: 600px;" onclick="location.href='/student/main/detail?s_id=' + <%= profileList.get(i).getS_id() %>">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <%
-                                if (profileList.get(i).getPr_img() == 0) img_url = "/images/man1.png";
-                                else if (profileList.get(i).getPr_img() == 1) img_url = "/images/man2.png";
-                                else if (profileList.get(i).getPr_img() == 2) img_url = "/images/woman1.png";
-                                else img_url = "/images/woman2.png";
-                            %>
-                            <img style="border-radius: 10px;" src="<c:url value='<%= img_url %>' />" class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title"><%= profileList.get(i).getName() %></h5>
-                                <p class="card-text"><%= profileList.get(i).getMajor() %> (<%= profileList.get(i).getGrade() %>학년)&emsp;&emsp;&emsp;&emsp;&emsp; <br>
-                                    <%= profileList.get(i).getAge() %>세&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
-                                <p class="card-text"><small class="text-muted"></small></p>
+<%--        <% for (int i = 0; i < profileList.size(); i++) { %>--%>
+<%--        <div class="carousel-item" style="text-align: center">--%>
+<%--            <div class="card-margin">--%>
+<%--                <div class="card mb-3" style="border-radius: 10px; max-width: 600px;" onclick="location.href='/student/main/detail?s_id=' + <%= profileList.get(i).getS_id() %>">--%>
+<%--                    <div class="row g-0">--%>
+<%--                        <div class="col-md-4">--%>
+<%--                            <%--%>
+<%--                                if (profileList.get(i).getPr_img() == 0) img_url = "/images/man1.png";--%>
+<%--                                else if (profileList.get(i).getPr_img() == 1) img_url = "/images/man2.png";--%>
+<%--                                else if (profileList.get(i).getPr_img() == 2) img_url = "/images/woman1.png";--%>
+<%--                                else img_url = "/images/woman2.png";--%>
+<%--                            %>--%>
+<%--                            <img style="border-radius: 10px;" src="<c:url value='<%= img_url %>' />" class="img-fluid rounded-start" alt="...">--%>
+<%--                        </div>--%>
+<%--                        <div class="col-md-8">--%>
+<%--                            <div class="card-body">--%>
+<%--                                <h5 class="card-title"><%= profileList.get(i).getName() %></h5>--%>
+<%--                                <p class="card-text"><%= profileList.get(i).getMajor() %> (<%= profileList.get(i).getGrade() %>학년)&emsp;&emsp;&emsp;&emsp;&emsp; <br>--%>
+<%--                                    <%= profileList.get(i).getAge() %>세&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>--%>
+<%--                                <p class="card-text"><small class="text-muted"></small></p>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--        <% } %>--%>
+<%--    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">--%>
+<%--        <span class="carousel-control-prev-icon" aria-hidden="true"></span>--%>
+<%--        <span class="visually-hidden">Previous</span>--%>
+<%--    </button>--%>
+<%--    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">--%>
+<%--        <span class="carousel-control-next-icon" aria-hidden="true"></span>--%>
+<%--        <span class="visually-hidden">Next</span>--%>
+<%--    </button>--%>
+
+        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <img src="/images/automatch.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>자동매칭 결과</h5>
+                    </div>
+                </div>
+
+                <% for (int i = 0; i < profileList.size(); i++) { %>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <div class="card-margin">
+                        <div class="card mb-3" style="border-radius: 10px; max-width: 600px;" onclick="location.href='/student/main/detail?s_id=' + <%= profileList.get(i).getS_id() %>">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <%
+                                        if (profileList.get(i).getPr_img() == 0) img_url = "/images/man1.png";
+                                        else if (profileList.get(i).getPr_img() == 1) img_url = "/images/man2.png";
+                                        else if (profileList.get(i).getPr_img() == 2) img_url = "/images/woman1.png";
+                                        else img_url = "/images/woman2.png";
+                                    %>
+                                    <img style="border-radius: 10px;" src="<c:url value='<%= img_url %>' />" class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><%= profileList.get(i).getName() %></h5>
+                                        <p class="card-text"><%= profileList.get(i).getMajor() %> (<%= profileList.get(i).getGrade() %>학년)&emsp;&emsp;&emsp;&emsp;&emsp; <br>
+                                            <%= profileList.get(i).getAge() %>세&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
+                                        <p class="card-text"><small class="text-muted"></small></p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <% } %>
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <% } %>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
 </div>
 </body>
 </html>
-
