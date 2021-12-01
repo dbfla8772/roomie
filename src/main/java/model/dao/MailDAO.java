@@ -7,6 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
 
 public class MailDAO {
     private JDBCUtil jdbcUtil = null;
@@ -53,6 +57,20 @@ public class MailDAO {
     }
 
     public Mail findMail(int ch_id) throws SQLException {
+        String sql1 = "UPDATE MAIL SET mail_check=1 WHERE ch_id=?";
+        jdbcUtil.setSqlAndParameters(sql1, new Object[] {ch_id});
+
+        try {
+            int result = jdbcUtil.executeUpdate();	// update 문 실행
+        } catch (Exception ex) {
+            jdbcUtil.rollback();
+            ex.printStackTrace();
+        }
+        finally {
+            jdbcUtil.commit();
+            jdbcUtil.close();	// resource 반환
+        }
+
         String sql = "SELECT sender, receiver, message, mail_check, datetime "
                 + "FROM MAIL "
                 + "WHERE ch_id=?";
@@ -124,8 +142,8 @@ public class MailDAO {
             ResultSet rs = jdbcUtil.executeQuery();				// query 실행
             List<Mail> mailList = new ArrayList<Mail>();
 
-            while (rs.next()) {						// 학생 정보 발견
-                Mail mail = new Mail(		// Profile 객체를 생성하여 정보를 저장
+            while (rs.next()) {
+                Mail mail = new Mail(		// Mail 객체를 생성하여 정보를 저장
                         rs.getInt("ch_id"),
                         String.valueOf(s_id),
                         rs.getString("name"),
@@ -133,6 +151,7 @@ public class MailDAO {
                         rs.getString("datetime"),
                         rs.getInt("mail_check")
                 );
+                System.out.println("메일 확인: " + mail.getMailCheck());
                 mailList.add(mail);
             }
             return mailList;
