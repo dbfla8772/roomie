@@ -51,7 +51,7 @@
             cursor: pointer;
             float: none;
             border-radius: 10px;
-            height: 30%;
+            height: 180px;
             margin-bottom: 0px;
             display: flex;
         }
