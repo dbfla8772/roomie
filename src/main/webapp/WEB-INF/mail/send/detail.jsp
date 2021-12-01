@@ -102,8 +102,8 @@
 <div align="center">
     <h4>쪽지내용</h4>
     <div class="link" align="left">
-        <a href="${pageContext.request.contextPath}/mail/receive/receiveList">받은쪽지</a>&nbsp;
-        <a href="${pageContext.request.contextPath}/mail/send/sendList" class="sender">보낸쪽지</a>
+        <a href="${pageContext.request.contextPath}/mail/receive/receiveList?flag=0">받은쪽지</a>&nbsp;
+        <a href="${pageContext.request.contextPath}/mail/send/sendList?flag=1" class="sender">보낸쪽지</a>
     </div>
     <form name="form" method="POST" action="${pageContext.request.contextPath}/mail/delete">
         <table align="center">
