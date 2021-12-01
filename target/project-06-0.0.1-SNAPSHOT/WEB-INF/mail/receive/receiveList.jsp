@@ -34,8 +34,8 @@
             margin-top: 3%;
             font-weight: bold;
         }
-        span{
-            font-size: 12px;
+        .title{
+            font-size: 13px;
             margin-right: 2%;
             margin-left: 2%;
         }
@@ -79,15 +79,15 @@
     %>
     <div class="list-group" align="center">
         <div id="outline" class="d-flex w-100 justify-content-between" align="center">
-            <span align="left">보낸사람</span>
-            <span align="center">내용</span>
-            <span align="right">날짜</span>
+            <span class="title" style="margin-left: 3%">보낸사람</span>
+            <span class="title" style="margin-right: -4.5%">내용</span>
+            <span class="title" style="margin-right: 14%">날짜</span>
         </div>
         <div class="list-group" align="center">
             <c:forEach var="receiveMail" items="${receiveList}">
             <a href="${pageContext.request.contextPath}/mail/receive/detail?ch_id=${receiveMail.ch_id}&flag=0" class="list-group-item list-group-item-action" aria-current="true">
                 <div class="d-flex w-100 justify-content-between" align="center">
-                    <p class="mb-1">${receiveMail.sender_s}</p>
+                    <span class="mb-1" style="width:15%; text-align: left;">${receiveMail.sender_s}</span>
 <%--                    <c:choose>--%>
 <%--                    <c:when test="${fn:length(receiveMail.message.nm) > 14}">--%>
 <%--                        <p class="mb-1">${fn:substring(receiveMail.message.nm,0,13)}...</p>--%>
@@ -96,8 +96,8 @@
 <%--                        <p class="mb-1">${receiveMail.message.nm}</p>--%>
 <%--                    </c:otherwise>--%>
 <%--                    </c:choose>--%>
-                    <p class="mb-1">${receiveMail.message}</p>
-                    <p class="mb-1">${receiveMail.datetime}</p>
+                    <span class="mb-1" style="margin-left: 10.5%">${receiveMail.message}</span>
+                    <span class="mb-1" style="width:27%;">${receiveMail.datetime}</span>
                 </div>
             </a>
             </c:forEach>
