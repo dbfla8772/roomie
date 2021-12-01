@@ -2,6 +2,7 @@ package controller.extra;
 
 import controller.Controller;
 import controller.user.UserSessionUtils;
+import model.Mail;
 import model.Profile;
 import model.service.MailManager;
 import model.service.ProfileManager;
@@ -11,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 public class DeleteMailController implements Controller {
     private static final Logger log = LoggerFactory.getLogger(DeleteMailController.class);
@@ -29,6 +31,9 @@ public class DeleteMailController implements Controller {
 
         //GET
         mailManager.remove(ch_id);
+
+        List<Mail> mailList = (List<Mail>) mailManager.findSendMailList(s_id);
+        request.setAttribute("sendList", mailList);
 
         return "/mail/send/sendList.jsp";
     }
