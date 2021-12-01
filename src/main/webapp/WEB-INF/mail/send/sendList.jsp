@@ -61,7 +61,9 @@
         #outline {
             margin-top: 6px;
         }
-
+        .mb-1 {
+            font-size: 13px;
+        }
         .list-group {
             margin-right: 1%;
             margin-left: 1%;
@@ -84,9 +86,9 @@
     <div class="list-group" align="center">
         <div id="outline" class="d-flex w-100 justify-content-between" align="center">
             <span class="title" style="margin-left: 3%">받은사람</span>
-            <span class="title" style="margin-right: -4.5%">내용</span>
-            <span class="title" style="margin-right: 14%">날짜</span>
-            <span class="title" style="margin-right: 14%">수신 확인</span>
+            <span class="title" style="margin-right: 7%">내용</span>
+            <span class="title" style="margin-right: -4%">날짜</span>
+            <span class="title" style="margin-right: 5%">수신 확인</span>
         </div>
         <div class="list-group" align="center">
             <c:forEach var="sendMail" items="${sendList}">
@@ -94,10 +96,10 @@
                    class="list-group-item list-group-item-action" aria-current="true">
                     <div class="d-flex w-100 justify-content-between" align="center">
                         <span class="mb-1" style="width:15%; text-align: left;">${sendMail.receiver_s}</span>
-                        <span class="mb-1" style="margin-left: 10.5%; width: 30%; overflow: hidden;
+                        <span class="mb-1" style="width: 30%; overflow: hidden;
                                                 text-overflow: ellipsis; white-space: nowrap;">${sendMail.message}</span>
                         <span class="mb-1" style="width:27%;">${sendMail.datetime}</span>
-                        <span class="mb-1" style="width:27%;">
+                        <span class="mb-1" style="width:12%;">
                         <c:choose>
                             <c:when test="${sendMail.mailCheck eq 0}">읽지 않음</c:when>
                             <c:otherwise>읽음</c:otherwise>
