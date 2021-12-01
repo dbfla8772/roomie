@@ -65,7 +65,7 @@
 %>
 <body>
 <div align="center">
-    <h4>받은쪽지함</h4>
+    <h4>보낸쪽지함</h4>
 
     <div class="link" align="left">
         <a href="${pageContext.request.contextPath}/mail/receive/receiveList?flag=0" class="move-link">받은쪽지</a>&nbsp;
@@ -75,7 +75,7 @@
     <% sendList = (List<Mail>) request.getAttribute("sendList"); %>
     <div class="list-group" align="center">
         <div id="outline" class="d-flex w-100 justify-content-between" align="center">
-            <span class="title" style="margin-left: 3%">보낸사람</span>
+            <span class="title" style="margin-left: 3%">받은사람</span>
             <span class="title" style="margin-right: -4.5%">내용</span>
             <span class="title" style="margin-right: 14%">날짜</span>
         </div>

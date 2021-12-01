@@ -40,6 +40,7 @@ public class RequestMapping {
         mappings.put("/mail/send/detail", new ViewMailController());
         mappings.put("/mail/receive/receiveList", new MailController());
         mappings.put("/mail/receive/detail", new ViewMailController());
+        mappings.put("/mail/delete", new DeleteMailController());
 
 
         logger.info("Initialized Request Mapping!");
