@@ -68,9 +68,7 @@
         .link {
             font-family: SBAggroL;
             font-size: 14px;
-            position: relative;
-            top : 1%;
-            right: 235px;
+            margin-left: 2%;
         }
         a:hover {
             font-weight: bold;
@@ -92,10 +90,10 @@
 %>
 <div align="center">
     <h4>쪽지쓰기</h4>
-    <span class="link">
+    <div class="link" align="left">
         <a href="${pageContext.request.contextPath}/mail/receive/receiveList?flag=0">받은쪽지</a>&nbsp;
         <a href="${pageContext.request.contextPath}/mail/send/sendList?flag=1">보낸쪽지</a>
-    </span>
+    </div>
     <form name="form" method="POST" action="${pageContext.request.contextPath}/mail/send">
         <table align="center">
             <tr>
