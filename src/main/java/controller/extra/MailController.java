@@ -46,10 +46,6 @@ public class MailController implements Controller {
                 List<Mail> mailList = (List<Mail>) mailManager.findSendMailList(s_id);
                 request.setAttribute("sendList", mailList);
 
-                log.debug(String.valueOf(mailList.get(0).getMailCheck()));
-                log.debug(String.valueOf(mailList.get(1).getMailCheck()));
-                log.debug(String.valueOf(mailList.get(2).getMailCheck()));
-
                 return "/mail/send/sendList.jsp";
             }
         }
