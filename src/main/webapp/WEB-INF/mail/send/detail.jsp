@@ -124,7 +124,7 @@
             <tr>
                 <td class="title">내용</td>
                 <td>
-                    <textarea cols="50" rows="17" value="<%=mail.getMessage()%>" style="margin: 2px;" readonly></textarea>
+                    <textarea cols="50" rows="17" style="margin: 2px;" readonly><%=mail.getMessage()%></textarea>
                 </td>
             </tr>
         </table>

@@ -1,6 +1,6 @@
 <%@ page import="model.Mail" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%! Mail mail; String sender;%>
+<%! Mail mail; String sender; %>
 <html>
 <head>
     <title>쪽지내용</title>
@@ -143,7 +143,7 @@
             <tr>
                 <td class="title">내용</td>
                 <td>
-                    <textarea cols="50" rows="17" name="message" value="<%=mail.getMessage()%>" style="margin: 2px;" readonly></textarea>
+                    <textarea cols="50" rows="17" name="message" style="margin: 2px;" readonly><%=mail.getMessage()%></textarea>
                 </td>
             </tr>
         </table>
