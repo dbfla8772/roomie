@@ -38,7 +38,8 @@
             font-family: SBAggroB;
         }
         .card-margin {
-            margin-left: 5%;
+            margin-left: 2.5%;
+            margin-right: 2.5%;
             font-family: SBAggroL;
         }
         .mb-3 {
@@ -46,7 +47,7 @@
             float: left;
             border-radius: 10px;
             width: 40%;
-            margin: 0px 0% 100px 5%;
+            margin: 0px 5% 100px 5%;
         }
         .text {
             font-family: SBAggroL;
@@ -97,7 +98,7 @@
     </div>
 </div>
 <%profileList = (List<Profile>) request.getAttribute("profileList");%>
-<form name="form">
+
     <c:forEach var="profile" items="${profileList}">
         <div class="card-margin">
             <div class="card mb-3" style="border-radius: 10px; max-width: 600px;" onclick="location.href='/student/main/detail?s_id=' + ${profile.s_id}">
@@ -120,7 +121,7 @@
             </div>
         </div>
     </c:forEach>
-</form>
+
 <%--    int totalCount;--%>
 <%--    int countList;--%>
 <%--    int totalPage;--%>
