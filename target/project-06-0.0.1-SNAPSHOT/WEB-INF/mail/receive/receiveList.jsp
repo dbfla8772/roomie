@@ -35,7 +35,7 @@
             font-weight: bold;
         }
         .title{
-            font-size: 13px;
+            font-size: 13%;
             margin-right: 2%;
             margin-left: 2%;
         }

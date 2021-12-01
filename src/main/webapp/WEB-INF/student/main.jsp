@@ -70,7 +70,7 @@
 
         }
         .link-secondary {
-            font-size: 20px;
+            font-size: 120%;
         }
         .page-float {
             clear: left;
