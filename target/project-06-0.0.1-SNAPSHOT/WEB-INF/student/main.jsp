@@ -52,6 +52,7 @@
             float: none;
             border-radius: 10px;
             height: 180px;
+            max-height: 180px;
             margin-bottom: 0px;
             display: flex;
         }
@@ -82,11 +83,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
-<% if (request.getSession().getAttribute("login").equals(0)) {
+<%--<% if (request.getSession().getAttribute("login").equals(0)) {
     out.println("<script>alert('로그인되었습니다.');</script>");
-} %>
-<div class="w-auto p-2" style="background-color: lightcyan; text-align: center;"><h4 style="font-family: SBAggroL";>당신의 루미를 찾아보세요!
-    <button class="btn btn-outline-success" type="submit" onClick="location.href='/student/automatch'">자동매칭 하러가기</button></h4></div>
+} %>--%>
+<div class="w-auto p-2" style="background-color: lightcyan; text-align: center;"><h4 style="font-family: SBAggroL">당신의 루미를 찾아보세요! <button class="btn btn-outline-success" type="submit" onClick="location.href='/student/automatch'">자동매칭 하러가기</button></h4></div>
 <div class="container">
     <header class="blog-header py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">

@@ -83,7 +83,8 @@ public class MailDAO {
     public List<Mail> findReceiveMailList(int s_id) {
         String sql = "SELECT ch_id, name, message, datetime, mail_check "
                 + "FROM MAIL m JOIN Profile p ON p.s_id=m.sender "
-                + "WHERE receiver=?";
+                + "WHERE receiver=? "
+                + "ORDER BY ch_id DESC";
 
         jdbcUtil.setSqlAndParameters(sql, new Object[] {s_id});
 
