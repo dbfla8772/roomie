@@ -48,6 +48,11 @@
             margin-left: 5px;
         }
 
+        .dv {
+            margin-top: 50px;
+            margin-bottom: 30px;
+        }
+
         td {
             padding-left: 10px;
             padding-bottom: 15px;
@@ -68,10 +73,6 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%)
-        }
-
-        .dv {
-            margin: 0 auto;
         }
 
         .button {
@@ -244,7 +245,7 @@
             <td colspan="2" rowspan="2">
                 <img style="border-radius: 10px; width:300px; height:400px; object-fit:contain;" src="<%=img_url%>"/>
             </td>
-            <td colspan="3" style="width:400px; text-align: left; font-size: x-large; font-weight: 800; padding-top: 5px;">
+            <td colspan="3" style="width:400px; text-align: center; font-size: x-large; font-weight: 800; padding-top: 5px;">
                 &nbsp;&nbsp;프로필 옵션<br><br>
             </td>
             <td/>
