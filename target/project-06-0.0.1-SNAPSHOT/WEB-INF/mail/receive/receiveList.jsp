@@ -35,12 +35,12 @@
             font-weight: bold;
         }
         .title{
-            font-size: 13%;
+            font-size: 104%;
             margin-right: 2%;
             margin-left: 2%;
         }
         .link {
-            font-size: 14px;
+            font-size: 115%;
             margin-left: 3.5%;
         }
         .move-link:hover {
@@ -53,7 +53,10 @@
             text-decoration-line: none;
         }
         #outline {
-            margin-top: 6px;
+            margin-top: 0.5%;
+        }
+        .mb-1 {
+            font-size: 100%;
         }
         .list-group {
             margin-right: 1%;
