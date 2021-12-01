@@ -69,6 +69,9 @@
         .card-text {
 
         }
+        .link-secondary {
+            font-size: 20px;
+        }
         .page-float {
             clear: left;
             position: absolute;
@@ -98,9 +101,6 @@
             </div>
             <div class="col-4 d-flex justify-content-end align-items-center">
                 <text class="text"><%= request.getAttribute("name") %>님 / </><a style="color:black" href="${pageContext.request.contextPath}/student/logout">로그아웃</a>
-                <a class="link-secondary" href="${pageContext.request.contextPath}/student/search" aria-label="Search">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
-                </a>
             </div>
         </div>
     </header>
@@ -111,6 +111,9 @@
             <a class="p-2 link-secondary" href="${pageContext.request.contextPath}/mail/receive/receiveList?flag=0"
                onClick="window.open(this.href, '', 'width=600, height=550'); return false;">쪽지</a>
             <a class="p-2 link-secondary" href="/WEB-INF/profile/myroomie/view.jsp">나의 루미</a> <%--myRoomie controller 생성 후 수정--%>
+            <a class="p-2 link-secondary" href="${pageContext.request.contextPath}/student/search" aria-label="Search">
+                검색<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
+            </a>
         </nav>
     </div>
 </div>

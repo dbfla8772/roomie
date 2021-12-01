@@ -33,6 +33,10 @@ public class AutoMatchManager {
         return pointDAO.create(point);
     }
 
+    public int update(Point point) throws SQLException {
+        return pointDAO.update(point);
+    }
+
     public Point findPoint(int s_id) throws SQLException {
         return pointDAO.findPoint(s_id);
     }
