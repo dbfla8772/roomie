@@ -75,6 +75,10 @@
             transform: translate(-50%, -50%)
         }
 
+        .dv {
+            margin: 0 auto;
+        }
+
         .button {
             border: 0px;
             border-radius: 10px;
