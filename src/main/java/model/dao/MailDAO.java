@@ -151,7 +151,6 @@ public class MailDAO {
                         rs.getString("datetime"),
                         rs.getInt("mail_check")
                 );
-                System.out.println("메일 확인: " + mail.getMailCheck());
                 mailList.add(mail);
             }
             return mailList;
