@@ -24,16 +24,12 @@ public class DeleteMailController implements Controller {
         int s_id = (int) session.getAttribute(UserSessionUtils.USER_SESSION_ID);
         MailManager mailManager = MailManager.getInstance();
         int ch_id = Integer.parseInt(request.getParameter("ch_id"));
-        int flag = Integer.parseInt(request.getParameter("flag"));
 
-        log.debug("s_id 확인: " + s_id + ", ch_id 확인: " + ch_id + ", flag 확인: " + flag);
+        log.debug("s_id 확인: " + s_id + ", ch_id 확인: " + ch_id);
 
         //GET
         mailManager.remove(ch_id);
 
-        if (flag == 0) {
-            return "/mail/receive/receiveList.jsp";
-        }
-        return "/mail/send/sendForm.jsp";
+        return "/mail/send/sendList.jsp";
     }
 }

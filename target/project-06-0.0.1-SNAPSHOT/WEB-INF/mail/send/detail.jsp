@@ -16,13 +16,13 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
     <script>
-        function SendMessage() {
-            form.submit();
-        }
-        function Go(targetUri) {
-            form.action = targetUri;
-            form.method="GET";      //register form 요청
-            form.submit();
+        function deleteMail() {
+            if (confirm("정말 삭제하시겠습니까?") == true){
+                form.submit();
+                alert("삭제되었습니다.");
+            } else {
+                return;
+            }
         }
     </script>
     <style>
@@ -105,11 +105,12 @@
         <a href="${pageContext.request.contextPath}/mail/receive/receiveList">받은쪽지</a>&nbsp;
         <a href="${pageContext.request.contextPath}/mail/send/sendList" class="sender">보낸쪽지</a>
     </div>
-    <form name="form" method="POST" action="${pageContext.request.contextPath}/mail/sendForm">
+    <form name="form" method="POST" action="${pageContext.request.contextPath}/mail/delete">
         <table align="center">
             <tr>
-                <td width="12%" class="title">받는사람</td>
+                <td width="12%" class="title">받은사람</td>
                 <td>
+                    <input type="hidden" name="ch_id" value="<%=mail.getCh_id()%>">
                     <input type="text" size="51" value="<%=receiver%>" style="margin: 2px;" readonly>
                 </td>
             </tr>
@@ -127,7 +128,7 @@
             </tr>
         </table>
         <span class="btn">
-            <button type="button" value="삭제" class="btn btn-outline-dark" onClick="Go('${pageContext.request.contextPath}/mail/delete?flag=1')">삭제</button>&nbsp;
+            <button type="button" value="삭제" class="btn btn-outline-dark" onClick="deleteMail()">삭제</button>&nbsp;
             <button type="button" value="목록" class="btn btn-outline-dark" onClick="document.location.href='${pageContext.request.contextPath}/mail/send/sendList?flag=1'">목록</button>
         </span>
     </form>
