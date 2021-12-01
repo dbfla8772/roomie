@@ -65,6 +65,9 @@ public class MailController implements Controller {
             Mail m = new Mail(s_id, receiver, message, formatedNow, 0);
             mailManager.create(m);
 
+            List<Mail> mailList = (List<Mail>) mailManager.findSendMailList(s_id);
+            request.setAttribute("sendList", mailList);
+
             return "/mail/send/sendList.jsp";
 
         } catch (Exception e) {
