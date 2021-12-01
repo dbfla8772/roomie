@@ -93,7 +93,8 @@
                             <p class="mb-1">${receiveMail.message.nm}</p>
                         </c:otherwise>
                     </c:choose>--%>
-                    <span class="mb-1" style="margin-left: 10.5%">${sendMail.message}</span>
+                    <span class="mb-1" style="margin-left: 10.5%; width: 30%; overflow: hidden;
+                                                text-overflow: ellipsis; white-space: nowrap;">${sendMail.message}</span>
                     <span class="mb-1" style="width:27%;">${sendMail.datetime}</span>
                     <span class="mb-1" style="width:27%;">${sendMail.mailCheck}</span>
                 </div>
