@@ -24,6 +24,9 @@ public class UpdateProfileController implements Controller {
 			return "redirect:/student/login";		// login form 요청으로 redirect
 		}
 
+		HttpSession session = request.getSession();
+		session.setAttribute("login", 1);
+
 		if (request.getMethod().equals("GET")) {
 			// GET request: 회원정보 수정 form 요청
 			// 원래는 UpdateUserFormController가 처리하던 작업을 여기서 수행
