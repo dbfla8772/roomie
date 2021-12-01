@@ -14,8 +14,17 @@
             form.submit();
         }*/
         function update() {
-            form.method = "GET";
-            form.submit();
+            form2.method = "GET";
+            form2.submit();
+        }
+        function drop() {
+            if (confirm("정말 탈퇴하시겠습니까?") == true){
+                form1.submit();
+                alert("탈퇴되었습니다.");
+
+            } else {
+                return;
+            }
         }
     </script>
     <style>
@@ -282,13 +291,13 @@
         </tr>
         <tr>
             <td align="center">
-                <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/profile/update">
+                <form name="form1" method="POST" action="${pageContext.servletContext.contextPath}/student/delete">
+                    <input type="button" class="button" value="탈퇴하기" onclick="drop()">
+                </form>
+                <form name="form2" method="POST" action="${pageContext.servletContext.contextPath}/profile/update">
                     <input type="hidden" name="s_id" value="${profile.s_id}">
                     <input type="button" class="button" value="수정하기" onclick="update()">
                 </form>
-                <%--
-                                <button class="button" name="sc_id" value="${profile.s_id}" type="submit" onClick="location.href='/scrap/view'">스크랩</button>
-                --%>
             </td>
         </tr>
     </table>
