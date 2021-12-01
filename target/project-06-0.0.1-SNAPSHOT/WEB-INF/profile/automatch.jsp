@@ -45,7 +45,6 @@
         .card-margin {
             margin-left: 500px;
             font-family: SBAggroL;
-            width: 1000px;
         }
         .mb-3 {
             cursor: pointer;
