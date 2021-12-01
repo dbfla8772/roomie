@@ -233,7 +233,7 @@
                     <div class="carousel-caption d-none d-md-block">
                         <h5>자동매칭 결과</h5>
                     </div>
-                </div>ㄴ
+                </div>
 
                 <% for (int i = 0; i < profileList.size(); i++) { %>
                 <div class="carousel-item" data-bs-interval="2000">
