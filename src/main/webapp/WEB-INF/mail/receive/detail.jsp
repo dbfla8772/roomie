@@ -47,7 +47,7 @@
             font-style: normal;
         }
 
-        h3 {
+        h4 {
             margin-top: 3%;
             font-family: SBAggroL;
             font-weight: bold;
@@ -77,9 +77,7 @@
         .link {
             font-family: SBAggroL;
             font-size: 14px;
-            position: relative;
-            top: 1%;
-            right: 235px;
+            margin-left: 2%;
         }
 
         a:hover {
@@ -119,11 +117,11 @@
     sender = (String) request.getAttribute("sender");
 %>
 <div align="center">
-<h3>쪽지내용</h3>
-    <span class="link">
+<h4>쪽지내용</h4>
+    <div class="link" align="left">
         <a href="${pageContext.request.contextPath}/mail/receive/receiveList?flag=0" class="receive">받은쪽지</a>&nbsp;
         <a href="${pageContext.request.contextPath}/mail/send/sendList?flag=1">보낸쪽지</a>
-    </span>
+    </div>
 
     <form name="form" method="POST" action="${pageContext.request.contextPath}/mail/sendForm">
         <table align="center">
