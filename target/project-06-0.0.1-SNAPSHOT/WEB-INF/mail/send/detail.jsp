@@ -63,7 +63,7 @@
         .link {
             font-family: SBAggroL;
             font-size: 14px;
-            margin-left: 3.5%;
+            margin-left: 2%;
         }
         a:hover {
             font-weight: bold;

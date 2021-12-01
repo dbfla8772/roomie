@@ -39,7 +39,7 @@
             padding-top: 10px;
             font-family: SBAggroB;
         }
-        h4 {
+        h4, h5 {
             font-family: SBAggroB;
         }
         .card-margin {
@@ -229,14 +229,14 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="10000">
-                    <img src="/images/automatch.jpg" class="d-block w-100" alt="...">
+                    <img src="/images/room.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>자동매칭 결과</h5>
+                        <h5>옆으로 넘겨서 당신에게 맞는 룸메이트를 찾아보세요!</h5>
                     </div>
                 </div>
 
                 <% for (int i = 0; i < profileList.size(); i++) { %>
-                <div class="carousel-item" data-bs-interval="2000">
+                <div class="carousel-item" data-bs-interval="2000" style="text-align: center">
                     <div class="card-margin">
                         <div class="card mb-3" style="border-radius: 10px; max-width: 600px;" onclick="location.href='/student/main/detail?s_id=' + <%= profileList.get(i).getS_id() %>">
                             <div class="row g-0">
