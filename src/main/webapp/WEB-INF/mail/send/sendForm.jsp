@@ -24,11 +24,6 @@
             alert("성공적으로 전송되었습니다!");
             form.submit();
         }
-        function SendCancel(targetUri) {
-            form.action = targetUri;
-            form.method="GET";      //register form 요청
-            form.submit();
-        }
     </script>
     <style>
         @font-face {
@@ -111,7 +106,7 @@
             </tr>
         </table>
         <button type="button" value="전송" onClick="SendMessage()" class="btn btn-outline-dark">전송</button>&nbsp;
-        <button type="button" value="취소" class="btn btn-outline-dark" onClick="SendCancel('${pageContext.request.contextPath}/mail/receive/receiveList')">취소</button>
+        <button type="button" value="취소" class="btn btn-outline-dark" onClick="location.href='${pageContext.request.contextPath}/mail/receive/receiveList?flag=0';">취소</button>
     </form>
 </div>
 </body>
