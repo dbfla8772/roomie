@@ -27,87 +27,82 @@
             font-weight: normal;
             font-style: normal;
         }
-
-        body {
-            margin: 3%;
-            width: auto;
-            height: auto;
-        }
-
-        .link {
+        div{
             font-family: SBAggroL;
-            font-size: 14px;
-            position: relative;
-            top: 1%;
-            right: 235px;
         }
-
+        h4 {
+            margin-top: 3%;
+            font-weight: bold;
+        }
+        .title{
+            font-size: 13px;
+            margin-right: 2%;
+            margin-left: 2%;
+        }
+        .link {
+            font-size: 14px;
+            margin-left: 3.5%;
+        }
         .move-link:hover {
             font-weight: bold;
             color: #858585;
             text-decoration-line: none;
         }
-
         .move-link {
             color: #858585;
             text-decoration-line: none;
         }
-
-        h4, p {
-            font-family: SBAggroL;
-            text-align: center;
-        }
-
         #outline {
-            margin-top: 10px;
+            margin-top: 6px;
         }
-
-        #content {
-            text-align: center;
+        .list-group {
+            margin-right: 1%;
+            margin-left: 1%;
         }
-
     </style>
 </head>
 <%!
     List<Mail> receiveList;
 %>
 <body>
-<h4>받은 쪽지함</h4> <br>
+<div align="center">
+    <h4>받은쪽지함</h4>
 
-<div class="link" align="center">
-    <a href="${pageContext.request.contextPath}/mail/receive/receiveList?flag=0" class="move-link">받은쪽지</a>&nbsp;
-    <a href="${pageContext.request.contextPath}/mail/send/sendList?flag=1" class="move-link">보낸쪽지</a>
-</div>
-
-<%
-    receiveList = (List<Mail>) request.getAttribute("receiveList");
-    sender = (String) request.getAttribute("sender");
-%>
-<div class="list-group">
-    <div id="outline" class="d-flex w-100 justify-content-between" align="center">
-        <p>보낸 사람</p>
-        <p id="content">내용</p>
-        <p>날짜</p>
+    <div class="link" align="left">
+        <a href="${pageContext.request.contextPath}/mail/receive/receiveList?flag=0" class="move-link">받은쪽지</a>&nbsp;
+        <a href="${pageContext.request.contextPath}/mail/send/sendList?flag=1" class="move-link">보낸쪽지</a>
     </div>
-        <div class="list-group">
+
+    <%
+        receiveList = (List<Mail>) request.getAttribute("receiveList");
+        sender = (String) request.getAttribute("sender");
+    %>
+    <div class="list-group" align="center">
+        <div id="outline" class="d-flex w-100 justify-content-between" align="center">
+            <span class="title" style="margin-left: 3%">보낸사람</span>
+            <span class="title" style="margin-right: -4.5%">내용</span>
+            <span class="title" style="margin-right: 14%">날짜</span>
+        </div>
+        <div class="list-group" align="center">
             <c:forEach var="receiveMail" items="${receiveList}">
             <a href="${pageContext.request.contextPath}/mail/receive/detail?ch_id=${receiveMail.ch_id}&flag=0" class="list-group-item list-group-item-action" aria-current="true">
-                <div class="d-flex w-100 justify-content-between">
-                    <p class="mb-1">${receiveMail.sender_s}</p>
-                    <%--<c:choose>
-                    <c:when test="${fn:length(receiveMail.message.nm) > 14}">
-                        <p class="mb-1">${fn:substring(receiveMail.message.nm,0,13)}...</p>
-                    </c:when>
-                    <c:otherwise>
-                        <p class="mb-1">${receiveMail.message.nm}</p>
-                    </c:otherwise>
-                </c:choose>--%>
-                    <p class="mb-1">${receiveMail.message}</p>
-                    <p class="mb-1">${receiveMail.datetime}</p>
+                <div class="d-flex w-100 justify-content-between" align="center">
+                    <span class="mb-1" style="width:15%; text-align: left;">${receiveMail.sender_s}</span>
+<%--                    <c:choose>--%>
+<%--                    <c:when test="${fn:length(receiveMail.message.nm) > 14}">--%>
+<%--                        <p class="mb-1">${fn:substring(receiveMail.message.nm,0,13)}...</p>--%>
+<%--                    </c:when>--%>
+<%--                    <c:otherwise>--%>
+<%--                        <p class="mb-1">${receiveMail.message.nm}</p>--%>
+<%--                    </c:otherwise>--%>
+<%--                    </c:choose>--%>
+                    <span class="mb-1" style="margin-left: 10.5%">${receiveMail.message}</span>
+                    <span class="mb-1" style="width:27%;">${receiveMail.datetime}</span>
                 </div>
             </a>
             </c:forEach>
         </div>
+    </div>
 </div>
 </body>
 </html>

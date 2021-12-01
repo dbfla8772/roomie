@@ -37,19 +37,37 @@
             padding-top: 10px;
             font-family: SBAggroB;
         }
+        .all-card {
+            margin : 0 5%;
+        }
         .card-margin {
-            margin-left: 5%;
+            margin : 0 5%;
+            float: left;
             font-family: SBAggroL;
+            width: 40%;
+            padding: 20px;
         }
         .mb-3 {
             cursor: pointer;
-            float: left;
+            float: none;
             border-radius: 10px;
-            width: 40%;
-            margin: 0px 0% 100px 5%;
+            height: 180px;
+            max-height: 180px;
+            margin-bottom: 0px;
+            display: flex;
+        }
+        .col-md-4 {
+            margin: auto;
+        }
+        .col-md-8 {
+            padding-top: 1%;
+            margin: auto;
         }
         .text {
             font-family: SBAggroL;
+        }
+        .card-text {
+
         }
         .page-float {
             clear: left;
@@ -65,9 +83,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
-<% if (request.getSession().getAttribute("login").equals(0)) {
+<%--<% if (request.getSession().getAttribute("login").equals(0)) {
     out.println("<script>alert('로그인되었습니다.');</script>");
-} %>
+} %>--%>
 <div class="w-auto p-2" style="background-color: lightcyan; text-align: center;"><h4 style="font-family: SBAggroL">당신의 루미를 찾아보세요! <button class="btn btn-outline-success" type="submit" onClick="location.href='/student/automatch'">자동매칭 하러가기</button></h4></div>
 <div class="container">
     <header class="blog-header py-3">
@@ -97,10 +115,11 @@
     </div>
 </div>
 <%profileList = (List<Profile>) request.getAttribute("profileList");%>
-<form name="form">
+
+<div class="all-card">
     <c:forEach var="profile" items="${profileList}">
         <div class="card-margin">
-            <div class="card mb-3" style="border-radius: 10px; max-width: 600px;" onclick="location.href='/student/main/detail?s_id=' + ${profile.s_id}">
+            <div class="card mb-3" style="border-radius: 10px; " onclick="location.href='/student/main/detail?s_id=' + ${profile.s_id}">
                 <div class="row g-0">
                     <div class="col-md-4">
                         <c:if test="${profile.pr_img eq 0}"><%img_url = "/images/man1.png";%></c:if>
@@ -112,15 +131,14 @@
                     <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title">${profile.name}</h5>
-                            <p class="card-text">${profile.major} (${(profile.grade)+1}학년)&emsp;&emsp;&emsp;&emsp;&emsp; <br>${profile.age}세&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
-                            <p class="card-text"><small class="text-muted"></small></p>
+                            <p class="card-text">${profile.major} (${(profile.grade)+1}학년)<br>${profile.age}세</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </c:forEach>
-</form>
+</div>
 <%--    int totalCount;--%>
 <%--    int countList;--%>
 <%--    int totalPage;--%>
