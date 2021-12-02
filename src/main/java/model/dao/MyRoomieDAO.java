@@ -68,9 +68,9 @@ public class MyRoomieDAO {
         return 0;
     }
 
-    public boolean isPicked(MyRoomie roomie) {
+    public boolean isPicked(int s_id, int roomie_id) {
         String sql = "SELECT count(*) FROM myroomie WHERE s_id=? AND roomie_id=?";
-        jdbcUtil.setSqlAndParameters(sql, new Object[] {roomie.getS_id(), roomie.getRoomie_id()});
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {s_id, roomie_id});
 
         try {
             ResultSet rs = jdbcUtil.executeQuery();
