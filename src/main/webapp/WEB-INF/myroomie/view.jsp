@@ -99,7 +99,7 @@
 
 
 
-<div class="w-auto p-2" style="background-color: lightcyan; text-align: center;"><h4>당신의 루미를 찾아보세요! <button class="btn btn-outline-success" type="submit">자동매칭 하러가기</button></h4></div>
+<div class="w-auto p-2" style="background-color: lightcyan; text-align: center;"><h4>당신의 루미를 찾아보세요! <button class="btn btn-outline-success" type="submit" onClick="location.href='/student/automatch'">자동매칭 하러가기</button></h4></div>
 
 <a href = "${pageContext.request.contextPath}/student/main"><h3 class="roomietitle">Roomie</h3></a>
 <img src="/images/logo-font.png" id="logo" />

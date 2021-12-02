@@ -110,199 +110,40 @@
         }
     </style>
 </head>
+
 <body>
+<a href="" style="color: black"><h3>&nbsp;Roomie</h3></a>
+<a href=""><img src="/images/logo-font.png" id="logo"/></a>
 
-<a href="${pageContext.request.contextPath}/student/main" style="color: black"><h3>&nbsp;Roomie</h3></a>
-<a href="${pageContext.request.contextPath}/student/main"><img src="/images/logo-font.png" id="logo"/></a>
-
-<div class="container">
-    <header class="blog-header py-3">
-        <div class="row flex-nowrap justify-content-between align-items-center">
-            <div class="col-4 pt-1">
-                <a class="blog-header-logo text-dark" href="${pageContext.request.contextPath}/student/main"><h1>Roomie 루미</h1></a>
-            </div>
-            <div class="col-4 text-center">
-            </div>
-            <div class="col-4 d-flex justify-content-end align-items-center">
-                <h4>프로필 등록</h4><br>
-                <form><input type="button" value="등록" class="btn btn-outline-primary" onClick="profCreate()"></form> &nbsp
-            </div>
-        </div>
-        <br>
-    </header>
-</div>
 <!-- Create Form  -->
-<%--<div style="text-align: center">--%>
-<%--    <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/profile/create">--%>
-<%--        <table class="table table-bordered" style="margin: auto auto; width: 1000px">--%>
-<%--            <tr>--%>
-<%--                <th>이메일</th>--%>
-<%--                <td>--%>
-<%--                    <input type="text" readonly style="width: 240px" name="email"--%>
-<%--                           value="<%=(String)request.getAttribute("email")%>">--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <th>프로필 이미지</th>--%>
-<%--                <td>--%>
-<%--                    <input type="radio" name="pr_img" value="0">--%>
-<%--                    <img src="/images/man1.png" width="150px" height="150px">--%>
-<%--                    <input type="radio" name="pr_img" value="1">--%>
-<%--                    <img src="/images/man2.png" width="150px" height="150px">--%>
-<%--                    <input type="radio" name="pr_img" value="2">--%>
-<%--                    <img src="/images/woman1.png" width="150px" height="150px">--%>
-<%--                    <input type="radio" name="pr_img" value="3">--%>
-<%--                    <img src="/images/woman2.png" width="150px" height="150px">--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <th>닉네임</th>--%>
-<%--                <td>--%>
-<%--                    <input type="text" style="width: 240px" name="name">--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <th>전공</th>--%>
-<%--                <td>--%>
-<%--                    <input type="text" style="width: 240px" name="major">--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <th>학년</th>--%>
-<%--                <td>--%>
-<%--                    <input type="radio" name="grade" value="0">1학년--%>
-<%--                    <input type="radio" name="grade" value="1">2학년--%>
-<%--                    <input type="radio" name="grade" value="2">3학년--%>
-<%--                    <input type="radio" name="grade" value="3">4학년--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <th>나이</th>--%>
-<%--                <td>--%>
-<%--                    <input type="number" style="width: 240px" name="age" min="20" max="30">--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <th>흡연 여부</th>--%>
-<%--                <td>--%>
-<%--                    <input type="radio" name="smoking" value="0">O--%>
-<%--                    <input type="radio" name="smoking" value="1">X--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <th>잠버릇</th>--%>
-<%--                <td>--%>
-<%--                    <input type="radio" name="sleep_habit" value="0">없음--%>
-<%--                    <input type="radio" name="sleep_habit" value="1">코골이--%>
-<%--                    <input type="radio" name="sleep_habit" value="2">이갈이--%>
-<%--                    <input type="radio" name="sleep_habit" value="3">몽유병--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <th>생활패턴</th>--%>
-<%--                <td>--%>
-<%--                    <input type="radio" name="lifestyle" value="0">아침형--%>
-<%--                    <input type="radio" name="lifestyle" value="1">저녁형--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <th>청소주기</th>--%>
-<%--                <td>--%>
-<%--                    <input type="radio" name="cleaning" value="0">매일--%>
-<%--                    <input type="radio" name="cleaning" value="1">3일--%>
-<%--                    <input type="radio" name="cleaning" value="2">1주--%>
-<%--                    <input type="radio" name="cleaning" value="3">2주--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <th>실내 취식</th>--%>
-<%--                <td class="commCell">--%>
-<%--                    <input type="radio" name="indoor_eating" value="0">가능--%>
-<%--                    <input type="radio" name="indoor_eating" value="1">불가능--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <th>생필품 공유</th>--%>
-<%--                <td class="commCell">--%>
-<%--                    <input type="radio" name="sharing" value="0">가능--%>
-<%--                    <input type="radio" name="sharing" value="1">불가능--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <th>체질</th>--%>
-<%--                <td>--%>
-<%--                    <input type="radio" name="habitude" value="0">추위를 탐--%>
-<%--                    <input type="radio" name="habitude" value="1">더위를 탐--%>
-<%--                    <input type="radio" name="habitude" value="2">둘 다 탐--%>
-<%--                    <input type="radio" name="habitude" value="3">상관없음--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <th>MBTI</th>--%>
-<%--                <td>--%>
-<%--                    <select name="mbti">--%>
-<%--                        <option value="0">ENFJ</option>--%>
-<%--                        <option value="1">ENFP</option>--%>
-<%--                        <option value="2">ENTJ</option>--%>
-<%--                        <option value="3">ENTP</option>--%>
-<%--                        <option value="4">ESFJ</option>--%>
-<%--                        <option value="5">ESFP</option>--%>
-<%--                        <option value="6">ESTJ</option>--%>
-<%--                        <option value="7">ESTP</option>--%>
-<%--                        <option value="8">INFJ</option>--%>
-<%--                        <option value="9">INFP</option>--%>
-<%--                        <option value="10">INTJ</option>--%>
-<%--                        <option value="11">INTP</option>--%>
-<%--                        <option value="12">ISFJ</option>--%>
-<%--                        <option value="13">ISFP</option>--%>
-<%--                        <option value="14">ISTJ</option>--%>
-<%--                        <option value="15">ISTP</option>--%>
-<%--                    </select>--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <td style="text-align: center;" colspan="2">--%>
-<%--                    <input type="button" value="등록" class="btn btn-outline-primary" onClick="profCreate()"> &nbsp;--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--        </table>--%>
-<%--    </form>--%>
-<%--</div>--%>
-
+<form name="form" method="POST" action="${pageContext.servletContext.contextPath}/profile/create">
+<div style="text-align: right; padding-left: 100px; padding-right: 80px;">
+    <h4 style="text-align: right; padding-left: 100px; padding-right: 80px;">프로필 등록</h4><br>
+    <input type="button" value="등록" class="btn btn-outline-primary" onClick="profCreate()" style="margin-right: 80px">
+</div>
 
 <div class="dv" align="center">
-    <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/profile/create">
     <table style="border-radius: 10px; align: center;">
         <tr>
             <td colspan="2" rowspan="2">
                 <input type="radio" name="pr_img" value="0">
-                <img src="/images/man1.png" width="50px" height="50px">
+                <img src="/images/man1.png" width="150px" height="150px">
                 <input type="radio" name="pr_img" value="1">
-                <img src="/images/man2.png" width="50px" height="50px">
+                <img src="/images/man2.png" width="150px" height="150px">
                 <input type="radio" name="pr_img" value="2">
-                <img src="/images/woman1.png" width="50px" height="50px">
+                <img src="/images/woman1.png" width="150px" height="150px">
                 <input type="radio" name="pr_img" value="3">
-                <img src="/images/woman2.png" width="50px" height="50px">
-            </td>
-<%--            <td colspan="3" style="width:400px; text-align: center; font-size: x-large; font-weight: 800; padding-top: 5px;">--%>
-<%--                &nbsp;&nbsp;프로필 옵션<br><br>--%>
-<%--            </td>--%>
+                <img src="/images/woman2.png" width="150px" height="150px">
         </tr>
         <tr>
             <td width="100"></td>
             <td width="400" rowspan="3">
-                <table style="font-size: large; width:400px;">
+                <table style="font-size: large; width:500px;">
                     <tr>
                         <td style="width: 100px">이메일</td>
                         <td>
                             <input type="text" readonly style="width: 240px" name="email" readonly
                                    value="<%=(String)request.getAttribute("email")%>">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>닉네임</td>
-                        <td>
-                            <input type="text" style="width: 240px" name="name">
                         </td>
                     </tr>
                     <tr>
@@ -409,17 +250,11 @@
         </tr>
         <tr>
             <td align="center">
-                <input type="text" style="width: 240px" name="name">
+                닉네임: <input type="text" style="width: 240px" name="name">
             </td>
         </tr>
-<%--        <tr>--%>
-<%--            <td colspan="2" align="center">--%>
-<%--                <button class="button">나의 루미로 pick!</button>--%>
-<%--            </td>--%>
-<%--            <td width="100"></td>--%>
-<%--        </tr>--%>
     </table>
-    </form>
 </div>
+</form>
 </body>
 </html>
