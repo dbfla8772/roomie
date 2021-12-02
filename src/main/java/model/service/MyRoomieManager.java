@@ -39,4 +39,8 @@ public class MyRoomieManager {
     public List<Profile> findMyRoomieList(int s_id) throws SQLException {
         return myRoomieDAO.findMyRoomieList(s_id);
     }
+
+    public List<Profile> findWaitRoomieList(int s_id) throws SQLException {
+        return myRoomieDAO.findWaitRoomieList(s_id);
+    }
 }
