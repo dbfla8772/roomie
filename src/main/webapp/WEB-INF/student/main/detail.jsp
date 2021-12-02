@@ -237,6 +237,16 @@
         alert('스크랩되었습니다.');
         </c:if>
     }
+    function RoomiePick(targetURI) {
+        if (confirm("매칭신청을 하시겠습니까?") == true){
+            form.action = targetUri;
+            form.method="POST";
+            form.submit();
+            alert("신청되었습니다.\n상대방의 수락을 기다려주세요.");
+        } else {
+            return;
+        }
+    }
 </script>
 
 <div class="dv" align="center">
@@ -328,9 +338,17 @@
             <td width="100"></td>
         </tr>
         <tr>
+            <% if (request.getAttribute("myroomie").equals("false")) { %>
             <td colspan="2" align="center">
-                <button class="button">나의 루미로 pick!</button>
+                <input type="hidden" name="roomie_id" value="${profile.s_id}" readonly>
+                <button class="button" onClick="RoomiePick('${pageContext.servletContext.contextPath}/myroomie/apply')">나의 루미로 pick!</button>
             </td>
+            <%} else {%>
+            <td colspan="2" align="center">
+                <input type="hidden" name="roomie_id" value="${profile.s_id}" readonly>
+                <button class="button" onClick="RoomiePick('${pageContext.servletContext.contextPath}/myroomie/apply')" disabled>나의 루미로 pick!</button>
+            </td>
+            <%} %>
             <td width="100"></td>
         </tr>
     </table>

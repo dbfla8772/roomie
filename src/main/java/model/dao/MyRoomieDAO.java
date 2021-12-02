@@ -17,7 +17,7 @@ public class MyRoomieDAO {
     }
 
     public int create(MyRoomie roomie) throws SQLException {
-        String sql = "INSERT INTO myroomie VALUES(IDSEQ.nextval, ?, ?)";
+        String sql = "INSERT INTO myroomie VALUES(?, MYROOMIESEQ.nextval, ?, 0)";
         Object[] param = new Object[] {roomie.getS_id(), roomie.getRoomie_id()};
         jdbcUtil.setSqlAndParameters(sql, param);
 
@@ -31,6 +31,22 @@ public class MyRoomieDAO {
             jdbcUtil.commit();
             jdbcUtil.close();
         }
+
+        String sql1 = "INSERT INTO myroomie VALUES(?, MYROOMIESEQ.nextval, ?, 0)";
+        Object[] param1 = new Object[] {roomie.getRoomie_id(), roomie.getS_id()};
+        jdbcUtil.setSqlAndParameters(sql1, param1);
+
+        try {
+            int result = jdbcUtil.executeUpdate();
+            return result;
+        } catch (Exception ex) {
+            jdbcUtil.rollback();
+            ex.printStackTrace();
+        } finally {
+            jdbcUtil.commit();
+            jdbcUtil.close();
+        }
+
         return 0;
     }
 
@@ -53,8 +69,8 @@ public class MyRoomieDAO {
     }
 
     public boolean isPicked(MyRoomie roomie) {
-        String sql = "SELECT count(*) FROM myroomie WHERE roomie_id=?";
-        jdbcUtil.setSqlAndParameters(sql, new Object[] {roomie.getRoomie_id()});
+        String sql = "SELECT count(*) FROM myroomie WHERE s_id=? AND roomie_id=?";
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {roomie.getS_id(), roomie.getRoomie_id()});
 
         try {
             ResultSet rs = jdbcUtil.executeQuery();

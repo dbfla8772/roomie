@@ -2,8 +2,10 @@ package controller.extra;
 
 import controller.Controller;
 import controller.user.UserSessionUtils;
+import model.MyRoomie;
 import model.Profile;
 import model.service.MyRoomieManager;
+import model.service.ProfileManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,7 +33,21 @@ public class MyRoomieController implements Controller {
 
         /* POST */
         try {
-            return null;
+            int roomie_id = Integer.parseInt(request.getParameter("roomie_id"));
+            log.debug("s_id :: " + s_id + "roomie_id :: " + roomie_id);
+
+            MyRoomie mr = new MyRoomie(s_id, roomie_id);
+            roomieManager.create(mr);
+
+            ProfileManager manager = ProfileManager.getInstance();
+            Profile profile = manager.findProfile(roomie_id);
+
+            String myroomie = String.valueOf(roomieManager.isPicked(mr));
+
+            request.setAttribute("profile", profile);		// 사용자 정보 저장
+            request.setAttribute("myroomie", myroomie);		// 스크랩 여부 저장
+
+            return "/student/main/detail.jsp";
         } catch (Exception e) {
             return "/student/main.jsp";
         }

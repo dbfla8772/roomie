@@ -3,6 +3,7 @@ package model.service;
 
 import model.MyRoomie;
 import model.Profile;
+import model.Scrap;
 import model.dao.MyRoomieDAO;
 
 import java.sql.SQLException;
@@ -23,6 +24,14 @@ public class MyRoomieManager {
 
     public static MyRoomieManager getInstance() {
         return manager;
+    }
+
+    public int create(MyRoomie myroomie) throws SQLException, ExistingStudentException {
+        return myRoomieDAO.create(myroomie);
+    }
+
+    public boolean isPicked(MyRoomie myroomie) throws SQLException {
+        return myRoomieDAO.isPicked(myroomie);
     }
 
     public List<Profile> findMyRoomieList(int s_id) throws SQLException {

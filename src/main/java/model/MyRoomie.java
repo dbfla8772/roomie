@@ -7,6 +7,12 @@ public class MyRoomie {
     private int roomie_check;
 
     public MyRoomie() {}
+
+    public MyRoomie(int s_id, int roomie_id) {
+        this.s_id = s_id;
+        this.roomie_id = roomie_id;
+    }
+
     public MyRoomie(int r_id, int s_id, int roomie_id, int roomie_check) {
         this.r_id = r_id;
         this.s_id = s_id;

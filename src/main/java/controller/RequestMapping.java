@@ -44,6 +44,8 @@ public class RequestMapping {
         mappings.put("/mail/receive/detail", new ViewMailController());
         mappings.put("/mail/delete", new DeleteMailController());
 
+        mappings.put("/myroomie/apply", new MyRoomieController());
+
 
         logger.info("Initialized Request Mapping!");
     }
