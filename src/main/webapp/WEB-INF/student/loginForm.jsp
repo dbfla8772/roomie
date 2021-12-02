@@ -81,6 +81,11 @@
     </style>
 </head>
 <body>
+<%
+    String err = (String) request.getAttribute("loginFailed");
+    if (err != null && err.equals("true")) {
+        out.println("<script>alert('아이디 혹은 비밀번호가 일치하지 않습니다.');</script>");
+}%>
 <br>
 <form name="form" method="POST" action="${pageContext.request.contextPath}/student/login">
     <div class="main">
