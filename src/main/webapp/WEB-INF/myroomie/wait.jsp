@@ -164,7 +164,7 @@
 <c:forEach var="profile" items="${requestList}">
     <div class="card-margin">
         <div class="card mb-3" style="border-radius: 10px;"
-             onclick="location.href='/roomie/detail?s_id=' + ${profile.s_id}">
+             onclick="location.href='/myroomie/detail?s_id=' + ${profile.s_id}">
             <div class="row g-0">
                 <div class="col-md-4">
                     <c:if test="${profile.pr_img eq 0}"><%img_url = "/images/man1.png";%></c:if>
