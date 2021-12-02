@@ -43,14 +43,14 @@
             font-family: SBAggroB;
         }
         .card-margin {
-            margin-left: 5%;
+            margin-left: 500px;
             font-family: SBAggroL;
         }
         .mb-3 {
             cursor: pointer;
             float: left;
             border-radius: 10px;
-            width: 40%;
+            width: 60%;
             margin: 0px 0% 100px 5%;
         }
         .page-float {
@@ -79,7 +79,8 @@
 </div>
 
 <% profileList = (List<Profile>) request.getAttribute("profileList"); %>
-    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel"
+         style="margin: 10px 100px 0px 100px; text-align: center;">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <%
@@ -90,14 +91,14 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="10000">
-                <img src="/images/room.jpg" class="d-block w-100" alt="...">
+                <img src="/images/room.jpg" class="d-block w-100" alt="..." style="height: 750px">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>옆으로 넘겨서 당신에게 맞는 룸메이트를 찾아보세요!</h5>
                 </div>
             </div>
 
             <% for (int i = 0; i < profileList.size(); i++) { %>
-            <div class="carousel-item" data-bs-interval="2000" style="text-align: center">
+            <div class="carousel-item" data-bs-interval="2000">
                 <div class="card-margin">
                     <div class="card mb-3" style="border-radius: 10px; max-width: 600px;" onclick="location.href='/student/main/detail?s_id=' + <%= profileList.get(i).getS_id() %>">
                         <div class="row g-0">
