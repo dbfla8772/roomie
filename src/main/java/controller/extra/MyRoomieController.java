@@ -30,9 +30,6 @@ public class MyRoomieController implements Controller {
             List<Profile> roomieList = roomieManager.findMyRoomieList(s_id);
             request.setAttribute("roomieList", roomieList);
 
-            List<Profile> waitList = roomieManager.findWaitRoomieList(s_id);
-            request.setAttribute("waitList", waitList);
-
             return "/myroomie/view.jsp";
         }
 
