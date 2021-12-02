@@ -37,17 +37,20 @@ public class ViewProfileController implements Controller {
     	Profile profile = null;
 		String scrap;
 		String myroomie;
+		String requestCheck;  //나에게 마이루미 신청을 보냈는지 안보냈는지
     	try {
 			profile = manager.findProfile(userId);	// 사용자 정보 검색
 
 			scrap = String.valueOf(scrapManager.isScraped(s_id, userId));
 			myroomie = String.valueOf(roomieManager.isPicked(s_id, userId));
+			requestCheck = String.valueOf(roomieManager.isPicked(userId, s_id));
 
 			log.debug("scrap 여부 확인: " + scrap);
 			
 			request.setAttribute("profile", profile);		// 사용자 정보 저장
 			request.setAttribute("scrap", scrap);		// 스크랩 여부 저장
 			request.setAttribute("myroomie", myroomie);  //마이루미 신청 여부 저장
+			request.setAttribute("requestCheck", requestCheck);
 
 			return "/student/main/detail.jsp";				// 사용자 보기 화면으로 이동
 		} catch (StudentNotFoundException e) {
