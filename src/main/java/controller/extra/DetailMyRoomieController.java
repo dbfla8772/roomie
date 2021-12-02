@@ -30,6 +30,7 @@ public class DetailMyRoomieController implements Controller {
         try {
             profile = manager.findProfile(userId);	// 사용자 정보 검색
             int flag = roomieManager.isCheckd(s_id, userId);
+            log.debug("flag확인 :: " + flag);
 
             request.setAttribute("profile", profile);
             request.setAttribute("flag", flag);
