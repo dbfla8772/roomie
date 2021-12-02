@@ -32,8 +32,17 @@ public class MailManager {
         return mailDAO.remove(ch_id);
     }
 
-    public Mail findMail(int ch_id) throws Exception {
-        Mail mail = mailDAO.findMail(ch_id);
+    public Mail findsendMail(int ch_id) throws Exception {
+        Mail mail = mailDAO.findsendMail(ch_id);
+
+        if (mail == null) {
+            throw new Exception("존재하지 않는 메세지입니다.");
+        }
+        return mail;
+    }
+
+    public Mail findreceiveMail(int ch_id) throws Exception {
+        Mail mail = mailDAO.findreceiveMail(ch_id);
 
         if (mail == null) {
             throw new Exception("존재하지 않는 메세지입니다.");
