@@ -48,38 +48,33 @@
         }
 
         h4 {
-            margin-top: 3%;
+            margin-top: 12px;
             font-family: SBAggroL;
             font-weight: bold;
         }
-
         table {
             font-family: SBAggroL;
             border: black 1px solid;
             font-size: 15px;
-            margin-top: 1%;
+            margin-top: 10px;
         }
-
         td {
             border: black 1px solid;
         }
-
         .title {
             text-align: center;
         }
-
         button {
             margin-top: 1%;
             font-family: SBAggroL;
             font-size: 15px;
         }
-
         .link {
             font-family: SBAggroL;
             font-size: 14px;
-            margin-left: 2%;
+            margin-top: 4px;
+            margin-right: 460px;
         }
-
         a:hover {
             font-weight: bold;
             color: #858585;
@@ -89,16 +84,13 @@
             text-decoration-line: none;
             color: #858585;
         }
-
         .btn {
-            margin-top: 1%;
             font-family: SBAggroL;
             font-size: 15px;
             position: relative;
-            top: 1%;
-            left: 105px;
+            top : 3px;
+            left: 110px;
         }
-
         .receive {
             color: black;
             font-weight: bold;
@@ -118,7 +110,7 @@
 %>
 <div align="center">
 <h4>쪽지내용</h4>
-    <div class="link" align="left">
+    <div class="link">
         <a href="${pageContext.request.contextPath}/mail/receive/receiveList?flag=0" class="receive">받은쪽지</a>&nbsp;
         <a href="${pageContext.request.contextPath}/mail/send/sendList?flag=1">보낸쪽지</a>
     </div>
@@ -147,8 +139,6 @@
         </table>
         <span class="btn">
             <button type="button" value="답장" onClick="SendMessage()" class="btn btn-outline-dark">답장</button>&nbsp;
-<%--            <button type="button" value="삭제" class="btn btn-outline-dark"--%>
-<%--                    onClick="Go('${pageContext.request.contextPath}/mail/delete?flag=1')">삭제</button>&nbsp;--%>
             <button type="button" value="목록" class="btn btn-outline-dark"
                     onClick="document.location.href='${pageContext.request.contextPath}/mail/receive/receiveList?flag=0'">목록</button>        </span>
     </form>
