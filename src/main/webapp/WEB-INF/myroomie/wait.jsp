@@ -4,6 +4,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%!
     List<Profile> waitList;
+    List<Profile> requestList;
     String img_url;
 %>
 <html>
@@ -68,6 +69,14 @@
             font-family: SBAggroL;
         }
 
+        .btn-outline-secondary {
+            width: 100px;
+            padding: 5px;
+            color: black;
+            border-color: lightgrey;
+            background-color: white;
+        }
+
         .card-margin {
             margin: 0 5%;
             float: left;
@@ -119,9 +128,40 @@
 <img src="/images/logo-font.png" id="logo"/>
 
 <h3 class="title">나의 루미</h3>
-<h4>신청 대기</h4>
+
+<button type="button" class="btn btn-outline-secondary" name="go" onclick="document.location.href='${pageContext.request.contextPath}/myroomie/view'">
+    매칭 목록</button>
+
+<h4>내가 보낸 신청</h4>
 <%waitList = (List<Profile>) request.getAttribute("waitList");%>
 <c:forEach var="profile" items="${waitList}">
+    <div class="card-margin">
+        <div class="card mb-3" style="border-radius: 10px;"
+             onclick="location.href='/student/main/detail?s_id=' + ${profile.s_id}">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <c:if test="${profile.pr_img eq 0}"><%img_url = "/images/man1.png";%></c:if>
+                    <c:if test="${profile.pr_img eq 1}"><%img_url = "/images/man2.png";%></c:if>
+                    <c:if test="${profile.pr_img eq 2}"><%img_url = "/images/woman1.png";%></c:if>
+                    <c:if test="${profile.pr_img eq 3}"><%img_url = "/images/woman2.png";%></c:if>
+                    <img style="border-radius: 10px;" src="<c:url value='<%=img_url%>' />"
+                         class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">${profile.name}</h5>
+                        <p class="card-text">전공: ${profile.major} <br>나이: ${profile.age}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</c:forEach>
+
+
+<h4>나에게 온 신청</h4>
+<%requestList = (List<Profile>) request.getAttribute("requestList");%>
+<c:forEach var="profile" items="${requestList}">
     <div class="card-margin">
         <div class="card mb-3" style="border-radius: 10px;"
              onclick="location.href='/student/main/detail?s_id=' + ${profile.s_id}">

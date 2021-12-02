@@ -1,7 +1,10 @@
 <%@ page import="model.Profile" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%! Profile profile; String img_url, smoking, sharing, lifestyle, grade, habitude, sleep_habit, cleaning, indoor_eating, mbti, isScraped; %>
+<%!
+    Profile profile; String img_url, smoking, sharing, lifestyle, grade, habitude, sleep_habit, cleaning, indoor_eating, mbti, isScraped;
+    String requestCheck;
+%>
 <html>
 <head>
     <title>detail profile</title>
@@ -226,6 +229,7 @@
         mbti = "ISTP";
 
     isScraped = (String) request.getAttribute("scrap");
+    requestCheck = (String) request.getAttribute("requestCheck");
 %>
 <script>
     function scrapBtn() {
@@ -237,7 +241,12 @@
         alert('스크랩되었습니다.');
         </c:if>
     }
-    function RoomiePick() {
+    function RoomiePick(requestCheck) {
+        if (requestCheck == true) {
+            alert("상대방이 이미 나를 pick하였습니다.");
+            return;
+        }
+
         if (confirm("매칭신청을 하시겠습니까?") == true){
             form1.submit();
             alert("신청되었습니다.\n상대방의 수락을 기다려주세요.");
@@ -340,7 +349,7 @@
             <td colspan="2" align="center">
                 <form name="form1" method="POST" action="${pageContext.servletContext.contextPath}/myroomie/apply">
                     <input type="hidden" name="roomie_id" value="${profile.s_id}">
-                    <input type="submit" class="button" value="나의 루미로 pick!" onclick="RoomiePick()">
+                    <input type="button" class="button" value="나의 루미로 pick!" onclick="RoomiePick(<%=requestCheck%>)">
                 </form>
             </td>
             <%} else {%>
