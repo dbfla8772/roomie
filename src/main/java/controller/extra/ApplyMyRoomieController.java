@@ -15,8 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
-public class MyRoomieController implements Controller {
-    private static final Logger log = LoggerFactory.getLogger(controller.extra.MyRoomieController.class);
+public class ApplyMyRoomieController implements Controller {
+    private static final Logger log = LoggerFactory.getLogger(controller.extra.ApplyMyRoomieController.class);
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -24,21 +24,21 @@ public class MyRoomieController implements Controller {
         int s_id = (int) session.getAttribute(UserSessionUtils.USER_SESSION_ID);
 
         MyRoomieManager roomieManager = MyRoomieManager.getInstance();
-        ScrapManager scrapManager = ScrapManager.getInstance();
+        int roomie_id = Integer.parseInt(request.getParameter("roomie_id"));
+        int r_id = Integer.parseInt(request.getParameter("r_id"));
 
+        //거절버튼 눌렀을 때
         if (request.getMethod().equals("GET")) {
-            List<Profile> roomieList = roomieManager.findMyRoomieList(s_id);
-            request.setAttribute("roomieList", roomieList);
+            MyRoomie mr = new MyRoomie(s_id, roomie_id);
+            roomieManager.remove(mr);
 
             return "/myroomie/view.jsp";
         }
 
         /* POST */
         try {
-            //마이루미로 픽 눌렀을 때
-            int roomie_id = Integer.parseInt(request.getParameter("roomie_id"));
+            //수락버튼 눌렀을때
             MyRoomie mr = new MyRoomie(s_id, roomie_id);
-
             roomieManager.create(mr);
 
             log.debug("s_id 확인: " + s_id + " roomie_id 확인: " + roomie_id);

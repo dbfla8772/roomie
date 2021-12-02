@@ -30,6 +30,10 @@ public class MyRoomieManager {
         return myRoomieDAO.create(myroomie);
     }
 
+    public int remove(MyRoomie myroomie) throws SQLException {
+        return myRoomieDAO.remove(myroomie);
+    }
+
     public boolean isPicked(int s_id, int roomie_id) throws SQLException {
         return myRoomieDAO.isPicked(s_id, roomie_id);
     }
