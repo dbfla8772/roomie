@@ -33,7 +33,7 @@ public class RequestMapping {
         mappings.put("/student/automatch", new AutoMatchController());
 
         mappings.put("/myroomie/view", new MyRoomieController());
-        mappings.put("/myroomie/waiting", new MyRoomieController());
+        mappings.put("/myroomie/waiting", new WaitRoomieController());
         mappings.put("/myroomie/apply", new MyRoomieController());
         mappings.put("/myroomie/accept", new ApplyMyRoomieController());
         mappings.put("/myroomie/delete", new ApplyMyRoomieController());

@@ -68,6 +68,14 @@
             font-family: SBAggroL;
         }
 
+        .btn-outline-secondary {
+            width: 100px;
+            padding: 5px;
+            color: black;
+            border-color: lightgrey;
+            background-color: white;
+        }
+
         .card-margin {
             margin: 0 5%;
             float: left;
@@ -125,7 +133,7 @@
 
 <h3 class="title">나의 루미</h3>
 
-<button type="button" name="go" onclick="document.location.href='${pageContext.request.contextPath}/myroomie/waiting'">신청대기 목록</button>
+<button type="button" class="btn btn-outline-secondary" name="go" onclick="document.location.href='${pageContext.request.contextPath}/myroomie/waiting'">신청대기 목록</button>
 
     <h4>매칭 완료</h4>
         <%roomieList = (List<Profile>) request.getAttribute("roomieList");%>
