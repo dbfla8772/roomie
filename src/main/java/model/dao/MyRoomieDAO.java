@@ -23,7 +23,6 @@ public class MyRoomieDAO {
 
         try {
             int result = jdbcUtil.executeUpdate();
-            return result;
         } catch (Exception ex) {
             jdbcUtil.rollback();
             ex.printStackTrace();
