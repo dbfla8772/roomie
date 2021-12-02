@@ -37,6 +37,7 @@ public class RequestMapping {
         mappings.put("/myroomie/apply", new MyRoomieController());
         mappings.put("/myroomie/accept", new ApplyMyRoomieController());
         mappings.put("/myroomie/delete", new ApplyMyRoomieController());
+        mappings.put("/myroomie/detail", new DetailMyRoomieController());
 
         mappings.put("/scrap/view", new ScrapController());
         mappings.put("/scrap/delete", new DeleteScrapController());

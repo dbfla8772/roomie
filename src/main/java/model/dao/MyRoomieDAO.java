@@ -117,6 +117,27 @@ public class MyRoomieDAO {
         return false;
     }
 
+    public int isChecked(int s_id, int roomie_id) throws SQLException {
+        String sql = "SELECT roomie_check "
+                + "FROM myroomie WHERE s_id=? AND roomie_id=?";
+
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {s_id, roomie_id});
+
+        try {
+            ResultSet rs = jdbcUtil.executeQuery();
+            if (rs.next()) {
+                int check = rs.getInt(1);
+                System.out.println("flag 확인 ::" + check);
+                return check;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            jdbcUtil.close();
+        }
+        return 0;
+    }
+
     // 매칭된 루미 리스트 찾기
     public List<Profile> findMyRoomieList(int s_id) throws SQLException {
         String sql = "SELECT roomie_id, activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, major, mbti, cleaning, indoor_eating, sharing, habitude "

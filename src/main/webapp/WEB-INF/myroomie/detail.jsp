@@ -225,7 +225,6 @@
     else
         mbti = "ISTP";
 
-    isScraped = (String) request.getAttribute("scrap");
 %>
 <script>
     function Accept() {
@@ -322,7 +321,7 @@
             </td>
         </tr>
         <tr>
-            <% if ((int)request.getAttribute("flag") == 0) {    //flag가 0이면 삭제버튼, 아니면 수락&거절버튼%>
+            <% if ((int)request.getAttribute("flag") == 0) {    //flag가 1이면 삭제버튼, 아니면 수락&거절버튼%>
             <td align="center">
                 <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/myroomie/accept">
                     <input type="hidden" name="roomie_id" value="${profile.s_id}">

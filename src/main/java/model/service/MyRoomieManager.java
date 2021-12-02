@@ -40,6 +40,10 @@ public class MyRoomieManager {
         return myRoomieDAO.isPicked(s_id, roomie_id);
     }
 
+    public int isCheckd(int s_id, int roomie_id) throws SQLException {
+        return myRoomieDAO.isChecked(s_id, roomie_id);
+    }
+
     public List<Profile> findMyRoomieList(int s_id) throws SQLException {
         return myRoomieDAO.findMyRoomieList(s_id);
     }
