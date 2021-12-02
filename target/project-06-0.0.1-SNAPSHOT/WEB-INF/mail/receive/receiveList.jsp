@@ -93,7 +93,7 @@
                     <span class="mb-1" style="width:15%; text-align: left;">${receiveMail.sender_s}</span>
                     <span class="mb-1" style="margin-left: 10.5%; width: 30%; overflow: hidden;
                                                 text-overflow: ellipsis; white-space: nowrap;">${receiveMail.message}</span>
-                    <span class="mb-1" style="width:27%;">${receiveMail.datetime}</span>
+                    <span class="mb-1" style="width:270px;">${receiveMail.datetime}</span>
                 </div>
             </a>
             </c:forEach>
