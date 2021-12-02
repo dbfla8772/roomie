@@ -1,7 +1,7 @@
 <%@ page import="model.Profile" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%! Profile profile; String img_url, smoking, sharing, lifestyle, grade, habitude, sleep_habit, cleaning, indoor_eating, mbti; %>
+<%! Profile profile; String img_url, smoking, sharing, lifestyle, grade, habitude, sleep_habit, cleaning, indoor_eating, mbti, isScraped; %>
 <html>
 <head>
     <title>detail profile</title>
@@ -28,6 +28,7 @@
             margin: 0;
             width: auto;
             height: auto;
+            margin-bottom: 4%;
         }
 
         h3 {
@@ -45,6 +46,11 @@
         #logo {
             width: 70px;
             margin-left: 5px;
+        }
+
+        .dv {
+            margin-top: 50px;
+            margin-bottom: 30px;
         }
 
         td {
@@ -87,7 +93,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
-
 </head>
 <body>
 <div class="w-auto p-2" style="background-color: lightcyan; text-align: center;">
@@ -136,12 +141,33 @@
     else if (profile.getGrade()==3)
         grade = "4학년";
 
+    if (profile.getSharing()==0)
+        sharing = "가능";
+    else
+        sharing = "불가능";
+
+    if (profile.getLifestyle()==0)
+        lifestyle = "아침형";
+    else
+        lifestyle = "저녁형";
+
+    if (profile.getGrade()==0)
+        grade = "1학년";
+    else if (profile.getGrade()==1)
+        grade = "2학년";
+    else if (profile.getGrade()==2)
+        grade = "3학년";
+    else if (profile.getGrade()==3)
+        grade = "4학년";
+
     if (profile.getHabitude()==0)
         habitude = "추위를 탐";
     else if (profile.getHabitude()==1)
         habitude = "더위를 탐";
+    else if (profile.getHabitude()==2)
+        habitude = "둘 다 탐";
     else
-        habitude = "둘 다 안 탐";
+        habitude = "상관없음";
 
     if (profile.getSleep_habit()==0)
         sleep_habit = "없음";
@@ -162,9 +188,7 @@
         cleaning = "2주";
 
     if (profile.getIndoor_eating()==0)
-        indoor_eating = "냄새나는 음식도 가능";
-    else if (profile.getIndoor_eating()==0)
-        indoor_eating = "냄새 안 나는 음식만 가능";
+        indoor_eating = "가능";
     else
         indoor_eating = "불가능";
 
@@ -200,7 +224,20 @@
         mbti = "ISTJ";
     else
         mbti = "ISTP";
+
+    isScraped = (String) request.getAttribute("scrap");
 %>
+<script>
+    function scrapBtn() {
+        <c:set var="s" value="<%=isScraped%>" />
+        <c:if test="${s eq 'true'}">
+        alert('스크랩 취소되었습니다.');
+        </c:if>
+        <c:if test="${s eq 'false'}">
+        alert('스크랩되었습니다.');
+        </c:if>
+    }
+</script>
 
 <div class="dv" align="center">
     <table style="border-radius: 10px; align: center;">
@@ -208,7 +245,7 @@
             <td colspan="2" rowspan="2">
                 <img style="border-radius: 10px; width:300px; height:400px; object-fit:contain;" src="<%=img_url%>"/>
             </td>
-            <td colspan="3" style="width:400px; text-align: left; font-size: x-large; font-weight: 800; padding-top: 5px;">
+            <td colspan="3" style="width:400px; text-align: center; font-size: x-large; font-weight: 800; padding-top: 5px;">
                 &nbsp;&nbsp;프로필 옵션<br><br>
             </td>
             <td/>
@@ -270,23 +307,23 @@
         </tr>
         <tr>
             <td align="center">
-                <% if (request.getAttribute("scrap").equals("false")) {%>
+                <% if (request.getAttribute("scrap").equals("false")) { %>
                 <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/scrap/view">
                     <input type="hidden" name="scrap_id" value="${profile.s_id}">
-                    <input type="submit" class="button" value="스크랩">
+                    <input type="submit" class="button" value="스크랩" onclick="scrapBtn()">
                 </form>
                 <%} else {%>
-                <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/scrap/delete"--%>
+                <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/scrap/delete">
                     <input type="hidden" name="scrap_id" value="${profile.s_id}">
-                    <input type="submit" class="button" value="스크랩 취소">
+                    <input type="submit" class="button" value="스크랩 취소" onclick="scrapBtn()">
                 </form>
                 <%} %>
             </td>
             <td align="center">
-                <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/chat/send">
-                    <input type="hidden" name="receiver" value="${profile.s_id}">
-                    <input type="submit" class="button" value="쪽지">
-                </form>
+                <a href="${pageContext.request.contextPath}/mail/sendForm?receiver=${profile.s_id}"
+                   onClick="window.open(this.href, '', 'width=600, height=550'); return false;">
+                        <input type="submit" class="button" value="쪽지" style="margin-top: -9%">
+                </a>
             </td>
             <td width="100"></td>
         </tr>

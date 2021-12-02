@@ -32,6 +32,7 @@
                 return false;
             }
             form.submit();
+            alert("수정되었습니다.");
         }
     </script>
     <style>
@@ -48,9 +49,12 @@
             font-style: normal;
         }
         html, body {
-            margin: 0;
+            margin: 1% 0 2% 0;
             width: auto;
             height: auto;
+        }
+        div {
+            margin: 30px;
         }
         h2 {
             font-family: SBAggroB;
@@ -89,7 +93,9 @@
 <a href = "${pageContext.request.contextPath}/student/main" style="color: black"><h3>&nbsp;Roomie</h3></a>
 <a href = "${pageContext.request.contextPath}/student/main"><img src="/images/logo-font.png" id="logo"/></a>
 
-<h2>마이 페이지 수정</h2>
+<div class="mypage-title">
+    <h2>마이 페이지 수정</h2>
+</div>
 <!-- Update Form  -->
 <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/profile/update">
     <input type="hidden" name="s_id" value="${profile.s_id}"/>
@@ -199,22 +205,18 @@
             <th>실내 취식</th>
             <td>
                 <input type="radio" name="indoor_eating" value="0"
-                    <%if (profile.getIndoor_eating() == 0) {%> checked <%} %>>냄새 나는 음식도 가능
+                    <%if (profile.getIndoor_eating() == 0) {%> checked <%} %>>가능
                 <input type="radio" name="indoor_eating" value="1"
-                    <%if (profile.getIndoor_eating() == 1) {%> checked <%} %>>냄새 안나는 음식만 가능
-                <input type="radio" name="indoor_eating" value="2"
-                    <%if (profile.getIndoor_eating() == 2) {%> checked <%} %>>불가능
+                    <%if (profile.getIndoor_eating() == 1) {%> checked <%} %>>불가능
             </td>
         </tr>
         <tr>
             <th>생필품 공유</th>
             <td>
                 <input type="radio" name="sharing" value="0"
-                    <%if (profile.getSharing() == 0) {%> checked <%} %>>전부 가능
+                    <%if (profile.getSharing() == 0) {%> checked <%} %>>가능
                 <input type="radio" name="sharing" value="1"
-                    <%if (profile.getSharing() == 1) {%> checked <%} %>>공용 용품만 가능
-                <input type="radio" name="sharing" value="2"
-                    <%if (profile.getSharing() == 2) {%> checked <%} %>>전부 불가능
+                    <%if (profile.getSharing() == 1) {%> checked <%} %>>불가능
             </td>
         </tr>
         <tr>
@@ -225,7 +227,9 @@
                 <input type="radio" name="habitude" value="1"
                     <%if (profile.getHabitude() == 1) {%> checked <%} %>>더위를 탐
                 <input type="radio" name="habitude" value="2"
-                    <%if (profile.getHabitude() == 2) {%> checked <%} %>>둘 다 안탐
+                    <%if (profile.getHabitude() == 2) {%> checked <%} %>>둘 다 탐
+                <input type="radio" name="habitude" value="3"
+                    <%if (profile.getHabitude() == 3) {%> checked <%} %>>상관없음
             </td>
         </tr>
         <tr>

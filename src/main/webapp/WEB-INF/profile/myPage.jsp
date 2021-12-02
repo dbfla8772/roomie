@@ -14,8 +14,17 @@
             form.submit();
         }*/
         function update() {
-            form.method = "GET";
-            form.submit();
+            form2.method = "GET";
+            form2.submit();
+        }
+        function drop() {
+            if (confirm("정말 탈퇴하시겠습니까?") == true){
+                form1.submit();
+                alert("탈퇴되었습니다.");
+
+            } else {
+                return;
+            }
         }
     </script>
     <style>
@@ -126,11 +135,9 @@
         smoking = "X";
 
     if (profile.getSharing()==0)
-        sharing = "전부 가능";
-    else if (profile.getSharing() == 1)
-        sharing = "공용 용품만 가능";
+        sharing = "가능";
     else
-        sharing = "전부 불가능";
+        sharing = "불가능";
 
     if (profile.getLifestyle()==0)
         lifestyle = "아침형";
@@ -150,8 +157,10 @@
         habitude = "추위를 탐";
     else if (profile.getHabitude()==1)
         habitude = "더위를 탐";
+    else if (profile.getHabitude()==2)
+        habitude = "둘 다 탐";
     else
-        habitude = "둘 다 안 탐";
+        habitude = "상관없음";
 
     if (profile.getSleep_habit()==0)
         sleep_habit = "없음";
@@ -172,9 +181,7 @@
         cleaning = "2주";
 
     if (profile.getIndoor_eating()==0)
-        indoor_eating = "냄새나는 음식도 가능";
-    else if (profile.getIndoor_eating()==1)
-        indoor_eating = "냄새 안 나는 음식만 가능";
+        indoor_eating = "가능";
     else
         indoor_eating = "불가능";
 
@@ -284,13 +291,13 @@
         </tr>
         <tr>
             <td align="center">
-                <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/profile/update">
+                <form name="form1" method="POST" action="${pageContext.servletContext.contextPath}/student/delete">
+                    <input type="button" class="button" value="탈퇴하기" onclick="drop()">
+                </form>
+                <form name="form2" method="POST" action="${pageContext.servletContext.contextPath}/profile/update">
                     <input type="hidden" name="s_id" value="${profile.s_id}">
                     <input type="button" class="button" value="수정하기" onclick="update()">
                 </form>
-                <%--
-                                <button class="button" name="sc_id" value="${profile.s_id}" type="submit" onClick="location.href='/scrap/view'">스크랩</button>
-                --%>
             </td>
         </tr>
     </table>

@@ -16,11 +16,11 @@ public class DeleteStudentController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)	throws Exception {
-		String deleteId = request.getParameter("userId");
-		log.debug("Delete User : {}", deleteId);
 
 		StudentManager manager = StudentManager.getInstance();
 		HttpSession session = request.getSession();
+		String deleteId = (String) session.getAttribute(UserSessionUtils.USER_SESSION_KEY);
+		log.debug("Delete User : {}", deleteId);
 
 		if ((UserSessionUtils.isLoginUser("admin", session) && 	// 로그인한 사용자가 관리자이고
 				!deleteId.equals("admin"))							// 삭제 대상이 일반 사용자인 경우,
@@ -43,6 +43,6 @@ public class DeleteStudentController implements Controller {
 				? "시스템 관리자 정보는 삭제할 수 없습니다."
 				: "타인의 정보는 삭제할 수 없습니다.";
 		request.setAttribute("exception", new IllegalStateException(msg));
-		return "/student/main.jsp";		// 사용자 보기 화면으로 이동 (forwarding)
+		return "/student/loginForm.jsp";
 	}
 }

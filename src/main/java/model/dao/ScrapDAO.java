@@ -73,7 +73,7 @@ public class ScrapDAO {
     public List<Profile> findScarpList(int s_id) throws SQLException {
         String sql = "SELECT scrap_id, activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, major, cleaning, indoor_eating, mbti, sharing, habitude "
                 + "FROM scrap s JOIN profile p ON s.scrap_id=p.s_id "
-                + "WHERE s.s_id = ? "
+                + "WHERE activation=1 AND s.s_id = ? "
                 + "ORDER BY sc_id DESC";
         jdbcUtil.setSqlAndParameters(sql, new Object[] {s_id});
 

@@ -19,6 +19,7 @@ public class ViewProfileController implements Controller {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
 		int s_id = (int) session.getAttribute(UserSessionUtils.USER_SESSION_ID);
+		session.setAttribute("login", 1);
 
 		// 로그인 여부 확인
     	if (!UserSessionUtils.hasLogined(request.getSession())) {

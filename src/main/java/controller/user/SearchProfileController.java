@@ -21,6 +21,7 @@ public class SearchProfileController implements Controller {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         HttpSession session = request.getSession();
+//        session.setAttribute("login", 1);
         int s_id = (int) session.getAttribute(UserSessionUtils.USER_SESSION_ID);
         // 로그인 여부 확인
         if (!UserSessionUtils.hasLogined(session)) {
