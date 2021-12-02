@@ -25,12 +25,14 @@ public class ApplyMyRoomieController implements Controller {
 
         MyRoomieManager roomieManager = MyRoomieManager.getInstance();
         int roomie_id = Integer.parseInt(request.getParameter("roomie_id"));
-        int r_id = Integer.parseInt(request.getParameter("r_id"));
 
         //거절버튼 눌렀을 때
         if (request.getMethod().equals("GET")) {
             MyRoomie mr = new MyRoomie(s_id, roomie_id);
             roomieManager.remove(mr);
+
+            List<Profile> roomieList = roomieManager.findMyRoomieList(s_id);
+            request.setAttribute("roomieList", roomieList);
 
             return "/myroomie/view.jsp";
         }
@@ -39,21 +41,14 @@ public class ApplyMyRoomieController implements Controller {
         try {
             //수락버튼 눌렀을때
             MyRoomie mr = new MyRoomie(s_id, roomie_id);
-            roomieManager.create(mr);
+            roomieManager.update(mr);
 
             log.debug("s_id 확인: " + s_id + " roomie_id 확인: " + roomie_id);
 
-            ProfileManager manager = ProfileManager.getInstance();
-            Profile profile = manager.findProfile(roomie_id);
+            List<Profile> roomieList = roomieManager.findMyRoomieList(s_id);
+            request.setAttribute("roomieList", roomieList);
 
-            String myroomie = String.valueOf(roomieManager.isPicked(s_id, roomie_id));
-//            String scrap = String.valueOf(scrapManager.isScraped(s_id, roomie_id));
-
-            request.setAttribute("profile", profile);		// 사용자 정보 저장
-//            request.setAttribute("scrap", scrap);		// 스크랩 여부 저장
-            request.setAttribute("myroomie", myroomie);  //마이루미 신청 여부 저장
-
-            return "/student/main/detail.jsp";
+            return "/myroomie/view.jsp";
         } catch (Exception e) {
             return "/student/main.jsp";
         }
