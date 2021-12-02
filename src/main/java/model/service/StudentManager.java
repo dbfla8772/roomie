@@ -41,6 +41,10 @@ public class StudentManager {
         return studentDao.remove(email);
     }
 
+    public boolean existing(String email) throws SQLException {
+        return studentDao.existingStudent(email);
+    }
+
     public Student findStudent(String email)
             throws SQLException, StudentNotFoundException {
         Student student = studentDao.findStudent(email);

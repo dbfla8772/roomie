@@ -3,6 +3,7 @@ package controller.user;
 import controller.Controller;
 import model.Profile;
 import model.Scrap;
+import model.service.MyRoomieManager;
 import model.service.ProfileManager;
 import model.service.ScrapManager;
 import model.service.StudentNotFoundException;
@@ -28,21 +29,28 @@ public class ViewProfileController implements Controller {
 
 		ProfileManager manager = ProfileManager.getInstance();
 		ScrapManager scrapManager = ScrapManager.getInstance();
+		MyRoomieManager roomieManager = MyRoomieManager.getInstance();
 
 		int userId = Integer.parseInt(request.getParameter("s_id"));
 		log.debug("detail user_id확인: " + userId);
 
     	Profile profile = null;
 		String scrap;
+		String myroomie;
+		String requestCheck;  //나에게 마이루미 신청을 보냈는지 안보냈는지
     	try {
 			profile = manager.findProfile(userId);	// 사용자 정보 검색
 
 			scrap = String.valueOf(scrapManager.isScraped(s_id, userId));
+			myroomie = String.valueOf(roomieManager.isPicked(s_id, userId));
+			requestCheck = String.valueOf(roomieManager.isPicked(userId, s_id));
 
 			log.debug("scrap 여부 확인: " + scrap);
 			
 			request.setAttribute("profile", profile);		// 사용자 정보 저장
 			request.setAttribute("scrap", scrap);		// 스크랩 여부 저장
+			request.setAttribute("myroomie", myroomie);  //마이루미 신청 여부 저장
+			request.setAttribute("requestCheck", requestCheck);
 
 			return "/student/main/detail.jsp";				// 사용자 보기 화면으로 이동
 		} catch (StudentNotFoundException e) {

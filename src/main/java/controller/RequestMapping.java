@@ -19,6 +19,7 @@ public class RequestMapping {
         mappings.put("/student/login", new LoginController());
         mappings.put("/student/logout", new LogoutController());
         mappings.put("/student/register", new RegisterController());
+        mappings.put("/student/mailCheck", new EmailCheckController());
         mappings.put("/student/delete", new DeleteStudentController());
 
         mappings.put("/profile/create", new CreateProfileController());
@@ -31,6 +32,13 @@ public class RequestMapping {
 
         mappings.put("/student/automatch", new AutoMatchController());
 
+        mappings.put("/myroomie/view", new MyRoomieController());
+        mappings.put("/myroomie/waiting", new WaitRoomieController());
+        mappings.put("/myroomie/apply", new MyRoomieController());
+        mappings.put("/myroomie/accept", new ApplyMyRoomieController());
+        mappings.put("/myroomie/delete", new ApplyMyRoomieController());
+        mappings.put("/myroomie/detail", new DetailMyRoomieController());
+
         mappings.put("/scrap/view", new ScrapController());
         mappings.put("/scrap/delete", new DeleteScrapController());
 
@@ -41,6 +49,8 @@ public class RequestMapping {
         mappings.put("/mail/receive/receiveList", new MailController());
         mappings.put("/mail/receive/detail", new ViewMailController());
         mappings.put("/mail/delete", new DeleteMailController());
+
+
 
 
         logger.info("Initialized Request Mapping!");

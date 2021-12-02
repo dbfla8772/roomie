@@ -16,10 +16,10 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
     <script>
-        function deleteMail() {
-            if (confirm("정말 삭제하시겠습니까?") == true){
+        function CancelMail() {
+            if (confirm("정말로 취소하시겠습니까?") == true){
                 form.submit();
-                alert("삭제되었습니다.");
+                alert("취소되었습니다.");
             } else {
                 return;
             }
@@ -39,7 +39,7 @@
             font-style: normal;
         }
         h4 {
-            margin-top: 3%;
+            margin-top: 12px;
             font-family: SBAggroL;
             font-weight: bold;
         }
@@ -47,7 +47,7 @@
             font-family: SBAggroL;
             border: black 1px solid;
             font-size: 15px;
-            margin-top: 1%;
+            margin-top: 10px;
         }
         td {
             border: black 1px solid;
@@ -63,7 +63,8 @@
         .link {
             font-family: SBAggroL;
             font-size: 14px;
-            margin-left: 2%;
+            margin-top: 4px;
+            margin-right: 460px;
         }
         a:hover {
             font-weight: bold;
@@ -75,12 +76,18 @@
             color: #858585;
         }
         .btn {
-            margin-top: 1%;
             font-family: SBAggroL;
             font-size: 15px;
             position: relative;
-            top : 1%;
+            top : 3px;
             left: 105px;
+        }
+        .btn2 {
+            font-family: SBAggroL;
+            font-size: 15px;
+            position: relative;
+            top : 3px;
+            left: 142px;
         }
         .sender {
             color: black;
@@ -101,7 +108,7 @@
 %>
 <div align="center">
     <h4>쪽지내용</h4>
-    <div class="link" align="left">
+    <div class="link">
         <a href="${pageContext.request.contextPath}/mail/receive/receiveList?flag=0">받은쪽지</a>&nbsp;
         <a href="${pageContext.request.contextPath}/mail/send/sendList?flag=1" class="sender">보낸쪽지</a>
     </div>
@@ -127,10 +134,16 @@
                 </td>
             </tr>
         </table>
-        <span class="btn">
-            <button type="button" value="삭제" class="btn btn-outline-dark" onClick="deleteMail()">삭제</button>&nbsp;
-            <button type="button" value="목록" class="btn btn-outline-dark" onClick="document.location.href='${pageContext.request.contextPath}/mail/send/sendList?flag=1'">목록</button>
-        </span>
+        <% if (mail.getMailCheck() == 0) {%>
+            <div class="btn">
+                <button type="button" value="삭제" class="btn btn-outline-dark" onClick="CancelMail()">전송취소</button>&nbsp;
+                <button type="button" value="목록" class="btn btn-outline-dark" onClick="document.location.href='${pageContext.request.contextPath}/mail/send/sendList?flag=1'">목록</button>
+            </div>
+        <%} else {%>
+            <div class="btn2">
+                <button type="button" value="목록" class="btn btn-outline-dark" onClick="document.location.href='${pageContext.request.contextPath}/mail/send/sendList?flag=1'">목록</button>
+            </div>
+        <%}%>
     </form>
 </div>
 </body>

@@ -5,8 +5,6 @@ import controller.user.UserSessionUtils;
 import model.*;
 import model.Mail;
 import model.service.MailManager;
-import model.service.ProfileManager;
-import model.service.StudentManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

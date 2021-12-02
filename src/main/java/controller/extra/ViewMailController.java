@@ -26,7 +26,8 @@ public class ViewMailController implements Controller {
 
         MailManager mailManager = MailManager.getInstance();
         ProfileManager profiletManager = ProfileManager.getInstance();
-        Mail mail = null;
+        Mail receivemail = null;
+        Mail sendMail = null;
 
         try {
             //메세지 디테일
@@ -34,24 +35,31 @@ public class ViewMailController implements Controller {
 
             log.debug("ch_id :: " + request.getParameter("ch_id"));
 
-            mail = mailManager.findMail(ch_id);
-            Profile receiver_pro = profiletManager.findProfile(mail.getReceiver());
-            Profile sender_pro = profiletManager.findProfile(mail.getSender());
-            String receiver = receiver_pro.getName();
-            String sender = sender_pro.getName();
-
-            request.setAttribute("mail", mail);        // 메일 정보 저장
-            request.setAttribute("receiver", receiver);
-            request.setAttribute("sender", sender);
-
-            log.debug("Message :: " + mail.getMessage());
 
             //받은 메세지
             if (Integer.parseInt(request.getParameter("flag")) == 0) {
+                receivemail = mailManager.findreceiveMail(ch_id);
+                Profile sender_pro = profiletManager.findProfile(receivemail.getSender()); //sender의 프로필 - name뽑아내기 위해서
+                String sender = sender_pro.getName();
+
+                request.setAttribute("mail", receivemail);        // 메일 정보 저장
+                request.setAttribute("sender", sender);
+
+                log.debug("Message :: " + receivemail.getMessage());
+
                 return "/mail/receive/detail.jsp";
             }
             // 보낸 메세지
             else {
+                sendMail = mailManager.findsendMail(ch_id);
+                Profile receiver_pro = profiletManager.findProfile(sendMail.getReceiver()); //receiver의 프로필 - name뽑아내기 위해서
+                String receiver = receiver_pro.getName();
+
+                request.setAttribute("mail", sendMail);        // 메일 정보 저장
+                request.setAttribute("receiver", receiver);
+
+                log.debug("Message :: " + sendMail.getMessage());
+
                 return "/mail/send/detail.jsp";
             }
 

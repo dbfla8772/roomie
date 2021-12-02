@@ -1,10 +1,7 @@
 <%@ page import="model.Profile" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%!
-    Profile profile; String img_url, smoking, sharing, lifestyle, grade, habitude, sleep_habit, cleaning, indoor_eating, mbti, isScraped;
-    String requestCheck;
-%>
+<%!Profile profile; String img_url, smoking, sharing, lifestyle, grade, habitude, sleep_habit, cleaning, indoor_eating, mbti, isScraped;%>
 <html>
 <head>
     <title>detail profile</title>
@@ -109,7 +106,7 @@
     <img src="/images/logo-font.png" id="logo"/>
 </div>
 
-<% profile = (Profile) request.getAttribute("profile");
+    <% profile = (Profile) request.getAttribute("profile");
     img_url = "/images/";
     if (profile.getPr_img()==0)
         img_url += "man1.png";
@@ -228,28 +225,29 @@
     else
         mbti = "ISTP";
 
-    isScraped = (String) request.getAttribute("scrap");
-    requestCheck = (String) request.getAttribute("requestCheck");
 %>
 <script>
-    function scrapBtn() {
-        <c:set var="s" value="<%=isScraped%>" />
-        <c:if test="${s eq 'true'}">
-        alert('스크랩 취소되었습니다.');
-        </c:if>
-        <c:if test="${s eq 'false'}">
-        alert('스크랩되었습니다.');
-        </c:if>
-    }
-    function RoomiePick(requestCheck) {
-        if (requestCheck == true) {
-            alert("상대방이 이미 나를 pick하였습니다.");
+    function Accept() {
+        if (confirm("수락하시겠습니까?") == true){
+            form1.submit();
+            alert("매칭이 완료되었습니다.");
+        } else {
             return;
         }
 
-        if (confirm("매칭신청을 하시겠습니까?") == true){
+    }
+    function Refuse() {
+        if (confirm("거절하시겠습니까?") == true){
             form1.submit();
-            alert("신청되었습니다.\n상대방의 수락을 기다려주세요.");
+            alert("거절이 완료되었습니다.");
+        } else {
+            return;
+        }
+    }
+    function DeleteRoomie() {
+        if (confirm("정말로 삭제하시겠습니까?") == true){
+            form1.submit();
+            alert("삭제가 완료되었습니다.");
         } else {
             return;
         }
@@ -276,12 +274,12 @@
                         <td>: &emsp;&emsp;&emsp;${profile.name}</td>
                     </tr>
                     <tr>
-                    <td>전공</td>
-                    <td>: &emsp;&emsp;&emsp;${profile.major}</td>
+                        <td>전공</td>
+                        <td>: &emsp;&emsp;&emsp;${profile.major}</td>
                     </tr>
                     <tr>
-                    <td>학년</td>
-                    <td>: &emsp;&emsp;&emsp;<%=grade%></td>
+                        <td>학년</td>
+                        <td>: &emsp;&emsp;&emsp;<%=grade%></td>
                     </tr>
                     <tr>
                         <td>나이</td>
@@ -323,39 +321,23 @@
             </td>
         </tr>
         <tr>
+            <% if ((int)request.getAttribute("flag") == 0) {    //flag가 0이면 삭제버튼, 아니면 수락&거절버튼%>
             <td align="center">
-                <% if (request.getAttribute("scrap").equals("false")) { %>
-                <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/scrap/view">
-                    <input type="hidden" name="scrap_id" value="${profile.s_id}">
-                    <input type="submit" class="button" value="스크랩" onclick="scrapBtn()">
-                </form>
-                <%} else {%>
-                <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/scrap/delete">
-                    <input type="hidden" name="scrap_id" value="${profile.s_id}">
-                    <input type="submit" class="button" value="스크랩 취소" onclick="scrapBtn()">
-                </form>
-                <%} %>
-            </td>
-            <td align="center">
-                <a href="${pageContext.request.contextPath}/mail/sendForm?receiver=${profile.s_id}"
-                   onClick="window.open(this.href, '', 'width=600, height=550'); return false;">
-                        <input type="submit" class="button" value="쪽지" style="margin-top: -9%">
-                </a>
-            </td>
-            <td width="100"></td>
-        </tr>
-        <tr>
-            <% if (request.getAttribute("myroomie").equals("false")) { %>
-            <td colspan="2" align="center">
-                <form name="form1" method="POST" action="${pageContext.servletContext.contextPath}/myroomie/apply">
+                <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/myroomie/accept">
                     <input type="hidden" name="roomie_id" value="${profile.s_id}">
-                    <input type="button" class="button" value="나의 루미로 pick!" onclick="RoomiePick(<%=requestCheck%>)">
+                    <input type="submit" class="button" value="수락" onclick="Accept()">
+                </form>
+            </td>
+            <td align="center">
+                <form name="form" method="GET" action="${pageContext.servletContext.contextPath}/myroomie/delete?roomie_id=${profile.s_id}">
+                    <input type="submit" class="button" value="거절" onclick="Refuse()">
                 </form>
             </td>
             <%} else {%>
             <td colspan="2" align="center">
-                <input type="hidden" name="roomie_id" value="${profile.s_id}" readonly>
-                <button class="button"  disabled>나의 루미로 pick!</button>
+                <form name="form1" method="GET" action="${pageContext.servletContext.contextPath}/myroomie/delete?roomie_id=${profile.s_id}">
+                    <input type="submit" class="button" value="나의 루미에서 삭제" onclick="DeleteRoomie()">
+                </form>
             </td>
             <%} %>
             <td width="100"></td>
