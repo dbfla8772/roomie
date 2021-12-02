@@ -56,7 +56,36 @@ public class MailDAO {
         return 0;
     }
 
-    public Mail findMail(int ch_id) throws SQLException {
+    //보낸 메일
+    public Mail findsendMail(int ch_id) throws SQLException {
+        String sql = "SELECT sender, receiver, message, mail_check, datetime "
+                + "FROM MAIL "
+                + "WHERE ch_id=?";
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {ch_id});
+
+        try {
+            ResultSet rs = jdbcUtil.executeQuery();		// query 실행
+            if (rs.next()) {						// 학생 정보 발견
+                Mail mail = new Mail(		// Profile 객체를 생성하여 정보를 저장
+                        ch_id,
+                        rs.getInt("sender"),
+                        rs.getInt("receiver"),
+                        rs.getString("message"),
+                        rs.getString("datetime"),
+                        rs.getInt("mail_check")
+                );
+                return mail;
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            jdbcUtil.close();		// resource 반환
+        }
+        return null;
+    }
+
+    //받은 메일
+    public Mail findreceiveMail(int ch_id) throws SQLException {
         String sql1 = "UPDATE MAIL SET mail_check=1 WHERE ch_id=?";
         jdbcUtil.setSqlAndParameters(sql1, new Object[] {ch_id});
 
