@@ -129,7 +129,8 @@
 
 <h3 class="title">나의 루미</h3>
 
-<button type="button" class="btn btn-outline-secondary" name="go" onclick="document.location.href='${pageContext.request.contextPath}/myroomie/view'">신청대기 목록</button>
+<button type="button" class="btn btn-outline-secondary" name="go" onclick="document.location.href='${pageContext.request.contextPath}/myroomie/view'">
+    매칭 목록</button>
 
 <h4>내가 보낸 신청</h4>
 <%waitList = (List<Profile>) request.getAttribute("waitList");%>
