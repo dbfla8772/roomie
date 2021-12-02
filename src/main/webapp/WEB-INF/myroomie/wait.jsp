@@ -132,7 +132,7 @@
 <button type="button" class="btn btn-outline-secondary" name="go" onclick="document.location.href='${pageContext.request.contextPath}/myroomie/view'">
     매칭 목록</button>
 
-<h4>내가 보낸 신청</h4>
+<h4>승인 대기 중</h4>
 <%waitList = (List<Profile>) request.getAttribute("waitList");%>
 <c:forEach var="profile" items="${waitList}">
     <div class="card-margin">
@@ -164,7 +164,7 @@
 <c:forEach var="profile" items="${requestList}">
     <div class="card-margin">
         <div class="card mb-3" style="border-radius: 10px;"
-             onclick="location.href='/roomie/detail?s_id=' + ${profile.s_id}">
+             onclick="location.href='/myroomie/detail?s_id=' + ${profile.s_id}">
             <div class="row g-0">
                 <div class="col-md-4">
                     <c:if test="${profile.pr_img eq 0}"><%img_url = "/images/man1.png";%></c:if>

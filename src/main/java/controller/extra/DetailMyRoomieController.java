@@ -24,11 +24,11 @@ public class DetailMyRoomieController implements Controller {
         ProfileManager manager = ProfileManager.getInstance();
 
         int userId = Integer.parseInt(request.getParameter("s_id"));
-        log.debug("detail user_idÈ®ÀÎ: " + userId);
+        log.debug("detail user_idÃˆÂ®Ã€Ã: " + userId);
 
         Profile profile;
         try {
-            profile = manager.findProfile(userId);	// »ç¿ëÀÚ Á¤º¸ °Ë»ö
+            profile = manager.findProfile(userId);	// Â»Ã§Â¿Ã«Ã€Ãš ÃÂ¤ÂºÂ¸ Â°Ã‹Â»Ã¶
             int flag = roomieManager.isCheckd(s_id, userId);
 
             request.setAttribute("profile", profile);
