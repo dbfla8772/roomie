@@ -88,9 +88,9 @@ public class MyRoomieDAO {
 
     // 매칭된 루미 리스트 찾기
     public List<Profile> findMyRoomieList(int s_id) throws SQLException {
-        String sql = "SELECT roomie_id, activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, major, mbti, cleaning, indoor_eation, sharting, habitude "
+        String sql = "SELECT roomie_id, activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, major, mbti, cleaning, indoor_eating, sharing, habitude "
                     + "FROM myroomie r JOIN profile p ON r.roomie_id=p.s_id "
-                    + "WHERE s_id=? "
+                    + "WHERE r.s_id=? "
                     + "ORDER BY r_id DESC";
         jdbcUtil.setSqlAndParameters(sql, new Object[] {s_id});
 
@@ -111,8 +111,8 @@ public class MyRoomieDAO {
                         rs.getString("major"),
                         rs.getInt("mbti"),
                         rs.getInt("cleaning"),
-                        rs.getInt("indoor_eation"),
-                        rs.getInt("sharting"),
+                        rs.getInt("indoor_eating"),
+                        rs.getInt("sharing"),
                         rs.getInt("habitude"));
                 myRoomieList.add(roomie);				// List에 Profile 객체 저장
             }
