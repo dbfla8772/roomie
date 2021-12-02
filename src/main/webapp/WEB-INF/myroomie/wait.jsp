@@ -3,13 +3,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%!
-    List<Profile> roomieList;
+    List<Profile> waitList;
     String img_url;
 %>
 <html>
 <head>
     <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <title>My Roomie</title>
+    <title>My Roomie Waiting</title>
     <style>
         @font-face {
             font-family: 'SBAggroB';
@@ -106,11 +106,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
-    <%--    <script>--%>
-    <%--        function card_click() {--%>
-    <%--            <jsp:forward page="/student/main/detail.jsp"/>--%>
-    <%--        }--%>
-    <%--    </script>--%>
 </head>
 <body>
 
@@ -124,12 +119,9 @@
 <img src="/images/logo-font.png" id="logo"/>
 
 <h3 class="title">나의 루미</h3>
-
-<button type="button" name="go" onclick="document.location.href='${pageContext.request.contextPath}/myroomie/waiting'">신청대기 목록</button>
-
-    <h4>매칭 완료</h4>
-        <%roomieList = (List<Profile>) request.getAttribute("roomieList");%>
-    <c:forEach var="profile" items="${roomieList}">
+<h4>신청 대기</h4>
+<%waitList = (List<Profile>) request.getAttribute("waitList");%>
+<c:forEach var="profile" items="${waitList}">
     <div class="card-margin">
         <div class="card mb-3" style="border-radius: 10px;"
              onclick="location.href='/student/main/detail?s_id=' + ${profile.s_id}">
@@ -151,8 +143,7 @@
             </div>
         </div>
     </div>
-    </c:forEach>
-
+</c:forEach>
 
 </body>
 </html>

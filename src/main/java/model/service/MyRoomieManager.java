@@ -3,7 +3,6 @@ package model.service;
 
 import model.MyRoomie;
 import model.Profile;
-import model.Scrap;
 import model.dao.MyRoomieDAO;
 
 import java.sql.SQLException;
@@ -16,7 +15,6 @@ public class MyRoomieManager {
     private MyRoomieManager() {
         try {
             myRoomieDAO = new MyRoomieDAO();
-            /*userAanlysis = new UserAnalysis(studentDao);*/
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -44,5 +42,9 @@ public class MyRoomieManager {
 
     public List<Profile> findMyRoomieList(int s_id) throws SQLException {
         return myRoomieDAO.findMyRoomieList(s_id);
+    }
+
+    public List<Profile> findWaitRoomieList(int s_id) throws SQLException {
+        return myRoomieDAO.findWaitRoomieList(s_id);
     }
 }

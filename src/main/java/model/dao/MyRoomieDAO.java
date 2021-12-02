@@ -135,8 +135,48 @@ public class MyRoomieDAO {
     public List<Profile> findMyRoomieList(int s_id) throws SQLException {
         String sql = "SELECT roomie_id, activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, major, mbti, cleaning, indoor_eating, sharing, habitude "
                     + "FROM myroomie r JOIN profile p ON r.roomie_id=p.s_id "
-                    + "WHERE r.s_id=? "
+                    + "WHERE r.roomie_check=1 AND r.s_id=? "
                     + "ORDER BY r_id DESC";
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {s_id});
+
+        try {
+            ResultSet rs = jdbcUtil.executeQuery();
+            List<Profile> myRoomieList = new ArrayList<Profile>();
+            while (rs.next()) {
+                Profile roomie = new Profile(
+                        rs.getInt("roomie_id"),
+                        rs.getInt("activation"),
+                        rs.getString("name"),
+                        rs.getInt("pr_img"),
+                        rs.getInt("age"),
+                        rs.getInt("sleep_habit"),
+                        rs.getInt("lifestyle"),
+                        rs.getInt("smoking"),
+                        rs.getInt("grade"),
+                        rs.getString("major"),
+                        rs.getInt("mbti"),
+                        rs.getInt("cleaning"),
+                        rs.getInt("indoor_eating"),
+                        rs.getInt("sharing"),
+                        rs.getInt("habitude"));
+                myRoomieList.add(roomie);				// List에 Profile 객체 저장
+            }
+            return myRoomieList;
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            jdbcUtil.close();		// resource 반환
+        }
+        return null;
+    }
+
+    // 매칭 신청 대기 루미 리스트 찾기
+    public List<Profile> findWaitRoomieList(int s_id) throws SQLException {
+        String sql = "SELECT roomie_id, activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, major, mbti, cleaning, indoor_eating, sharing, habitude "
+                + "FROM myroomie r JOIN profile p ON r.roomie_id=p.s_id "
+                + "WHERE r.roomie_check=0 AND r.s_id=? "
+                + "ORDER BY r_id DESC";
         jdbcUtil.setSqlAndParameters(sql, new Object[] {s_id});
 
         try {
