@@ -225,7 +225,6 @@
     else
         mbti = "ISTP";
 
-    isScraped = (String) request.getAttribute("scrap");
 %>
 <script>
     function Accept() {
