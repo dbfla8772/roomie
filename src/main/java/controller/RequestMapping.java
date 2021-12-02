@@ -19,6 +19,7 @@ public class RequestMapping {
         mappings.put("/student/login", new LoginController());
         mappings.put("/student/logout", new LogoutController());
         mappings.put("/student/register", new RegisterController());
+        mappings.put("/student/mailCheck", new EmailCheckController());
         mappings.put("/student/delete", new DeleteStudentController());
 
         mappings.put("/profile/create", new CreateProfileController());
