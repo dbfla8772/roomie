@@ -1,7 +1,7 @@
 <%@ page import="model.Profile" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%! Profile profile; String img_url, smoking, sharing, lifestyle, grade, habitude, sleep_habit, cleaning, indoor_eating, mbti, isScraped; %>
+<%!Profile profile; String img_url, smoking, sharing, lifestyle, grade, habitude, sleep_habit, cleaning, indoor_eating, mbti, isScraped;%>
 <html>
 <head>
     <title>detail profile</title>
@@ -245,6 +245,14 @@
             return;
         }
     }
+    function DeleteRoomie() {
+        if (confirm("정말로 삭제하시겠습니까?") == true){
+            form1.submit();
+            alert("삭제가 완료되었습니다.");
+        } else {
+            return;
+        }
+    }
 </script>
 
 <div class="dv" align="center">
@@ -314,6 +322,7 @@
             </td>
         </tr>
         <tr>
+            <% if ((int)request.getAttribute("flag") == 0) {    //flag가 0이면 삭제버튼, 아니면 수락&거절버튼%>
             <td align="center">
                 <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/myroomie/accept">
                     <input type="hidden" name="roomie_id" value="${profile.s_id}">
@@ -321,10 +330,17 @@
                 </form>
             </td>
             <td align="center">
-                <form name="form" method="GET" action="${pageContext.servletContext.contextPath}/myroomie/refuse?roomie_id=${profile.s_id}">
+                <form name="form" method="GET" action="${pageContext.servletContext.contextPath}/myroomie/delete?roomie_id=${profile.s_id}">
                     <input type="submit" class="button" value="거절" onclick="Refuse()">
                 </form>
             </td>
+            <%} else {%>
+            <td colspan="2" align="center">
+                <form name="form1" method="GET" action="${pageContext.servletContext.contextPath}/myroomie/delete?roomie_id=${profile.s_id}">
+                    <input type="submit" class="button" value="나의 루미에서 삭제" onclick="DeleteRoomie()">
+                </form>
+            </td>
+            <%} %>
             <td width="100"></td>
         </tr>
     </table>

@@ -26,7 +26,7 @@ public class ApplyMyRoomieController implements Controller {
         MyRoomieManager roomieManager = MyRoomieManager.getInstance();
         int roomie_id = Integer.parseInt(request.getParameter("roomie_id"));
 
-        //거절버튼 눌렀을 때
+        //거절버튼 or 삭제버튼 눌렀을 때
         if (request.getMethod().equals("GET")) {
             MyRoomie mr = new MyRoomie(s_id, roomie_id);
             roomieManager.remove(mr);
