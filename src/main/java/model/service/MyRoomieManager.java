@@ -34,6 +34,10 @@ public class MyRoomieManager {
         return myRoomieDAO.remove(myroomie);
     }
 
+    public int update(MyRoomie myroomie) throws SQLException {
+        return myRoomieDAO.update(myroomie);
+    }
+
     public boolean isPicked(int s_id, int roomie_id) throws SQLException {
         return myRoomieDAO.isPicked(s_id, roomie_id);
     }
