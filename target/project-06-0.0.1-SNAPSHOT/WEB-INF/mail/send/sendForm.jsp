@@ -22,8 +22,12 @@
                 form.message.focus();
                 return false;
             }
-            alert("성공적으로 전송되었습니다!");
-            form.submit();
+            if (confirm("정말로 전송하시겠습니까?") == true){
+                form.submit();
+                alert("전송되었습니다.");
+            } else {
+                return;
+            }
         }
     </script>
     <style>
