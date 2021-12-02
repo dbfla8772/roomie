@@ -31,6 +31,8 @@ public class RequestMapping {
 
         mappings.put("/student/automatch", new AutoMatchController());
 
+        mappings.put("/myroomie/view", new MyRoomieController());
+
         mappings.put("/scrap/view", new ScrapController());
         mappings.put("/scrap/delete", new DeleteScrapController());
 
