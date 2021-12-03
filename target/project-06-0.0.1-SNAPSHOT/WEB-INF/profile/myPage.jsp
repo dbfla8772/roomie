@@ -5,18 +5,13 @@
 <%! Profile profile; String activation, img_url, smoking, sharing, lifestyle, grade, habitude, sleep_habit, cleaning, indoor_eating, mbti; %>
 <html>
 <head>
-    <title>마이 페이지</title>
+    <title>마이페이지</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script>
-        /*function update() {/!*
-            form.action = targetUri;
-            form.method = "POST";  *!/    //register form 요청
-            form.submit();
-        }*/
         function update() {
             // form2.method = "GET";
             form2.submit();
@@ -69,26 +64,12 @@
             margin-left: 5px;
         }
         td {
-            /*border : black 1px solid;*/
             font-family: SBAggroL;
             padding-left: 10px;
             padding-bottom: 15px;
         }
-        /*table {*/
-        /*    border : black 1px solid;*/
-        /*}*/
         ul.space_list li {
             margin-bottom: 1em;
-        }
-        ul.none {
-            margin-bottom: 1em;
-            list-style: none;
-        }
-        .layer {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%)
         }
         .button {
             border: 0px;
