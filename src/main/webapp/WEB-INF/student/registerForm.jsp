@@ -132,16 +132,16 @@
         <table>
             <tr>
                 <td rowspan="3">
-                    <img src="/images/logo-font.png" id="logo"/><br>
-                    <span class="title" style="font-family: SBAggroB">Roomie</span>
+                    <a href="${pageContext.request.contextPath}/student/login"><img src="/images/logo-font.png" id="logo"/><br>
+                    <span class="title" style="color:black; font-family: SBAggroB">Roomie</span></a>
                 </td>
                 <td width="20%">
                     <br>
                     이름<br>
                     <% if (name != null) { %>
-                        <input type="text" size="40" name="name" value="<%=name%>">
+                        <input type="text" size="40%" name="name" value="<%=name%>">
                     <% }else { %>
-                        <input type="text" placeholder="실명을 입력하세요." size="40" name="name">
+                        <input type="text" placeholder="실명을 입력하세요." size="40%" name="name">
                     <% } %>
                 </td>
             </tr>
@@ -150,10 +150,10 @@
                     <br>
                     아이디<br>
                     <% if (email != null) { %>
-                        <input type="email" size="40" name="email" value="<%=email%>">
+                        <input type="email" size="30%" name="email" value="<%=email%>">
                     <% }else { %>
-                        <input type="email" placeholder="본인의 학교 웹메일을 입력하세요." size="30" name="email">
-                    <% } %><button style="width:80px" type="button" value="중복확인" onClick="emailCheck('${pageContext.request.contextPath}/student/mailCheck')">중복확인</button>
+                        <input type="email" placeholder="본인의 학교 웹메일을 입력하세요." size="30%" name="email">
+                    <% } %><button style="width:22%" type="button" value="중복확인" onClick="emailCheck('${pageContext.request.contextPath}/student/mailCheck')">중복확인</button>
                 </td>
             </tr>
             <tr>
@@ -161,9 +161,9 @@
                     <br>
                     비밀번호<br>
                     <% if (err != null && err.equals("0")) { %>
-                        <input type="password" placeholder="비밀번호를 입력하세요." size="40" name="password">
+                        <input type="password" placeholder="비밀번호를 입력하세요." size="40%" name="password">
                     <% }else { %>
-                        <input disabled type="password" placeholder="비밀번호를 입력하세요." size="40" name="password">
+                        <input disabled type="password" placeholder="비밀번호를 입력하세요." size="40%" name="password">
                     <% } %>
                 </td>
             </tr>
@@ -173,9 +173,9 @@
                     <br>
                     비밀번호 확인<br>
                     <% if (err != null && err.equals("0")) { %>
-                        <input type="password" placeholder="비밀번호를 한 번 더 입력하세요." size="40" name="password2">
+                        <input type="password" placeholder="비밀번호를 한 번 더 입력하세요." size="40%" name="password2">
                     <% }else { %>
-                        <input disabled type="password" placeholder="비밀번호를 한 번 더 입력하세요." size="40" name="password2">
+                        <input disabled type="password" placeholder="비밀번호를 한 번 더 입력하세요." size="40%" name="password2">
                     <% } %>
                 </td>
             </tr>
@@ -218,9 +218,9 @@
                 <td>
                     <br>
                     <% if (err != null && err.equals("0")) { %>
-                        <button type="button" value="가입하기" onClick="studentCreate()">가입하기</button>
+                        <button style="width:100%" type="button" value="가입하기" onClick="studentCreate()">가입하기</button>
                     <% }else { %>
-                        <button disabled type="button" value="가입하기">가입하기</button>
+                        <button style="width:100%" disabled type="button" value="가입하기">가입하기</button>
                     <% } %>
                 </td>
             </tr>

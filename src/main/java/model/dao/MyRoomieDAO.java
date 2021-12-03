@@ -128,6 +128,7 @@ public class MyRoomieDAO {
             if (rs.next()) {
                 int check = rs.getInt(1);
                 System.out.println("flag 확인 ::" + check);
+
                 return check;
             }
         } catch (SQLException throwables) {
