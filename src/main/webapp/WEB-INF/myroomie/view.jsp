@@ -140,7 +140,7 @@
 <h3 class="title">나의 루미</h3>
 
 <button type="button" class="btn btn-outline-secondary" name="go" onclick="document.location.href='${pageContext.request.contextPath}/myroomie/waiting'">
-    신청대기 목록</button>
+    대기 목록</button>
 
 <span class="subtitle">매칭 완료</span>
 <div>

@@ -37,6 +37,7 @@
             width: auto;
             height: auto;
             text-align: center;
+            margin-bottom: 100px;
         }
 
         #logo {
@@ -145,8 +146,8 @@
     </h4>
 </div>
 
-<a href="${pageContext.request.contextPath}/student/main"><h3 class="roomietitle">Roomie</h3></a>
-<img src="/images/logo-font.png" id="logo"/>
+<a href="${pageContext.request.contextPath}/student/main"><h3 class="roomietitle">Roomie</h3>
+<img src="/images/logo-font.png" id="logo"/></a>
 
 <h3 class="title">나의 루미</h3>
 
