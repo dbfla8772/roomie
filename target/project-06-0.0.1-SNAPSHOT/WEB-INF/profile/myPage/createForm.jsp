@@ -129,7 +129,7 @@
                 <input type="radio" name="pr_img" value="0">
                 <img src="/images/man1.png" width="150px" height="150px">
                 <input type="radio" name="pr_img" value="1">
-                <img src="/images/man2.png" width="150px" height="150px">
+                <img src="/images/man2.png" width="150px" height="150px"><br>
                 <input type="radio" name="pr_img" value="2">
                 <img src="/images/woman1.png" width="150px" height="150px">
                 <input type="radio" name="pr_img" value="3">
