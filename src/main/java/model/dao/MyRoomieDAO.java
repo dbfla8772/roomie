@@ -221,7 +221,7 @@ public class MyRoomieDAO {
 
     // 매칭 신청 온 목록 리스트 찾기
     public List<Profile> findRequestRoomieList(int s_id) throws SQLException {
-        String sql = "SELECT roomie_id, activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, major, mbti, cleaning, indoor_eating, sharing, habitude "
+        String sql = "SELECT r.s_id, activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, major, mbti, cleaning, indoor_eating, sharing, habitude "
                 + "FROM myroomie r JOIN profile p ON r.s_id=p.s_id "
                 + "WHERE r.roomie_check=0 AND r.roomie_id=? "
                 + "ORDER BY r_id DESC";
@@ -232,7 +232,7 @@ public class MyRoomieDAO {
             List<Profile> requestRoomieList = new ArrayList<Profile>();
             while (rs.next()) {
                 Profile roomie = new Profile(
-                        rs.getInt("roomie_id"),
+                        rs.getInt("s_id"),
                         rs.getInt("activation"),
                         rs.getString("name"),
                         rs.getInt("pr_img"),
