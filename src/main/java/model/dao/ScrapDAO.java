@@ -22,7 +22,7 @@ public class ScrapDAO {
 
     public ScrapDAO() {
         jdbcUtil = new JDBCUtil();
-        String resource = "src/main/resources/mybatis-config.xml";
+        String resource = "mybatis-config.xml";
         InputStream inputStream;
         try {
             inputStream = Resources.getResourceAsStream(resource);
@@ -32,31 +32,67 @@ public class ScrapDAO {
         sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
     }
 
-    public int create(Scrap scrap) {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
+//    public int create(Scrap scrap) {
+//        SqlSession sqlSession = sqlSessionFactory.openSession();
+//        try {
+//            int result = sqlSession.getMapper(ScrapMapper.class).insertScrap(scrap);
+//            if (result > 0) {
+//                sqlSession.commit();
+//            }
+//            return result;
+//        } finally {
+//            sqlSession.close();
+//        }
+//    }
+//
+//    public int remove(int s_id, int scrap_id) {
+//        SqlSession sqlSession = sqlSessionFactory.openSession();
+//        try {
+//            int result = sqlSession.getMapper(ScrapMapper.class).deleteScrap(s_id, scrap_id);
+//            if (result > 0) {
+//                sqlSession.commit();
+//            }
+//            return result;
+//        } finally {
+//            sqlSession.close();
+//        }
+//    }
+    public int create(Scrap scrap) throws SQLException {
+        String sql = "INSERT INTO scrap VALUES(?, SCRAPSEQ.nextval, ?)";
+        Object[] param = new Object[] {scrap.getS_id(), scrap.getScrap_id()};
+        jdbcUtil.setSqlAndParameters(sql, param);
+
         try {
-            int result = sqlSession.getMapper(ScrapMapper.class).insertScrap(scrap);
-            if (result > 0) {
-                sqlSession.commit();
-            }
+            int result = jdbcUtil.executeUpdate();
             return result;
+        } catch (Exception ex) {
+            jdbcUtil.rollback();
+            ex.printStackTrace();
         } finally {
-            sqlSession.close();
+            jdbcUtil.commit();
+            jdbcUtil.close();
         }
+        return 0;
     }
 
-    public int remove(int s_id, int scrap_id) {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
+    public int remove(int s_id, int scrap_id) throws SQLException {
+        String sql = "DELETE FROM scrap WHERE s_id=? AND scrap_id=?";
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {s_id, scrap_id});
+
         try {
-            int result = sqlSession.getMapper(ScrapMapper.class).deleteScrap(s_id, scrap_id);
-            if (result > 0) {
-                sqlSession.commit();
-            }
+            int result = jdbcUtil.executeUpdate();
             return result;
-        } finally {
-            sqlSession.close();
+        } catch (Exception ex) {
+            jdbcUtil.rollback();
+            ex.printStackTrace();
         }
+        finally {
+            jdbcUtil.commit();
+            jdbcUtil.close();
+        }
+        return 0;
     }
+
     public boolean isScraped(int s_id, int scrap_id) {
         String sql = "SELECT count(*) FROM scrap WHERE s_id=? AND scrap_id=?";
         jdbcUtil.setSqlAndParameters(sql, new Object[] {s_id, scrap_id});
