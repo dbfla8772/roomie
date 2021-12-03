@@ -218,10 +218,10 @@
                         <tr>
                             <td>실내취식</td>
                             <td>
-                                <input type="radio" name="sharing" value="0"
-                                    <%if (profile.getSharing() == 0) {%> checked <%} %>>가능
-                                <input type="radio" name="sharing" value="1"
-                                    <%if (profile.getSharing() == 1) {%> checked <%} %>>불가능
+                                <input type="radio" name="indoor_eating" value="0"
+                                    <%if (profile.getIndoor_eating() == 0) {%> checked <%} %>>가능
+                                <input type="radio" name="indoor_eating" value="1"
+                                    <%if (profile.getIndoor_eating() == 1) {%> checked <%} %>>불가능
                             </td>
                         </tr>
                         <tr>

@@ -284,7 +284,6 @@
             </td>
             <td align="center">
                 <form name="form2" action="${pageContext.servletContext.contextPath}/profile/update">
-<%--                    <input type="hidden" name="s_id" value="<%= profile.getS_id() %>" />--%>
                     <input type="hidden" name="s_id" value="${profile.s_id}"/>
                     <input type="button" class="button" value="수정하기" onclick="update()">
                 </form>
