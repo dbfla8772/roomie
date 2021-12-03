@@ -39,6 +39,10 @@
         }
         .all-card {
             margin : 0 5%;
+            flex-direction: unset;
+        }
+        .card {
+            flex-direction: unset;
         }
         .card-margin {
             margin : 0 5%;
@@ -46,6 +50,7 @@
             font-family: SBAggroL;
             width: 40%;
             padding: 20px;
+            flex-direction: unset;
         }
         .mb-3 {
             cursor: pointer;
@@ -54,7 +59,8 @@
             height: 180px;
             max-height: 180px;
             margin-bottom: 0px;
-            display: flex;
+            display: none;
+            margin-bottom: 0px;
         }
         .col-md-4 {
             margin: auto;
@@ -66,8 +72,9 @@
         .text {
             font-family: SBAggroL;
         }
-        .card-text {
-
+        .rounded-start {
+            align-content: center;
+            margin-left: 10px;
         }
         .link-secondary {
             font-size: 120%;
@@ -123,6 +130,7 @@
     <c:forEach var="profile" items="${profileList}">
         <div class="card-margin">
             <div class="card mb-3" style="border-radius: 10px; " onclick="location.href='/student/main/detail?s_id=' + ${profile.s_id}">
+                <div>&nbsp;</div>
                 <div class="row g-0">
                     <div class="col-md-4">
                         <c:if test="${profile.pr_img eq 0}"><%img_url = "/images/man1.png";%></c:if>
