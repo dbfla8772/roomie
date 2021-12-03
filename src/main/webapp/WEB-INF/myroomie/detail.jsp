@@ -229,7 +229,7 @@
 <script>
     function Accept() {
         if (confirm("수락하시겠습니까?") == true){
-            form1.submit();
+            form.submit();
             alert("매칭이 완료되었습니다.");
         } else {
             return;
@@ -238,7 +238,7 @@
     }
     function Refuse() {
         if (confirm("거절하시겠습니까?") == true){
-            form1.submit();
+            form.submit();
             alert("거절이 완료되었습니다.");
         } else {
             return;
@@ -246,7 +246,7 @@
     }
     function DeleteRoomie() {
         if (confirm("정말로 삭제하시겠습니까?") == true){
-            form1.submit();
+            form.submit();
             alert("삭제가 완료되었습니다.");
         } else {
             return;
@@ -329,13 +329,15 @@
                 </form>
             </td>
             <td align="center">
-                <form name="form" method="GET" action="${pageContext.servletContext.contextPath}/myroomie/delete?roomie_id=${profile.s_id}">
+                <form name="form" method="GET" action="${pageContext.servletContext.contextPath}/myroomie/delete">
+                    <input type="hidden" name="roomie_id" value="${profile.s_id}">
                     <input type="submit" class="button" value="거절" onclick="Refuse()">
                 </form>
             </td>
             <%} else {%>
             <td colspan="2" align="center">
-                <form name="form1" method="GET" action="${pageContext.servletContext.contextPath}/myroomie/delete?roomie_id=${profile.s_id}">
+                <form name="form" method="GET" action="${pageContext.servletContext.contextPath}/myroomie/delete">
+                    <input type="hidden" name="roomie_id" value="${profile.s_id}">
                     <input type="submit" class="button" value="나의 루미에서 삭제" onclick="DeleteRoomie()">
                 </form>
             </td>

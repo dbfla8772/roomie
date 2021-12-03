@@ -74,6 +74,8 @@
             color: black;
             border-color: lightgrey;
             background-color: white;
+            float:right;
+            margin-right: 7%;
         }
 
         .card-margin {
@@ -100,6 +102,14 @@
         .col-md-8 {
             padding-top: 1%;
             margin: auto;
+        }
+        .subtitle {
+            font-family: SBAggroL;
+            font-size: 17px;
+            margin-top: 30%;
+            margin-left: 5%;
+            font-weight: bold;
+            border: black 1px solid;
         }
 
     </style>
@@ -136,7 +146,7 @@
 <button type="button" class="btn btn-outline-secondary" name="go" onclick="document.location.href='${pageContext.request.contextPath}/myroomie/waiting'">
     신청대기 목록</button>
 
-    <h4>매칭 완료</h4>
+    <span class="subtitle">매칭 완료</span>
         <%roomieList = (List<Profile>) request.getAttribute("roomieList");%>
     <c:forEach var="profile" items="${roomieList}">
     <div class="card-margin">

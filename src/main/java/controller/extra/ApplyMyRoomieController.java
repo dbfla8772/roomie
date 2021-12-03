@@ -25,6 +25,7 @@ public class ApplyMyRoomieController implements Controller {
 
         MyRoomieManager roomieManager = MyRoomieManager.getInstance();
         int roomie_id = Integer.parseInt(request.getParameter("roomie_id"));
+        log.debug("s_id 확인: " + s_id + " roomie_id 확인: " + roomie_id);
 
         //거절버튼 or 삭제버튼 눌렀을 때
         if (request.getMethod().equals("GET")) {
@@ -42,8 +43,6 @@ public class ApplyMyRoomieController implements Controller {
             //수락버튼 눌렀을때
             MyRoomie mr = new MyRoomie(s_id, roomie_id);
             roomieManager.update(mr);
-
-            log.debug("s_id 확인: " + s_id + " roomie_id 확인: " + roomie_id);
 
             List<Profile> roomieList = roomieManager.findMyRoomieList(s_id);
             request.setAttribute("roomieList", roomieList);
