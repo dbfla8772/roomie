@@ -44,7 +44,7 @@ public class ScrapDAO {
 //            sqlSession.close();
 //        }
 //    }
-//
+
     public int remove(int s_id, int scrap_id) {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         try {
