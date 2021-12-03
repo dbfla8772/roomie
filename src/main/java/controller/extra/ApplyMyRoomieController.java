@@ -38,7 +38,7 @@ public class ApplyMyRoomieController implements Controller {
                 List<Profile> roomieList = roomieManager.findMyRoomieList(s_id);
                 request.setAttribute("roomieList", roomieList);
 
-                return "/myroomie/wait.jsp";
+                return "/myroomie/view.jsp";
             }
             //거절버튼
             else if (flag == 1) {
