@@ -89,25 +89,6 @@
         ul.space_list li {
             margin-bottom: 1em;
         }
-
-        ul.none {
-            margin-bottom: 1em;
-            list-style: none;
-        }
-
-        .layer {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%)
-        }
-
-        .button {
-            border: 0px;
-            border-radius: 10px;
-            background-color: lightgray;
-            padding: 7px 50px 7px 50px;
-        }
     </style>
 </head>
 
