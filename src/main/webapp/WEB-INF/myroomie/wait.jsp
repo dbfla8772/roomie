@@ -134,23 +134,23 @@
 
 <h4>승인 대기 중</h4>
 <%waitList = (List<Profile>) request.getAttribute("waitList");%>
-<c:forEach var="profile" items="${waitList}">
+<c:forEach var="w_profile" items="${waitList}">
     <div class="card-margin">
         <div class="card mb-3" style="border-radius: 10px;"
-             onclick="location.href='/myroomie/detail?s_id=' + ${profile.s_id}">
+             onclick="location.href='/myroomie/detail?s_id=' + ${w_profile.s_id}">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <c:if test="${profile.pr_img eq 0}"><%img_url = "/images/man1.png";%></c:if>
-                    <c:if test="${profile.pr_img eq 1}"><%img_url = "/images/man2.png";%></c:if>
-                    <c:if test="${profile.pr_img eq 2}"><%img_url = "/images/woman1.png";%></c:if>
-                    <c:if test="${profile.pr_img eq 3}"><%img_url = "/images/woman2.png";%></c:if>
+                    <c:if test="${w_profile.pr_img eq 0}"><%img_url = "/images/man1.png";%></c:if>
+                    <c:if test="${w_profile.pr_img eq 1}"><%img_url = "/images/man2.png";%></c:if>
+                    <c:if test="${w_profile.pr_img eq 2}"><%img_url = "/images/woman1.png";%></c:if>
+                    <c:if test="${w_profile.pr_img eq 3}"><%img_url = "/images/woman2.png";%></c:if>
                     <img style="border-radius: 10px;" src="<c:url value='<%=img_url%>' />"
                          class="img-fluid rounded-start" alt="...">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">${profile.name}</h5>
-                        <p class="card-text">전공: ${profile.major} <br>나이: ${profile.age}</p>
+                        <h5 class="card-title">${w_profile.name}</h5>
+                        <p class="card-text">전공: ${w_profile.major} <br>나이: ${w_profile.age}</p>
                     </div>
                 </div>
             </div>
@@ -161,23 +161,24 @@
 
 <h4>나에게 온 신청</h4>
 <%requestList = (List<Profile>) request.getAttribute("requestList");%>
-<c:forEach var="profile" items="${requestList}">
+<c:forEach var="r_profile" items="${requestList}">
     <div class="card-margin">
         <div class="card mb-3" style="border-radius: 10px;"
-             onclick="location.href='/myroomie/detail?s_id=' + ${profile.s_id}">
+             onclick="location.href='/myroomie/detail?s_id=' + ${r_profile.s_id}">
+            <p>${r_profile.s_id}</p>
             <div class="row g-0">
                 <div class="col-md-4">
-                    <c:if test="${profile.pr_img eq 0}"><%img_url = "/images/man1.png";%></c:if>
-                    <c:if test="${profile.pr_img eq 1}"><%img_url = "/images/man2.png";%></c:if>
-                    <c:if test="${profile.pr_img eq 2}"><%img_url = "/images/woman1.png";%></c:if>
-                    <c:if test="${profile.pr_img eq 3}"><%img_url = "/images/woman2.png";%></c:if>
+                    <c:if test="${r_profile.pr_img eq 0}"><%img_url = "/images/man1.png";%></c:if>
+                    <c:if test="${r_profile.pr_img eq 1}"><%img_url = "/images/man2.png";%></c:if>
+                    <c:if test="${r_profile.pr_img eq 2}"><%img_url = "/images/woman1.png";%></c:if>
+                    <c:if test="${r_profile.pr_img eq 3}"><%img_url = "/images/woman2.png";%></c:if>
                     <img style="border-radius: 10px;" src="<c:url value='<%=img_url%>' />"
                          class="img-fluid rounded-start" alt="...">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">${profile.name}</h5>
-                        <p class="card-text">전공: ${profile.major} <br>나이: ${profile.age}</p>
+                        <h5 class="card-title">${r_profile.name}</h5>
+                        <p class="card-text">전공: ${r_profile.major} <br>나이: ${r_profile.age}</p>
                     </div>
                 </div>
             </div>
