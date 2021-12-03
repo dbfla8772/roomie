@@ -274,7 +274,7 @@
             </tr>
             <tr>
                 <td align="center" style="width: 100px">
-                    닉네임:&nbsp;&nbsp;&nbsp;<input type="text" style="width: 240px" name="name" value="${profile.name}">
+                    <input type="text" style="width: 240px" name="name" value="${profile.name}">
                 </td>
                 <td align="center">
                     <div class="form-check form-switch">
