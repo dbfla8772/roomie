@@ -4,6 +4,7 @@ import controller.Controller;
 import controller.user.UserSessionUtils;
 import model.Profile;
 import model.Scrap;
+import model.service.MyRoomieManager;
 import model.service.ProfileManager;
 import model.service.ScrapManager;
 import org.slf4j.Logger;
@@ -22,6 +23,7 @@ public class DeleteScrapController implements Controller {
         int s_id = (int) session.getAttribute(UserSessionUtils.USER_SESSION_ID);
 
         ScrapManager scrapManager = ScrapManager.getInstance();
+        MyRoomieManager roomieManager = MyRoomieManager.getInstance();
 
         /* POST */
         try {
@@ -37,9 +39,11 @@ public class DeleteScrapController implements Controller {
             Profile profile = manager.findProfile(scrap_id);
 
             String scrap = String.valueOf(scrapManager.isScraped(s_id, scrap_id));
+            String myroomie = String.valueOf(roomieManager.isPicked(s_id, scrap_id));
 
             request.setAttribute("profile", profile);		// 사용자 정보 저장
             request.setAttribute("scrap", scrap);		// 스크랩 여부 저장
+            request.setAttribute("myroomie", myroomie);  //마이루미 신청 여부 저장
 
             return "/student/main/detail.jsp";
 
