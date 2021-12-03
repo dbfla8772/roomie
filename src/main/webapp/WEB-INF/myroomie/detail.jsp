@@ -229,8 +229,8 @@
 <script>
     function Accept() {
         if (confirm("수락하시겠습니까?") == true){
-            form.submit();
             alert("매칭이 완료되었습니다.");
+            form.submit();
         } else {
             return;
         }
@@ -238,16 +238,16 @@
     }
     function Refuse() {
         if (confirm("거절하시겠습니까?") == true){
-            form.submit();
             alert("거절이 완료되었습니다.");
+            form.submit();
         } else {
             return;
         }
     }
     function DeleteRoomie() {
         if (confirm("정말로 삭제하시겠습니까?") == true){
-            form.submit();
             alert("삭제가 완료되었습니다.");
+            form.submit();
         } else {
             return;
         }
@@ -324,12 +324,14 @@
             <% if ((int)request.getAttribute("flag") == 0) {    //flag가 1이면 삭제버튼, 아니면 수락&거절버튼%>
             <td align="center">
                 <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/myroomie/accept">
+                    <input type="hidden" name="flag" value="2">
                     <input type="hidden" name="roomie_id" value="${profile.s_id}">
                     <input type="submit" class="button" value="수락" onclick="Accept()">
                 </form>
             </td>
             <td align="center">
                 <form name="form" method="GET" action="${pageContext.servletContext.contextPath}/myroomie/delete">
+                    <input type="hidden" name="flag" value="1">
                     <input type="hidden" name="roomie_id" value="${profile.s_id}">
                     <input type="submit" class="button" value="거절" onclick="Refuse()">
                 </form>
@@ -337,6 +339,7 @@
             <%} else {%>
             <td colspan="2" align="center">
                 <form name="form" method="GET" action="${pageContext.servletContext.contextPath}/myroomie/delete">
+                    <input type="hidden" name="flag" value="0">
                     <input type="hidden" name="roomie_id" value="${profile.s_id}">
                     <input type="submit" class="button" value="나의 루미에서 삭제" onclick="DeleteRoomie()">
                 </form>

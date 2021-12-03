@@ -106,8 +106,7 @@
         .subtitle {
             font-family: SBAggroL;
             font-size: 17px;
-            margin-top: 3%;
-            margin-left: 5%;
+            margin-left: 7%;
         }
 
     </style>
@@ -143,7 +142,8 @@
 <button type="button" class="btn btn-outline-secondary" name="go" onclick="document.location.href='${pageContext.request.contextPath}/myroomie/waiting'">
     신청대기 목록</button>
 
-<div class="subtitle" align="left">매칭 완료</div>
+<span class="subtitle">매칭 완료</span>
+<div>
         <%roomieList = (List<Profile>) request.getAttribute("roomieList");%>
     <c:forEach var="profile" items="${roomieList}">
     <div class="card-margin">
@@ -168,6 +168,6 @@
         </div>
     </div>
     </c:forEach>
-
+</div>
 </body>
 </html>
