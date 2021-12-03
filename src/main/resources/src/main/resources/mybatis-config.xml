@@ -21,6 +21,6 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="repository/mybatis/mapper/CommentMapper.xml" />
+        <mapper resource="repository/mybatis/mapper/ScrapMapper.xml" />
     </mappers>
 </configuration>
