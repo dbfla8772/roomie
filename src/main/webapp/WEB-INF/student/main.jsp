@@ -85,6 +85,18 @@
             bottom: 1px;
             right: 43%
         }
+
+        #footer {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            font-family: SBAggroL;
+            padding-bottom: 50px;
+        }
+        #footer p {
+            padding: 0px 50px;
+        }
+
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -181,5 +193,10 @@
         </ul>
     </nav>
 </div>--%>
+<footer id="footer">
+    <hr>
+    <p>데이터베이스프로그래밍 01-06 야-심차게</p>
+    <p>권민지 김유림 김은혜 박초은</p>
+</footer>
 </body>
 </html>
