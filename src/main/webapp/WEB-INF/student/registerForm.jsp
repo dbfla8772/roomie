@@ -65,7 +65,6 @@
         table {
             width: 55%;
             font-size: 13px;
-            /*border: black 1px solid;*/
         }
         @font-face {
             font-family: 'SBAggroB';

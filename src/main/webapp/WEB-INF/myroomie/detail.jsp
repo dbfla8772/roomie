@@ -1,10 +1,10 @@
 <%@ page import="model.Profile" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%!Profile profile; String img_url, smoking, sharing, lifestyle, grade, habitude, sleep_habit, cleaning, indoor_eating, mbti, isScraped;%>
+<%!Profile profile; String img_url, smoking, sharing, lifestyle, grade, habitude, sleep_habit, cleaning, indoor_eating, mbti;%>
 <html>
 <head>
-    <title>detail profile</title>
+    <title>상세 프로필</title>
 
     <style>
         .dv {
@@ -61,18 +61,6 @@
 
         ul.space_list li {
             margin-bottom: 1em;
-        }
-
-        ul.none {
-            margin-bottom: 1em;
-            list-style: none;
-        }
-
-        .layer {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%)
         }
 
         .button {

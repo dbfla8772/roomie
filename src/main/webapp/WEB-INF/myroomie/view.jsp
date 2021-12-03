@@ -9,7 +9,7 @@
 <html>
 <head>
     <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <title>My Roomie</title>
+    <title>나의 루미</title>
     <style>
         @font-face {
             font-family: 'SBAggroB';
@@ -44,7 +44,6 @@
         }
 
         h3.roomietitle {
-            /*font-family: SBAggroB; float: left; padding-top: 30px; padding-left: 100px; color: black;*/
             margin-top: 40px;
             font-family: SBAggroB;
             float: left;
@@ -123,11 +122,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
-    <%--    <script>--%>
-    <%--        function card_click() {--%>
-    <%--            <jsp:forward page="/student/main/detail.jsp"/>--%>
-    <%--        }--%>
-    <%--    </script>--%>
 </head>
 <body>
 
