@@ -10,6 +10,7 @@
   <packaging>war</packaging>
 
   <name>project-06 Maven Webapp</name>
+	<description>StudentManager based on MVC pattern, Bootstrap, and MyBatis</description>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -23,22 +24,19 @@
 	<commons-fileupload.version>1.4</commons-fileupload.version>
 	<jackson-databind.version>2.12.5</jackson-databind.version>
 	<junit.version>4.13.2</junit.version>
+	  <mybatis.version>3.5.7</mybatis.version>
   </properties>
+	<dependencies>
+		<dependency>
 
-  <dependencies>
+		<groupId>javax.servlet</groupId>
 
-<dependency>
+		<artifactId>javax.servlet-api</artifactId>
 
-<groupId>javax.servlet</groupId>
+		<version>${servlet-api.version}</version>
 
-<artifactId>javax.servlet-api</artifactId>
-
-<version>${servlet-api.version}</version>
-
-</dependency>
-
+		</dependency>
 	<dependency>
-	
 		<groupId>javax.servlet.jsp</groupId>
 		
 		<artifactId>javax.servlet.jsp-api</artifactId>
@@ -56,6 +54,12 @@
 		<version>${jstl.version}</version>
 		
 	</dependency>
+
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>${mybatis.version}</version>
+		</dependency>
 	
 	<dependency>
 	
@@ -127,7 +131,7 @@
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-compiler-plugin</artifactId>
-			<version>2.5.1</version>
+			<version>3.8.0</version>
 			<configuration>
 				<source>${java.version}</source>
 				<target>${java.version}</target>
