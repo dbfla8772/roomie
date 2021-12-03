@@ -153,7 +153,7 @@
                         <input type="email" size="30%" name="email" value="<%=email%>">
                     <% }else { %>
                         <input type="email" placeholder="본인의 학교 웹메일을 입력하세요." size="30%" name="email">
-                    <% } %><button style="width:22%" type="button" value="중복확인" onClick="emailCheck('${pageContext.request.contextPath}/student/mailCheck')">중복확인</button>
+                    <% } %><button style="width:20%" type="button" value="중복확인" onClick="emailCheck('${pageContext.request.contextPath}/student/mailCheck')">중복확인</button>
                 </td>
             </tr>
             <tr>
