@@ -91,25 +91,6 @@
         ul.space_list li {
             margin-bottom: 1em;
         }
-
-        ul.none {
-            margin-bottom: 1em;
-            list-style: none;
-        }
-
-        .layer {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%)
-        }
-
-        .button {
-            border: 0px;
-            border-radius: 10px;
-            background-color: lightgray;
-            padding: 7px 50px 7px 50px;
-        }
     </style>
 </head>
 <body>
@@ -284,28 +265,6 @@
                     </div>
                 </td>
             </tr>
-<%--            <tr>--%>
-<%--                <td align="center">--%>
-<%--                    <% if (request.getAttribute("scrap").equals("false")) { %>--%>
-<%--                    <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/scrap/view">--%>
-<%--                        <input type="hidden" name="scrap_id" value="${profile.s_id}">--%>
-<%--                        <input type="submit" class="button" value="스크랩" onclick="scrapBtn()">--%>
-<%--                    </form>--%>
-<%--                    <%} else {%>--%>
-<%--                    <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/scrap/delete">--%>
-<%--                        <input type="hidden" name="scrap_id" value="${profile.s_id}">--%>
-<%--                        <input type="submit" class="button" value="스크랩 취소" onclick="scrapBtn()">--%>
-<%--                    </form>--%>
-<%--                    <%} %>--%>
-<%--                </td>--%>
-<%--                <td align="center">--%>
-<%--                    <a href="${pageContext.request.contextPath}/mail/sendForm?receiver=${profile.s_id}"--%>
-<%--                       onClick="window.open(this.href, '', 'width=600, height=550'); return false;">--%>
-<%--                        <input type="submit" class="button" value="쪽지" style="margin-top: -9%">--%>
-<%--                    </a>--%>
-<%--                </td>--%>
-<%--                <td width="100"></td>--%>
-<%--            </tr>--%>
         </table>
     </div>
     <div style="text-align: right; margin-right: 80px;">

@@ -3,7 +3,7 @@
     int receiver; %>
 <html>
 <head>
-    <title>쪽지보내기</title>
+    <title>쪽지쓰기</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

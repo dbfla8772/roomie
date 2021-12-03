@@ -19,7 +19,7 @@
         }
         function studentCreate(targetUri) {
             form.action = targetUri;
-            form.method="GET";      //register form 요청
+            form.method="GET";
             form.submit();
         }
     </script>
@@ -52,7 +52,6 @@
             position: relative;
             left: 23%;
             padding-bottom: 50px;
-            /*border: black 1px solid;*/
         }
         .in {
             font-size: 13px;
