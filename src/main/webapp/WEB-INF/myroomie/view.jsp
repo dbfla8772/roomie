@@ -9,7 +9,7 @@
 <html>
 <head>
     <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <title>My Roomie</title>
+    <title>나의 루미</title>
     <style>
         @font-face {
             font-family: 'SBAggroB';
@@ -44,7 +44,6 @@
         }
 
         h3.roomietitle {
-            /*font-family: SBAggroB; float: left; padding-top: 30px; padding-left: 100px; color: black;*/
             margin-top: 40px;
             font-family: SBAggroB;
             float: left;
@@ -74,6 +73,8 @@
             color: black;
             border-color: lightgrey;
             background-color: white;
+            float:right;
+            margin-right: 7%;
         }
 
         .card-margin {
@@ -101,6 +102,13 @@
             padding-top: 1%;
             margin: auto;
         }
+        .subtitle {
+            font-family: SBAggroL;
+            font-size: 17px;
+            float: left;
+            margin-left: 9%;
+            font-weight: bold;
+        }
 
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -114,11 +122,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
-    <%--    <script>--%>
-    <%--        function card_click() {--%>
-    <%--            <jsp:forward page="/student/main/detail.jsp"/>--%>
-    <%--        }--%>
-    <%--    </script>--%>
 </head>
 <body>
 
@@ -128,15 +131,16 @@
     </h4>
 </div>
 
-<a href="${pageContext.request.contextPath}/student/main"><h3 class="roomietitle">Roomie</h3></a>
-<img src="/images/logo-font.png" id="logo"/>
+<a href="${pageContext.request.contextPath}/student/main"><h3 class="roomietitle">Roomie</h3><img src="/images/logo-font.png" id="logo"/></a>
 
 <h3 class="title">나의 루미</h3>
 
 <button type="button" class="btn btn-outline-secondary" name="go" onclick="document.location.href='${pageContext.request.contextPath}/myroomie/waiting'">
-    신청대기 목록</button>
+    대기 목록</button>
 
-    <h4>매칭 완료</h4>
+
+<div style="margin-top: 5%;" align="center">
+    <span class="subtitle">매칭 완료</span><p/><br>
         <%roomieList = (List<Profile>) request.getAttribute("roomieList");%>
     <c:forEach var="profile" items="${roomieList}">
     <div class="card-margin">
@@ -161,7 +165,6 @@
         </div>
     </div>
     </c:forEach>
-
-
+</div>
 </body>
 </html>

@@ -7,7 +7,7 @@
 %>
 <html>
 <head>
-    <title>detail profile</title>
+    <title>상세 프로필</title>
 
     <style>
         .dv {
@@ -64,18 +64,6 @@
 
         ul.space_list li {
             margin-bottom: 1em;
-        }
-
-        ul.none {
-            margin-bottom: 1em;
-            list-style: none;
-        }
-
-        .layer {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%)
         }
 
         .button {

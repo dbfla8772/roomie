@@ -133,7 +133,7 @@
                     <img src="/images/man1.png" width="150px" height="150px">
                     <input type="radio" name="pr_img" value="1"
                         <%if (profile.getPr_img() == 1) {%> checked <%} %>>
-                    <img src="/images/man2.png" width="150px" height="150px">
+                    <img src="/images/man2.png" width="150px" height="150px"><br>
                     <input type="radio" name="pr_img" value="2"
                         <%if (profile.getPr_img() == 2) {%> checked <%} %>>
                     <img src="/images/woman1.png" width="150px" height="150px">
@@ -218,10 +218,10 @@
                         <tr>
                             <td>실내취식</td>
                             <td>
-                                <input type="radio" name="sharing" value="0"
-                                    <%if (profile.getSharing() == 0) {%> checked <%} %>>가능
-                                <input type="radio" name="sharing" value="1"
-                                    <%if (profile.getSharing() == 1) {%> checked <%} %>>불가능
+                                <input type="radio" name="indoor_eating" value="0"
+                                    <%if (profile.getIndoor_eating() == 0) {%> checked <%} %>>가능
+                                <input type="radio" name="indoor_eating" value="1"
+                                    <%if (profile.getIndoor_eating() == 1) {%> checked <%} %>>불가능
                             </td>
                         </tr>
                         <tr>
@@ -273,12 +273,14 @@
                 </td>
             </tr>
             <tr>
-                <td align="center" style="width: 100px">
-                    닉네임:&nbsp;&nbsp;&nbsp;<input type="text" style="width: 240px" name="name" value="${profile.name}">
+                <td align="center">
+                    닉네임: <input type="text" style="width: 240px" name="name" value="${profile.name}">
                 </td>
                 <td align="center">
                     <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" name="activation" value="1" <%if (profile.getActivation()==1) {%> checked <%} %>>
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" name="activation" value="1"
+                               style="margin-top: 0px; padding-top: 0px;"
+                            <%if (profile.getActivation()==1) {%> checked <%} %>>
                     </div>
                 </td>
             </tr>

@@ -50,9 +50,23 @@ public class MyRoomieDAO {
             jdbcUtil.close();
         }
 
-        String sql1 = "INSERT INTO myroomie VALUES(?, MYROOMIESEQ.nextval, ?, 1)";
-        Object[] param1 = new Object[] {roomie.getRoomie_id(), roomie.getS_id()};
-        jdbcUtil.setSqlAndParameters(sql1, param1);
+        String sql1 = "UPDATE myroomie SET roomie_check=1 WHERE s_id=? AND roomie_id=?";
+        jdbcUtil.setSqlAndParameters(sql1, new Object[] {roomie.getRoomie_id(), roomie.getS_id()});
+
+        try {
+            int result = jdbcUtil.executeUpdate();
+        } catch (Exception ex) {
+            jdbcUtil.rollback();
+            ex.printStackTrace();
+        }
+        finally {
+            jdbcUtil.commit();
+            jdbcUtil.close();
+        }
+
+        String sql2 = "INSERT INTO myroomie VALUES(?, MYROOMIESEQ.nextval, ?, 1)";
+        Object[] param2 = new Object[] {roomie.getS_id(), roomie.getRoomie_id()};
+        jdbcUtil.setSqlAndParameters(sql2, param2);
 
         try {
             int result = jdbcUtil.executeUpdate();

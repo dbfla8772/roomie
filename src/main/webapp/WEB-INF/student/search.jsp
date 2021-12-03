@@ -4,6 +4,7 @@
 <%! Profile profile; %>
 <html>
 <head>
+    <title>검색</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -20,7 +21,7 @@
     <script>
         function search(targetUri) {
             form.action = targetUri;
-            form.method="POST";		// register form 요청
+            form.method="POST";
             form.submit();
         }
     </script>
@@ -125,7 +126,6 @@
 
 
 <%-- 검색 필터 --%>
-<%--<form name="form" method="post" action="<c:url value='/student/searchResult'>">--%>
 <% profile = (Profile) request.getAttribute("profile"); %>
 <form name="form" method="POST" action="${pageContext.request.contextPath}/student/searchResult">
     <table>

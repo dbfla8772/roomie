@@ -18,14 +18,13 @@
             form.submit();
         }*/
         function update() {
-            form2.method = "GET";
+            // form2.method = "GET";
             form2.submit();
         }
         function drop() {
             if (confirm("정말 탈퇴하시겠습니까?") == true){
                 form1.submit();
                 alert("탈퇴되었습니다.");
-
             } else {
                 return;
             }
@@ -106,12 +105,11 @@
 </div>
 
 
-    <% profile = (Profile) request.getAttribute("profile");
+<% profile = (Profile) request.getAttribute("profile");
     if (profile.getActivation()==1)
         activation = "활성화";
     else
         activation = "비활성화";
-
     img_url = "/images/";
     if (profile.getPr_img()==0)
         img_url += "man1.png";
@@ -121,22 +119,18 @@
         img_url += "woman1.png";
     else
         img_url += "woman2.png";
-
     if (profile.getSmoking()==0)
         smoking = "O";
     else
         smoking = "X";
-
     if (profile.getSharing()==0)
         sharing = "가능";
     else
         sharing = "불가능";
-
     if (profile.getLifestyle()==0)
         lifestyle = "아침형";
     else
         lifestyle = "저녁형";
-
     if (profile.getGrade()==0)
         grade = "1학년";
     else if (profile.getGrade()==1)
@@ -145,7 +139,6 @@
         grade = "3학년";
     else if (profile.getGrade()==3)
         grade = "4학년";
-
     if (profile.getHabitude()==0)
         habitude = "추위를 탐";
     else if (profile.getHabitude()==1)
@@ -154,7 +147,6 @@
         habitude = "둘 다 탐";
     else
         habitude = "상관없음";
-
     if (profile.getSleep_habit()==0)
         sleep_habit = "없음";
     else if (profile.getSleep_habit()==1)
@@ -163,7 +155,6 @@
         sleep_habit = "이갈이";
     else
         sleep_habit = "몽유병";
-
     if (profile.getCleaning()==0)
         cleaning = "매일";
     else if (profile.getCleaning()==1)
@@ -172,12 +163,10 @@
         cleaning = "1주";
     else
         cleaning = "2주";
-
     if (profile.getIndoor_eating()==0)
         indoor_eating = "가능";
     else
         indoor_eating = "불가능";
-
     if (profile.getMbti()==0)
         mbti = "ENFJ";
     else if (profile.getMbti()==1)
@@ -279,13 +268,11 @@
             </td>
         </tr>
         <tr>
-            <td align="center" style="font-size: large">
-                닉네임:${profile.name}
-            </td>
+            <td align="center" style="font-size: large">${profile.name}</td>
             <td align="center">
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" name="activation" value="1"
-                        disabled <%if (profile.getActivation()==1) {%> checked <%} %>>
+                           disabled <%if (profile.getActivation()==1) {%> checked <%} %>>
                 </div>
             </td>
         </tr>
@@ -294,8 +281,10 @@
                 <form name="form1" method="POST" action="${pageContext.servletContext.contextPath}/student/delete">
                     <input type="button" class="button" value="탈퇴하기" onclick="drop()">
                 </form>
-                <form name="form2" method="POST" action="${pageContext.servletContext.contextPath}/profile/update">
-                    <input type="hidden" name="s_id" value="${profile.s_id}">
+            </td>
+            <td align="center">
+                <form name="form2" action="${pageContext.servletContext.contextPath}/profile/update">
+                    <input type="hidden" name="s_id" value="${profile.s_id}"/>
                     <input type="button" class="button" value="수정하기" onclick="update()">
                 </form>
             </td>

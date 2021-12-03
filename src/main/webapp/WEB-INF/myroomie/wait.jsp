@@ -5,12 +5,11 @@
 <%!
     List<Profile> waitList;
     List<Profile> requestList;
-    String img_url;
 %>
 <html>
 <head>
     <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <title>My Roomie Waiting</title>
+    <title>나의 루미_대기 목록</title>
     <style>
         @font-face {
             font-family: 'SBAggroB';
@@ -37,6 +36,7 @@
             width: auto;
             height: auto;
             text-align: center;
+            margin-bottom: 100px;
         }
 
         #logo {
@@ -45,7 +45,6 @@
         }
 
         h3.roomietitle {
-            /*font-family: SBAggroB; float: left; padding-top: 30px; padding-left: 100px; color: black;*/
             margin-top: 40px;
             font-family: SBAggroB;
             float: left;
@@ -75,34 +74,30 @@
             color: black;
             border-color: lightgrey;
             background-color: white;
+            float:right;
+            margin-right: 7%;
         }
 
-        .card-margin {
-            margin: 0 5%;
-            float: left;
+        .subtitle {
             font-family: SBAggroL;
-            width: 40%;
-            padding: 20px;
+            font-size: 17px;
+            float: left;
+            margin-left: 10%;
+            font-weight: bold;
         }
-
-        .mb-3 {
-            cursor: pointer;
-            float: none;
-            border-radius: 10px;
-            height: 180px;
-            max-height: 180px;
-            margin-bottom: 0px;
-            display: flex;
+        .list-group {
+            margin-right: 1%;
+            margin-left: 1%;
         }
-
-        .col-md-4 {
-            margin: auto;
+        .mb-1 {
+            font-family: SBAggroL;
+            font-size: 13px;
         }
-        .col-md-8 {
-            padding-top: 1%;
-            margin: auto;
+        #outline {
+            font-family: SBAggroL;
+            font-size: 14px;
+            margin-top: 6px;
         }
-
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -124,67 +119,58 @@
     </h4>
 </div>
 
-<a href="${pageContext.request.contextPath}/student/main"><h3 class="roomietitle">Roomie</h3></a>
-<img src="/images/logo-font.png" id="logo"/>
+<a href="${pageContext.request.contextPath}/student/main"><h3 class="roomietitle">Roomie</h3>
+<img src="/images/logo-font.png" id="logo"/></a>
 
 <h3 class="title">나의 루미</h3>
 
 <button type="button" class="btn btn-outline-secondary" name="go" onclick="document.location.href='${pageContext.request.contextPath}/myroomie/view'">
     매칭 목록</button>
 
-<h4>승인 대기 중</h4>
-<%waitList = (List<Profile>) request.getAttribute("waitList");%>
-<c:forEach var="w_profile" items="${waitList}">
-    <div class="card-margin">
-        <div class="card mb-3" style="border-radius: 10px;"
-             onclick="location.href='/myroomie/detail?s_id=' + ${w_profile.s_id}">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <c:if test="${w_profile.pr_img eq 0}"><%img_url = "/images/man1.png";%></c:if>
-                    <c:if test="${w_profile.pr_img eq 1}"><%img_url = "/images/man2.png";%></c:if>
-                    <c:if test="${w_profile.pr_img eq 2}"><%img_url = "/images/woman1.png";%></c:if>
-                    <c:if test="${w_profile.pr_img eq 3}"><%img_url = "/images/woman2.png";%></c:if>
-                    <img style="border-radius: 10px;" src="<c:url value='<%=img_url%>' />"
-                         class="img-fluid rounded-start" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">${w_profile.name}</h5>
-                        <p class="card-text">전공: ${w_profile.major} <br>나이: ${w_profile.age}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</c:forEach>
 
 
-<h4>나에게 온 신청</h4>
-<%requestList = (List<Profile>) request.getAttribute("requestList");%>
-<c:forEach var="r_profile" items="${requestList}">
-    <div class="card-margin">
-        <div class="card mb-3" style="border-radius: 10px;"
-             onclick="location.href='/myroomie/detail?s_id=' + ${r_profile.s_id}">
-            <p>${r_profile.s_id}</p>
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <c:if test="${r_profile.pr_img eq 0}"><%img_url = "/images/man1.png";%></c:if>
-                    <c:if test="${r_profile.pr_img eq 1}"><%img_url = "/images/man2.png";%></c:if>
-                    <c:if test="${r_profile.pr_img eq 2}"><%img_url = "/images/woman1.png";%></c:if>
-                    <c:if test="${r_profile.pr_img eq 3}"><%img_url = "/images/woman2.png";%></c:if>
-                    <img style="border-radius: 10px;" src="<c:url value='<%=img_url%>' />"
-                         class="img-fluid rounded-start" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">${r_profile.name}</h5>
-                        <p class="card-text">전공: ${r_profile.major} <br>나이: ${r_profile.age}</p>
-                    </div>
-                </div>
-            </div>
+<div style="margin-top: 5%; margin-right: 10%;" align="center">
+    <div class="subtitle">승인 대기</div><p/><br>
+    <%waitList = (List<Profile>) request.getAttribute("waitList");%>
+    <div class="list-group" align="center" style="width: 85%; margin-left: 12%">
+        <div id="outline" class="d-flex w-100 justify-content-between" align="center">
+            <span class="title" style="margin-left: 6.75%">닉네임</span>
+            <span class="title" style="margin-right: 1%">전공</span>
+            <span class="title" style="margin-right: 7.5%">나이</span>
         </div>
+        <c:forEach var="w_profile" items="${waitList}">
+            <a href="${pageContext.request.contextPath}/student/main/detail?s_id=${w_profile.s_id}" class="list-group-item list-group-item-action" aria-current="true">
+                <div class="d-flex w-100 justify-content-between" align="center" style="width:30%;">
+                    <span class="mb-1" style="width:15%;">${w_profile.name}</span>
+                    <span class="mb-1" style="width:15%;">${w_profile.major}</span>
+                    <span class="mb-1" style="width:15%;">${w_profile.age}세</span>
+                </div>
+            </a>
+        </c:forEach>
     </div>
-</c:forEach>
+</div>
+
+
+<div style="margin-top: 5%; margin-right: 10%;" align="center">
+<span class="subtitle">승인 요청</span><p/><br>
+    <%requestList = (List<Profile>) request.getAttribute("requestList");%>
+    <div class="list-group" align="center" style="width: 85%; margin-left: 12%">
+        <div id="outline" class="d-flex w-100 justify-content-between" align="center">
+            <span class="title" style="margin-left: 6.75%">닉네임</span>
+            <span class="title" style="margin-right: 1%">전공</span>
+            <span class="title" style="margin-right: 7.5%">나이</span>
+        </div>
+        <c:forEach var="r_profile" items="${requestList}">
+            <a href="${pageContext.request.contextPath}/myroomie/detail?s_id=${r_profile.s_id}" class="list-group-item list-group-item-action" aria-current="true">
+                <div class="d-flex w-100 justify-content-between" align="center" style="width:30%;">
+                    <span class="mb-1" style="width:15%;">${r_profile.name}</span>
+                    <span class="mb-1" style="width:15%;">${r_profile.major}</span>
+                    <span class="mb-1" style="width:15%;">${r_profile.age}세</span>
+                </div>
+            </a>
+        </c:forEach>
+    </div>
+</div>
 
 </body>
 </html>
