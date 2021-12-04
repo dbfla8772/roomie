@@ -57,14 +57,10 @@
         a {
             font-family: SBAggroL;
         }
-        .all-card {
-            margin-top: 50px;
-        }
         .card-margin {
             font-family: SBAggroL;
             width: 40%;
             display: inline-block;
-            /*padding: 2%;*/
             padding-bottom: 2%;
             margin: 0 4.9%;
         }
@@ -72,6 +68,7 @@
             width: 100%;
             padding: 4%;
             border-radius: 10px;
+            cursor: pointer;
         }
         .col-md-4 {
             border-radius: 10px;
@@ -81,18 +78,6 @@
             margin-right: -7%;
             margin-left: 3%;
         }
-        /*.card-margin {
-            font-family: SBAggroL;
-            margin-left: 7%;
-            margin-right: 7%;
-        }
-        .mb-3 {
-            cursor: pointer;
-            float: left;
-            border-radius: 10px;
-            width: 40%;
-            margin: 0px 5% 100px 5%;
-        }*/
         #footer {
             position: relative;
             width: 100%;
