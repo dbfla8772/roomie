@@ -185,8 +185,23 @@
 <div class="dv" align="center">
     <table style="border-radius: 10px; align: center;">
         <tr>
-            <td colspan="2" rowspan="2" style="height: 30px">
-                <img style="border-radius: 10px; width:300px; height:400px; object-fit: contain" src="<%=img_url%>"/>
+            <td colspan="2" rowspan="2">
+                <table>
+                    <tr>
+                        <td>
+                            <img style="border-radius: 10px; width:300px; height:300px; object-fit: contain" src="<%=img_url%>"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: x-large; text-align: center">${profile.name}</td>
+                        <td>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" name="activation" value="1"
+                                       disabled <%if (profile.getActivation()==1) {%> checked <%} %>>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
             </td>
             <td colspan="3" style="width:400px; text-align: left; font-size: x-large; font-weight: 800; padding-top: 5px;">
                 &nbsp;&nbsp;프로필 옵션<br><br>
@@ -248,15 +263,15 @@
                 </table>
             </td>
         </tr>
-        <tr>
-            <td align="center" style="font-size: large">${profile.name}</td>
-            <td align="center">
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" name="activation" value="1"
-                           disabled <%if (profile.getActivation()==1) {%> checked <%} %>>
-                </div>
-            </td>
-        </tr>
+<%--        <tr>--%>
+<%--            <td align="center" style="font-size: large">${profile.name}</td>--%>
+<%--            <td align="center">--%>
+<%--                <div class="form-check form-switch">--%>
+<%--                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" name="activation" value="1"--%>
+<%--                           disabled <%if (profile.getActivation()==1) {%> checked <%} %>>--%>
+<%--                </div>--%>
+<%--            </td>--%>
+<%--        </tr>--%>
         <tr>
             <td align="center">
                 <form name="form1" method="POST" action="${pageContext.servletContext.contextPath}/student/delete">
