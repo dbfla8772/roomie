@@ -43,12 +43,12 @@
         }
 
         body {
-            margin: 5% 8%;
+            margin-top: 5%;
             align-content: center;
         }
 
         #logo {
-            margin-top: -2.5%;
+            margin-top: -2%;
             width: 70px;
         }
 
@@ -56,11 +56,12 @@
             font-family: SBAggroB;
             float: left;
             color: black;
+            margin-left: 8%;
         }
 
         table {
             margin: 0 auto;
-            width: 80%;
+            width: 70%;
             height: 40%;
             position: relative;
             top: 20%;
@@ -87,7 +88,7 @@
 
         .btn {
             margin-top: 10px;
-            margin-right: 8%;
+            margin-right: 13%;
             font-family: SBAggroL;
             float: right;
         }
@@ -119,14 +120,24 @@
 
         .card-margin {
             font-family: SBAggroL;
-        }
-
-        .mb-3 {
-            cursor: pointer;
-            float: left;
-            border-radius: 10px;
             width: 40%;
-            margin: 0px 5% 100px 5%;
+            display: inline-block;
+            /*padding: 2%;*/
+            padding-bottom: 2%;
+            margin: 0 4.9%;
+        }
+        .mb-3 {
+            width: 100%;
+            padding: 4%;
+            border-radius: 10px;
+        }
+        .col-md-4 {
+            border-radius: 10px;
+            margin: 0 2%;
+        }
+        .col-md-8 {
+            margin-right: -7%;
+            margin-left: 3%;
         }
 
         #mbti {
@@ -150,6 +161,7 @@
             text-align: center;
             font-size: x-small;
             padding-bottom: 50px;
+            margin-top: 100px;
         }
         #footer p {
             padding: 0px 30px;
@@ -157,6 +169,7 @@
 
         .search_result {
             position: relative;
+            margin: 0 7%;
         }
 
     </style>
@@ -244,7 +257,7 @@
             <img src="<c:url value='/images/magnifier.png'/>" id="magnifier"/>
         </div>
     </div>
-</form>
+</form><p/><br>
 
 <%profileList = (List<Profile>) request.getAttribute("profileList");%>
 <div class="empty">
@@ -278,23 +291,6 @@
 </form>
 </div>
 <br>
-
-<%-- 페이징 --%>
-<%--<div class="page-float">--%>
-<%--    <nav aria-label="Page navigation example">--%>
-<%--        <ul class="pagination justify-content-center">--%>
-<%--            <li class="page-item disabled">--%>
-<%--                <a class="page-link">Previous</a>--%>
-<%--            </li>--%>
-<%--            <li class="page-item"><a class="page-link" href="#">1</a></li>--%>
-<%--            <li class="page-item"><a class="page-link" href="#">2</a></li>--%>
-<%--            <li class="page-item"><a class="page-link" href="#">3</a></li>--%>
-<%--            <li class="page-item">--%>
-<%--                <a class="page-link" href="#">Next</a>--%>
-<%--            </li>--%>
-<%--        </ul>--%>
-<%--    </nav>--%>
-<%--</div>--%>
 <footer id="footer">
     <hr>
     <p>데이터베이스프로그래밍 01-06 ©야-심차게<br>권민지 김유림 김은혜 박초은</p>
