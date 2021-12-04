@@ -185,7 +185,7 @@
 <div class="dv" align="center">
     <table style="border-radius: 10px; align: center;">
         <tr>
-            <td colspan="2" rowspan="2">
+            <td colspan="2" rowspan="2" style="height: 30px">
                 <img style="border-radius: 10px; width:300px; height:400px; object-fit: contain" src="<%=img_url%>"/>
             </td>
             <td colspan="3" style="width:400px; text-align: left; font-size: x-large; font-weight: 800; padding-top: 5px;">
