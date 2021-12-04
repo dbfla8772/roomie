@@ -7,7 +7,6 @@
 %>
 <html>
 <head>
-    <link href="css/styles.css" rel="stylesheet" type="text/css">
     <title>스크랩</title>
     <style>
         @font-face {

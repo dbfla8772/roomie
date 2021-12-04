@@ -15,8 +15,8 @@ public class ProfileDAO {
     }
 
     public int create(Profile profile) throws SQLException {
-        String sql = "INSERT INTO PROFILE VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        Object[] param = new Object[] {profile.getActivation(),
+        String sql = "INSERT INTO PROFILE VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        Object[] param = new Object[] {
                 profile.getName(), profile.getPr_img(), profile.getAge(), profile.getSleep_habit(),
                 profile.getLifestyle(), profile.getSmoking(), profile.getGrade(), profile.getMajor(),
                 profile.getCleaning(), profile.getIndoor_eating(), profile.getMbti(),

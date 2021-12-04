@@ -4,7 +4,6 @@
 <%! Profile profile; %>
 <html>
 <head>
-    <title>검색</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -79,7 +78,6 @@
             border-radius: 4px;
             outline: 0 none;
         }
-
         .select option {
             background: black;
             color: #fff;
@@ -135,11 +133,12 @@
             padding: 0px 30px;
         }
     </style>
+
 </head>
 <body>
 
-<a href="${pageContext.request.contextPath}/student/main"><h3>&nbsp;Roomie</h3></a>
-<a href="${pageContext.request.contextPath}/student/main"><img src="/images/logo-font.png" id="logo"/></a>
+<a href = "${pageContext.request.contextPath}/student/main"><h3>&nbsp;Roomie</h3></a>
+<a href = "${pageContext.request.contextPath}/student/main"><img src="/images/logo-font.png" id="logo"/></a>
 
 
 <%-- 검색 필터 --%>
@@ -148,24 +147,19 @@
     <table>
         <tr>
             <td><input type="checkbox" name="habitude" value="<%= profile.getHabitude() %>"><label>&nbsp;체질</label></td>
-            <td><input type="checkbox" name="sleep_habit"
-                       value="<%= profile.getSleep_habit() %>"><label>&nbsp;잠버릇</label></td>
-            <td><input type="checkbox" name="lifestyle" value="<%= profile.getLifestyle() %>"><label>&nbsp;생활 패턴</label>
-            </td>
+            <td><input type="checkbox" name="sleep_habit" value="<%= profile.getSleep_habit() %>"><label>&nbsp;잠버릇</label></td>
+            <td><input type="checkbox" name="lifestyle" value="<%= profile.getLifestyle() %>"><label>&nbsp;생활 패턴</label></td>
             <br>
         </tr>
         <tr>
-            <td><input type="checkbox" name="smoking" value="<%= profile.getSmoking() %>"><label>&nbsp;흡연 유무</label>
-            </td>
+            <td><input type="checkbox" name="smoking" value="<%= profile.getSmoking() %>"><label>&nbsp;흡연 유무</label></td>
             <td><input type="checkbox" name="grade" value="<%= profile.getGrade() %>"><label>&nbsp;학년</label></td>
             <td><input type="checkbox" name="major" value="<%= profile.getMajor() %>"><label>&nbsp;전공</label></td>
             <br>
         </tr>
         <tr>
-            <td><input type="checkbox" name="cleaning" value="<%= profile.getCleaning() %>"><label>&nbsp;청소 주기</label>
-            </td>
-            <td><input type="checkbox" name="indoor_eating" value="<%= profile.getIndoor_eating() %>"><label>&nbsp;실내
-                취식</label></td>
+            <td><input type="checkbox" name="cleaning" value="<%= profile.getCleaning() %>"><label>&nbsp;청소 주기</label></td>
+            <td><input type="checkbox" name="indoor_eating" value="<%= profile.getIndoor_eating() %>"><label>&nbsp;실내 취식</label></td>
             <td><label>&nbsp;&nbsp;&nbsp;MBTI&nbsp;
                 <select id="mbti" name="mbti">
                     <option value="-1">선택안함</option>
@@ -190,16 +184,13 @@
             <br>
         </tr>
         <tr>
-            <td><input type="checkbox" name="sharing" value="<%= profile.getSharing() %>"><label>&nbsp;생필품 공유</label>
-            </td>
+            <td><input type="checkbox" name="sharing" value="<%= profile.getSharing() %>"><label>&nbsp;생필품 공유</label></td>
         </tr>
     </table>
 
     <div class="btn">
         <%-- 검색 실행 버튼 --%>
-        <button type="submit" class="btn btn-outline-secondary"
-                onclick="search('${pageContext.request.contextPath}/student/search')">검색하기
-        </button>
+        <button type="submit" class="btn btn-outline-secondary" onclick="search('${pageContext.request.contextPath}/student/search')">검색하기</button>
     </div>
     <%-- 돋보기 이미지 --%>
     <div class="search-img">
