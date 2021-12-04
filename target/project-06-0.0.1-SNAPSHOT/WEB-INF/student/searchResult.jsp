@@ -125,7 +125,6 @@
             padding-bottom: 2%;
             margin: 0 4.9%;
         }
-
         .mb-3 {
             width: 100%;
             padding: 4%;
