@@ -112,7 +112,6 @@
         }
 
         div.search {
-            position: relative;
             width: 100%;
             height: 150px;
             float: right;
@@ -168,7 +167,6 @@
         }
 
         .search_result {
-            position: relative;
             margin: 0 7%;
         }
 

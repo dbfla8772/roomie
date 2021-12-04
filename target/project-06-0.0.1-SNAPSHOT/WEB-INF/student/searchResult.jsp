@@ -43,12 +43,12 @@
         }
 
         body {
-            margin: 5% 8%;
+            margin-top: 5%;
             align-content: center;
         }
 
         #logo {
-            margin-top: -2.5%;
+            margin-top: -2%;
             width: 70px;
         }
 
@@ -56,11 +56,12 @@
             font-family: SBAggroB;
             float: left;
             color: black;
+            margin-left: 8%;
         }
 
         table {
             margin: 0 auto;
-            width: 80%;
+            width: 70%;
             height: 40%;
             position: relative;
             top: 20%;
@@ -87,7 +88,7 @@
 
         .btn {
             margin-top: 10px;
-            margin-right: 8%;
+            margin-right: 13%;
             font-family: SBAggroL;
             float: right;
         }
@@ -111,7 +112,6 @@
         }
 
         div.search {
-            position: relative;
             width: 100%;
             height: 150px;
             float: right;
@@ -119,14 +119,24 @@
 
         .card-margin {
             font-family: SBAggroL;
-        }
-
-        .mb-3 {
-            cursor: pointer;
-            float: left;
-            border-radius: 10px;
             width: 40%;
-            margin: 0px 5% 100px 5%;
+            display: inline-block;
+            /*padding: 2%;*/
+            padding-bottom: 2%;
+            margin: 0 4.9%;
+        }
+        .mb-3 {
+            width: 100%;
+            padding: 4%;
+            border-radius: 10px;
+        }
+        .col-md-4 {
+            border-radius: 10px;
+            margin: 0 2%;
+        }
+        .col-md-8 {
+            margin-right: -7%;
+            margin-left: 3%;
         }
 
         #mbti {
@@ -150,13 +160,14 @@
             text-align: center;
             font-size: x-small;
             padding-bottom: 50px;
+            margin-top: 100px;
         }
         #footer p {
             padding: 0px 30px;
         }
 
         .search_result {
-            position: relative;
+            margin: 0 7%;
         }
 
     </style>
