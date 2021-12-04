@@ -49,7 +49,8 @@
             text-align: right;
             padding-top: 5px;
             padding-bottom: 10px;
-            margin-right:8%;
+            margin-right: 8%;
+            margin-bottom: 4%;
         }
         h4 {
             font-family: SBAggroL;
@@ -57,7 +58,31 @@
         a {
             font-family: SBAggroL;
         }
+        .all-card {
+            margin-top: 50px;
+        }
         .card-margin {
+            font-family: SBAggroL;
+            width: 40%;
+            display: inline-block;
+            /*padding: 2%;*/
+            padding-bottom: 2%;
+            margin: 0 4.9%;
+        }
+        .mb-3 {
+            width: 100%;
+            padding: 4%;
+            border-radius: 10px;
+        }
+        .col-md-4 {
+            border-radius: 10px;
+            margin: 0 2%;
+        }
+        .col-md-8 {
+            margin-right: -7%;
+            margin-left: 3%;
+        }
+        /*.card-margin {
             font-family: SBAggroL;
             margin-left: 7%;
             margin-right: 7%;
@@ -68,7 +93,7 @@
             border-radius: 10px;
             width: 40%;
             margin: 0px 5% 100px 5%;
-        }
+        }*/
         #footer {
             position: relative;
             width: 100%;
@@ -77,6 +102,7 @@
             text-align: center;
             font-size: x-small;
             padding-bottom: 50px;
+            margin-top: 100px;
         }
         #footer p {
             padding: 0px 30px;

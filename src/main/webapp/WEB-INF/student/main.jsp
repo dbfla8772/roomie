@@ -25,7 +25,7 @@
             font-style: normal;
         }
         html, body {
-            magrin: 0 5%;
+            magrin: 0 2%;
             width: auto;
             height: auto;/*
             margin-bottom: 4%;*/
@@ -39,16 +39,14 @@
         }
         .all-card {
             margin-top: 50px;
-            margin-left: 5%;
-            margin-right: 5%;
         }
         .card-margin {
             font-family: SBAggroL;
-            width: 35%;
+            width: 40%;
             display: inline-block;
             /*padding: 2%;*/
             padding-bottom: 2%;
-            margin: 0 7.4%;
+            margin: 0 4.9%;
         }
         .mb-3 {
             width: 100%;
@@ -121,6 +119,7 @@
             padding-bottom: 50px;
             text-align: center;
             font-size: x-small;
+            margin-top: 100px;
         }
         #footer p {
             padding: 0px 30px;

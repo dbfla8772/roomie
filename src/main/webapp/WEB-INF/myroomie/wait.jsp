@@ -36,7 +36,6 @@
             width: auto;
             height: auto;
             text-align: center;
-            margin-bottom: 100px;
         }
 
         #logo {
@@ -105,7 +104,8 @@
             font-family: SBAggroL;
             text-align: center;
             font-size: x-small;
-            padding-bottom: 50px;
+            padding-top: 100px;
+            margin-bottom: 50px;
         }
         #footer p {
             padding: 0px 30px;
