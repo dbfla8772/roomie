@@ -60,6 +60,7 @@
     </script>
     <style>
         .frm {
+            position: relative;
             margin-top: 7%;
         }
         table {
@@ -110,6 +111,18 @@
         }
         option {
             font-family: SBAggroL;
+        }
+        #footer {
+            position: relative;
+            width: 100%;
+            bottom: 0;
+            font-family: SBAggroL;
+            text-align: center;
+            font-size: x-small;
+            padding-bottom: 50px;
+        }
+        #footer p {
+            padding: 0px 30px;
         }
     </style>
 </head>
@@ -226,5 +239,9 @@
         </table>
     </div>
 </form>
+<footer id="footer">
+    <hr>
+    <p>데이터베이스프로그래밍 01-06 ©야-심차게<br>권민지 김유림 김은혜 박초은</p>
+</footer>
 </body>
 </html>

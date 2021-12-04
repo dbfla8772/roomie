@@ -36,7 +36,6 @@
             width: auto;
             height: auto;
             text-align: center;
-            margin-bottom: 100px;
         }
 
         #logo {
@@ -97,6 +96,19 @@
             font-family: SBAggroL;
             font-size: 14px;
             margin-top: 6px;
+        }
+        #footer {
+            position: relative;
+            width: 100%;
+            bottom: 0;
+            font-family: SBAggroL;
+            text-align: center;
+            font-size: x-small;
+            padding-top: 100px;
+            margin-bottom: 50px;
+        }
+        #footer p {
+            padding: 0px 30px;
         }
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -171,6 +183,9 @@
         </c:forEach>
     </div>
 </div>
-
+<footer id="footer">
+    <hr>
+    <p>데이터베이스프로그래밍 01-06 ©야-심차게<br>권민지 김유림 김은혜 박초은</p>
+</footer>
 </body>
 </html>

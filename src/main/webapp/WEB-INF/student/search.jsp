@@ -21,7 +21,7 @@
     <script>
         function search(targetUri) {
             form.action = targetUri;
-            form.method="POST";
+            form.method = "POST";
             form.submit();
         }
     </script>
@@ -42,12 +42,12 @@
         }
 
         body {
-            margin: 5% 8%;
+            margin-top: 5%;
             align-content: center;
         }
 
         #logo {
-            margin-top: -2.5%;
+            margin-top: -2.0%;
             width: 70px;
         }
 
@@ -55,11 +55,12 @@
             font-family: SBAggroB;
             float: left;
             color: black;
+            margin-left: 8%;
         }
 
         table {
             margin: 0 auto;
-            width: 80%;
+            width: 70%;
             height: 40%;
             position: relative;
             top: 20%;
@@ -78,6 +79,7 @@
             border-radius: 4px;
             outline: 0 none;
         }
+
         .select option {
             background: black;
             color: #fff;
@@ -90,11 +92,12 @@
 
         .btn {
             margin-top: 10px;
-            margin-right: 8%;
+            margin-right: 13%;
             font-family: SBAggroL;
         }
 
         .search-img {
+            position: relative;
             margin-top: 15px;
             margin-right: -20px;
         }
@@ -116,13 +119,27 @@
             font-size: 15px;
             margin: 2px;
         }
-    </style>
 
+        #footer {
+            position: relative;
+            width: 100%;
+            bottom: 0;
+            font-family: SBAggroL;
+            text-align: center;
+            font-size: x-small;
+            padding-bottom: 50px;
+            margin-top: 200px;
+        }
+
+        #footer p {
+            padding: 0px 30px;
+        }
+    </style>
 </head>
 <body>
 
-<a href = "${pageContext.request.contextPath}/student/main"><h3>&nbsp;Roomie</h3></a>
-<a href = "${pageContext.request.contextPath}/student/main"><img src="/images/logo-font.png" id="logo"/></a>
+<a href="${pageContext.request.contextPath}/student/main"><h3>&nbsp;Roomie</h3></a>
+<a href="${pageContext.request.contextPath}/student/main"><img src="/images/logo-font.png" id="logo"/></a>
 
 
 <%-- 검색 필터 --%>
@@ -131,19 +148,24 @@
     <table>
         <tr>
             <td><input type="checkbox" name="habitude" value="<%= profile.getHabitude() %>"><label>&nbsp;체질</label></td>
-            <td><input type="checkbox" name="sleep_habit" value="<%= profile.getSleep_habit() %>"><label>&nbsp;잠버릇</label></td>
-            <td><input type="checkbox" name="lifestyle" value="<%= profile.getLifestyle() %>"><label>&nbsp;생활 패턴</label></td>
+            <td><input type="checkbox" name="sleep_habit"
+                       value="<%= profile.getSleep_habit() %>"><label>&nbsp;잠버릇</label></td>
+            <td><input type="checkbox" name="lifestyle" value="<%= profile.getLifestyle() %>"><label>&nbsp;생활 패턴</label>
+            </td>
             <br>
         </tr>
         <tr>
-            <td><input type="checkbox" name="smoking" value="<%= profile.getSmoking() %>"><label>&nbsp;흡연 유무</label></td>
+            <td><input type="checkbox" name="smoking" value="<%= profile.getSmoking() %>"><label>&nbsp;흡연 유무</label>
+            </td>
             <td><input type="checkbox" name="grade" value="<%= profile.getGrade() %>"><label>&nbsp;학년</label></td>
             <td><input type="checkbox" name="major" value="<%= profile.getMajor() %>"><label>&nbsp;전공</label></td>
             <br>
         </tr>
         <tr>
-            <td><input type="checkbox" name="cleaning" value="<%= profile.getCleaning() %>"><label>&nbsp;청소 주기</label></td>
-            <td><input type="checkbox" name="indoor_eating" value="<%= profile.getIndoor_eating() %>"><label>&nbsp;실내 취식</label></td>
+            <td><input type="checkbox" name="cleaning" value="<%= profile.getCleaning() %>"><label>&nbsp;청소 주기</label>
+            </td>
+            <td><input type="checkbox" name="indoor_eating" value="<%= profile.getIndoor_eating() %>"><label>&nbsp;실내
+                취식</label></td>
             <td><label>&nbsp;&nbsp;&nbsp;MBTI&nbsp;
                 <select id="mbti" name="mbti">
                     <option value="-1">선택안함</option>
@@ -168,18 +190,26 @@
             <br>
         </tr>
         <tr>
-            <td><input type="checkbox" name="sharing" value="<%= profile.getSharing() %>"><label>&nbsp;생필품 공유</label></td>
+            <td><input type="checkbox" name="sharing" value="<%= profile.getSharing() %>"><label>&nbsp;생필품 공유</label>
+            </td>
         </tr>
     </table>
 
     <div class="btn">
         <%-- 검색 실행 버튼 --%>
-        <button type="submit" class="btn btn-outline-secondary" onclick="search('${pageContext.request.contextPath}/student/search')">검색하기</button>
+        <button type="submit" class="btn btn-outline-secondary"
+                onclick="search('${pageContext.request.contextPath}/student/search')">검색하기
+        </button>
     </div>
     <%-- 돋보기 이미지 --%>
     <div class="search-img">
         <img src="<c:url value='/images/magnifier.png'/>" id="magnifier"/>
     </div>
 </form>
+
+<footer id="footer">
+    <hr>
+    <p>데이터베이스프로그래밍 01-06 ©야-심차게<br>권민지 김유림 김은혜 박초은</p>
+</footer>
 </body>
 </html>

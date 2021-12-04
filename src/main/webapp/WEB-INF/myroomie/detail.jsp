@@ -28,7 +28,6 @@
             margin: 0;
             width: auto;
             height: auto;
-            margin-bottom: 4%;
         }
 
         h3 {
@@ -49,6 +48,7 @@
         }
 
         .dv {
+            position: relative;
             margin-top: 50px;
             margin-bottom: 30px;
         }
@@ -68,6 +68,20 @@
             border-radius: 10px;
             background-color: lightgray;
             padding: 7px 50px 7px 50px;
+        }
+
+        #footer {
+            position: relative;
+            width: 100%;
+            bottom: 0;
+            font-family: SBAggroL;
+            text-align: center;
+            font-size: x-small;
+            padding-bottom: 50px;
+            margin-top: 100px;
+        }
+        #footer p {
+            padding: 0px 30px;
         }
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -337,4 +351,10 @@
         </tr>
     </table>
 </div>
+<footer id="footer">
+    <hr>
+    <p>데이터베이스프로그래밍 01-06 ©야-심차게<br>권민지 김유림 김은혜 박초은</p>
+</footer>
+</body>
+</html>
 
