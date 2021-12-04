@@ -8,7 +8,7 @@
 <html>
 <head>
     <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <title>Roomie</title>
+    <title>메인 페이지</title>
     <script>
     </script>
     <style>
@@ -79,6 +79,24 @@
         .link-secondary {
             font-size: 120%;
         }
+        .page-float {
+            clear: left;
+            position: absolute;
+            bottom: 1px;
+            right: 43%
+        }
+
+        #footer {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            font-family: SBAggroL;
+            padding-bottom: 50px;
+        }
+        #footer p {
+            padding: 0px 20px;
+        }
+
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -87,6 +105,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
+<%--<% if (request.getSession().getAttribute("login").equals(0)) {
+    out.println("<script>alert('로그인되었습니다.');</script>");
+} %>--%>
 <div class="w-auto p-2" style="background-color: lightcyan; text-align: center;"><h4 style="font-family: SBAggroL">당신의 루미를 찾아보세요! <button class="btn btn-outline-success" type="submit" onClick="location.href='/student/automatch'">자동매칭 하러가기</button></h4></div>
 <div class="container">
     <header class="blog-header py-3">
@@ -141,5 +162,41 @@
         </div>
     </c:forEach>
 </div>
+<%--    int totalCount;--%>
+<%--    int countList;--%>
+<%--    int totalPage;--%>
+<%--    int i;--%>
+<%--%>--%>
+<%--<%--%>
+<%--    totalCount = 25;--%>
+<%--    countList = 10;--%>
+
+<%--    totalPage = totalCount / countList;--%>
+
+<%--    if (totalCount % countList > 0) {--%>
+<%--        totalPage++;--%>
+<%--    }--%>
+<%--%>--%>
+
+<%--<div class="page-float">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
+</div>--%>
+<footer id="footer">
+    <hr>
+    <p>데이터베이스프로그래밍 01-06 야-심차게</p>
+    <p>권민지 김유림 김은혜 박초은</p>
+</footer>
 </body>
 </html>
