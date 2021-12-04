@@ -120,6 +120,7 @@
             text-align: center;
             font-size: x-small;
             padding-bottom: 50px;
+            margin-top: 100px;
         }
         #footer p {
             padding: 0px 30px;
