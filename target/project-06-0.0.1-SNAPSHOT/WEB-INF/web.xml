@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
  	<display-name>project-06</display-name>
-    <context-param>
-        <param-name>javax.faces.CONFIG_FILES</param-name>
-        <param-value>/src/main/resources/mybatis-config.xml</param-value>
-    </context-param>
+<!--    <context-param>-->
+<!--        <param-name>javax.faces.CONFIG_FILES</param-name>-->
+<!--        <param-value>/src/main/resources/mybatis-config.xml</param-value>-->
+<!--    </context-param>-->
     <filter>
 		<filter-name>Resource Filter</filter-name>
 		<filter-class>filter.ResourceFilter</filter-class>
@@ -33,20 +33,20 @@
 		<servlet-name>DispatcherServlet</servlet-name>
 		<servlet-class>controller.DispatcherServlet</servlet-class>
 	</servlet>
-    <servlet>
-        <servlet-name>Faces Servlet</servlet-name>
-        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
+<!--    <servlet>-->
+<!--        <servlet-name>Faces Servlet</servlet-name>-->
+<!--        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>-->
+<!--        <load-on-startup>1</load-on-startup>-->
+<!--    </servlet>-->
 
     <servlet-mapping>
 		<servlet-name>DispatcherServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>*.xhtml</url-pattern>
-    </servlet-mapping>
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>Faces Servlet</servlet-name>-->
+<!--        <url-pattern>*.xhtml</url-pattern>-->
+<!--    </servlet-mapping>-->
     <welcome-file-list>
 	    <welcome-file>index.html</welcome-file>
 	    <welcome-file>index.htm</welcome-file>

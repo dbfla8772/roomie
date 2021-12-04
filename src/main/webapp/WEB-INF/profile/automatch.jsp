@@ -53,6 +53,18 @@
             width: 60%;
             margin: 0px 0% 100px 5%;
         }
+        #footer {
+            position: relative;
+            width: 100%;
+            bottom: 0;
+            font-family: SBAggroL;
+            text-align: center;
+            font-size: x-small;
+            padding-bottom: 50px;
+        }
+        #footer p {
+            padding: 0px 30px;
+        }
     </style>
 </head>
 <body>
@@ -108,7 +120,7 @@
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title"><%= profileList.get(i).getName() %></h5>
-                                    <p class="card-text"><%= profileList.get(i).getMajor() %> (<%= profileList.get(i).getGrade() %>학년)&emsp;&emsp;&emsp;&emsp;&emsp; <br>
+                                    <p class="card-text"><%= profileList.get(i).getMajor() %> (<%= profileList.get(i).getGrade()+1 %>학년)&emsp;&emsp;&emsp;&emsp;&emsp; <br>
                                         <%= profileList.get(i).getAge() %>세&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
                                     <p class="card-text"><small class="text-muted"></small></p>
                                 </div>
@@ -129,5 +141,9 @@
         </button>
     </div>
 </div>
+<footer id="footer">
+    <hr>
+    <p>데이터베이스프로그래밍 01-06 ©야-심차게<br>권민지 김유림 김은혜 박초은</p>
+</footer>
 </body>
 </html>

@@ -13,7 +13,6 @@
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script>
         function update() {
-            // form2.method = "GET";
             form2.submit();
         }
         function drop() {
@@ -28,9 +27,11 @@
     <style>
         .dv {
             margin-top: -1%;
+            position:relative;
         }
         .dvv {
             margin-top: 3%;
+            position:relative;
         }
         @font-face {
             font-family: 'SBAggroB';
@@ -77,6 +78,19 @@
             background-color: lightgray;
             padding: 7px 50px 7px 50px;
         }
+        #footer {
+            position: relative;
+            width: 100%;
+            bottom: 0;
+            font-family: SBAggroL;
+            text-align: center;
+            font-size: x-small;
+            padding-bottom: 50px;
+            margin-top: 100px;
+        }
+        #footer p {
+            padding: 0px 30px;
+        }
     </style>
 </head>
 <body>
@@ -84,7 +98,6 @@
     <a href = "${pageContext.request.contextPath}/student/main" style="color: black;"><h3>&nbsp;Roomie</h3></a>
     <a href = "${pageContext.request.contextPath}/student/main"><img src="/images/logo-font.png" id="logo"/></a>
 </div>
-
 
 <% profile = (Profile) request.getAttribute("profile");
     if (profile.getActivation()==1)
@@ -287,5 +300,9 @@
         </tr>
     </table>
 </div>
+<footer id="footer">
+    <hr>
+    <p>데이터베이스프로그래밍 01-06 ©야-심차게<br>권민지 김유림 김은혜 박초은</p>
+</footer>
 </body>
 </html>

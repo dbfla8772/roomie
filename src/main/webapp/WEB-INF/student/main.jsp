@@ -58,8 +58,8 @@
             margin: 0 2%;
         }
         .col-md-8 {
-            margin-right: -5%;
-            margin-left: 1%;
+            margin-right: -7%;
+            margin-left: 3%;
         }
         .text {
             font-family: SBAggroL;
@@ -119,6 +119,7 @@
             padding-bottom: 50px;
             text-align: center;
             font-size: x-small;
+            margin-top: 100px;
         }
         #footer p {
             padding: 0px 30px;
