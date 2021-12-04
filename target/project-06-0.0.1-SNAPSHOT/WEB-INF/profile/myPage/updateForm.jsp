@@ -120,7 +120,14 @@
                     <img src="/images/woman1.png" width="150px" height="150px">
                     <input type="radio" name="pr_img" value="3"
                         <%if (profile.getPr_img() == 3) {%> checked <%} %>>
-                    <img src="/images/woman2.png" width="150px" height="150px">
+                    <img src="/images/woman2.png" width="150px" height="150px"><br>
+                    닉네임: <input type="text" style="width: 240px" name="name" value="${profile.name}" width="50px;">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" name="activation" value="1"
+                               style="margin-top: 0px; padding-top: 0px;"
+                            <%if (profile.getActivation()==1) {%> checked <%} %>>
+                    </div>
+
                 </td>
             </tr>
             <tr>

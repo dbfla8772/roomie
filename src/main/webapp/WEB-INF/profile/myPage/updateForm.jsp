@@ -120,7 +120,7 @@
                     <img src="/images/woman1.png" width="150px" height="150px">
                     <input type="radio" name="pr_img" value="3"
                         <%if (profile.getPr_img() == 3) {%> checked <%} %>>
-                    <img src="/images/woman2.png" width="150px" height="150px">
+                    <img src="/images/woman2.png" width="150px" height="150px"><br>
                 </td>
             </tr>
             <tr>
