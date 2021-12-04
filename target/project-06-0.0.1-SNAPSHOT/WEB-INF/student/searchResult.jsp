@@ -112,7 +112,6 @@
         }
 
         div.search {
-            position: relative;
             width: 100%;
             height: 150px;
             float: right;
@@ -126,6 +125,7 @@
             padding-bottom: 2%;
             margin: 0 4.9%;
         }
+
         .mb-3 {
             width: 100%;
             padding: 4%;
@@ -168,7 +168,6 @@
         }
 
         .search_result {
-            position: relative;
             margin: 0 7%;
         }
 
