@@ -94,7 +94,7 @@
             padding-bottom: 50px;
         }
         #footer p {
-            padding: 0px 20px;
+            padding: 0px 50px;
         }
 
     </style>
