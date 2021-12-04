@@ -26,7 +26,7 @@
             font-style: normal;
         }
         html, body {
-            margin-top: 2%;
+            margin-top: 1%;
             width: auto;
             height: auto;
         }
