@@ -52,6 +52,7 @@
             width: 100%;
             padding: 4%;
             border-radius: 10px;
+            cursor: pointer;
         }
         .col-md-4 {
             border-radius: 10px;
@@ -64,43 +65,8 @@
         .text {
             font-family: SBAggroL;
         }
-/*        .all-card {
-            margin : 0 5%;
-            flex-direction: unset;
-        }
-        .card {
-            flex-direction: unset;
-        }
-        .card-margin {
-            margin : 0 5%;
-            !*float: left;*!
-            font-family: SBAggroL;
-            width: 40%;
-            padding: 20px;
-            flex-direction: unset;
-        }
-        .mb-3 {
-            cursor: pointer;
-           !* float: none;*!
-            border-radius: 10px;
-            height: 180px;
-            max-height: 180px;
-            margin-bottom: 0px;
-            display: none;
-            margin-bottom: 0px;
-            border-radius: 10px;
-        }
-        .col-md-4 {
-            margin: auto;
-        }
-        .col-md-8 {
-            padding-top: 1%;
-            margin: auto;
-        }
-        .rounded-start {
-            align-content: center;
-            margin-left: 10px;
-        }
+/*
+
         .link-secondary {
             font-size: 120%;
         }*/
@@ -133,9 +99,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
-<%--<% if (request.getSession().getAttribute("login").equals(0)) {
-    out.println("<script>alert('로그인되었습니다.');</script>");
-} %>--%>
 <div class="w-auto p-2" style="background-color: lightcyan; text-align: center;"><h4 style="font-family: SBAggroL">당신의 루미를 찾아보세요! <button class="btn btn-outline-success" type="submit" onClick="location.href='/student/automatch'">자동매칭 하러가기</button></h4></div>
 <div class="container">
     <header class="blog-header py-3">
