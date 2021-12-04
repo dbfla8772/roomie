@@ -61,12 +61,9 @@ public class AutoMatchManager {
         List<Integer> sortedList = new ArrayList<Integer>();
         Map<Integer, Integer> cnt = new HashMap<>();
 
-//        int logDec = Integer.parseInt(loginP.getPoint_dec());
-//        int logBin = Integer.parseInt(loginP.getPoint_binary());
         String logDec = loginP.getPoint_dec();
         String logBin = loginP.getPoint_binary();
 
-//        int dec, bin;
         String dec, bin;
         int count;
 
@@ -78,7 +75,6 @@ public class AutoMatchManager {
             if (logDec.equals(dec)) {
                 sortedList.add(pointList.get(i).getS_id());
             } else {
-//                String b = Integer.toBinaryString(logBin ^ bin);
                 for (int j = 0; j < bin.length(); j++) {
                     if (logBin.charAt(j) == bin.charAt(j)) {
                         count++;

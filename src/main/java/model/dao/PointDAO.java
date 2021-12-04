@@ -97,8 +97,8 @@ public class PointDAO {
         }
 
         String sql = "SELECT p.s_id, point_binary, point_dec "
-                + "FROM POINT p JOIN STUDENT s ON p.s_id = s.s_id "
-                + "WHERE s.gender=? AND s.c_id=? AND NOT p.s_id IN (?)";
+                + "FROM POINT p JOIN STUDENT s ON p.s_id = s.s_id JOIN PROFILE pr ON p.s_id = pr.s_id "
+                + "WHERE pr.activation=1 AND s.gender=? AND s.c_id=? AND NOT p.s_id IN (?)";
         jdbcUtil.setSqlAndParameters(sql, new Object[]{gender, c_id, sId});    // JDBCUtil에 query문과 매개 변수 설정
 
        Point point = null;
