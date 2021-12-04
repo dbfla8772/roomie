@@ -167,7 +167,6 @@
     <c:forEach var="profile" items="${profileList}">
         <div class="card-margin">
             <div class="card mb-3" onclick="location.href='/student/main/detail?s_id=' + ${profile.s_id}">
-                <%--<div>&nbsp;</div>--%>
                 <div class="row g-0">
                     <div class="col-md-4">
                         <c:if test="${profile.pr_img eq 0}"><%img_url = "/images/man1.png";%></c:if>
@@ -187,37 +186,11 @@
         </div>
     </c:forEach>
 </div>
-<%--    int totalCount;--%>
-<%--    int countList;--%>
-<%--    int totalPage;--%>
-<%--    int i;--%>
-<%--%>--%>
-<%--<%--%>
-<%--    totalCount = 25;--%>
-<%--    countList = 10;--%>
 
-<%--    totalPage = totalCount / countList;--%>
+<div style="position: fixed; bottom:5px; right: 5px; width: 10px; height: 10px;">
+    <a href="#header"><img src="/images/btnTop2.png" title="위로가기"></a>
+</div>
 
-<%--    if (totalCount % countList > 0) {--%>
-<%--        totalPage++;--%>
-<%--    }--%>
-<%--%>--%>
-
-<%--<div class="page-float">
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-                <a class="page-link">Previous</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
-        </ul>
-    </nav>
-</div>--%>
 <footer id="footer">
     <hr>
     <p>데이터베이스프로그래밍 01-06 야-심차게<br>권민지 김유림 김은혜 박초은</p>

@@ -119,7 +119,6 @@
     </div>
 </form>
 <footer id="footer">
-<%--    <hr>--%>
     <p>데이터베이스프로그래밍 01-06 ©야-심차게<br>권민지 김유림 김은혜 박초은</p>
 </footer>
 </body>

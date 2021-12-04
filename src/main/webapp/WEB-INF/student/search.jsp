@@ -92,7 +92,7 @@
 
         .btn {
             margin-top: 10px;
-            margin-right: 13%;
+            margin-right: 14.5%;
             font-family: SBAggroL;
         }
 
