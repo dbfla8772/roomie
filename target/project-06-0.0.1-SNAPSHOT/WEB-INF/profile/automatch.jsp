@@ -116,7 +116,7 @@
 <a href="${pageContext.request.contextPath}/student/main"><h3 class="roomietitle">Roomie</h3>
     <img src="/images/logo-font.png" id="logo"/></a>
 
-<h3 class="title">자동 매칭</h3>
+<h3 class="title">자동매칭 결과</h3>
 
 <% profileList = (List<Profile>) request.getAttribute("profileList"); %>
     <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel"

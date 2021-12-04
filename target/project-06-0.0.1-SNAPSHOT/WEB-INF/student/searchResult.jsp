@@ -129,6 +129,7 @@
             width: 100%;
             padding: 4%;
             border-radius: 10px;
+            cursor: pointer;
         }
         .col-md-4 {
             border-radius: 10px;
