@@ -9,7 +9,7 @@
 <html>
 <head>
     <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <title>My Roomie</title>
+    <title>나의 루미</title>
     <style>
         @font-face {
             font-family: 'SBAggroB';
@@ -44,7 +44,6 @@
         }
 
         h3.roomietitle {
-            /*font-family: SBAggroB; float: left; padding-top: 30px; padding-left: 100px; color: black;*/
             margin-top: 40px;
             font-family: SBAggroB;
             float: left;
@@ -106,9 +105,22 @@
         .subtitle {
             font-family: SBAggroL;
             font-size: 17px;
-            margin-left: 7%;
+            float: left;
+            margin-left: 9%;
+            font-weight: bold;
         }
-
+        #footer {
+            position: relative;
+            width: 100%;
+            bottom: 0;
+            font-family: SBAggroL;
+            text-align: center;
+            font-size: x-small;
+            padding-bottom: 50px;
+        }
+        #footer p {
+            padding: 0px 30px;
+        }
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -121,11 +133,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
-    <%--    <script>--%>
-    <%--        function card_click() {--%>
-    <%--            <jsp:forward page="/student/main/detail.jsp"/>--%>
-    <%--        }--%>
-    <%--    </script>--%>
 </head>
 <body>
 
@@ -142,8 +149,9 @@
 <button type="button" class="btn btn-outline-secondary" name="go" onclick="document.location.href='${pageContext.request.contextPath}/myroomie/waiting'">
     대기 목록</button>
 
-<span class="subtitle">매칭 완료</span>
-<div>
+
+<div style="margin-top: 5%;" align="center">
+    <span class="subtitle">매칭 완료</span><p/><br>
         <%roomieList = (List<Profile>) request.getAttribute("roomieList");%>
     <c:forEach var="profile" items="${roomieList}">
     <div class="card-margin">
@@ -169,5 +177,9 @@
     </div>
     </c:forEach>
 </div>
+<footer id="footer">
+    <hr>
+    <p>데이터베이스프로그래밍 01-06 ©야-심차게<br>권민지 김유림 김은혜 박초은</p>
+</footer>
 </body>
 </html>

@@ -5,6 +5,7 @@
 <%! List<Profile> profileList; String img_url; int[] filter; int i; String[] check; %>
 <html>
 <head>
+    <title>검색 결과</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -21,7 +22,7 @@
     <script>
         function search(targetUri) {
             form.action = targetUri;
-            form.method = "GET";		// search form 요청
+            form.method = "GET";
             form.submit();
         }
     </script>
@@ -110,13 +111,13 @@
         }
 
         div.search {
+            position: relative;
             width: 100%;
             height: 150px;
             float: right;
         }
 
-        .card-margin {/*
-            margin-left: 5%;*/
+        .card-margin {
             font-family: SBAggroL;
         }
 
@@ -140,6 +141,24 @@
         h5 {
             font-family: SBAggroL;
         }
+
+        #footer {
+            position: relative;
+            width: 100%;
+            bottom: 0;
+            font-family: SBAggroL;
+            text-align: center;
+            font-size: x-small;
+            padding-bottom: 50px;
+        }
+        #footer p {
+            padding: 0px 30px;
+        }
+
+        .search_result {
+            position: relative;
+        }
+
     </style>
 
 </head>
@@ -232,6 +251,7 @@
     <c:if test="${empty profileList}"><h5>검색 결과가 없습니다.</h5></c:if>
 </div>
 
+<div class="search_result">
 <form name="form">
     <c:forEach var="profile" items="${profileList}">
         <div class="card-margin">
@@ -256,6 +276,7 @@
         </div>
     </c:forEach>
 </form>
+</div>
 <br>
 
 <%-- 페이징 --%>
@@ -274,5 +295,9 @@
 <%--        </ul>--%>
 <%--    </nav>--%>
 <%--</div>--%>
+<footer id="footer">
+    <hr>
+    <p>데이터베이스프로그래밍 01-06 ©야-심차게<br>권민지 김유림 김은혜 박초은</p>
+</footer>
 </body>
 </html>

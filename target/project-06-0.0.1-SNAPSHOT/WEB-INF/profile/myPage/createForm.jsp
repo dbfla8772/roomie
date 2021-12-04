@@ -76,6 +76,7 @@
         }
 
         .dv {
+            position: relative;
             margin-top: 50px;
             margin-bottom: 30px;
         }
@@ -89,24 +90,17 @@
         ul.space_list li {
             margin-bottom: 1em;
         }
-
-        ul.none {
-            margin-bottom: 1em;
-            list-style: none;
+        #footer {
+            position: relative;
+            width: 100%;
+            bottom: 0;
+            font-family: SBAggroL;
+            text-align: center;
+            font-size: x-small;
+            padding-bottom: 50px;
         }
-
-        .layer {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%)
-        }
-
-        .button {
-            border: 0px;
-            border-radius: 10px;
-            background-color: lightgray;
-            padding: 7px 50px 7px 50px;
+        #footer p {
+            padding: 0px 30px;
         }
     </style>
 </head>
@@ -129,7 +123,7 @@
                 <input type="radio" name="pr_img" value="0">
                 <img src="/images/man1.png" width="150px" height="150px">
                 <input type="radio" name="pr_img" value="1">
-                <img src="/images/man2.png" width="150px" height="150px">
+                <img src="/images/man2.png" width="150px" height="150px"><br>
                 <input type="radio" name="pr_img" value="2">
                 <img src="/images/woman1.png" width="150px" height="150px">
                 <input type="radio" name="pr_img" value="3">
@@ -256,5 +250,9 @@
     </table>
 </div>
 </form>
+<footer id="footer">
+    <hr>
+    <p>데이터베이스프로그래밍 01-06 ©야-심차게<br>권민지 김유림 김은혜 박초은</p>
+</footer>
 </body>
 </html>

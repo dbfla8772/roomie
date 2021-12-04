@@ -1,10 +1,10 @@
 <%@ page import="model.Profile" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%!Profile profile; String img_url, smoking, sharing, lifestyle, grade, habitude, sleep_habit, cleaning, indoor_eating, mbti, isScraped;%>
+<%!Profile profile; String img_url, smoking, sharing, lifestyle, grade, habitude, sleep_habit, cleaning, indoor_eating, mbti;%>
 <html>
 <head>
-    <title>detail profile</title>
+    <title>상세 프로필</title>
 
     <style>
         .dv {
@@ -49,6 +49,7 @@
         }
 
         .dv {
+            position: relative;
             margin-top: 50px;
             margin-bottom: 30px;
         }
@@ -63,23 +64,24 @@
             margin-bottom: 1em;
         }
 
-        ul.none {
-            margin-bottom: 1em;
-            list-style: none;
-        }
-
-        .layer {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%)
-        }
-
         .button {
             border: 0px;
             border-radius: 10px;
             background-color: lightgray;
             padding: 7px 50px 7px 50px;
+        }
+
+        #footer {
+            position: relative;
+            width: 100%;
+            bottom: 0;
+            font-family: SBAggroL;
+            text-align: center;
+            font-size: x-small;
+            padding-bottom: 50px;
+        }
+        #footer p {
+            padding: 0px 30px;
         }
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -349,4 +351,10 @@
         </tr>
     </table>
 </div>
+<footer id="footer">
+    <hr>
+    <p>데이터베이스프로그래밍 01-06 ©야-심차게<br>권민지 김유림 김은혜 박초은</p>
+</footer>
+</body>
+</html>
 

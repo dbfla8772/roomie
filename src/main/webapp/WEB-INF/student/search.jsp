@@ -4,6 +4,7 @@
 <%! Profile profile; %>
 <html>
 <head>
+    <title>검색</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -20,7 +21,7 @@
     <script>
         function search(targetUri) {
             form.action = targetUri;
-            form.method="POST";		// register form 요청
+            form.method="POST";
             form.submit();
         }
     </script>
@@ -94,6 +95,7 @@
         }
 
         .search-img {
+            position: relative;
             margin-top: 15px;
             margin-right: -20px;
         }
@@ -115,8 +117,20 @@
             font-size: 15px;
             margin: 2px;
         }
-    </style>
 
+        #footer {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            font-family: SBAggroL;
+            text-align: center;
+            font-size: x-small;
+            padding-bottom: 50px;
+        }
+        #footer p {
+            padding: 0px 30px;
+        }
+    </style>
 </head>
 <body>
 
@@ -125,7 +139,6 @@
 
 
 <%-- 검색 필터 --%>
-<%--<form name="form" method="post" action="<c:url value='/student/searchResult'>">--%>
 <% profile = (Profile) request.getAttribute("profile"); %>
 <form name="form" method="POST" action="${pageContext.request.contextPath}/student/searchResult">
     <table>
@@ -181,5 +194,9 @@
         <img src="<c:url value='/images/magnifier.png'/>" id="magnifier"/>
     </div>
 </form>
+<footer id="footer">
+    <hr>
+    <p>데이터베이스프로그래밍 01-06 ©야-심차게<br>권민지 김유림 김은혜 박초은</p>
+</footer>
 </body>
 </html>

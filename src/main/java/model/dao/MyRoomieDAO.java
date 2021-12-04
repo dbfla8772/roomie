@@ -81,24 +81,6 @@ public class MyRoomieDAO {
         return 0;
     }
 
-    public int cancelUpdate(MyRoomie roomie) throws SQLException {
-        String sql = "DELETE FROM myroomie WHERE s_id=? AND roomie_id=?";
-        jdbcUtil.setSqlAndParameters(sql, new Object[] {roomie.getS_id(), roomie.getRoomie_id()});
-
-        try {
-            int result = jdbcUtil.executeUpdate();
-            return result;
-        } catch (Exception ex) {
-            jdbcUtil.rollback();
-            ex.printStackTrace();
-        }
-        finally {
-            jdbcUtil.commit();
-            jdbcUtil.close();
-        }
-        return 0;
-    }
-
     public int remove(MyRoomie roomie) throws SQLException {
         String sql = "DELETE FROM myroomie WHERE s_id=? AND roomie_id=?";
         jdbcUtil.setSqlAndParameters(sql, new Object[] {roomie.getS_id(), roomie.getRoomie_id()});
