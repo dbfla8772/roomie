@@ -25,7 +25,7 @@
             font-style: normal;
         }
         html, body {
-            magrin: 0;
+            magrin: 0 2%;
             width: auto;
             height: auto;/*
             margin-bottom: 4%;*/
@@ -44,13 +44,22 @@
             font-family: SBAggroL;
             width: 40%;
             display: inline-block;
-            padding: 2%;
+            /*padding: 2%;*/
+            padding-bottom: 2%;
             margin: 0 4.9%;
         }
         .mb-3 {
             width: 100%;
             padding: 4%;
             border-radius: 10px;
+        }
+        .col-md-4 {
+            border-radius: 10px;
+            margin: 0 2%;
+        }
+        .col-md-8 {
+            margin-right: -5%;
+            margin-left: 1%;
         }
         .text {
             font-family: SBAggroL;
