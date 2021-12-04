@@ -121,14 +121,6 @@
 <% profileList = (List<Profile>) request.getAttribute("profileList"); %>
     <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel"
          style="margin: 3% 10% 0% 10%;">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <%
-                for (int i = 0; i < profileList.size(); i++) {
-            %>
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="<%= i+1 %>" aria-label="Slide 2"></button>
-            <% } %>
-        </div>
         <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="10000">
                 <img src="/images/room.jpg" class="d-block w-100" alt="..." style="height: 600px">

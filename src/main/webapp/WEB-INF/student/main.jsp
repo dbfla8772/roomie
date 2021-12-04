@@ -66,7 +66,6 @@
             font-family: SBAggroL;
         }
 /*
-
         .link-secondary {
             font-size: 120%;
         }*/
@@ -153,37 +152,7 @@
         </div>
     </c:forEach>
 </div>
-<%--    int totalCount;--%>
-<%--    int countList;--%>
-<%--    int totalPage;--%>
-<%--    int i;--%>
-<%--%>--%>
-<%--<%--%>
-<%--    totalCount = 25;--%>
-<%--    countList = 10;--%>
 
-<%--    totalPage = totalCount / countList;--%>
-
-<%--    if (totalCount % countList > 0) {--%>
-<%--        totalPage++;--%>
-<%--    }--%>
-<%--%>--%>
-
-<%--<div class="page-float">
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-                <a class="page-link">Previous</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
-        </ul>
-    </nav>
-</div>--%>
 <footer id="footer">
     <hr>
     <p>데이터베이스프로그래밍 01-06 야-심차게<br>권민지 김유림 김은혜 박초은</p>
