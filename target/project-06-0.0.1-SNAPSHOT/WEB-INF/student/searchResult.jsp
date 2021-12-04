@@ -5,6 +5,7 @@
 <%! List<Profile> profileList; String img_url; int[] filter; int i; String[] check; %>
 <html>
 <head>
+    <title>검색 결과</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -21,7 +22,7 @@
     <script>
         function search(targetUri) {
             form.action = targetUri;
-            form.method = "GET";		// search form 요청
+            form.method = "GET";
             form.submit();
         }
     </script>
@@ -115,8 +116,7 @@
             float: right;
         }
 
-        .card-margin {/*
-            margin-left: 5%;*/
+        .card-margin {
             font-family: SBAggroL;
         }
 
