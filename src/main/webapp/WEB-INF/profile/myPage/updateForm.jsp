@@ -122,18 +122,34 @@
         <table style="border-radius: 10px; align: center;">
             <tr>
                 <td colspan="2" rowspan="2">
-                    <input type="radio" name="pr_img" value="0"
-                        <%if (profile.getPr_img() == 0) {%> checked <%} %>>
-                    <img src="/images/man1.png" width="150px" height="150px">
-                    <input type="radio" name="pr_img" value="1"
-                        <%if (profile.getPr_img() == 1) {%> checked <%} %>>
-                    <img src="/images/man2.png" width="150px" height="150px"><br>
-                    <input type="radio" name="pr_img" value="2"
-                        <%if (profile.getPr_img() == 2) {%> checked <%} %>>
-                    <img src="/images/woman1.png" width="150px" height="150px">
-                    <input type="radio" name="pr_img" value="3"
-                        <%if (profile.getPr_img() == 3) {%> checked <%} %>>
-                    <img src="/images/woman2.png" width="150px" height="150px">
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="radio" name="pr_img" value="0"
+                                    <%if (profile.getPr_img() == 0) {%> checked <%} %>>
+                                <img src="/images/man1.png" width="150px" height="150px">
+                                <input type="radio" name="pr_img" value="1"
+                                    <%if (profile.getPr_img() == 1) {%> checked <%} %>>
+                                <img src="/images/man2.png" width="150px" height="150px"><br>
+                                <input type="radio" name="pr_img" value="2"
+                                    <%if (profile.getPr_img() == 2) {%> checked <%} %>>
+                                <img src="/images/woman1.png" width="150px" height="150px">
+                                <input type="radio" name="pr_img" value="3"
+                                    <%if (profile.getPr_img() == 3) {%> checked <%} %>>
+                                <img src="/images/woman2.png" width="150px" height="150px">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>닉네임: <input type="text" style="width: 240px" name="name" value="${profile.name}"></td>
+                            <td>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" name="activation" value="1"
+                                           style="margin-top: 0px; padding-top: 0px;"
+                                        <%if (profile.getActivation()==1) {%> checked <%} %>>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
             <tr>
@@ -266,18 +282,19 @@
                     </table>
                 </td>
             </tr>
-            <tr>
-                <td align="center">
-                    닉네임: <input type="text" style="width: 240px" name="name" value="${profile.name}">
-                </td>
-                <td align="center">
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" name="activation" value="1"
-                               style="margin-top: 0px; padding-top: 0px;"
-                            <%if (profile.getActivation()==1) {%> checked <%} %>>
-                    </div>
-                </td>
-            </tr>
+<%--            <tr>--%>
+<%--                <td align="center">--%>
+<%--                    닉네임: <input type="text" style="width: 240px" name="name" value="${profile.name}">--%>
+<%--                </td>--%>
+<%--                <td align="center">--%>
+<%--                    <div class="form-check form-switch">--%>
+<%--                        닉네임: <input type="text" style="width: 240px" name="name" value="${profile.name}">--%>
+<%--                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" name="activation" value="1"--%>
+<%--                               style="margin-top: 0px; padding-top: 0px;"--%>
+<%--                            <%if (profile.getActivation()==1) {%> checked <%} %>>--%>
+<%--                    </div>--%>
+<%--                </td>--%>
+<%--            </tr>--%>
         </table>
     </div>
     <div style="text-align: right; margin-right: 80px;">

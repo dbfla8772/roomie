@@ -113,7 +113,6 @@
 <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/profile/create">
 <div style="text-align: right; padding-left: 100px; padding-right: 80px;">
     <h4 style="text-align: right; padding-left: 100px; padding-right: 80px;">프로필 등록</h4><br>
-    <input type="button" value="등록" class="btn btn-outline-primary" onClick="profCreate()" style="margin-right: 80px">
 </div>
 
 <div class="dv" align="center">
@@ -127,7 +126,8 @@
                 <input type="radio" name="pr_img" value="2">
                 <img src="/images/woman1.png" width="150px" height="150px">
                 <input type="radio" name="pr_img" value="3">
-                <img src="/images/woman2.png" width="150px" height="150px">
+                <img src="/images/woman2.png" width="150px" height="150px"><br>
+                닉네임: <input type="text" style="width: 240px" name="name">
         </tr>
         <tr>
             <td width="100"></td>
@@ -242,13 +242,11 @@
                 </table>
             </td>
         </tr>
-        <tr>
-            <td align="center">
-                닉네임: <input type="text" style="width: 240px" name="name">
-            </td>
-        </tr>
     </table>
-</div>
+    </div>
+    <div style="text-align: right; margin-right: 80px;">
+        <input type="button" value="등록" class="btn btn-outline-primary" onClick="profCreate()" style="margin-right: 80px">
+    </div>
 </form>
 <footer id="footer">
     <hr>
