@@ -15,11 +15,11 @@
 	</select>
 
 	<insert id="insertScrap" parameterType="Scrap">
-		<selectKey keyProperty="id" resultType="int" order="BEFORE">
-			SELECT SCRAPSEQ.nextval AS id FROM DUAL
+		<selectKey keyProperty="sc_id" resultType="int" order="BEFORE">
+			SELECT SCRAPSEQ.nextval AS sc_id FROM DUAL
 		</selectKey>
 		INSERT INTO Scrap (s_id, sc_id, scrap_id)
-		VALUES (#{s_id}, #{id}, #{scrap_id})
+		VALUES (#{s_id}, #{sc_id}, #{scrap_id})
 	</insert>
 
 	<delete id="deleteScrap">

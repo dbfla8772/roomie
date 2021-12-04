@@ -10,5 +10,4 @@ public interface ScrapMapper {
     int isScraped(@Param("s_id") int s_id, @Param("scrap_id") int scrap_id);
     int insertScrap(Scrap scrap);
     int deleteScrap(@Param("s_id") int s_id, @Param("scrap_id") int scrap_id);
-
 }
