@@ -26,30 +26,10 @@
             font-style: normal;
         }
         html, body {
-            margin-top: 1%;
+            magrin: 0;
             width: auto;
             height: auto;
-        }
-        #logo {
-            margin-top: 10px;
-            width: 70px;
-        }
-
-        h3.roomietitle {
-            margin-top: 40px;
-            font-family: SBAggroB;
-            float: left;
-            color: black;
-            margin-left: 8%;
-        }
-
-        h3.title {
-            font-family: SBAggroL;
-            text-align: right;
-            padding-top: 5px;
-            padding-bottom: 10px;
-            margin-right: 8%;
-            margin-bottom: 20px;
+            margin-bottom: 4%;
         }
         a {
             font-family: SBAggroL;
@@ -58,34 +38,10 @@
             padding-top: 10px;
             font-family: SBAggroB;
         }
-        .card-margin {
-            font-family: SBAggroL;
-            width: 40%;
-            display: inline-block;
-            padding-bottom: 2%;
-        }
-        .mb-3 {
-            width: 100%;
-            padding: 4%;
-            border-radius: 10px;
-            text-align: left;
-        }
-        .col-md-4 {
-            border-radius: 10px;
-            margin: 0 2%;
-        }
-        .col-md-8 {
-            margin-right: -7%;
-            margin-left: 3%;
-        }
-        .room {
-            text-align: center;
+        h4, h5 {
             font-family: SBAggroB;
         }
-        .carousel-item {
-            text-align: center;
-        }
-        /*.card-margin {
+        .card-margin {
             margin-left: 500px;
             font-family: SBAggroL;
         }
@@ -95,7 +51,7 @@
             border-radius: 10px;
             width: 60%;
             margin: 0px 0% 100px 5%;
-        }*/
+        }
         #footer {
             position: relative;
             width: 100%;
@@ -104,7 +60,6 @@
             text-align: center;
             font-size: x-small;
             padding-bottom: 50px;
-            margin-top: 100px;
         }
         #footer p {
             padding: 0px 30px;
@@ -112,15 +67,25 @@
     </style>
 </head>
 <body>
-
-<a href="${pageContext.request.contextPath}/student/main"><h3 class="roomietitle">Roomie</h3>
-    <img src="/images/logo-font.png" id="logo"/></a>
-
-<h3 class="title">자동 매칭</h3>
+<div class="container">
+    <header class="blog-header py-3">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+            <div class="col-4 pt-1">
+                <a class="blog-header-logo text-dark" href="${pageContext.request.contextPath}/student/main"><h1>Roomie 루미</h1></a>
+            </div>
+            <div class="col-4 text-center">
+            </div>
+            <div class="col-4 d-flex justify-content-end align-items-center">
+                <h4>자동매칭 결과</h4>
+            </div>
+        </div>
+        <br>
+    </header>
+</div>
 
 <% profileList = (List<Profile>) request.getAttribute("profileList"); %>
     <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel"
-         style="margin: 3% 10% 0% 10%;">
+         style="margin: 10px 100px 0px 100px; text-align: center;">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <%
@@ -131,16 +96,16 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="10000">
-                <img src="/images/room.jpg" class="d-block w-100" alt="..." style="height: 600px">
-                <div class="carousel-caption d-none d-md-block" style="margin: 0 auto">
-                    <h5 class="room">옆으로 넘겨서 당신에게 맞는 룸메이트를 찾아보세요!</h5>
+                <img src="/images/room.jpg" class="d-block w-100" alt="..." style="height: 750px">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>옆으로 넘겨서 당신에게 맞는 룸메이트를 찾아보세요!</h5>
                 </div>
             </div>
 
             <% for (int i = 0; i < profileList.size(); i++) { %>
             <div class="carousel-item" data-bs-interval="2000">
                 <div class="card-margin">
-                    <div class="card mb-3" onclick="location.href='/student/main/detail?s_id=' + <%= profileList.get(i).getS_id() %>">
+                    <div class="card mb-3" style="border-radius: 10px; max-width: 600px;" onclick="location.href='/student/main/detail?s_id=' + <%= profileList.get(i).getS_id() %>">
                         <div class="row g-0">
                             <div class="col-md-4">
                                 <%
@@ -154,8 +119,9 @@
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title"><%= profileList.get(i).getName() %></h5>
-                                    <p class="card-text"><%= profileList.get(i).getMajor() %> (<%= profileList.get(i).getGrade() %>학년)
-                                        <br><%= profileList.get(i).getAge() %>세</p>
+                                    <p class="card-text"><%= profileList.get(i).getMajor() %> (<%= profileList.get(i).getGrade()+1 %>학년)&emsp;&emsp;&emsp;&emsp;&emsp; <br>
+                                        <%= profileList.get(i).getAge() %>세&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
+                                    <p class="card-text"><small class="text-muted"></small></p>
                                 </div>
                             </div>
                         </div>
