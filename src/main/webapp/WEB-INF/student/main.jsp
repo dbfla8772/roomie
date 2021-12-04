@@ -81,7 +81,7 @@
         }
 
         #footer {
-            position: absolute;
+            position: relative;
             width: 100%;
             bottom: 0;
             font-family: SBAggroL;
@@ -153,6 +153,7 @@
         </div>
     </c:forEach>
 </div>
+<div>&nbsp;</div>
 <footer id="footer">
     <hr>
     <p>데이터베이스프로그래밍 01-06 야-심차게</p>
