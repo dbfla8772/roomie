@@ -33,9 +33,7 @@
         }
 
         html, body {
-            width: auto;
             height: auto;
-            text-align: center;
         }
 
         #logo {
@@ -78,29 +76,25 @@
         }
 
         .card-margin {
-            margin: 0 5%;
-            float: left;
             font-family: SBAggroL;
             width: 40%;
-            padding: 20px;
+            display: inline-block;
+            /*padding: 2%;*/
+            padding-bottom: 2%;
+            margin: 0 4.9%;
         }
-
         .mb-3 {
-            cursor: pointer;
-            float: none;
+            width: 100%;
+            padding: 4%;
             border-radius: 10px;
-            height: 180px;
-            max-height: 180px;
-            margin-bottom: 0px;
-            display: flex;
         }
-
         .col-md-4 {
-            margin: auto;
+            border-radius: 10px;
+            margin: 0 2%;
         }
         .col-md-8 {
-            padding-top: 1%;
-            margin: auto;
+            margin-right: -7%;
+            margin-left: 3%;
         }
         .subtitle {
             font-family: SBAggroL;
@@ -117,6 +111,7 @@
             text-align: center;
             font-size: x-small;
             padding-bottom: 50px;
+            margin-top: 100px;
         }
         #footer p {
             padding: 0px 30px;
@@ -150,12 +145,12 @@
     대기 목록</button>
 
 
-<div style="margin-top: 5%;" align="center">
+<div style="margin-top: 5%;">
     <span class="subtitle">매칭 완료</span><p/><br>
         <%roomieList = (List<Profile>) request.getAttribute("roomieList");%>
     <c:forEach var="profile" items="${roomieList}">
     <div class="card-margin">
-        <div class="card mb-3" style="border-radius: 10px;"
+        <div class="card mb-3"
              onclick="location.href='/myroomie/detail?s_id=' + ${profile.s_id}">
             <div class="row g-0">
                 <div class="col-md-4">
