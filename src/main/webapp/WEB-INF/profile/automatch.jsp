@@ -86,17 +86,6 @@
         .carousel-item {
             text-align: center;
         }
-        /*.card-margin {
-            margin-left: 500px;
-            font-family: SBAggroL;
-        }
-        .mb-3 {
-            cursor: pointer;
-            float: left;
-            border-radius: 10px;
-            width: 60%;
-            margin: 0px 0% 100px 5%;
-        }*/
         #footer {
             position: relative;
             width: 100%;

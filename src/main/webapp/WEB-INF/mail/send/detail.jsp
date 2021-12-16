@@ -136,7 +136,7 @@
         </table>
         <% if (mail.getMailCheck() == 0) {%>
             <div class="btn">
-                <button type="button" value="삭제" class="btn btn-outline-dark" onClick="CancelMail()">전송취소</button>&nbsp;
+                <button type="button" value="전송취소" class="btn btn-outline-dark" onClick="CancelMail()">전송취소</button>&nbsp;
                 <button type="button" value="목록" class="btn btn-outline-dark" onClick="document.location.href='${pageContext.request.contextPath}/mail/send/sendList?flag=1'">목록</button>
             </div>
         <%} else {%>

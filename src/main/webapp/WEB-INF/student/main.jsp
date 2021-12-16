@@ -145,7 +145,7 @@
     <hr>
     <p>데이터베이스프로그래밍 01-06 야-심차게<br>권민지 김유림 김은혜 박초은</p>
 </footer>
-<div onclick="goTop()" style="position: fixed; bottom: 20px; right: 20px; cursor: pointer;">
+<div style="position: fixed; bottom: 20px; right: 20px; cursor: pointer;">
     <a href="#top"><img src="/images/btnTop2.png" title="맨 위로" style="width: 60px; height: 63px;"></a>
 </div>
 </body>

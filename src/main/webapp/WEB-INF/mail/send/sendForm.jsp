@@ -122,8 +122,7 @@
         </table>
         <button type="button" value="전송" onClick="SendMessage()" class="btn btn-outline-dark">전송</button>&nbsp;
         <button type="button" value="취소" class="btn btn-outline-dark"
-                onClick="location.href='${pageContext.request.contextPath}/mail/receive/receiveList?flag=0';">취소
-        </button>
+                onClick="location.href='${pageContext.request.contextPath}/mail/receive/receiveList?flag=0';">취소</button>
     </form>
 </div>
 </body>

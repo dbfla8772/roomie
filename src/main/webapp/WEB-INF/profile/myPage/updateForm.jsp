@@ -111,7 +111,7 @@
 <a href = "${pageContext.request.contextPath}/student/main" style="color: black"><h3>&nbsp;Roomie</h3></a>
 <a href = "${pageContext.request.contextPath}/student/main"><img src="/images/logo-font.png" id="logo"/></a>
 
-<!-- Update Form  -->
+<%--Update Form--%>
 <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/profile/update">
     <input type="hidden" name="s_id" value="${profile.s_id}"/>
     <div style="text-align: right; padding-left: 100px; padding-right: 80px;">
@@ -282,19 +282,6 @@
                     </table>
                 </td>
             </tr>
-<%--            <tr>--%>
-<%--                <td align="center">--%>
-<%--                    닉네임: <input type="text" style="width: 240px" name="name" value="${profile.name}">--%>
-<%--                </td>--%>
-<%--                <td align="center">--%>
-<%--                    <div class="form-check form-switch">--%>
-<%--                        닉네임: <input type="text" style="width: 240px" name="name" value="${profile.name}">--%>
-<%--                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" name="activation" value="1"--%>
-<%--                               style="margin-top: 0px; padding-top: 0px;"--%>
-<%--                            <%if (profile.getActivation()==1) {%> checked <%} %>>--%>
-<%--                    </div>--%>
-<%--                </td>--%>
-<%--            </tr>--%>
         </table>
     </div>
     <div style="text-align: right; margin-right: 80px;">

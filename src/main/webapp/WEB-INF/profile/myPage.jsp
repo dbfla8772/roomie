@@ -276,15 +276,6 @@
                 </table>
             </td>
         </tr>
-<%--        <tr>--%>
-<%--            <td align="center" style="font-size: large">${profile.name}</td>--%>
-<%--            <td align="center">--%>
-<%--                <div class="form-check form-switch">--%>
-<%--                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" name="activation" value="1"--%>
-<%--                           disabled <%if (profile.getActivation()==1) {%> checked <%} %>>--%>
-<%--                </div>--%>
-<%--            </td>--%>
-<%--        </tr>--%>
         <tr>
             <td align="center">
                 <form name="form1" method="POST" action="${pageContext.servletContext.contextPath}/student/delete">
