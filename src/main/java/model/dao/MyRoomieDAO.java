@@ -36,20 +36,6 @@ public class MyRoomieDAO {
     }
 
     public int update(MyRoomie roomie) throws SQLException {
-        String sql = "UPDATE myroomie SET roomie_check=1 WHERE s_id=? AND roomie_id=?";
-        jdbcUtil.setSqlAndParameters(sql, new Object[] {roomie.getS_id(), roomie.getRoomie_id()});
-
-        try {
-            int result = jdbcUtil.executeUpdate();
-        } catch (Exception ex) {
-            jdbcUtil.rollback();
-            ex.printStackTrace();
-        }
-        finally {
-            jdbcUtil.commit();
-            jdbcUtil.close();
-        }
-
         String sql1 = "UPDATE myroomie SET roomie_check=1 WHERE s_id=? AND roomie_id=?";
         jdbcUtil.setSqlAndParameters(sql1, new Object[] {roomie.getRoomie_id(), roomie.getS_id()});
 
