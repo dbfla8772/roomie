@@ -8,7 +8,7 @@
 <html>
 <head>
     <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <title>메인 페이지</title>
+    <title>Roomie</title>
     <script>
     </script>
     <style>
