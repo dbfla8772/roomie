@@ -31,7 +31,6 @@ public class LoginController implements Controller {
 			Student s = student.findStudent(email);
 
 			// 세션에 사용자 아이디 저장
-
 			session.setAttribute(UserSessionUtils.USER_SESSION_KEY, email);
 			log.debug("login s_id::: " + s.getS_id());
 			session.setAttribute(UserSessionUtils.USER_SESSION_ID, s.getS_id());

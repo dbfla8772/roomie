@@ -29,7 +29,6 @@ public class DeleteScrapController implements Controller {
         try {
             //스크랩 삭제 버튼 눌렀을 때
             int scrap_id = Integer.parseInt(request.getParameter("scrap_id"));
-            /*Scrap s = new Scrap(s_id, scrap_id);*/
 
             scrapManager.remove(s_id, scrap_id);
 

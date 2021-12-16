@@ -24,7 +24,7 @@ public class ViewProfileController implements Controller {
 
 		// 로그인 여부 확인
     	if (!UserSessionUtils.hasLogined(request.getSession())) {
-            return "redirect:/student/login";		// login form 요청으로 redirect
+            return "redirect:/student/login";
         }
 
 		ProfileManager manager = ProfileManager.getInstance();
@@ -52,7 +52,7 @@ public class ViewProfileController implements Controller {
 			request.setAttribute("myroomie", myroomie);  //마이루미 신청 여부 저장
 			request.setAttribute("requestCheck", requestCheck);
 
-			return "/student/main/detail.jsp";				// 사용자 보기 화면으로 이동
+			return "/student/main/detail.jsp";
 		} catch (StudentNotFoundException e) {
 	        return "redirect:/student/main";
 		}
