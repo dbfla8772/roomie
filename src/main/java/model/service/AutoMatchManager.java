@@ -45,16 +45,6 @@ public class AutoMatchManager {
         return pointDAO.findPointList(s_id);
     }
 
-    public static int countChar(String str, char ch) {
-        int count = 0;
-        for (int i = 0; i < str.length(); i++) {
-            if (str.charAt(i) == ch) {
-                count++;
-            }
-        }
-        return count;
-    }
-
     public List<Integer> sortedPointList(int s_id) throws SQLException {
         Point loginP = findPoint(s_id);
         List<Point> pointList = findPointList(s_id);

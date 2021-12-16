@@ -11,7 +11,7 @@ public class ProfileDAO {
     private JDBCUtil jdbcUtil = null;
 
     public ProfileDAO() {
-        jdbcUtil = new JDBCUtil();	// JDBCUtil 객체 생성
+        jdbcUtil = new JDBCUtil();
     }
 
     public int create(Profile profile) throws SQLException {
@@ -21,17 +21,17 @@ public class ProfileDAO {
                 profile.getLifestyle(), profile.getSmoking(), profile.getGrade(), profile.getMajor(),
                 profile.getCleaning(), profile.getIndoor_eating(), profile.getMbti(),
                 profile.getSharing(), profile.getHabitude(), profile.getS_id()};
-        jdbcUtil.setSqlAndParameters(sql, param);	// JDBCUtil 에 insert문과 매개 변수 설정
+        jdbcUtil.setSqlAndParameters(sql, param);
 
         try {
-            int result = jdbcUtil.executeUpdate();	// insert 문 실행
+            int result = jdbcUtil.executeUpdate();
             return result;
         } catch (Exception ex) {
             jdbcUtil.rollback();
             ex.printStackTrace();
         } finally {
             jdbcUtil.commit();
-            jdbcUtil.close();	// resource 반환
+            jdbcUtil.close();
         }
         return 0;
     }
@@ -47,10 +47,10 @@ public class ProfileDAO {
                 profile.getMbti(), profile.getCleaning(), profile.getIndoor_eating(),
                 profile.getSharing(), profile.getHabitude(),
                 profile.getS_id()};
-        jdbcUtil.setSqlAndParameters(sql, param);	// JDBCUtil에 update문과 매개 변수 설정
+        jdbcUtil.setSqlAndParameters(sql, param);
 
         try {
-            int result = jdbcUtil.executeUpdate();	// update 문 실행
+            int result = jdbcUtil.executeUpdate();
             return result;
         } catch (Exception ex) {
             jdbcUtil.rollback();
@@ -58,27 +58,24 @@ public class ProfileDAO {
         }
         finally {
             jdbcUtil.commit();
-            jdbcUtil.close();	// resource 반환
+            jdbcUtil.close();
         }
         return 0;
     }
 
 
-    /**
-     * 주어진 사용자 ID에 해당하는 사용자 정보를 데이터베이스에서 찾아 Profile 도메인 클래스에
-     * 저장하여 반환.
-     */
+    //주어진 사용자 ID에 해당하는 사용자 정보를 데이터베이스에서 찾아 Profile 도메인 클래스에저장하여 반환
     public Profile findProfile(int s_Id) throws SQLException {
         String sql = "SELECT activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, " +
                 "major, mbti, cleaning, indoor_eating, sharing, habitude "
                 + "FROM PROFILE "
                 + "WHERE s_id=? ";
-        jdbcUtil.setSqlAndParameters(sql, new Object[] {s_Id});	// JDBCUtil에 query문과 매개 변수 설정
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {s_Id});
 
         try {
-            ResultSet rs = jdbcUtil.executeQuery();		// query 실행
-            if (rs.next()) {						// 학생 정보 발견
-                Profile profile = new Profile(		// Profile 객체를 생성하여 정보를 저장
+            ResultSet rs = jdbcUtil.executeQuery();
+            if (rs.next()) {
+                Profile profile = new Profile(
                         s_Id,
                         rs.getInt("activation"),
                         rs.getString("name"),
@@ -100,30 +97,29 @@ public class ProfileDAO {
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
-            jdbcUtil.close();		// resource 반환
+            jdbcUtil.close();
         }
         return null;
     }
 
-    /**
-     * 해당 학교 전체 사용자 정보를 검색하여 List에 저장 및 반환
-     */
+
+    //해당 학교 전체 사용자 정보를 검색하여 List에 저장 및 반환
     public List<Profile> findProfileList(int c_Id, int gender, int s_id) throws SQLException {
         String sql = "SELECT activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, " +
                 "major, cleaning, indoor_eating, mbti, sharing, habitude, p.s_id "
                 + "FROM PROFILE p JOIN STUDENT s ON p.s_id = s.s_id "
                 + "WHERE activation=1 AND s.c_id=? AND s.gender=? AND NOT p.s_id IN (?) "
                 + "ORDER BY p.s_id";
-        jdbcUtil.setSqlAndParameters(sql, new Object[] {c_Id, gender, s_id},				// JDBCUtil에 query문 설정
-                ResultSet.TYPE_SCROLL_INSENSITIVE,				// cursor scroll 가능
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {c_Id, gender, s_id},
+                ResultSet.TYPE_SCROLL_INSENSITIVE,
                 ResultSet.CONCUR_READ_ONLY);
 
         try {
-            ResultSet rs = jdbcUtil.executeQuery();				// query 실행
+            ResultSet rs = jdbcUtil.executeQuery();
             List<Profile> profileList = new ArrayList<Profile>();
 
             while (rs.next()) {
-                Profile profile = new Profile(            // Profile 객체를 생성하여 현재 행의 정보를 저장
+                Profile profile = new Profile(
                         rs.getInt("s_id"),
                         rs.getInt("activation"),
                         rs.getString("name"),
@@ -139,68 +135,20 @@ public class ProfileDAO {
                         rs.getInt("mbti"),
                         rs.getInt("sharing"),
                         rs.getInt("habitude"));
-                profileList.add(profile);                            // 리스트에 Profile 객체 저장
+                profileList.add(profile);
             }
             return profileList;
 
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
-            jdbcUtil.close();		// resource 반환
+            jdbcUtil.close();
         }
         return null;
     }
 
-    /**
-     * 전체 사용자 정보를 검색한 후 현재 페이지와 페이지당 출력할 사용자 수를 이용하여
-     * 해당하는 사용자 정보만을 List에 저장하여 반환.
-     */
-    public List<Profile> findUserList(int currentPage, int countPerPage, int c_Id, int gender, int s_id) throws SQLException {
 
-        String sql = "SELECT activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, " +
-                "major, cleaning, indoor_eating, mbti, sharing, habitude, p.s_id "
-                + "FROM PROFILE p JOIN STUDENT s ON p.s_id = s.s_id "
-                + "WHERE s.c_id=? AND s.gender=? AND NOT p.s_id IN (?) "
-                + "ORDER BY p.s_id";
-        jdbcUtil.setSqlAndParameters(sql, new Object[] {c_Id, gender, s_id},				// JDBCUtil에 query문 설정
-                ResultSet.TYPE_SCROLL_INSENSITIVE,				// cursor scroll 가능
-                ResultSet.CONCUR_READ_ONLY);
-
-        try {
-            ResultSet rs = jdbcUtil.executeQuery();				// query 실행
-            int start = ((currentPage-1) * countPerPage) + 1;	// 출력을 시작할 행 번호 계산
-            if ((start >= 0) && rs.absolute(start)) {			// 커서를 시작 행으로 이동
-                List<Profile> profileList = new ArrayList<Profile>();	// Profile들의 리스트 생성
-                do {
-                    Profile profile = new Profile(			// Profile 객체를 생성하여 현재 행의 정보를 저장
-                            rs.getInt("s_id"),
-                            rs.getInt("activation"),
-                            rs.getString("name"),
-                            rs.getInt("pr_img"),
-                            rs.getInt("age"),
-                            rs.getInt("sleep_habit"),
-                            rs.getInt("lifestyle"),
-                            rs.getInt("smoking"),
-                            rs.getInt("grade"),
-                            rs.getString("major"),
-                            rs.getInt("cleaning"),
-                            rs.getInt("indoor_eating"),
-                            rs.getInt("mbti"),
-                            rs.getInt("sharing"),
-                            rs.getInt("habitude"));
-                    profileList.add(profile);							// 리스트에 Profile 객체 저장
-                } while ((rs.next()) && (--countPerPage > 0));
-                return profileList;
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        } finally {
-            jdbcUtil.close();		// resource 반환
-        }
-        return null;
-    }
-
-    /*search 페이징 X*/
+    /*search*/
     public List<Profile> findProfileList(int s_id, int sleep_habit, int lifestyle, int smoking, int grade, String major,
                                          int cleaning, int indoor_eating, int mbti, int sharing, int habitude)
             throws SQLException {
@@ -219,7 +167,7 @@ public class ProfileDAO {
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
-            jdbcUtil.close();		// resource 반환
+            jdbcUtil.close();
         }
 
         String sql2 = "SELECT p.s_id, activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, " +
@@ -279,14 +227,14 @@ public class ProfileDAO {
         Object[] param = params.toArray(new Object[size]);
 
         jdbcUtil.setSqlAndParameters(sql2,
-                param, ResultSet.TYPE_SCROLL_INSENSITIVE,				// cursor scroll 가능
+                param, ResultSet.TYPE_SCROLL_INSENSITIVE,
                 ResultSet.CONCUR_READ_ONLY);
 
         try {
-            ResultSet rs = jdbcUtil.executeQuery();			// query 실행
-            List<Profile> profileList = new ArrayList<Profile>();	// Profile들의 리스트 생성
+            ResultSet rs = jdbcUtil.executeQuery();
+            List<Profile> profileList = new ArrayList<Profile>();
             while (rs.next()) {
-                Profile profile = new Profile(			// Profile 객체를 생성하여 현재 행의 정보를 저장
+                Profile profile = new Profile(
                         rs.getInt("s_id"),
                         rs.getInt("activation"),
                         rs.getString("name"),
@@ -302,14 +250,14 @@ public class ProfileDAO {
                         rs.getInt("mbti"),
                         rs.getInt("sharing"),
                         rs.getInt("habitude"));
-                profileList.add(profile);				// List에 Profile 객체 저장
+                profileList.add(profile);
             }
             return profileList;
 
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
-            jdbcUtil.close();		// resource 반환
+            jdbcUtil.close();
         }
         return null;
     }

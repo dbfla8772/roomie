@@ -16,24 +16,24 @@ public class MailDAO {
     private JDBCUtil jdbcUtil = null;
 
     public MailDAO() {
-        jdbcUtil = new JDBCUtil();    // JDBCUtil 객체 생성
+        jdbcUtil = new JDBCUtil();
     }
 
     public int create(Mail mail) throws SQLException {
         String sql = "INSERT INTO mail VALUES (?, ?, MAILSEQ.nextval, ?, ?, ?)";
         Object[] param = new Object[]{mail.getMessage(), mail.getDatetime(), mail.getMailCheck(),
                                                             mail.getSender(), mail.getReceiver()};
-        jdbcUtil.setSqlAndParameters(sql, param);    // JDBCUtil 에 insert문과 매개 변수 설정
+        jdbcUtil.setSqlAndParameters(sql, param);
 
         try {
-            int result = jdbcUtil.executeUpdate();	// insert 문 실행
+            int result = jdbcUtil.executeUpdate();
             return result;
         } catch (Exception ex) {
             jdbcUtil.rollback();
             ex.printStackTrace();
         } finally {
             jdbcUtil.commit();
-            jdbcUtil.close();	// resource 반환
+            jdbcUtil.close();
         }
         return 0;
     }
@@ -64,9 +64,9 @@ public class MailDAO {
         jdbcUtil.setSqlAndParameters(sql, new Object[] {m_id});
 
         try {
-            ResultSet rs = jdbcUtil.executeQuery();		// query 실행
-            if (rs.next()) {						// 학생 정보 발견
-                Mail mail = new Mail(		// Profile 객체를 생성하여 정보를 저장
+            ResultSet rs = jdbcUtil.executeQuery();
+            if (rs.next()) {
+                Mail mail = new Mail(
                         m_id,
                         rs.getInt("sender"),
                         rs.getInt("receiver"),
@@ -79,7 +79,7 @@ public class MailDAO {
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
-            jdbcUtil.close();		// resource 반환
+            jdbcUtil.close();
         }
         return null;
     }
@@ -90,14 +90,14 @@ public class MailDAO {
         jdbcUtil.setSqlAndParameters(sql1, new Object[] {m_id});
 
         try {
-            int result = jdbcUtil.executeUpdate();	// update 문 실행
+            int result = jdbcUtil.executeUpdate();
         } catch (Exception ex) {
             jdbcUtil.rollback();
             ex.printStackTrace();
         }
         finally {
             jdbcUtil.commit();
-            jdbcUtil.close();	// resource 반환
+            jdbcUtil.close();
         }
 
         String sql = "SELECT sender, receiver, message, mail_check, datetime "
@@ -106,9 +106,9 @@ public class MailDAO {
         jdbcUtil.setSqlAndParameters(sql, new Object[] {m_id});
 
         try {
-            ResultSet rs = jdbcUtil.executeQuery();		// query 실행
-            if (rs.next()) {						// 학생 정보 발견
-                Mail mail = new Mail(		// Profile 객체를 생성하여 정보를 저장
+            ResultSet rs = jdbcUtil.executeQuery();
+            if (rs.next()) {
+                Mail mail = new Mail(
                         m_id,
                         rs.getInt("sender"),
                         rs.getInt("receiver"),
@@ -121,7 +121,7 @@ public class MailDAO {
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
-            jdbcUtil.close();		// resource 반환
+            jdbcUtil.close();
         }
         return null;
     }
@@ -136,11 +136,11 @@ public class MailDAO {
         jdbcUtil.setSqlAndParameters(sql, new Object[] {s_id});
 
         try {
-            ResultSet rs = jdbcUtil.executeQuery();				// query 실행
+            ResultSet rs = jdbcUtil.executeQuery();
             List<Mail> mailList = new ArrayList<Mail>();
 
-            while (rs.next()) {						// 학생 정보 발견
-                Mail mail = new Mail(		// Profile 객체를 생성하여 정보를 저장
+            while (rs.next()) {
+                Mail mail = new Mail(
                         rs.getInt("m_id"),
                         rs.getString("name"),
                         String.valueOf(s_id),
@@ -155,7 +155,7 @@ public class MailDAO {
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
-            jdbcUtil.close();		// resource 반환
+            jdbcUtil.close();
         }
         return null;
     }
@@ -168,11 +168,11 @@ public class MailDAO {
         jdbcUtil.setSqlAndParameters(sql, new Object[] {s_id});
 
         try {
-            ResultSet rs = jdbcUtil.executeQuery();				// query 실행
+            ResultSet rs = jdbcUtil.executeQuery();
             List<Mail> mailList = new ArrayList<Mail>();
 
             while (rs.next()) {
-                Mail mail = new Mail(		// Mail 객체를 생성하여 정보를 저장
+                Mail mail = new Mail(
                         rs.getInt("m_id"),
                         String.valueOf(s_id),
                         rs.getString("name"),
@@ -186,7 +186,7 @@ public class MailDAO {
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
-            jdbcUtil.close();		// resource 반환
+            jdbcUtil.close();
         }
         return null;
     }

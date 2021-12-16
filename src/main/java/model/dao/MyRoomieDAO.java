@@ -181,14 +181,14 @@ public class MyRoomieDAO {
                         rs.getInt("indoor_eating"),
                         rs.getInt("sharing"),
                         rs.getInt("habitude"));
-                myRoomieList.add(roomie);				// List에 Profile 객체 저장
+                myRoomieList.add(roomie);
             }
             return myRoomieList;
 
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
-            jdbcUtil.close();		// resource 반환
+            jdbcUtil.close();
         }
         return null;
     }
@@ -221,14 +221,14 @@ public class MyRoomieDAO {
                         rs.getInt("indoor_eating"),
                         rs.getInt("sharing"),
                         rs.getInt("habitude"));
-                myRoomieList.add(roomie);				// List에 Profile 객체 저장
+                myRoomieList.add(roomie);
             }
             return myRoomieList;
 
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
-            jdbcUtil.close();		// resource 반환
+            jdbcUtil.close();
         }
         return null;
     }
@@ -261,14 +261,14 @@ public class MyRoomieDAO {
                         rs.getInt("indoor_eating"),
                         rs.getInt("sharing"),
                         rs.getInt("habitude"));
-                requestRoomieList.add(roomie);				// List에 Profile 객체 저장
+                requestRoomieList.add(roomie);
             }
             return requestRoomieList;
 
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
-            jdbcUtil.close();		// resource 반환
+            jdbcUtil.close();
         }
         return null;
     }

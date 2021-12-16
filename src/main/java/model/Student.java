@@ -1,6 +1,5 @@
 package model;
 
-import jdk.nashorn.internal.objects.NativeString;
 
 public class Student {
 
@@ -82,9 +81,5 @@ public class Student {
             return false;
         }
         return this.password.equals(password);
-    }
-
-    public boolean isSameStudent(String studentId) {
-        return this.email.equals(studentId);
     }
 }

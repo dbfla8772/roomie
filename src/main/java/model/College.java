@@ -4,8 +4,7 @@ public class College {
     private int c_id;
     private String c_name;
 
-    public College() {
-    }
+    public College() {}
 
     public College(int c_id, String c_name) {
         this.c_id = c_id;

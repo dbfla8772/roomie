@@ -13,13 +13,6 @@ public class MyRoomie {
         this.roomie_id = roomie_id;
     }
 
-    public MyRoomie(int r_id, int s_id, int roomie_id, int roomie_check) {
-        this.r_id = r_id;
-        this.s_id = s_id;
-        this.roomie_id = roomie_id;
-        this.roomie_check = roomie_check;
-    }
-
     public int getR_id() {
         return r_id;
     }
