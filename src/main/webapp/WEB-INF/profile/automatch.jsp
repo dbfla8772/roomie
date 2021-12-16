@@ -69,6 +69,7 @@
             padding: 4%;
             border-radius: 10px;
             text-align: left;
+            cursor: pointer;
         }
         .col-md-4 {
             border-radius: 10px;

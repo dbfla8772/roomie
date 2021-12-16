@@ -20,9 +20,9 @@ public class MailDAO {
     }
 
     public int create(Mail mail) throws SQLException {
-        String sql = "INSERT INTO mail VALUES (?, CHATSEQ.nextval, ?, ?, ?, ?)";
-        Object[] param = new Object[]{mail.getMessage(), mail.getMailCheck(),
-                                                            mail.getSender(), mail.getReceiver(),  mail.getDatetime()};
+        String sql = "INSERT INTO mail VALUES (?, ?, MAILSEQ.nextval, ?, ?, ?)";
+        Object[] param = new Object[]{mail.getMessage(), mail.getDatetime(), mail.getMailCheck(),
+                                                            mail.getSender(), mail.getReceiver()};
         jdbcUtil.setSqlAndParameters(sql, param);    // JDBCUtil 에 insert문과 매개 변수 설정
 
         try {
@@ -38,9 +38,9 @@ public class MailDAO {
         return 0;
     }
 
-    public int remove(int ch_id) throws SQLException {
-        String sql = "DELETE FROM mail WHERE ch_id=?";
-        jdbcUtil.setSqlAndParameters(sql, new Object[] {ch_id});
+    public int remove(int m_id) throws SQLException {
+        String sql = "DELETE FROM mail WHERE m_id=?";
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {m_id});
 
         try {
             int result = jdbcUtil.executeUpdate();
@@ -57,17 +57,17 @@ public class MailDAO {
     }
 
     //보낸 메일
-    public Mail findsendMail(int ch_id) throws SQLException {
+    public Mail findsendMail(int m_id) throws SQLException {
         String sql = "SELECT sender, receiver, message, mail_check, datetime "
                 + "FROM MAIL "
-                + "WHERE ch_id=?";
-        jdbcUtil.setSqlAndParameters(sql, new Object[] {ch_id});
+                + "WHERE m_id=?";
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {m_id});
 
         try {
             ResultSet rs = jdbcUtil.executeQuery();		// query 실행
             if (rs.next()) {						// 학생 정보 발견
                 Mail mail = new Mail(		// Profile 객체를 생성하여 정보를 저장
-                        ch_id,
+                        m_id,
                         rs.getInt("sender"),
                         rs.getInt("receiver"),
                         rs.getString("message"),
@@ -85,9 +85,9 @@ public class MailDAO {
     }
 
     //받은 메일
-    public Mail findreceiveMail(int ch_id) throws SQLException {
-        String sql1 = "UPDATE MAIL SET mail_check=1 WHERE ch_id=?";
-        jdbcUtil.setSqlAndParameters(sql1, new Object[] {ch_id});
+    public Mail findreceiveMail(int m_id) throws SQLException {
+        String sql1 = "UPDATE MAIL SET mail_check=1 WHERE m_id=?";
+        jdbcUtil.setSqlAndParameters(sql1, new Object[] {m_id});
 
         try {
             int result = jdbcUtil.executeUpdate();	// update 문 실행
@@ -102,14 +102,14 @@ public class MailDAO {
 
         String sql = "SELECT sender, receiver, message, mail_check, datetime "
                 + "FROM MAIL "
-                + "WHERE ch_id=?";
-        jdbcUtil.setSqlAndParameters(sql, new Object[] {ch_id});
+                + "WHERE m_id=?";
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {m_id});
 
         try {
             ResultSet rs = jdbcUtil.executeQuery();		// query 실행
             if (rs.next()) {						// 학생 정보 발견
                 Mail mail = new Mail(		// Profile 객체를 생성하여 정보를 저장
-                        ch_id,
+                        m_id,
                         rs.getInt("sender"),
                         rs.getInt("receiver"),
                         rs.getString("message"),
@@ -128,10 +128,10 @@ public class MailDAO {
 
     //받은 메일 리스트
     public List<Mail> findReceiveMailList(int s_id) {
-        String sql = "SELECT ch_id, name, message, datetime, mail_check "
+        String sql = "SELECT m_id, name, message, datetime, mail_check "
                 + "FROM MAIL m JOIN Profile p ON p.s_id=m.sender "
                 + "WHERE receiver=? "
-                + "ORDER BY ch_id DESC";
+                + "ORDER BY m_id DESC";
 
         jdbcUtil.setSqlAndParameters(sql, new Object[] {s_id});
 
@@ -141,7 +141,7 @@ public class MailDAO {
 
             while (rs.next()) {						// 학생 정보 발견
                 Mail mail = new Mail(		// Profile 객체를 생성하여 정보를 저장
-                        rs.getInt("ch_id"),
+                        rs.getInt("m_id"),
                         rs.getString("name"),
                         String.valueOf(s_id),
                         rs.getString("message"),
@@ -162,7 +162,7 @@ public class MailDAO {
 
     // 보낸 메일 리스트
     public List<Mail> findSendMailList(int s_id) {
-        String sql = "SELECT ch_id, name, message, datetime, mail_check "
+        String sql = "SELECT m_id, name, message, datetime, mail_check "
                 + "FROM MAIL m JOIN Profile p ON p.s_id=m.receiver "
                 + "WHERE sender=?";
         jdbcUtil.setSqlAndParameters(sql, new Object[] {s_id});
@@ -173,7 +173,7 @@ public class MailDAO {
 
             while (rs.next()) {
                 Mail mail = new Mail(		// Mail 객체를 생성하여 정보를 저장
-                        rs.getInt("ch_id"),
+                        rs.getInt("m_id"),
                         String.valueOf(s_id),
                         rs.getString("name"),
                         rs.getString("message"),
