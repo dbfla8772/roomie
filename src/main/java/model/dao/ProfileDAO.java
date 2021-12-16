@@ -19,7 +19,7 @@ public class ProfileDAO {
         Object[] param = new Object[] {
                 profile.getName(), profile.getPr_img(), profile.getAge(), profile.getSleep_habit(),
                 profile.getLifestyle(), profile.getSmoking(), profile.getGrade(), profile.getMajor(),
-                profile.getCleaning(), profile.getIndoor_eating(), profile.getMbti(),
+                profile.getMbti(), profile.getCleaning(), profile.getIndoor_eating(),
                 profile.getSharing(), profile.getHabitude(), profile.getS_id()};
         jdbcUtil.setSqlAndParameters(sql, param);
 
