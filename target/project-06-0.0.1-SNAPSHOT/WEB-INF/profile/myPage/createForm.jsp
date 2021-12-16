@@ -109,7 +109,7 @@
 <a href="" style="color: black"><h3>&nbsp;Roomie</h3></a>
 <a href=""><img src="/images/logo-font.png" id="logo"/></a>
 
-<!-- Create Form  -->
+<%--Create Form--%>
 <form name="form" method="POST" action="${pageContext.servletContext.contextPath}/profile/create">
 <div style="text-align: right; padding-left: 100px; padding-right: 80px;">
     <h4 style="text-align: right; padding-left: 100px; padding-right: 80px;">프로필 등록</h4><br>
