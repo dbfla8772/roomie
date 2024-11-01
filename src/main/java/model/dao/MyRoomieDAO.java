@@ -36,8 +36,8 @@ public class MyRoomieDAO {
     }
 
     public int update(MyRoomie roomie) throws SQLException {
-        String sql = "UPDATE myroomie SET roomie_check=1 WHERE s_id=? AND roomie_id=?";
-        jdbcUtil.setSqlAndParameters(sql, new Object[] {roomie.getS_id(), roomie.getRoomie_id()});
+        String sql1 = "UPDATE myroomie SET roomie_check=1 WHERE s_id=? AND roomie_id=?";
+        jdbcUtil.setSqlAndParameters(sql1, new Object[] {roomie.getRoomie_id(), roomie.getS_id()});
 
         try {
             int result = jdbcUtil.executeUpdate();
@@ -50,9 +50,9 @@ public class MyRoomieDAO {
             jdbcUtil.close();
         }
 
-        String sql1 = "INSERT INTO myroomie VALUES(?, MYROOMIESEQ.nextval, ?, 1)";
-        Object[] param1 = new Object[] {roomie.getRoomie_id(), roomie.getS_id()};
-        jdbcUtil.setSqlAndParameters(sql1, param1);
+        String sql2 = "INSERT INTO myroomie VALUES(?, MYROOMIESEQ.nextval, ?, 1)";
+        Object[] param2 = new Object[] {roomie.getS_id(), roomie.getRoomie_id()};
+        jdbcUtil.setSqlAndParameters(sql2, param2);
 
         try {
             int result = jdbcUtil.executeUpdate();
@@ -167,14 +167,14 @@ public class MyRoomieDAO {
                         rs.getInt("indoor_eating"),
                         rs.getInt("sharing"),
                         rs.getInt("habitude"));
-                myRoomieList.add(roomie);				// List에 Profile 객체 저장
+                myRoomieList.add(roomie);
             }
             return myRoomieList;
 
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
-            jdbcUtil.close();		// resource 반환
+            jdbcUtil.close();
         }
         return null;
     }
@@ -207,21 +207,21 @@ public class MyRoomieDAO {
                         rs.getInt("indoor_eating"),
                         rs.getInt("sharing"),
                         rs.getInt("habitude"));
-                myRoomieList.add(roomie);				// List에 Profile 객체 저장
+                myRoomieList.add(roomie);
             }
             return myRoomieList;
 
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
-            jdbcUtil.close();		// resource 반환
+            jdbcUtil.close();
         }
         return null;
     }
 
     // 매칭 신청 온 목록 리스트 찾기
     public List<Profile> findRequestRoomieList(int s_id) throws SQLException {
-        String sql = "SELECT roomie_id, activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, major, mbti, cleaning, indoor_eating, sharing, habitude "
+        String sql = "SELECT r.s_id, activation, name, pr_img, age, sleep_habit, lifestyle, smoking, grade, major, mbti, cleaning, indoor_eating, sharing, habitude "
                 + "FROM myroomie r JOIN profile p ON r.s_id=p.s_id "
                 + "WHERE r.roomie_check=0 AND r.roomie_id=? "
                 + "ORDER BY r_id DESC";
@@ -232,7 +232,7 @@ public class MyRoomieDAO {
             List<Profile> requestRoomieList = new ArrayList<Profile>();
             while (rs.next()) {
                 Profile roomie = new Profile(
-                        rs.getInt("roomie_id"),
+                        rs.getInt("s_id"),
                         rs.getInt("activation"),
                         rs.getString("name"),
                         rs.getInt("pr_img"),
@@ -247,14 +247,14 @@ public class MyRoomieDAO {
                         rs.getInt("indoor_eating"),
                         rs.getInt("sharing"),
                         rs.getInt("habitude"));
-                requestRoomieList.add(roomie);				// List에 Profile 객체 저장
+                requestRoomieList.add(roomie);
             }
             return requestRoomieList;
 
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
-            jdbcUtil.close();		// resource 반환
+            jdbcUtil.close();
         }
         return null;
     }

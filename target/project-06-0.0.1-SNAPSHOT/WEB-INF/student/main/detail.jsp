@@ -7,12 +7,9 @@
 %>
 <html>
 <head>
-    <title>detail profile</title>
+    <title>상세 프로필</title>
 
     <style>
-        .dv {
-            margin-top: 0%;
-        }
         @font-face {
             font-family: 'SBAggroB';
             src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
@@ -31,7 +28,6 @@
             margin: 0;
             width: auto;
             height: auto;
-            margin-bottom: 4%;
         }
 
         h3 {
@@ -52,6 +48,7 @@
         }
 
         .dv {
+            position: relative;
             margin-top: 50px;
             margin-bottom: 30px;
         }
@@ -66,23 +63,24 @@
             margin-bottom: 1em;
         }
 
-        ul.none {
-            margin-bottom: 1em;
-            list-style: none;
-        }
-
-        .layer {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%)
-        }
-
         .button {
             border: 0px;
             border-radius: 10px;
             background-color: lightgray;
             padding: 7px 50px 7px 50px;
+        }
+        #footer {
+            position: relative;
+            width: 100%;
+            bottom: 0;
+            font-family: SBAggroL;
+            text-align: center;
+            font-size: x-small;
+            padding-bottom: 50px;
+            margin-top: 100px;
+        }
+        #footer p {
+            padding: 0px 30px;
         }
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -98,11 +96,9 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="w-auto p-2" style="background-color: lightcyan; text-align: center;">
-    <h4>당신의 루미를 찾아보세요!
-        <button class="btn btn-outline-success" type="submit">자동매칭 하러가기</button>
-    </h4>
-</div>
+<div class="w-auto p-2" style="background-color: lightcyan; text-align: center;"><h4 style="font-family: SBAggroL">당신의 루미를 찾아보세요!
+    <button class="btn btn-outline-success" type="submit" onClick="location.href='/student/automatch'">자동매칭 하러가기</button></h4></div>
+<div>
 
 <div>
     <a href="${pageContext.request.contextPath}/student/main"><h3>Roomie</h3></a>
@@ -362,4 +358,10 @@
         </tr>
     </table>
 </div>
+<footer id="footer">
+    <hr>
+    <p>데이터베이스프로그래밍 01-06 ©야-심차게<br>권민지 김유림 김은혜 박초은</p>
+</footer>
+</body>
+</html>
 

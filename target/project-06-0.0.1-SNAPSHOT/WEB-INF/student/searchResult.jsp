@@ -5,6 +5,7 @@
 <%! List<Profile> profileList; String img_url; int[] filter; int i; String[] check; %>
 <html>
 <head>
+    <title>검색 결과</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -21,7 +22,7 @@
     <script>
         function search(targetUri) {
             form.action = targetUri;
-            form.method = "GET";		// search form 요청
+            form.method = "GET";
             form.submit();
         }
     </script>
@@ -42,12 +43,12 @@
         }
 
         body {
-            margin: 5% 8%;
+            margin-top: 5%;
             align-content: center;
         }
 
         #logo {
-            margin-top: -2.5%;
+            margin-top: -2%;
             width: 70px;
         }
 
@@ -55,11 +56,12 @@
             font-family: SBAggroB;
             float: left;
             color: black;
+            margin-left: 8%;
         }
 
         table {
             margin: 0 auto;
-            width: 80%;
+            width: 70%;
             height: 40%;
             position: relative;
             top: 20%;
@@ -86,7 +88,7 @@
 
         .btn {
             margin-top: 10px;
-            margin-right: 8%;
+            margin-right: 13%;
             font-family: SBAggroL;
             float: right;
         }
@@ -115,17 +117,27 @@
             float: right;
         }
 
-        .card-margin {/*
-            margin-left: 5%;*/
+        .card-margin {
             font-family: SBAggroL;
-        }
-
-        .mb-3 {
-            cursor: pointer;
-            float: left;
-            border-radius: 10px;
             width: 40%;
-            margin: 0px 5% 100px 5%;
+            display: inline-block;
+            /*padding: 2%;*/
+            padding-bottom: 2%;
+            margin: 0 4.9%;
+        }
+        .mb-3 {
+            width: 100%;
+            padding: 4%;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .col-md-4 {
+            border-radius: 10px;
+            margin: 0 2%;
+        }
+        .col-md-8 {
+            margin-right: -7%;
+            margin-left: 3%;
         }
 
         #mbti {
@@ -140,11 +152,30 @@
         h5 {
             font-family: SBAggroL;
         }
+
+        #footer {
+            position: relative;
+            width: 100%;
+            bottom: 0;
+            font-family: SBAggroL;
+            text-align: center;
+            font-size: x-small;
+            padding-bottom: 50px;
+            margin-top: 100px;
+        }
+        #footer p {
+            padding: 0px 30px;
+        }
+
+        .search_result {
+            margin: 0 7%;
+        }
+
     </style>
 
 </head>
 <body>
-<a href = "${pageContext.request.contextPath}/student/main"><h3>&nbsp;Roomie</h3></a>
+<a href = "${pageContext.request.contextPath}/student/main"><h3 id="top">&nbsp;Roomie</h3></a>
 <a href = "${pageContext.request.contextPath}/student/main"><img src="/images/logo-font.png" id="logo"/></a>
 
 <%
@@ -225,13 +256,14 @@
             <img src="<c:url value='/images/magnifier.png'/>" id="magnifier"/>
         </div>
     </div>
-</form>
+</form><p/><br>
 
 <%profileList = (List<Profile>) request.getAttribute("profileList");%>
 <div class="empty">
     <c:if test="${empty profileList}"><h5>검색 결과가 없습니다.</h5></c:if>
 </div>
 
+<div class="search_result">
 <form name="form">
     <c:forEach var="profile" items="${profileList}">
         <div class="card-margin">
@@ -256,23 +288,14 @@
         </div>
     </c:forEach>
 </form>
+</div>
 <br>
-
-<%-- 페이징 --%>
-<%--<div class="page-float">--%>
-<%--    <nav aria-label="Page navigation example">--%>
-<%--        <ul class="pagination justify-content-center">--%>
-<%--            <li class="page-item disabled">--%>
-<%--                <a class="page-link">Previous</a>--%>
-<%--            </li>--%>
-<%--            <li class="page-item"><a class="page-link" href="#">1</a></li>--%>
-<%--            <li class="page-item"><a class="page-link" href="#">2</a></li>--%>
-<%--            <li class="page-item"><a class="page-link" href="#">3</a></li>--%>
-<%--            <li class="page-item">--%>
-<%--                <a class="page-link" href="#">Next</a>--%>
-<%--            </li>--%>
-<%--        </ul>--%>
-<%--    </nav>--%>
-<%--</div>--%>
+<footer id="footer">
+    <hr>
+    <p>데이터베이스프로그래밍 01-06 ©야-심차게<br>권민지 김유림 김은혜 박초은</p>
+</footer>
+<div style="position: fixed; bottom: 20px; right: 20px; cursor: pointer;">
+    <a href="#top"><img src="/images/btnTop2.png" title="맨 위로" style="width: 60px; height: 63px;"></a>
+</div>
 </body>
 </html>

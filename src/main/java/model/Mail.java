@@ -1,7 +1,5 @@
 package model;
 
-import java.util.Date;
-
 public class Mail {
     private int ch_id;
     private int sender;
@@ -13,7 +11,6 @@ public class Mail {
     private int mailCheck;
 
     public Mail() {}
-
 
     public Mail(int ch_id, int sender, int receiver, String message, String datetime, int mailCheck) {
         this.ch_id = ch_id;

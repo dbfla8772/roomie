@@ -8,7 +8,7 @@
 <html>
 <head>
     <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <title>메인 페이지</title>
+    <title>Roomie</title>
     <script>
     </script>
     <style>
@@ -25,10 +25,9 @@
             font-style: normal;
         }
         html, body {
-            magrin: 0;
+            magrin: 0 2%;
             width: auto;
             height: auto;
-            margin-bottom: 4%;
         }
         a {
             font-family: SBAggroL;
@@ -38,46 +37,47 @@
             font-family: SBAggroB;
         }
         .all-card {
-            margin : 0 5%;
+            margin-top: 50px;
         }
         .card-margin {
-            margin : 0 5%;
-            float: left;
             font-family: SBAggroL;
             width: 40%;
-            padding: 20px;
+            display: inline-block;
+            padding-bottom: 2%;
+            margin: 0 4.9%;
         }
         .mb-3 {
-            cursor: pointer;
-            float: none;
+            width: 100%;
+            padding: 4%;
             border-radius: 10px;
-            height: 180px;
-            max-height: 180px;
-            margin-bottom: 0px;
-            display: flex;
+            cursor: pointer;
         }
         .col-md-4 {
-            margin: auto;
+            border-radius: 10px;
+            margin: 0 2%;
         }
         .col-md-8 {
-            padding-top: 1%;
-            margin: auto;
+            margin-right: -7%;
+            margin-left: 3%;
         }
         .text {
             font-family: SBAggroL;
         }
-        .card-text {
 
+        #footer {
+            position: relative;
+            width: 100%;
+            bottom: 0;
+            font-family: SBAggroL;
+            padding-bottom: 50px;
+            text-align: center;
+            font-size: x-small;
+            margin-top: 100px;
         }
-        .link-secondary {
-            font-size: 120%;
+        #footer p {
+            padding: 0px 30px;
         }
-        .page-float {
-            clear: left;
-            position: absolute;
-            bottom: 1px;
-            right: 43%
-        }
+
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -86,10 +86,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
-<%--<% if (request.getSession().getAttribute("login").equals(0)) {
-    out.println("<script>alert('로그인되었습니다.');</script>");
-} %>--%>
-<div class="w-auto p-2" style="background-color: lightcyan; text-align: center;"><h4 style="font-family: SBAggroL">당신의 루미를 찾아보세요! <button class="btn btn-outline-success" type="submit" onClick="location.href='/student/automatch'">자동매칭 하러가기</button></h4></div>
+<div class="w-auto p-2" style="background-color: lightcyan; text-align: center;"><h4 id="top" style="font-family: SBAggroL">당신의 루미를 찾아보세요! <button class="btn btn-outline-success" type="submit" onClick="location.href='/student/automatch'">자동매칭 하러가기</button></h4></div>
 <div class="container">
     <header class="blog-header py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
@@ -122,7 +119,8 @@
 <div class="all-card">
     <c:forEach var="profile" items="${profileList}">
         <div class="card-margin">
-            <div class="card mb-3" style="border-radius: 10px; " onclick="location.href='/student/main/detail?s_id=' + ${profile.s_id}">
+            <div class="card mb-3" onclick="location.href='/student/main/detail?s_id=' + ${profile.s_id}">
+                <%--<div>&nbsp;</div>--%>
                 <div class="row g-0">
                     <div class="col-md-4">
                         <c:if test="${profile.pr_img eq 0}"><%img_url = "/images/man1.png";%></c:if>
@@ -142,36 +140,13 @@
         </div>
     </c:forEach>
 </div>
-<%--    int totalCount;--%>
-<%--    int countList;--%>
-<%--    int totalPage;--%>
-<%--    int i;--%>
-<%--%>--%>
-<%--<%--%>
-<%--    totalCount = 25;--%>
-<%--    countList = 10;--%>
 
-<%--    totalPage = totalCount / countList;--%>
-
-<%--    if (totalCount % countList > 0) {--%>
-<%--        totalPage++;--%>
-<%--    }--%>
-<%--%>--%>
-
-<%--<div class="page-float">
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-                <a class="page-link">Previous</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
-        </ul>
-    </nav>
-</div>--%>
+<footer id="footer">
+    <hr>
+    <p>데이터베이스프로그래밍 01-06 야-심차게<br>권민지 김유림 김은혜 박초은</p>
+</footer>
+<div style="position: fixed; bottom: 20px; right: 20px; cursor: pointer;">
+    <a href="#top"><img src="/images/btnTop2.png" title="맨 위로" style="width: 60px; height: 63px;"></a>
+</div>
 </body>
 </html>

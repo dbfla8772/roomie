@@ -175,14 +175,5 @@ public class Profile {
         this.habitude = habitude;
     }
 
-    boolean isActivation(Profile profile) {
-        if (profile.activation==1)
-            return true;
-        else
-            return false;
-    }
 
-//    boolean isNullChecked(Profile profile) {
-//        if ((profile.name != null && profile.pr_img != null && profile.age != null
-//    }
 }

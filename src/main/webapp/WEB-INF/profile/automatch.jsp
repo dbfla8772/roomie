@@ -7,8 +7,7 @@
 %>
 <html>
 <head>
-    <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <title>자동매칭 페이지</title>
+    <title>자동매칭</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -27,10 +26,30 @@
             font-style: normal;
         }
         html, body {
-            magrin: 0;
+            margin-top: 1%;
             width: auto;
             height: auto;
-            margin-bottom: 4%;
+        }
+        #logo {
+            margin-top: 10px;
+            width: 70px;
+        }
+
+        h3.roomietitle {
+            margin-top: 40px;
+            font-family: SBAggroB;
+            float: left;
+            color: black;
+            margin-left: 8%;
+        }
+
+        h3.title {
+            font-family: SBAggroL;
+            text-align: right;
+            padding-top: 5px;
+            padding-bottom: 10px;
+            margin-right: 8%;
+            margin-bottom: 20px;
         }
         a {
             font-family: SBAggroL;
@@ -39,68 +58,71 @@
             padding-top: 10px;
             font-family: SBAggroB;
         }
-        h4, h5 {
-            font-family: SBAggroB;
-        }
         .card-margin {
-            margin-left: 500px;
             font-family: SBAggroL;
+            width: 40%;
+            display: inline-block;
+            padding-bottom: 2%;
         }
         .mb-3 {
-            cursor: pointer;
-            float: left;
+            width: 100%;
+            padding: 4%;
             border-radius: 10px;
-            width: 60%;
-            margin: 0px 0% 100px 5%;
+            text-align: left;
+            cursor: pointer;
         }
-        .page-float {
-            clear: left;
-            position: absolute;
-            bottom: 1px;
-            right: 43%
+        .col-md-4 {
+            border-radius: 10px;
+            margin: 0 2%;
+        }
+        .col-md-8 {
+            margin-right: -7%;
+            margin-left: 3%;
+        }
+        .room {
+            text-align: center;
+            font-family: SBAggroB;
+        }
+        .carousel-item {
+            text-align: center;
+        }
+        #footer {
+            position: relative;
+            width: 100%;
+            bottom: 0;
+            font-family: SBAggroL;
+            text-align: center;
+            font-size: x-small;
+            padding-bottom: 50px;
+            margin-top: 100px;
+        }
+        #footer p {
+            padding: 0px 30px;
         }
     </style>
 </head>
 <body>
-<div class="container">
-    <header class="blog-header py-3">
-        <div class="row flex-nowrap justify-content-between align-items-center">
-            <div class="col-4 pt-1">
-                <a class="blog-header-logo text-dark" href="${pageContext.request.contextPath}/student/main"><h1>Roomie 루미</h1></a>
-            </div>
-            <div class="col-4 text-center">
-            </div>
-            <div class="col-4 d-flex justify-content-end align-items-center">
-                <h4>자동매칭 결과</h4>
-            </div>
-        </div>
-        <br>
-    </header>
-</div>
+
+<a href="${pageContext.request.contextPath}/student/main"><h3 class="roomietitle">Roomie</h3>
+    <img src="/images/logo-font.png" id="logo"/></a>
+
+<h3 class="title">자동매칭 결과</h3>
 
 <% profileList = (List<Profile>) request.getAttribute("profileList"); %>
     <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel"
-         style="margin: 10px 100px 0px 100px; text-align: center;">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <%
-                for (int i = 0; i < profileList.size(); i++) {
-            %>
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="<%= i+1 %>" aria-label="Slide 2"></button>
-            <% } %>
-        </div>
+         style="margin: 3% 10% 0% 10%;">
         <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="10000">
-                <img src="/images/room.jpg" class="d-block w-100" alt="..." style="height: 750px">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>옆으로 넘겨서 당신에게 맞는 룸메이트를 찾아보세요!</h5>
+                <img src="/images/room.jpg" class="d-block w-100" alt="..." style="height: 600px">
+                <div class="carousel-caption d-none d-md-block" style="margin: 0 auto">
+                    <h5 class="room">옆으로 넘겨서 당신에게 맞는 룸메이트를 찾아보세요!</h5>
                 </div>
             </div>
 
             <% for (int i = 0; i < profileList.size(); i++) { %>
             <div class="carousel-item" data-bs-interval="2000">
                 <div class="card-margin">
-                    <div class="card mb-3" style="border-radius: 10px; max-width: 600px;" onclick="location.href='/student/main/detail?s_id=' + <%= profileList.get(i).getS_id() %>">
+                    <div class="card mb-3" onclick="location.href='/student/main/detail?s_id=' + <%= profileList.get(i).getS_id() %>">
                         <div class="row g-0">
                             <div class="col-md-4">
                                 <%
@@ -114,9 +136,8 @@
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title"><%= profileList.get(i).getName() %></h5>
-                                    <p class="card-text"><%= profileList.get(i).getMajor() %> (<%= profileList.get(i).getGrade() %>학년)&emsp;&emsp;&emsp;&emsp;&emsp; <br>
-                                        <%= profileList.get(i).getAge() %>세&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
-                                    <p class="card-text"><small class="text-muted"></small></p>
+                                    <p class="card-text"><%= profileList.get(i).getMajor() %> (<%= profileList.get(i).getGrade() %>학년)
+                                        <br><%= profileList.get(i).getAge() %>세</p>
                                 </div>
                             </div>
                         </div>
@@ -135,5 +156,9 @@
         </button>
     </div>
 </div>
+<footer id="footer">
+    <hr>
+    <p>데이터베이스프로그래밍 01-06 ©야-심차게<br>권민지 김유림 김은혜 박초은</p>
+</footer>
 </body>
 </html>

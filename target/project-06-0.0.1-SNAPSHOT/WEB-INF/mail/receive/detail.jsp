@@ -28,7 +28,7 @@
 
         function GoList(targetUri) {
             form.action = targetUri;
-            form.method = "GET";      //register form 요청
+            form.method = "GET";
             form.submit();
         }
     </script>
@@ -140,7 +140,8 @@
         <span class="btn">
             <button type="button" value="답장" onClick="SendMessage()" class="btn btn-outline-dark">답장</button>&nbsp;
             <button type="button" value="목록" class="btn btn-outline-dark"
-                    onClick="document.location.href='${pageContext.request.contextPath}/mail/receive/receiveList?flag=0'">목록</button>        </span>
+                    onClick="document.location.href='${pageContext.request.contextPath}/mail/receive/receiveList?flag=0'">목록</button>
+        </span>
     </form>
 </div>
 </body>

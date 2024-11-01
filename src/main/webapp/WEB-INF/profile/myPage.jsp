@@ -5,27 +5,20 @@
 <%! Profile profile; String activation, img_url, smoking, sharing, lifestyle, grade, habitude, sleep_habit, cleaning, indoor_eating, mbti; %>
 <html>
 <head>
-    <title>마이 페이지</title>
+    <title>마이페이지</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script>
-        /*function update() {/!*
-            form.action = targetUri;
-            form.method = "POST";  *!/    //register form 요청
-            form.submit();
-        }*/
         function update() {
-            form2.method = "GET";
             form2.submit();
         }
         function drop() {
             if (confirm("정말 탈퇴하시겠습니까?") == true){
                 form1.submit();
                 alert("탈퇴되었습니다.");
-
             } else {
                 return;
             }
@@ -34,9 +27,11 @@
     <style>
         .dv {
             margin-top: -1%;
+            position:relative;
         }
         .dvv {
             margin-top: 3%;
+            position:relative;
         }
         @font-face {
             font-family: 'SBAggroB';
@@ -70,32 +65,31 @@
             margin-left: 5px;
         }
         td {
-            /*border : black 1px solid;*/
             font-family: SBAggroL;
             padding-left: 10px;
             padding-bottom: 15px;
         }
-        /*table {*/
-        /*    border : black 1px solid;*/
-        /*}*/
         ul.space_list li {
             margin-bottom: 1em;
-        }
-        ul.none {
-            margin-bottom: 1em;
-            list-style: none;
-        }
-        .layer {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%)
         }
         .button {
             border: 0px;
             border-radius: 10px;
             background-color: lightgray;
             padding: 7px 50px 7px 50px;
+        }
+        #footer {
+            position: relative;
+            width: 100%;
+            bottom: 0;
+            font-family: SBAggroL;
+            text-align: center;
+            font-size: x-small;
+            padding-bottom: 50px;
+            margin-top: 100px;
+        }
+        #footer p {
+            padding: 0px 30px;
         }
     </style>
 </head>
@@ -105,13 +99,11 @@
     <a href = "${pageContext.request.contextPath}/student/main"><img src="/images/logo-font.png" id="logo"/></a>
 </div>
 
-
-    <% profile = (Profile) request.getAttribute("profile");
+<% profile = (Profile) request.getAttribute("profile");
     if (profile.getActivation()==1)
         activation = "활성화";
     else
         activation = "비활성화";
-
     img_url = "/images/";
     if (profile.getPr_img()==0)
         img_url += "man1.png";
@@ -121,22 +113,18 @@
         img_url += "woman1.png";
     else
         img_url += "woman2.png";
-
     if (profile.getSmoking()==0)
         smoking = "O";
     else
         smoking = "X";
-
     if (profile.getSharing()==0)
         sharing = "가능";
     else
         sharing = "불가능";
-
     if (profile.getLifestyle()==0)
         lifestyle = "아침형";
     else
         lifestyle = "저녁형";
-
     if (profile.getGrade()==0)
         grade = "1학년";
     else if (profile.getGrade()==1)
@@ -145,7 +133,6 @@
         grade = "3학년";
     else if (profile.getGrade()==3)
         grade = "4학년";
-
     if (profile.getHabitude()==0)
         habitude = "추위를 탐";
     else if (profile.getHabitude()==1)
@@ -154,7 +141,6 @@
         habitude = "둘 다 탐";
     else
         habitude = "상관없음";
-
     if (profile.getSleep_habit()==0)
         sleep_habit = "없음";
     else if (profile.getSleep_habit()==1)
@@ -163,7 +149,6 @@
         sleep_habit = "이갈이";
     else
         sleep_habit = "몽유병";
-
     if (profile.getCleaning()==0)
         cleaning = "매일";
     else if (profile.getCleaning()==1)
@@ -172,12 +157,10 @@
         cleaning = "1주";
     else
         cleaning = "2주";
-
     if (profile.getIndoor_eating()==0)
         indoor_eating = "가능";
     else
         indoor_eating = "불가능";
-
     if (profile.getMbti()==0)
         mbti = "ENFJ";
     else if (profile.getMbti()==1)
@@ -216,7 +199,22 @@
     <table style="border-radius: 10px; align: center;">
         <tr>
             <td colspan="2" rowspan="2">
-                <img style="border-radius: 10px; width:300px; height:400px; object-fit: contain" src="<%=img_url%>"/>
+                <table>
+                    <tr>
+                        <td>
+                            <img style="border-radius: 10px; width:300px; height:300px; object-fit: contain" src="<%=img_url%>"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: x-large; text-align: center">${profile.name}</td>
+                        <td>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" name="activation" value="1"
+                                       disabled <%if (profile.getActivation()==1) {%> checked <%} %>>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
             </td>
             <td colspan="3" style="width:400px; text-align: left; font-size: x-large; font-weight: 800; padding-top: 5px;">
                 &nbsp;&nbsp;프로필 옵션<br><br>
@@ -279,28 +277,23 @@
             </td>
         </tr>
         <tr>
-            <td align="center" style="font-size: large">
-                닉네임:${profile.name}
-            </td>
-            <td align="center">
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" name="activation" value="1"
-                        disabled <%if (profile.getActivation()==1) {%> checked <%} %>>
-                </div>
-            </td>
-        </tr>
-        <tr>
             <td align="center">
                 <form name="form1" method="POST" action="${pageContext.servletContext.contextPath}/student/delete">
                     <input type="button" class="button" value="탈퇴하기" onclick="drop()">
                 </form>
-                <form name="form2" method="POST" action="${pageContext.servletContext.contextPath}/profile/update">
-                    <input type="hidden" name="s_id" value="${profile.s_id}">
+            </td>
+            <td align="center">
+                <form name="form2" action="${pageContext.servletContext.contextPath}/profile/update">
+                    <input type="hidden" name="s_id" value="${profile.s_id}"/>
                     <input type="button" class="button" value="수정하기" onclick="update()">
                 </form>
             </td>
         </tr>
     </table>
 </div>
+<footer id="footer">
+    <hr>
+    <p>데이터베이스프로그래밍 01-06 ©야-심차게<br>권민지 김유림 김은혜 박초은</p>
+</footer>
 </body>
 </html>

@@ -7,8 +7,7 @@
 %>
 <html>
 <head>
-    <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <title>스크랩 목록</title>
+    <title>스크랩</title>
     <style>
         @font-face {
             font-family: 'SBAggroB';
@@ -38,7 +37,6 @@
             width: 70px;
         }
         h3.roomietitle {
-            /*font-family: SBAggroB; float: left; padding-top: 30px; padding-left: 100px; color: black;*/
             margin-top: 40px;
             font-family: SBAggroB;
             float: left;
@@ -50,7 +48,8 @@
             text-align: right;
             padding-top: 5px;
             padding-bottom: 10px;
-            margin-right:8%;
+            margin-right: 8%;
+            margin-bottom: 4%;
         }
         h4 {
             font-family: SBAggroL;
@@ -60,18 +59,37 @@
         }
         .card-margin {
             font-family: SBAggroL;
-            margin-left: 7%;
-            margin-right: 7%;
+            width: 40%;
+            display: inline-block;
+            padding-bottom: 2%;
+            margin: 0 4.9%;
         }
         .mb-3 {
-            cursor: pointer;
-            float: left;
+            width: 100%;
+            padding: 4%;
             border-radius: 10px;
-            width: 40%;
-            margin: 0px 5% 100px 5%;
+            cursor: pointer;
         }
-        .page-float {
-            clear: left;
+        .col-md-4 {
+            border-radius: 10px;
+            margin: 0 2%;
+        }
+        .col-md-8 {
+            margin-right: -7%;
+            margin-left: 3%;
+        }
+        #footer {
+            position: relative;
+            width: 100%;
+            bottom: 0;
+            font-family: SBAggroL;
+            text-align: center;
+            font-size: x-small;
+            padding-bottom: 50px;
+            margin-top: 100px;
+        }
+        #footer p {
+            padding: 0px 30px;
         }
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -79,11 +97,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <%--    <script>--%>
-    <%--        function card_click() {--%>
-    <%--            <jsp:forward page="/student/main/detail.jsp"/>--%>
-    <%--        }--%>
-    <%--    </script>--%>
 </head>
 <body>
 <%!
@@ -103,10 +116,10 @@
     }
 %>
 
-<div class="w-auto p-2" style="background-color: lightcyan; text-align: center;"><h4>당신의 루미를 찾아보세요! <button class="btn btn-outline-success" type="submit">자동매칭 하러가기</button></h4></div>
+<span id="top"><div class="w-auto p-2" style="background-color: lightcyan; text-align: center;"><h4>당신의 루미를 찾아보세요! <button class="btn btn-outline-success" type="submit" onClick="location.href='/student/automatch'">자동매칭 하러가기</button></h4></div></span>
 
-<a href = "${pageContext.request.contextPath}/student/main"><h3 class="roomietitle">Roomie</h3></a>
-<img src="/images/logo-font.png" id="logo" />
+<a href = "${pageContext.request.contextPath}/student/main"><h3 class="roomietitle">Roomie</h3>
+<img src="/images/logo-font.png" id="logo" /></a>
 
 <h3 class="scraptitle">스크랩</h3>
 
@@ -133,20 +146,13 @@
         </div>
     </div>
 </c:forEach>
-<%--<div class="page-float">
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-                <a class="page-link">Previous</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
-        </ul>
-    </nav>
-</div>--%>
+
+<footer id="footer">
+    <hr>
+    <p>데이터베이스프로그래밍 01-06 ©야-심차게<br>권민지 김유림 김은혜 박초은</p>
+</footer>
+<div style="position: fixed; bottom: 20px; right: 20px; cursor: pointer;">
+    <a href="#top"><img src="/images/btnTop2.png" title="맨 위로" style="width: 60px; height: 63px;"></a>
+</div>
 </body>
 </html>

@@ -22,15 +22,14 @@ public class RegisterController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		List<College> colList = CollegeManager.getInstance().findCollegeList();
 		if (request.getMethod().equals("GET")) {
-			// GET request: 회원정보 등록 form 요청
 			log.debug("RegisterForm Request");
 
 			request.setAttribute("colList", colList);
 
-			return "/student/registerForm.jsp";   // 검색한 사용자 정보를 update form으로 전송
+			return "/student/registerForm.jsp";
 		}
 
-		// POST request (회원정보가 parameter로 전송됨)
+		// POST request
 		Student student = new Student (
 				request.getParameter("name"),
 				request.getParameter("email"),
@@ -47,7 +46,7 @@ public class RegisterController implements Controller {
 			request.setAttribute("email", email);
 			return "/profile/myPage/createForm.jsp";
 
-		} catch (ExistingStudentException e) {	// 예외 발생 시 회원가입 form으로 forwarding
+		} catch (ExistingStudentException e) {	// 예외 발생 시 회원가입 form으로
 			request.setAttribute("registerFailed", true);
 			request.setAttribute("exception", e);
 			request.setAttribute("student", student);

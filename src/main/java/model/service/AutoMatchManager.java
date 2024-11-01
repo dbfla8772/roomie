@@ -45,28 +45,15 @@ public class AutoMatchManager {
         return pointDAO.findPointList(s_id);
     }
 
-    public static int countChar(String str, char ch) {
-        int count = 0;
-        for (int i = 0; i < str.length(); i++) {
-            if (str.charAt(i) == ch) {
-                count++;
-            }
-        }
-        return count;
-    }
-
     public List<Integer> sortedPointList(int s_id) throws SQLException {
         Point loginP = findPoint(s_id);
         List<Point> pointList = findPointList(s_id);
         List<Integer> sortedList = new ArrayList<Integer>();
         Map<Integer, Integer> cnt = new HashMap<>();
 
-//        int logDec = Integer.parseInt(loginP.getPoint_dec());
-//        int logBin = Integer.parseInt(loginP.getPoint_binary());
         String logDec = loginP.getPoint_dec();
         String logBin = loginP.getPoint_binary();
 
-//        int dec, bin;
         String dec, bin;
         int count;
 
@@ -78,7 +65,6 @@ public class AutoMatchManager {
             if (logDec.equals(dec)) {
                 sortedList.add(pointList.get(i).getS_id());
             } else {
-//                String b = Integer.toBinaryString(logBin ^ bin);
                 for (int j = 0; j < bin.length(); j++) {
                     if (logBin.charAt(j) == bin.charAt(j)) {
                         count++;

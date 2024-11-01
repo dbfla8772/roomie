@@ -20,7 +20,7 @@
     <script>
         function search(targetUri) {
             form.action = targetUri;
-            form.method="POST";		// register form 요청
+            form.method = "POST";
             form.submit();
         }
     </script>
@@ -41,12 +41,12 @@
         }
 
         body {
-            margin: 5% 8%;
+            margin-top: 5%;
             align-content: center;
         }
 
         #logo {
-            margin-top: -2.5%;
+            margin-top: -2.0%;
             width: 70px;
         }
 
@@ -54,11 +54,12 @@
             font-family: SBAggroB;
             float: left;
             color: black;
+            margin-left: 8%;
         }
 
         table {
             margin: 0 auto;
-            width: 80%;
+            width: 70%;
             height: 40%;
             position: relative;
             top: 20%;
@@ -89,11 +90,12 @@
 
         .btn {
             margin-top: 10px;
-            margin-right: 8%;
+            margin-right: 14.5%;
             font-family: SBAggroL;
         }
 
         .search-img {
+            position: relative;
             margin-top: 15px;
             margin-right: -20px;
         }
@@ -115,6 +117,21 @@
             font-size: 15px;
             margin: 2px;
         }
+
+        #footer {
+            position: relative;
+            width: 100%;
+            bottom: 0;
+            font-family: SBAggroL;
+            text-align: center;
+            font-size: x-small;
+            padding-bottom: 50px;
+            margin-top: 200px;
+        }
+
+        #footer p {
+            padding: 0px 30px;
+        }
     </style>
 
 </head>
@@ -125,7 +142,6 @@
 
 
 <%-- 검색 필터 --%>
-<%--<form name="form" method="post" action="<c:url value='/student/searchResult'>">--%>
 <% profile = (Profile) request.getAttribute("profile"); %>
 <form name="form" method="POST" action="${pageContext.request.contextPath}/student/searchResult">
     <table>
@@ -181,5 +197,10 @@
         <img src="<c:url value='/images/magnifier.png'/>" id="magnifier"/>
     </div>
 </form>
+
+<footer id="footer">
+    <hr>
+    <p>데이터베이스프로그래밍 01-06 ©야-심차게<br>권민지 김유림 김은혜 박초은</p>
+</footer>
 </body>
 </html>

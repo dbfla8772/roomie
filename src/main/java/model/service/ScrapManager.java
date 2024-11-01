@@ -15,7 +15,6 @@ public class ScrapManager {
     private ScrapManager() {
         try {
             scrapDAO = new ScrapDAO();
-            /*userAanlysis = new UserAnalysis(studentDao);*/
         } catch (Exception e) {
             e.printStackTrace();
         }

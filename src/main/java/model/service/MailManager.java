@@ -51,11 +51,11 @@ public class MailManager {
     }
 
     public List<Mail> findReceiveMailList(int s_id) throws SQLException {
-       return (List<Mail>) mailDAO.findReceiveMailList(s_id);
+       return mailDAO.findReceiveMailList(s_id);
     }
 
     public List<Mail> findSendMailList(int s_id) throws SQLException {
-        return (List<Mail>) mailDAO.findSendMailList(s_id);
+        return mailDAO.findSendMailList(s_id);
     }
 
 }
